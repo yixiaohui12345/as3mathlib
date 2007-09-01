@@ -9,7 +9,8 @@
 
 
 <!-- visual components look like
-	<component id="ComponentClass"   class="com.vizsage.as3mathlib.ComponentClass.as"/>
+	<component id="ComponentClass"   class="com.vizsage.as3mathlib.ComponentClass"/>
 -->
+<component id="Arr"   class="com.vizsage.as3mathlib.types.Arr"/>
 	
 </componentPackage>

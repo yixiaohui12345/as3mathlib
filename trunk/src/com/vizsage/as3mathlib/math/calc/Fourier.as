@@ -1,6 +1,6 @@
-package com.wis3.math.calc {
+package com.vizsage.as3mathlib.math.calc {
 /**
- * @class       com.wis3.math.calc.Fourier
+ * @class       com.vizsage.as3mathlib.math.calc.Fourier
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the static behaviours of the Fourier Class.

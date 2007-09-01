@@ -1,6 +1,6 @@
-﻿package com.wis3.math.num {
+﻿package com.vizsage.as3mathlib.math.num {
 /**
- * @class       com.wis3.math.num.Factor
+ * @class       com.vizsage.as3mathlib.math.num.Factor
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the static behaviours of the Factor Class.

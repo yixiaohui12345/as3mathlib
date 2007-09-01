@@ -1,6 +1,6 @@
-package com.wis3.math.calc {
+package com.vizsage.as3mathlib.math.calc {
 /**
- * @interface   com.wis3.math.calc.ode.IODE
+ * @interface   com.vizsage.as3mathlib.math.calc.ode.IODE
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description IODE defines a system of differential equations by providing

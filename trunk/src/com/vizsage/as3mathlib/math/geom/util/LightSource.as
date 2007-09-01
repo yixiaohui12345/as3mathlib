@@ -1,6 +1,6 @@
-﻿package com.wis3.math.geom.util {
+﻿package com.vizsage.as3mathlib.math.geom.util {
 /**
- * @class       com.wis3.math.geom.util.LightSource
+ * @class       com.vizsage.as3mathlib.math.geom.util.LightSource
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the LightSource Class.
@@ -9,15 +9,15 @@
  *              RayTracer2 by John Haggerty.
  * @usage       <pre>var inst:LightSource = new LightSource(ray, color);</pre>
  * @param       ray (Vector)  -- a position Vector object.
- * @param       color (wis3Color)  -- a wis3Color object.
+ * @param       color (Col)  -- a Col object.
  * -----------------------------------------------
  * Latest update: August 5, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis3.math.alg.Vector
- *                com.wis3.math.geom.util.Intersection
- *                com.wis3.math.geom.util.Ray
- *                com.wis3.math.geom.util.Transformation
- *                com.wis3.types.wis3Color
+ * Dependencies:  com.vizsage.as3mathlib.math.alg.Vector
+ *                com.vizsage.as3mathlib.math.geom.util.Intersection
+ *                com.vizsage.as3mathlib.math.geom.util.Ray
+ *                com.vizsage.as3mathlib.math.geom.util.Transformation
+ *                com.vizsage.as3mathlib.types.Col
  * -----------------------------------------------
  * AS2 revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
  * JS  original copyright © 2003, John Haggerty  [http://www.slimeland.com/]
@@ -64,11 +64,11 @@
  * -----------------------------------------------
 **/
 
-import com.wis3.math.alg.Vector;
-import com.wis3.math.geom.util.Intersection;
-import com.wis3.math.geom.util.Ray;
-import com.wis3.math.geom.util.Transformation;
-import com.wis3.types.wis3Color;
+import com.vizsage.as3mathlib.math.alg.Vector;
+import com.vizsage.as3mathlib.math.geom.util.Intersection;
+import com.vizsage.as3mathlib.math.geom.util.Ray;
+import com.vizsage.as3mathlib.math.geom.util.Transformation;
+import com.vizsage.as3mathlib.types.Col;
 import flash.geom.ColorTransform;
 import mx.rpc.mxml.Concurrency;
 
@@ -78,8 +78,8 @@ public class LightSource  {
 	 * @property $v1 (Vector)  -- a direction Vector object used to define area light.
 	 * @property $v2 (Vector)  -- a direction Vector object used to define area light.
 	 * @property $dir (Vector)  -- a direction Vector object used to define spot light.
-	 * @property $color (wis3Color)  -- a wis3Color object.
-	 * @property $tColor (wis3Color)  -- a target wis3Color object.
+	 * @property $color (Col)  -- a Col object.
+	 * @property $tColor (Col)  -- a target Col object.
 	 * @property $sampleV1 (Boolean)  -- default is 'false', used to flag area light method steps.
 	 * @property $sampleV2(Boolean)  -- default is 'false', used to flag area light method steps.
 	 * @property $spotLight (Boolean)  -- default is 'false', used to flag spot light method steps.
@@ -98,7 +98,7 @@ public class LightSource  {
     public var $v2:Vector;
     public var $dir:Vector;
     public var $color:ColorTransform;
-    public var $tColor:wis3Color;
+    public var $tColor:Col;
     public var $sampleV1:Boolean;
     public var $sampleV2:Boolean;
     public var $spotLight:Boolean;
@@ -164,29 +164,29 @@ public class LightSource  {
 
     /**
      * @method  getLightColorAt
-     * @description  Called by super's 'getColorAt' method to define a new wis3Color object.
+     * @description  Called by super's 'getColorAt' method to define a new Col object.
      * @usage  <pre>inst.getLightColorAt(objs, pos);</pre>
      * @param   objs   (Array)  -- a list of shape objects.
      * @param   pos   (Vector)  -- a position Vector object.
-     * @return  (wis3Color)  -- returns a new wis3Color object.
+     * @return  (Col)  -- returns a new Col object.
     **/
     public function getLightColorAt(objs:Array, pos:Vector):ColorTransform {
     	throw new Error("AS2-AS3 Transition Error: Color changed to ColorTransform and we haven't fixed it yet");
     	/*
-    	var toReturn:wis3Color;
+    	var toReturn:Col;
     	var cosineAngle:Number;
-    	$tColor = new wis3Color(this);
+    	$tColor = new Col(this);
 
     	if ($spotLight) cosineAngle = Vector.dot(Vector.normalizer(Vector.adder(pos, Vector.neg($pos))), $dir);
-    	if ($spotLight && cosineAngle<$outerAngleCos) return new wis3Color($tColor, 0, 0, 0);
+    	if ($spotLight && cosineAngle<$outerAngleCos) return new Col($tColor, 0, 0, 0);
     	if ($sampleV1 || $sampleV2) {
-    		toReturn = new wis3Color($tColor, 0, 0, 0);
+    		toReturn = new Col($tColor, 0, 0, 0);
 
     		var numPointsSampled:Number = 0;
     		var foundBlockedPath:Boolean = false;
     		var foundUnblockedPath:Boolean = false;
     		var foundPartiallyBlockedPath:Boolean = false;
-    		var thisSample:wis3Color;
+    		var thisSample:Col;
     		var maxDepthNumCellsMinusOne:Number = Math.pow(2, $maxSampleDepth), cellSize = 1/(maxDepthNumCellsMinusOne+1), xOffsetAmnt = .5, yOffsetAmnt = .5, cellSkip;
 
     		if (!$sampleV1) xOffsetAmnt = 0;
@@ -271,21 +271,21 @@ public class LightSource  {
      * @param   objs   (Array)  -- a list of shape objects.
      * @param   point   (Vector)  -- a position Vector object.
      * @param   pos   (Vector)  -- a position Vector object.
-     * @return  (wis3Color)  -- returns a new wis3Color object.
+     * @return  (Col)  -- returns a new Col object.
     **/
     public function samplePoint(objs:Array, point:Vector, pos:Vector):ColorTransform {
     	throw new Error("AS2-AS3 Transition Error: Color changed to ColorTransform and we haven't fixed it yet"); return null; 
     	/*
     	var distV:Vector = Vector.adder(point, Vector.neg(pos));
     	var shadowRay:Ray = new Ray(pos, distV);
-    	$tColor = new wis3Color(this);
+    	$tColor = new Col(this);
 
     	shadowRay.$isShadowTest = true;
 
         var dist:Number = distV._len;
        	var shadowIsect:Intersection = shadowRay.tracer(objs, dist);
 
-    	if (shadowIsect.$depth!=-1 && shadowIsect.$depth<=dist) return new wis3Color($tColor, 0, 0, 0);
+    	if (shadowIsect.$depth!=-1 && shadowIsect.$depth<=dist) return new Col($tColor, 0, 0, 0);
     	else return $color;
     	*/
     }

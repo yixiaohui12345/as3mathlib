@@ -1,6 +1,6 @@
-package com.wis3.math.geom.quadric {
+package com.vizsage.as3mathlib.math.geom.quadric {
 /**
- * @class       com.wis3.math.geom.quadric.Cone
+ * @class       com.vizsage.as3mathlib.math.geom.quadric.Cone
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Cone Class.
@@ -21,11 +21,11 @@ package com.wis3.math.geom.quadric {
  * -----------------------------------------------
  * Latest update: August 2, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis3.math.alg.Vector
- *                com.wis3.math.geom.util.Intersection
- *                com.wis3.math.geom.util.Ray
- *                com.wis3.types.IObj
- *                com.wis3.types.Obj
+ * Dependencies:  com.vizsage.as3mathlib.math.alg.Vector
+ *                com.vizsage.as3mathlib.math.geom.util.Intersection
+ *                com.vizsage.as3mathlib.math.geom.util.Ray
+ *                com.vizsage.as3mathlib.types.IObj
+ *                com.vizsage.as3mathlib.types.Obj
  * -----------------------------------------------
  * AS2 revision copyright � 2004, Richard Wright [wisolutions2002@shaw.ca]
  * JS  original copyright � 2003, John Haggerty  [http://www.slimeland.com/]
@@ -74,12 +74,12 @@ package com.wis3.math.geom.quadric {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.alg.Vector;
-import com.wis3.math.geom.polytope.Box;
-import com.wis3.math.geom.util.Intersection;
-import com.wis3.math.geom.util.Ray;
-import com.wis3.types.IObj;
-import com.wis3.types.Obj;
+import com.vizsage.as3mathlib.math.alg.Vector;
+import com.vizsage.as3mathlib.math.geom.polytope.Box;
+import com.vizsage.as3mathlib.math.geom.util.Intersection;
+import com.vizsage.as3mathlib.math.geom.util.Ray;
+import com.vizsage.as3mathlib.types.IObj;
+import com.vizsage.as3mathlib.types.Obj;
 
 public class Cone extends Obj implements IObj {
 	/**

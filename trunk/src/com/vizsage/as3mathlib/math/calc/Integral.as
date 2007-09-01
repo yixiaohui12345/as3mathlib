@@ -1,6 +1,6 @@
-package com.wis3.math.calc {
+package com.vizsage.as3mathlib.math.calc {
 /**
- * @class       com.wis3.math.calc.Integral
+ * @class       com.vizsage.as3mathlib.math.calc.Integral
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description Implements the static behaviours of the Integral Class.
@@ -55,7 +55,7 @@ package com.wis3.math.calc {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.calc.*;
+import com.vizsage.as3mathlib.math.calc.*;
 
 public class Integral  {
 	/**

@@ -1,6 +1,6 @@
-package com.wis3.math.geom.intersect3D {
+package com.vizsage.as3mathlib.math.geom.intersect3D {
 /**
- * @class       com.wis3.math.geom.intersect3D.Intersect3DRay
+ * @class       com.vizsage.as3mathlib.math.geom.intersect3D.Intersect3DRay
  * @author      Richard Wright [wisolutions2002@shaw.ca]
  * @version     1.8
  * @description Implements the behaviours of the Intersect3DRay Class.
@@ -13,10 +13,10 @@ package com.wis3.math.geom.intersect3D {
  * -----------------------------------------------
  * Latest update: July 8, 2005
  * -----------------------------------------------
- * Dependencies:  com.wis3.math.alg.Point
- *                com.wis3.math.alg.Vector
- *                com.wis3.math.num.Format
- *                com.wis3.math.geom.polytope.Plane
+ * Dependencies:  com.vizsage.as3mathlib.math.alg.Point
+ *                com.vizsage.as3mathlib.math.alg.Vector
+ *                com.vizsage.as3mathlib.math.num.Format
+ *                com.vizsage.as3mathlib.math.geom.polytope.Plane
  * -----------------------------------------------
  * AS2 revision copyright: � 2003, Richard Wright [wisolutions2002@shaw.ca]
  * -----------------------------------------------
@@ -70,10 +70,10 @@ package com.wis3.math.geom.intersect3D {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.alg.Point;
-import com.wis3.math.alg.Vector;
-import com.wis3.math.num.Format;
-import com.wis3.math.geom.polytope.Plane;
+import com.vizsage.as3mathlib.math.alg.Point;
+import com.vizsage.as3mathlib.math.alg.Vector;
+import com.vizsage.as3mathlib.math.num.Format;
+import com.vizsage.as3mathlib.math.geom.polytope.Plane;
 
 public class Intersect3DRay  {
 	/**

@@ -1,6 +1,6 @@
-﻿package com.wis3.math.num {
+﻿package com.vizsage.as3mathlib.math.num {
 /**
- * @class       com.wis3.math.num.Stat
+ * @class       com.vizsage.as3mathlib.math.num.Stat
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the static behaviours of the Stat Class, which deals
@@ -55,7 +55,7 @@
  * -----------------------------------------------
 **/
 
-import com.wis3.math.num.Factor;
+import com.vizsage.as3mathlib.math.num.Factor;
 
 public class Stat  {
 	/**

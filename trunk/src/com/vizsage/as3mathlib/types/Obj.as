@@ -1,6 +1,6 @@
-package com.wis3.types {
+package com.vizsage.as3mathlib.types {
 /**
- * @class         com.wis3.types.Obj
+ * @class         com.vizsage.as3mathlib.types.Obj
  * @author        Richard Wright
  * @version       1.6
  * @description   Implements the behaviours of the Obj SuperClass.
@@ -12,13 +12,13 @@ package com.wis3.types {
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis3.math.alg.Vector
- *                com.wis3.math.geom.polytope.Box
- *                com.wis3.math.geom.util.Intersection
- *                com.wis3.math.geom.util.Ray
- *                com.wis3.math.geom.util.Texture
- *                com.wis3.math.geom.util.Transformation
- *                com.wis3.types.wis3Color
+ * Dependencies:  com.vizsage.as3mathlib.math.alg.Vector
+ *                com.vizsage.as3mathlib.math.geom.polytope.Box
+ *                com.vizsage.as3mathlib.math.geom.util.Intersection
+ *                com.vizsage.as3mathlib.math.geom.util.Ray
+ *                com.vizsage.as3mathlib.math.geom.util.Texture
+ *                com.vizsage.as3mathlib.math.geom.util.Transformation
+ *                com.vizsage.as3mathlib.types.Col
  * -----------------------------------------------
  * AS2 revision copyright � 2004, Richard Wright [wisolutions2002@shaw.ca]
  * JS  original copyright � 2003, John Haggerty  [http://www.slimeland.com/]
@@ -78,16 +78,16 @@ package com.wis3.types {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.alg.Vector;
-import com.wis3.math.geom.polytope.Box;
-import com.wis3.math.geom.util.Intersection;
-import com.wis3.math.geom.util.Ray;
-import com.wis3.math.geom.util.Texture;
-import com.wis3.math.geom.util.Transformation;
-import com.wis3.types.wis3Color;
+import com.vizsage.as3mathlib.math.alg.Vector;
+import com.vizsage.as3mathlib.math.geom.polytope.Box;
+import com.vizsage.as3mathlib.math.geom.util.Intersection;
+import com.vizsage.as3mathlib.math.geom.util.Ray;
+import com.vizsage.as3mathlib.math.geom.util.Texture;
+import com.vizsage.as3mathlib.math.geom.util.Transformation;
+import com.vizsage.as3mathlib.types.Col;
 import flash.geom.ColorTransform;
 
-public class Obj implements com.wis3.types.IObj {
+public class Obj implements com.vizsage.as3mathlib.types.IObj {
 	/**
 	 * @property $texture (Texture)  -- object passed with class instance 'arguments[0]'.
 	 * @property $transform (Transformation)  -- object passed with class instance 'arguments[1]'.
@@ -114,7 +114,7 @@ public class Obj implements com.wis3.types.IObj {
     public static var $boundsTransformed:Boolean = false;
 
     // Class parameters:
-    // Texture(mc:MovieClip, color:wis3Color, finish:Finish, pigment:Function)
+    // Texture(mc:MovieClip, color:Col, finish:Finish, pigment:Function)
     // Transformation(vx, vy, vz, c:Vector, dontFindInverse, actualOrder:Boolean)
     // Box(v1, v2:Vector, isBound:Boolean)
 
@@ -218,7 +218,7 @@ public class Obj implements com.wis3.types.IObj {
      * @param   lights   (Array)  -- a list of LightSource class instances.
      * @param   traceLevel   (Number)  -- a real number passed to test against class instance $maxTraceLevel property.
      * @param   effect   (Number)  -- a real number passed to test against class instance $bailout property.
-     * @return  (wis3Color)  -- returns a wis3Color object for this subclass instance.
+     * @return  (Col)  -- returns a Col object for this subclass instance.
     **/
     public function getColorAt(isect:Intersection, objs:Array, lights:Array, traceLevel:Number, effect:Number):ColorTransform {
     	throw new Error("AS2-AS3 Transition Error: Color changed to ColorTransform and we haven't fixed it yet"); return null; 
@@ -227,7 +227,7 @@ public class Obj implements com.wis3.types.IObj {
 
     	var pos:Vector = isect.getPos();
     	var dir:Vector = isect.$ray.$dir;
-    	var colorHere:wis3Color;
+    	var colorHere:Col;
     	var a:Number;
 
     	trace ("1a. pos.x:"+pos.x+", y:"+pos.y+", z:"+pos.z);
@@ -242,7 +242,7 @@ public class Obj implements com.wis3.types.IObj {
     		}
     	}
 
-    	var toReturn:wis3Color = colorHere.scalar($texture.$finish.$ambient);
+    	var toReturn:Col = colorHere.scalar($texture.$finish.$ambient);
     	var normal:Vector = getNormalAt(pos, isect);
     	var reflectionDir:Vector;
     	var reflectionRay:Ray;
@@ -272,7 +272,7 @@ public class Obj implements com.wis3.types.IObj {
 
     				trace ("2da. Bool cosAngle>0: true .. incomingLightColor: "+incomingLightColor);
     				if (incomingLightColor.red!=0 || incomingLightColor.green!=0 || incomingLightColor.blue!=0) {
-    					//toReturn = wis3Color.adds(toReturn, wis3Color.scalar(wis3Color.mult(colorHere, incomingLightColor), cosAngle*$texture.$finish.$diffuse));
+    					//toReturn = Col.adds(toReturn, Col.scalar(Col.mult(colorHere, incomingLightColor), cosAngle*$texture.$finish.$diffuse));
     					toReturn = toReturn.adds(colorHere.mult(incomingLightColor).scalar(cosAngle*$texture.$finish.$diffuse));
     					trace ("2db. Bool ||: true .. toReturn: "+toReturn);
     					if ($texture.$finish.$specular!=0) {
@@ -281,7 +281,7 @@ public class Obj implements com.wis3.types.IObj {
     						trace ("2dc. Bool $texture.$finish.$specular!=0: true .. specular: "+specular);
     						if (specular>0) {
     							specular = Math.pow(specular, $texture.$finish.$glossiness);
-    							//toReturn = wis3Color.adds(toReturn, wis3Color.scalar(incomingLightColor, specular*$texture.$finish.$specular));
+    							//toReturn = Col.adds(toReturn, Col.scalar(incomingLightColor, specular*$texture.$finish.$specular));
     							toReturn = toReturn.adds(incomingLightColor.scalar(specular*$texture.$finish.$specular));
     						    trace ("2dd. Bool specular>0: true .. specular: "+specular+", toReturn: "+toReturn);
     						}

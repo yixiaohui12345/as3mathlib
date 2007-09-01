@@ -1,6 +1,6 @@
-package com.wis3.math.geom.util {
+package com.vizsage.as3mathlib.math.geom.util {
 /**
- * @class       com.wis3.math.geom.util.Camera
+ * @class       com.vizsage.as3mathlib.math.geom.util.Camera
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Camera Class.
@@ -15,13 +15,13 @@ package com.wis3.math.geom.util {
  * -----------------------------------------------
  * Latest update: August 5, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis3.math.alg.Vector
- *                com.wis3.math.geom.util.LightSource
- *                com.wis3.math.geom.util.Ray
- *                com.wis3.math.geom.util.Texture
- *                com.wis3.math.geom.util.Transformation
- *                com.wis3.types.wis3Color
- *                com.wis3.types.Obj
+ * Dependencies:  com.vizsage.as3mathlib.math.alg.Vector
+ *                com.vizsage.as3mathlib.math.geom.util.LightSource
+ *                com.vizsage.as3mathlib.math.geom.util.Ray
+ *                com.vizsage.as3mathlib.math.geom.util.Texture
+ *                com.vizsage.as3mathlib.math.geom.util.Transformation
+ *                com.vizsage.as3mathlib.types.Col
+ *                com.vizsage.as3mathlib.types.Obj
  * -----------------------------------------------
  * AS2 revision copyright � 2004, Richard Wright [wisolutions2002@shaw.ca]
  * JS  original copyright � 2003, John Haggerty  [http://www.slimeland.com/]
@@ -65,13 +65,13 @@ package com.wis3.math.geom.util {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.alg.Vector;
-import com.wis3.math.geom.util.LightSource;
-import com.wis3.math.geom.util.Ray;
-import com.wis3.math.geom.util.Texture;
-import com.wis3.math.geom.util.Transformation;
-import com.wis3.types.wis3Color;
-import com.wis3.types.Obj;
+import com.vizsage.as3mathlib.math.alg.Vector;
+import com.vizsage.as3mathlib.math.geom.util.LightSource;
+import com.vizsage.as3mathlib.math.geom.util.Ray;
+import com.vizsage.as3mathlib.math.geom.util.Texture;
+import com.vizsage.as3mathlib.math.geom.util.Transformation;
+import com.vizsage.as3mathlib.types.Col;
+import com.vizsage.as3mathlib.types.Obj;
 import flash.geom.ColorTransform;
 
 public class Camera  {
@@ -118,7 +118,7 @@ public class Camera  {
 
     /**
      * @method  trace
-     * @description  Create a new wis3Color object from Ray class instance's
+     * @description  Create a new Col object from Ray class instance's
      *               'traceForClor' method, which in turn calls super's
      *               'getColorAt' method.
      * @usage  <pre>inst.trace(object_arr, light_arr, xAmnt, yAmnt);</pre>
@@ -126,7 +126,7 @@ public class Camera  {
      * @param   light_arr   (Array)  -- a list of LightSource objects.
      * @param   xAmnt   (Number)  -- a real number.
      * @param   yAmnt   (Number)  -- a real number.
-     * @return  (wis3Color)  -- returns a new wis3Color object.
+     * @return  (Col)  -- returns a new Col object.
     **/
     public function trace(object_arr:Array, light_arr:Array, xAmnt:Number, yAmnt:Number):ColorTransform {/*
 	    var ray:Ray = new Ray

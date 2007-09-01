@@ -1,6 +1,6 @@
-package com.wis3.math.calc.solvers {
+package com.vizsage.as3mathlib.math.calc.solvers {
 /**
- * @class       com.wis3.math.calc.solvers.Euler
+ * @class       com.vizsage.as3mathlib.math.calc.solvers.Euler
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description Euler implements the behaviours of the IODESolver Interface
@@ -55,9 +55,9 @@ package com.wis3.math.calc.solvers {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.calc.*;
+import com.vizsage.as3mathlib.math.calc.*;
 
-public class Euler implements com.wis3.math.calc.IODESolver {
+public class Euler implements com.vizsage.as3mathlib.math.calc.IODESolver {
 	/**
 	 * @property $stepSize  (Number)  -- parameter increment such as delta time.
 	 * @property $numEqn  (Number)  -- number of equations.

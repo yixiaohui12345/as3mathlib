@@ -1,6 +1,6 @@
-package com.wis3.math.geom.util {
+package com.vizsage.as3mathlib.math.geom.util {
 /**
- * @class       com.wis3.math.geom.util.Noise
+ * @class       com.vizsage.as3mathlib.math.geom.util.Noise
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Noise Class.
@@ -16,7 +16,7 @@ package com.wis3.math.geom.util {
  * -----------------------------------------------
  * Latest update: August 5, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis3.math.alg.Vector
+ * Dependencies:  com.vizsage.as3mathlib.math.alg.Vector
  * -----------------------------------------------
  * AS2 revision copyright � 2004, Richard Wright [wisolutions2002@shaw.ca]
  * AS1 original copyright � 2002, Andrew Phelps  [Rochester Institute of Technology]
@@ -71,7 +71,7 @@ package com.wis3.math.geom.util {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.alg.Vector;
+import com.vizsage.as3mathlib.math.alg.Vector;
 
 public class Noise  {
 	/**

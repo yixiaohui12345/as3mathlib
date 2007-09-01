@@ -1,6 +1,6 @@
-package com.wis3.math.alg {
+package com.vizsage.as3mathlib.math.alg {
 /**
- * @class       com.wis3.math.alg.Bitwise
+ * @class       com.vizsage.as3mathlib.math.alg.Bitwise
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the static behaviours of the Bitwise Class.

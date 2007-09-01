@@ -1,6 +1,6 @@
-package com.wis3.types.lists {
+package com.vizsage.as3mathlib.types.lists {
 /**
- * @class       com.wis3.types.lists.Node
+ * @class       com.vizsage.as3mathlib.types.lists.Node
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the Node Class.

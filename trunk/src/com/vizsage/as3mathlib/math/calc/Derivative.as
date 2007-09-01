@@ -1,6 +1,6 @@
-package com.wis3.math.calc {
+package com.vizsage.as3mathlib.math.calc {
 /**
- * @class       com.wis3.math.calc.Derivative
+ * @class       com.vizsage.as3mathlib.math.calc.Derivative
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.8
  * @description Implements the behaviours of the Derivative Class. This class is presently under 
@@ -55,7 +55,7 @@ package com.wis3.math.calc {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.calc.*;
+import com.vizsage.as3mathlib.math.calc.*;
 
 public class Derivative {
 	/**

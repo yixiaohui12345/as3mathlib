@@ -1,6 +1,6 @@
-package com.wis3.math.geom.util {
+package com.vizsage.as3mathlib.math.geom.util {
 /**
- * @class       com.wis3.math.geom.util.Finish
+ * @class       com.vizsage.as3mathlib.math.geom.util.Finish
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Finish Class.
@@ -16,7 +16,7 @@ package com.wis3.math.geom.util {
  * -----------------------------------------------
  * Latest update: August 5, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis3.math.geom.util.Texture
+ * Dependencies:  com.vizsage.as3mathlib.math.geom.util.Texture
  * -----------------------------------------------
  * AS2 revision copyright � 2004, Richard Wright [wisolutions2002@shaw.ca]
  * JS  original copyright � 2003, John Haggerty  [http://www.slimeland.com/]
@@ -59,7 +59,7 @@ package com.wis3.math.geom.util {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.geom.util.Texture;
+import com.vizsage.as3mathlib.math.geom.util.Texture;
 
 public class Finish  {
 	/**

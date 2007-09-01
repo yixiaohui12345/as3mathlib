@@ -1,6 +1,6 @@
-package com.wis3.math.alg {
+package com.vizsage.as3mathlib.math.alg {
 /**
- * @class       com.wis3.math.alg.Eval
+ * @class       com.vizsage.as3mathlib.math.alg.Eval
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the Eval Class.

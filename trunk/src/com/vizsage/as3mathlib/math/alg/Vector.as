@@ -1,6 +1,6 @@
-package com.wis3.math.alg {
+package com.vizsage.as3mathlib.math.alg {
 /**
- * @class       com.wis3.math.alg.Vector
+ * @class       com.vizsage.as3mathlib.math.alg.Vector
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Vector Class. Provides instance
@@ -8,7 +8,7 @@ package com.wis3.math.alg {
  *              <p>
  *              I've swayed from using '$' as a class-based variable identifier for
  *              this class due to the increased usage of UI-defined class variables
- *              for this group of classes: Point, Vector, Quaternion, wis3Color, and ColMC
+ *              for this group of classes: Point, Vector, Quaternion, Col, and ColMC
  *              classes all reflect this format. Also, there are method duplications
  *              to support calls from other classes which can referenced through
  *              ClassInstanceName.classMethod() or the static Vector.classMethod().
@@ -19,7 +19,7 @@ package com.wis3.math.alg {
  * -----------------------------------------------
  * Latest update: August 13, 2004
  * -----------------------------------------------
- * Dependency:    com.wis3.math.geom.util.Transformation
+ * Dependency:    com.vizsage.as3mathlib.math.geom.util.Transformation
  * -----------------------------------------------
  * AS2 revision copyright: � 2003, Richard Wright   [wisolutions2002@shaw.ca]
  * JS  original copyright: � 2003, John Haggerty    [http://www.slimeland.com/]
@@ -108,7 +108,7 @@ package com.wis3.math.alg {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.geom.util.Transformation;
+import com.vizsage.as3mathlib.math.geom.util.Transformation;
 
 // Transformation class variables reference:
 // var $vx, $vy, $vz, $c:Vector;

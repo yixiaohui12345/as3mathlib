@@ -1,6 +1,6 @@
-﻿package com.wis3.math.geom.trig {
+﻿package com.vizsage.as3mathlib.math.geom.trig {
 /**
- * @class       com.wis3.math.geom.trig.Hyperbolic
+ * @class       com.vizsage.as3mathlib.math.geom.trig.Hyperbolic
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the static behaviours of the Hyperbolic Class.

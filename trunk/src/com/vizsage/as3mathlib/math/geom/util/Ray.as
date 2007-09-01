@@ -1,6 +1,6 @@
-package com.wis3.math.geom.util {
+package com.vizsage.as3mathlib.math.geom.util {
 /**
- * @class       com.wis3.math.geom.util.Ray
+ * @class       com.vizsage.as3mathlib.math.geom.util.Ray
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the Ray Class.
@@ -14,12 +14,12 @@ package com.wis3.math.geom.util {
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis3.math.alg.Point
- *                com.wis3.math.alg.Vector
- *                com.wis3.math.geom.util.LightSource
- *                com.wis3.math.geom.util.Intersection
- *                com.wis3.math.geom.util.Transformation
- *                com.wis3.types.wis3Color.as
+ * Dependencies:  com.vizsage.as3mathlib.math.alg.Point
+ *                com.vizsage.as3mathlib.math.alg.Vector
+ *                com.vizsage.as3mathlib.math.geom.util.LightSource
+ *                com.vizsage.as3mathlib.math.geom.util.Intersection
+ *                com.vizsage.as3mathlib.math.geom.util.Transformation
+ *                com.vizsage.as3mathlib.types.Col.as
  * -----------------------------------------------
  * AS2 revision copyright � 2004, Richard Wright [wisolutions2002@shaw.ca]
  * JS  original copyright � 2003, John Haggerty  [http://www.slimeland.com/]
@@ -67,12 +67,12 @@ package com.wis3.math.geom.util {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.alg.Point;
-import com.wis3.math.alg.Vector;
-import com.wis3.math.geom.util.LightSource;
-import com.wis3.math.geom.util.Intersection;
-import com.wis3.math.geom.util.Transformation;
-import com.wis3.types.wis3Color;
+import com.vizsage.as3mathlib.math.alg.Point;
+import com.vizsage.as3mathlib.math.alg.Vector;
+import com.vizsage.as3mathlib.math.geom.util.LightSource;
+import com.vizsage.as3mathlib.math.geom.util.Intersection;
+import com.vizsage.as3mathlib.math.geom.util.Transformation;
+import com.vizsage.as3mathlib.types.Col;
 import flash.display.MovieClip;
 import flash.geom.ColorTransform;
 
@@ -201,23 +201,23 @@ public class Ray  {
 
     /**
      * @method  traceForColor
-     * @description  Creates a new wis3Color object by calling super's 'getColorAt' method.
+     * @description  Creates a new Col object by calling super's 'getColorAt' method.
      * @usage  <pre>inst.traceForColor(objs, lights, traceLevel, effect, clip)</pre>
      * @param   objs_arr   (Array)  -- a list of shape objects.
      * @param   lights_arr   (Array)  -- a list of LightSource objects.
      * @param   traceLevel   (Number)  -- a maximum value for traces.
      * @param   effect   (Number)  -- -- a real number passed to test against super's $bailout property.
      * @param   clip   (MovieClip)  -- scope MovieClip object.
-     * @return  (wis3Color)  -- returns a new wis3Color object.
+     * @return  (Col)  -- returns a new Col object.
     **/
     public function traceForColor(objs_arr:Array, lights_arr:Array, traceLevel:Number, effect:Number, clip:MovieClip):ColorTransform {
     	throw new Error("AS2-AS3 Transition Error: Color changed to ColorTransform and we haven't fixed it yet");
     	/*
     	var isect:Intersection = new Intersection(-1, this, null);
     	isect = tracer(objs_arr, traceLevel);
-		var target:wis3Color = new wis3Color(clip);
+		var target:Col = new Col(clip);
 
-        if (isect.$depth==-1) return new wis3Color(target, 0, 0, 0);
+        if (isect.$depth==-1) return new Col(target, 0, 0, 0);
 
     	return isect.$objectStack[0].getColorAt(isect, objs_arr, lights_arr, traceLevel, effect);*/
     	return null;

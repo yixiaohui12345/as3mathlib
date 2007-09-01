@@ -1,6 +1,6 @@
-package com.wis3.math.alg {
+package com.vizsage.as3mathlib.math.alg {
 /**
- * @class       com.wis3.math.alg.Complex
+ * @class       com.vizsage.as3mathlib.math.alg.Complex
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the static behaviours of the Complex Class, with

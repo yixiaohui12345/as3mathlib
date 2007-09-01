@@ -1,6 +1,6 @@
-package com.wis3.types {
+package com.vizsage.as3mathlib.types {
 /**
- * @class       com.wis3.types.Arr
+ * @class       com.vizsage.as3mathlib.types.Arr
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Arr Class.

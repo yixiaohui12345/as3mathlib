@@ -1,6 +1,6 @@
-package com.wis3.math.geom.curve {
+package com.vizsage.as3mathlib.math.geom.curve {
 /**
- * @class       com.wis3.math.geom.curve.BezQuad
+ * @class       com.vizsage.as3mathlib.math.geom.curve.BezQuad
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the BezQuad Class.
@@ -14,8 +14,8 @@ package com.wis3.math.geom.curve {
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis3.math.geom.util.Graphic
- *                com.wis3.math.alg.Point
+ * Dependencies:  com.vizsage.as3mathlib.math.geom.util.Graphic
+ *                com.vizsage.as3mathlib.math.alg.Point
  * -----------------------------------------------
  * AS2 revision copyright: � 2003, Richard Wright [wisolutions2002@shaw.ca]
  * AS1 original copyright: � 2002, Andres Duran   [http://www.actionscript.cl/]
@@ -73,8 +73,8 @@ package com.wis3.math.geom.curve {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.geom.util.Graphic;
-import com.wis3.math.alg.Point;
+import com.vizsage.as3mathlib.math.geom.util.Graphic;
+import com.vizsage.as3mathlib.math.alg.Point;
 
 public class BezQuad  {
 	/**
