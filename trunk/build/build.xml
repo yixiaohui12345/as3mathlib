@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<project name="vizsage" basedir="../" default="lib">
+
+	<!-- 
+		properties	- Define variables/paths used in this build script; fail if unset
+	-->
+	<property file="./build/build.properties" />
+	<target name="properties">
+		<fail unless="projpath.dir">The "projpath.dir" property must be set in ${build.dir}/build.properties.</fail>
+		<fail unless="flexmain.dir">The "flexmain.dir" property must be set in ${build.dir}/build.properties.</fail>
+		<fail unless="flexunit.swc">The "flexunit.swc" property must be set in ${build.dir}/build.properties.</fail>
+	</target>
+
+	<!--
+		all 		- clean, fetch, build, test, docs, deploy
+	-->
+	<target name="all" depends="clean, fetch, build, test, docs, publish">
+	</target>
+
+	<!--
+		clean 		- Kill off all the generated files
+	-->
+	<target name="clean" depends="properties">
+	</target>
+
+	<!--
+		fetch 		- Get the latest source from the svn tree
+	-->
+	<target name="fetch" depends="properties">
+	</target>
+
+	<!--
+		build 		- Build main
+	-->
+	<target name="build" depends="lib" />
+
+	<!--
+		lib 		- Compile all of the classes under the "src" tree into a .swc file
+	-->
+	<target name="lib" depends="properties">
+		<exec executable="${compc.exe}" dir="${basedir}">
+			<!-- Specify the name of the output file -->
+			<arg line="-o '${bin.dir}/${library.name}.swc'" />
+			<!-- Include the necessary framework libraries as external libraries -->
+			<arg line="-el '${flex2sdk.lib.dir}'" />
+			<!-- Specify the main source path as "src" -->
+			<arg line="-sp ${src.dir}" />
+			<!-- Include all of the classes in the "src" tree -->
+			<arg line="-is ${src.dir}" />
+		</exec>
+	</target>
+
+	<!-- 
+		buildTests 	- Build the unit tests for the library 
+	-->
+	<target name="buildTests" depends="properties">
+		<exec executable="${mxmlc.exe}" dir="${basedir}">
+			<!-- Point to the main test runner's application mxml file -->
+			<arg line="'${tests.dir}/${testRunner.name}.mxml'" />
+			<!-- Place the built .swf file in the "bin" directory -->
+			<arg line="-o '${bin.dir}/${testRunner.name}.swf'" />
+			<!-- Define source directories for "src" and "tests" -->
+			<arg line="-sp ${src.dir}" />
+			<arg line="-sp ${tests.dir}" />
+			<!-- Include the necessary framework libraries in the class path -->
+			<arg line="-l '${flex2sdk.lib.dir}'" />
+			<!-- Include in the flexunit.swc in the class path -->
+			<arg line="-l ${flexunit.swc}" />
+			<!-- Include locale-specific items in the path -->
+			<arg line="-locale ${flex2sdk.locale}" />
+			<arg line="-l '${flex2sdk.locale.dir}'" />
+		</exec>
+	</target>
+
+	<!-- 
+		test 		- Runs the unit tests for the library in the stand-alone player 
+	-->
+	<target name="test" depends="buildTests">
+		<exec executable="${flashDebugPlayer.exe}" spawn="yes">
+			<arg line="${bin.dir}/${testRunner.name}.swf" />
+		</exec>
+	</target>
+
+	<!--
+		docs 		- Generate ASDoc output for the library
+	-->
+	<target name="docs" depends="properties">
+		<!-- Clean out the contents of the doc directory, without deleting "docs" -->
+		<!--
+		<delete includeemptydirs="true">
+			<fileset dir="${docs.dir}" includes="**/*" />
+		</delete>
+		-->
+		<exec executable="${asdoc.exe}" spawn="no">
+			<!-- Place the documentation in the "docs" directory -->
+			<arg line="-o ${docs.dir}" />
+			<!-- Include any necessary libraries in the class path -->
+			<!-- <arg line="-l ${corelib.swc}" /> -->
+			<!-- Specify the main source path as "src" -->
+			<arg line="-sp ${src.dir}" />
+			<!-- Document all of the classes in the "src" tree -->
+			<arg line="-ds ${src.dir} " />
+			<!-- Include the library name in the window title -->
+			<arg line="-window-title 'Adobe ActionScript 3.0 Library - ${library.name}' " />
+		</exec>
+	</target>
+
+	<!--
+		publish 	- Push the source and binaries to any distribution site
+	-->
+	<target name="publish" depends="properties">
+	</target>
+
+</project>

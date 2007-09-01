@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<componentPackage>
+
+<!--
+	URI http://vizsage.com/as3mathlib
+	namespace as3math
+	package com.vizsage.as3mathlib
+-->
+
+
+<!-- visual components look like
+	<component id="ComponentClass"   class="com.vizsage.as3mathlib.ComponentClass.as"/>
+-->
+	
+</componentPackage>
