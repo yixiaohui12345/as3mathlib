@@ -1,0 +1,252 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Intersect2DCircle - Wright Internet Solutions">
+		<meta name="keywords" content="geometry,Intersect2DCircle,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.geom.intersect2D.Intersect2DCircle Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.geom.intersect2D.Intersect2DCircle   Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Intersect2DCircle Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 07/17/04 18:40:15<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.geom.intersect2D.Intersect2DCircle   class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.geom.intersect2D.Intersect2DCircle   Properties:</P><div class='methodsDiv'>
+<a href='#$status'>- $status</a><br>
+<a href='#$points'>- $points</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.geom.intersect2D.Intersect2DCircle   Methods:</P><div class='methodsDiv'>
+<a href='# init'>-  init</a><br>
+<a href='# circleCircle'>-  circleCircle</a><br>
+<a href='# circleEllipse'>-  circleEllipse</a><br>
+<a href='# circleLine'>-  circleLine</a><br>
+<a href='# circlePolygon'>-  circlePolygon</a><br>
+<a href='# circleRectangle'>-  circleRectangle</a><br>
+<a href='# ellipseEllipse'>-  ellipseEllipse</a><br>
+<a href='# ellipseLine'>-  ellipseLine</a><br>
+<a href='# ellipsePolygon'>-  ellipsePolygon</a><br>
+<a href='# ellipseRectangle'>-  ellipseRectangle</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.geom.intersect2D.Intersect2DCircle   <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.6</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Intersect2DCircle  Class. This
+ class extends Intersect2D superclass.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:Intersect2DCircle = new Intersect2DCircle(status);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      status (String)  -- an identifier string.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.geom.intersect2D.Intersect2DCircle   Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='$status'></A><u> $status</u></P>
+				<P> (String)  -- an identifier string.</P>
+
+				<P class='methodTitle'><A name='$points'></A><u> $points</u></P>
+				<P> (Array)  -- a holder for vertex Point objects.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.geom.intersect2D.Intersect2DCircle   Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' init'></A><u>  init</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Initializes a new class instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.init(status);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  status   (String)  -- an identifier string.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' circleCircle'></A><u>  circleCircle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates intersection point(s), if any, between two
+     circle shapes.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.circleCircle(c1,r1,c2,r2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c1   (Point)  -- circle '1' center Point object.</li>
+<li>  r1   (Number)  -- circle '1' radius value.</li>
+<li>  c2   (Point)  -- circle '2' center Point object.</li>
+<li>  r2   (Number)  -- circle '2' radius value.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Intersect2D)  -- returns a new Intersect2D object.
+    </P>
+
+				<P class='methodTitle'><A name=' circleEllipse'></A><u>  circleEllipse</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates intersection point(s), if any, between a circle
+     shape and an ellipse shape.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.circleEllipse(cc,r,ec,rx,ry);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  cc   (Point)  -- circle center Point object.</li>
+<li>  r   (Number)  -- circle radius value.</li>
+<li>  ec   (Point)  -- ellipse center Point object.</li>
+<li>  rx   (Number)  -- ellipse x-axis radius value.</li>
+<li>  ry   (Number)  -- ellipse y-axis radius value.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Intersect2D)  -- returns a new Intersect2D object.
+    </P>
+
+				<P class='methodTitle'><A name=' circleLine'></A><u>  circleLine</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates intersection point(s), if any, between a circle
+     shape and a line segment shape.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.circleLine(c,r,a1,a2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Point)  -- circle center Point object.</li>
+<li>  r   (Number)  -- circle radius value.</li>
+<li>  a1   (Point)  -- start segment Point object.</li>
+<li>  a2   (Point)  -- end segment Point object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Intersect2D)  -- returns a new Intersect2D object.
+    </P>
+
+				<P class='methodTitle'><A name=' circlePolygon'></A><u>  circlePolygon</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates intersection point(s), if any, between a circle
+     shape and an polygon shape.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.circlePolygon(c,r,points);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Point)  -- circle center Point object.</li>
+<li>  r   (Number)  -- circle radius value.</li>
+<li>  points   (Array)  -- a holder for polygon vertex Point objects.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Intersect2D)  -- returns a new Intersect2D object.
+    </P>
+
+				<P class='methodTitle'><A name=' circleRectangle'></A><u>  circleRectangle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates intersection point(s), if any, between a circle
+     shape and a rectangle shape.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.circleRectangle(c,r,r1,r2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Point)  -- circle center Point object.</li>
+<li>  r   (Number)  -- circle radius value.</li>
+<li>  r1   (Point)  -- rectangle Point object.</li>
+<li>  r2   (Point)  -- rectangle Point object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Intersect2D)  -- returns a new Intersect2D object.
+    </P>
+
+				<P class='methodTitle'><A name=' ellipseEllipse'></A><u>  ellipseEllipse</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates intersection point(s), if any, between two
+     ellipse shapes.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.ellipseEllipse(c1,rx1,ry1,c2,rx2,ry2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c1   (Point)  -- ellipse '1' center Point object.</li>
+<li>  rx1   (Number)  -- ellipse '1' x-axis Point object.</li>
+<li>  ry1   (Number)  -- ellipse '1' y-axis Point object.</li>
+<li>  c2   (Point)  -- ellipse '2' center Point object.</li>
+<li>  rx2   (Number)  -- ellipse '2' x-axis Point object.</li>
+<li>  ry2   (Number)  -- ellipse '2' y-axis Point object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Intersect2D)  -- returns a new Intersect2D object.
+    </P>
+
+				<P class='methodTitle'><A name=' ellipseLine'></A><u>  ellipseLine</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates intersection point(s), if any, between an ellipse
+     shape and a line segment shape.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.ellipseLine(c,rx,ry,a1,a2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Point)  -- ellipse center Point object.</li>
+<li>  rx   (Number)  -- ellipse x-axis Point object.</li>
+<li>  ry   (Number)  -- ellipse y-axis Point object.</li>
+<li>  a1   (Point)  -- start segment Point object.</li>
+<li>  a2   (Point)  -- end segment Point object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Intersect2D)  -- returns a new Intersect2D object.
+    </P>
+
+				<P class='methodTitle'><A name=' ellipsePolygon'></A><u>  ellipsePolygon</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates intersection point(s), if any, between an ellipse
+     shape and a polygon shape.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.ellipsePolygon(c,rx,ry,points);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Point)  -- ellipse center Point object.</li>
+<li>  rx   (Number)  -- ellipse x-axis Point object.</li>
+<li>  ry   (Number)  -- ellipse y-axis Point object.</li>
+<li>  points   (Array)  -- a holder for polygon vertex Point objects.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Intersect2D)  -- returns a new Intersect2D object.
+    </P>
+
+				<P class='methodTitle'><A name=' ellipseRectangle'></A><u>  ellipseRectangle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates intersection point(s), if any, between an ellipse
+     shape and a rectangle shape.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.ellipseRectangle(c,rx,ry,r1,r2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Point)  -- ellipse center Point object.</li>
+<li>  rx   (Number)  -- ellipse x-axis Point object.</li>
+<li>  ry   (Number)  -- ellipse y-axis Point object.</li>
+<li>  r1   (Point)  -- rectangle Point object.</li>
+<li>  r2   (Point)  -- rectangle Point object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Intersect2D)  -- returns a new Intersect2D object.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

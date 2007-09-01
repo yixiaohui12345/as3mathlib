@@ -1,0 +1,157 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Texture - Wright Internet Solutions">
+		<meta name="keywords" content="geometry,Texture,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.geom.util.Texture Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.geom.util.Texture Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Texture Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 08/05/04 21:52:56<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.geom.util.Texture class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.geom.util.Texture Properties:</P><div class='methodsDiv'>
+<a href='#$clip'>- $clip</a><br>
+<a href='#$target'>- $target</a><br>
+<a href='#$color'>- $color</a><br>
+<a href='#$finish'>- $finish</a><br>
+<a href='#$pigment'>- $pigment</a><br>
+<a href='#$confirm'>- $confirm</a><br>
+<a href='#$transform'>- $transform</a><br>
+<a href='#$err'>- $err</a><br>
+<a href='#$errored'>- $errored</a><br>
+<a href='#$defaultTex'>- $defaultTex</a><br>
+<a href='#$defaultAmbientLight'>- $defaultAmbientLight</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.geom.util.Texture Methods:</P><div class='methodsDiv'>
+<a href='# copy'>-  copy</a><br>
+<a href='# colorAt'>-  colorAt</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.geom.util.Texture <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.7</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Texture Class.
+ <p>
+ 		        Provides methods for the IObj interface based on JS RayTracer2 by
+ John Haggerty.
+ <p>
+ The <tt>color</tt> argument needs to be setup with a target assigned
+ to a MovieClip as above. <tt>pigment</tt> is optional and should be
+ a function that returns a color. The color argument is then ignored.
+ Required syntax to setup Col object:
+ <blockquote><pre>
+ var target:Color = new Color(clip);
+ var color:Col = new Col(target[,r:Number,g:Number,b:Number]);
+ optional: col1.init(r:Number,g:Number,b:Number);
+ 		        </pre></blockquote>
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:Texture = new Texture(mc,color,finish,pigment);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      mc (MovieClip)  -- scope MovieClip object.</li>
+<li>      color (Col)  -- a Col class instance.</li>
+<li>      finish (Finish)  -- a Finich class instance.</li>
+<li>      pigment (Function)  -- a Function object.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.geom.util.Texture Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='$clip'></A><u> $clip</u></P>
+				<P> (MovieClip)  -- scope MovieClip object.</P>
+
+				<P class='methodTitle'><A name='$target'></A><u> $target</u></P>
+				<P> (Color)  -- a Color object for scope.</P>
+
+				<P class='methodTitle'><A name='$color'></A><u> $color</u></P>
+				<P> (Col)  -- a Col object.</P>
+
+				<P class='methodTitle'><A name='$finish'></A><u> $finish</u></P>
+				<P> (Finish)  -- a Finish object.</P>
+
+				<P class='methodTitle'><A name='$pigment'></A><u> $pigment</u></P>
+				<P> (Function)  -- a Function object.</P>
+
+				<P class='methodTitle'><A name='$confirm'></A><u> $confirm</u></P>
+				<P> (Function)  -- a Function object.</P>
+
+				<P class='methodTitle'><A name='$transform'></A><u> $transform</u></P>
+				<P> (Transformation)  -- a Transformation object.</P>
+
+				<P class='methodTitle'><A name='$err'></A><u> $err</u></P>
+				<P> (Object)  -- a debug object containing messages.</P>
+
+				<P class='methodTitle'><A name='$errored'></A><u> $errored</u></P>
+				<P> (Boolean)  -- undefined unless $err object is introduced.</P>
+
+				<P class='methodTitle'><A name='$defaultTex'></A><u> $defaultTex</u></P>
+				<P> (Texture)  -- a Texture object, initialized to white with flat finish.</P>
+
+				<P class='methodTitle'><A name='$defaultAmbientLight'></A><u> $defaultAmbientLight</u></P>
+				<P> (Number)  -- static -- referred from Finish class.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.geom.util.Texture Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' copy'></A><u>  copy</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Copies this instance's properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.copy();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Texture)  -- returns a new Texture object, a copy of this instance.
+    </P>
+
+				<P class='methodTitle'><A name=' colorAt'></A><u>  colorAt</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a new Col object if $pigment property exists.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.colorAt(pos,mc);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pos   (Vector)  -- a direction Vector object.</li>
+<li>  mc   (MovieClip)  -- passed scope MovieClip object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Col)  -- returns a new Col object if $pigment, else this instance's $color property.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

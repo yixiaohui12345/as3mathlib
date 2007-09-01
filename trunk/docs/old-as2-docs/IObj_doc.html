@@ -1,0 +1,171 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: IObj - Wright Internet Solutions">
+		<meta name="keywords" content="IObj,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.types.IObj Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.types.IObj Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary IObj Interface'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 07/17/04 18:13:45<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.types.IObj interface:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.types.IObj Methods:</P><div class='methodsDiv'>
+<a href='# copy'>-  copy</a><br>
+<a href='# initialize'>-  initialize</a><br>
+<a href='# findIntersectionsUntransformed'>-  findIntersectionsUntransformed</a><br>
+<a href='# isPointInsideUntransformed'>-  isPointInsideUntransformed</a><br>
+<a href='# getNormalAtUntransformed'>-  getNormalAtUntransformed</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.types.IObj <I>interface</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.6</P>
+		<P class="methodTitle">description:</P>
+		<P>Defines the IObj interface for the Obj superclass and its
+ subclasses, based on
+ <a href="http://www.slimeland.com/raytrace/" target="_blank">JS RayTracer2</a>
+ by John Haggerty.
+ <p>
+ This is a list of the interface-dependent classes:
+ <blockquote><pre>
+ <a href="Obj_doc.html" target="_blank">com.wis.types.Obj</a> - superclass
+ <a href="Intersect3D_doc.html" target="_blank">com.wis.math.geom.intersect3D.Intersect3D</a> - extends Obj
+ <a href="Union_doc.html" target="_blank">com.wis.math.geom.intersect3D.Union</a> - extends Obj
+ <a href="Box_doc.html" target="_blank">com.wis.math.geom.polytope.Box</a> - extends Obj
+ <a href="Plane_doc.html" target="_blank">com.wis.math.geom.polytope.Plane</a> - extends Obj
+ <a href="Cone_doc.html" target="_blank">com.wis.math.geom.quadric.Cone</a> - extends Obj
+ <a href="Cylinder_doc.html" target="_blank">com.wis.math.geom.quadric.Cylinder</a> - extends Obj
+ <a href="Sphere_doc.html" target="_blank">com.wis.math.geom.quadric.Sphere</a> - extends Obj
+ <a href="Camera_doc.html" target="_blank">com.wis.math.geom.util.Camera</a>
+ <a href="Finish_doc.html" target="_blank">com.wis.math.geom.util.Finish</a>
+ <a href="Intersection_doc.html" target="_blank">com.wis.math.geom.util.Intersection</a>
+ <a href="LightSource_doc.html" target="_blank">com.wis.math.geom.util.LightSource</a>
+ <a href="Ray_doc.html" target="_blank">com.wis.math.geom.util.Ray</a>
+ <a href="Texture_doc.html" target="_blank">com.wis.math.geom.util.Texture</a>
+ <a href="Transformation_doc.html" target="_blank">com.wis.math.geom.util.Transformation</a>
+ </pre></blockquote>
+ </P>
+		<P class="methodTitle">usage:</P> Interface resides within the com.wis.types package.
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      No parameters for interface constructs.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.types.IObj Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' copy'></A><u>  copy</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Copies super's properties with its 'copyModifiers' method.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>
+     var instObj:instObjClass = new instObjClass(arguments);
+     instObj.copy();
+     // which overides the super's copy() method and calls its super
+     // with a unique set of arguments for the method:
+     this.copyModifiers(newObj);
+     </pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  none   (Void) -- no method parameters.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Obj)  -- returns a copy of the superclass properties.
+    </P>
+
+				<P class='methodTitle'><A name=' initialize'></A><u>  initialize</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Initializes a bounding box construct and all low-level
+      instantiation for the instObj.
+      </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>
+      var instObj:instObjClass = new instObjClass();
+      // which in turn fires the 'instObj.initialize' method
+      </pre>
+      </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  none   (Void)  -- no method parameters.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+     </P>
+
+				<P class='methodTitle'><A name=' findIntersectionsUntransformed'></A><u>  findIntersectionsUntransformed</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines bounding box vertices in 3-space.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>
+     var instObj:instObjClass = new instObjClass();
+     instObj.findIntersectionsUntransformed();
+     </pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  ray   (Ray)  -- tracer object that defines point and direction in 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Array)  -- returns a list of Intersection objects, or an empty list.
+    </P>
+
+				<P class='methodTitle'><A name=' isPointInsideUntransformed'></A><u>  isPointInsideUntransformed</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Tests bounding box and vector for union.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>
+     var instObj:instObjClass = new instObjClass();
+     instObj.isPointInsideUntransformed(pos)
+     </pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pos   (Vector)  -- a position Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' getNormalAtUntransformed'></A><u>  getNormalAtUntransformed</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines bounding box to vector normal in 3-space before transformation.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>
+     var instObj:instObjClass = new instObjClass();
+     instObj.getNormalAtUntransformed(pos);
+     </pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pos   (Vector)  -- a position Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns normal of untransformed vector.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

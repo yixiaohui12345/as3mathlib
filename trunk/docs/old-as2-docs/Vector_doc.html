@@ -1,0 +1,751 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Vector - Wright Internet Solutions">
+		<meta name="keywords" content="algebra,Vector,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.alg.Vector Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.alg.Vector Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Vector Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 08/13/04 02:49:51<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.alg.Vector class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.alg.Vector Properties:</P><div class='methodsDiv'>
+<a href='#x'>- x</a><br>
+<a href='#y'>- y</a><br>
+<a href='#z'>- z</a><br>
+<a href='#$b3'>- $b3</a><br>
+<a href='#XX'>- XX</a><br>
+<a href='#YY'>- YY</a><br>
+<a href='#ZZ'>- ZZ</a><br>
+<a href='#OO'>- OO</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.alg.Vector Methods:</P><div class='methodsDiv'>
+<a href='# toString'>-  toString</a><br>
+<a href='# resetComponents'>-  resetComponents</a><br>
+<a href='# copyComponents'>-  copyComponents</a><br>
+<a href='# incrementX'>-  incrementX</a><br>
+<a href='# incrementY'>-  incrementY</a><br>
+<a href='# incrementZ'>-  incrementZ</a><br>
+<a href='# incrementComponents'>-  incrementComponents</a><br>
+<a href='# adds'>-  adds</a><br>
+<a href='# returnAddition'>-  returnAddition</a><br>
+<a href='# subtract'>-  subtract</a><br>
+<a href='# returnSubtraction'>-  returnSubtraction</a><br>
+<a href='# scalar'>-  scalar</a><br>
+<a href='# returnScalar'>-  returnScalar</a><br>
+<a href='# scalarComponent'>-  scalarComponent</a><br>
+<a href='# divide'>-  divide</a><br>
+<a href='# returnDivide'>-  returnDivide</a><br>
+<a href='# dotProduct'>-  dotProduct</a><br>
+<a href='# crossProduct'>-  crossProduct</a><br>
+<a href='# norm'>-  norm</a><br>
+<a href='# unitVector'>-  unitVector</a><br>
+<a href='# normalize'>-  normalize</a><br>
+<a href='# swap'>-  swap</a><br>
+<a href='# angleVector'>-  angleVector</a><br>
+<a href='# areaPara'>-  areaPara</a><br>
+<a href='# areaTriangle'>-  areaTriangle</a><br>
+<a href='# volumePara3d'>-  volumePara3d</a><br>
+<a href='# perp'>-  perp</a><br>
+<a href='# fromPointVals'>-  fromPointVals</a><br>
+<a href='# equal'>-  equal</a><br>
+<a href='# sameDirection'>-  sameDirection</a><br>
+<a href='# greater'>-  greater</a><br>
+<a href='# greaterEqual'>-  greaterEqual</a><br>
+<a href='# less'>-  less</a><br>
+<a href='# lessEqual'>-  lessEqual</a><br>
+<a href='# round3'>-  round3</a><br>
+<a href='# inv'>-  inv</a><br>
+<a href='# get _len'>-  get _len</a><br>
+<a href='# get _lenSq'>-  get _lenSq</a><br>
+<a href='# copy'>-  copy</a><br>
+<a href='# transform'>-  transform</a><br>
+<a href='# transformed'>-  transformed</a><br>
+<a href='# normalizer'>-  normalizer</a><br>
+<a href='# neg'>-  neg</a><br>
+<a href='# adder'>-  adder</a><br>
+<a href='# scaler'>-  scaler</a><br>
+<a href='# compare'>-  compare</a><br>
+<a href='# mult'>-  mult</a><br>
+<a href='# dot'>-  dot</a><br>
+<a href='# cross'>-  cross</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.alg.Vector <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.7</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Vector Class. Provides instance
+ and static methods for manipulation of a Vector object.
+ <p>
+ I've swayed from using '$' as a class-based variable identifier for
+ this class due to the increased usage of UI-defined class variables
+ for this group of classes: Point, Vector, Quaternion, Col, and ColMC
+ classes all reflect this format. Also, there are method duplications
+ to support calls from other classes which can referenced through
+ ClassInstanceName.classMethod() or the static Vector.classMethod().
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:Vector = new Vector(vx,vy[,vz]);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      vx (Number)  -- x-axis value of vector.</li>
+<li>      vy (Number)  -- y-axis value of vector.</li>
+<li>      vz (Number)  -- z-axis value of vector.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.alg.Vector Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='x'></A><u> x</u></P>
+				<P> (Number)  -- x-axis value of vector.</P>
+
+				<P class='methodTitle'><A name='y'></A><u> y</u></P>
+				<P> (Number)  -- y-axis value of vector.</P>
+
+				<P class='methodTitle'><A name='z'></A><u> z</u></P>
+				<P> (Number)  -- z-axis value of vector.</P>
+
+				<P class='methodTitle'><A name='$b3'></A><u> $b3</u></P>
+				<P> (Boolean)  -- flags three dimensional vector object.</P>
+
+				<P class='methodTitle'><A name='XX'></A><u> XX</u></P>
+				<P> (Vector)  -- static -- x-axis identity vector.</P>
+
+				<P class='methodTitle'><A name='YY'></A><u> YY</u></P>
+				<P> (Vector)  -- static -- y-axis identity vector.</P>
+
+				<P class='methodTitle'><A name='ZZ'></A><u> ZZ</u></P>
+				<P> (Vector)  -- static -- z-axis identity vector.</P>
+
+				<P class='methodTitle'><A name='OO'></A><u> OO</u></P>
+				<P> (Vector)  -- static -- transform identity vector.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.alg.Vector Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' toString'></A><u>  toString</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Prepares a string containing class properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.toString();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string containing 2d or 3d class properties.
+    </P>
+
+				<P class='methodTitle'><A name=' resetComponents'></A><u>  resetComponents</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Resets class properties for this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.resetComponents(vx,vy,vz);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  vx   (Number)  -- a real number for x-axis.</li>
+<li>  vy   (Number)  -- a real number for y-axis.</li>
+<li>  vz   (Number)  -- a real number for z-axis.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' copyComponents'></A><u>  copyComponents</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a new Vector using this instance's properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.copyComponents(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a 2d or 3d Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' incrementX'></A><u>  incrementX</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Adds input to instance x-component.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.incrementX(incX);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  incX   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' incrementY'></A><u>  incrementY</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Adds input to instance y-component.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.incrementY(incY);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  incY   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' incrementZ'></A><u>  incrementZ</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Adds input to instance z-component.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.incrementZ(incZ);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  incZ   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' incrementComponents'></A><u>  incrementComponents</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Adds input values to instance properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.incrementComponents(incX,incY,incZ);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  incX   (Number)  -- a real number.</li>
+<li>  incY   (Number)  -- a real number.</li>
+<li>  incZ   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' adds'></A><u>  adds</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Adds Vector input to this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.adds(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a Vector object in 2d or 3d.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns this instance with incremented properties.
+    </P>
+
+				<P class='methodTitle'><A name=' returnAddition'></A><u>  returnAddition</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Adds Vector input to this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.returnAddition(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a Vector object in 2d or 3d.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns a new Vector with result of addition.
+    </P>
+
+				<P class='methodTitle'><A name=' subtract'></A><u>  subtract</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Subtracts Vector input from this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.subtract(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a Vector object in 2d or 3d.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns this instance with decremented properties.
+    </P>
+
+				<P class='methodTitle'><A name=' returnSubtraction'></A><u>  returnSubtraction</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Subtracts Vector input from this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.returnSubtraction(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a Vector object in 2d or 3d.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns a new Vector object with result of subtraction.
+    </P>
+
+				<P class='methodTitle'><A name=' scalar'></A><u>  scalar</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Scales this instance by input value.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.scalar(s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  s   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' returnScalar'></A><u>  returnScalar</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Scales this instance by input value.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.returnScalar(s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  s   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns a new Vector with scaled result.
+    </P>
+
+				<P class='methodTitle'><A name=' scalarComponent'></A><u>  scalarComponent</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Scalar component in the direction of 'V'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.scalarComponent(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)   -- an object which defines direction vector.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns scalar component in the direction of 'V'.
+    </P>
+
+				<P class='methodTitle'><A name=' divide'></A><u>  divide</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Divides this instance by input value.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.divide(s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  s   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns this instance divided by input scalar.
+    </P>
+
+				<P class='methodTitle'><A name=' returnDivide'></A><u>  returnDivide</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Divides this instance by input value.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.returnDivide(s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  s   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns a new Vector object populated with this instance divided by input scalar.
+    </P>
+
+				<P class='methodTitle'><A name=' dotProduct'></A><u>  dotProduct</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the dot product of this instance and 'V'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.dotProduct(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- an object which defines passed direction vector.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the dot product of this instance and 'V'.
+    </P>
+
+				<P class='methodTitle'><A name=' crossProduct'></A><u>  crossProduct</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the cross product of this instance and 'V'. 2D ref:
+     <a href='http://mathquest.com/discuss/sci.math/a/m/415647/415659'>2D Cross Product</a>.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.crossProduct(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- an object which defines passed direction vector.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns a new Vector object populated with the cross product of this instance and 'V'.
+    </P>
+
+				<P class='methodTitle'><A name=' norm'></A><u>  norm</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates normal of this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.norm();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns normal of this instance.
+    </P>
+
+				<P class='methodTitle'><A name=' unitVector'></A><u>  unitVector</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines the unit vector of this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.unitVector();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns a new Vector object populated with this instance's unit vector.
+    </P>
+
+				<P class='methodTitle'><A name=' normalize'></A><u>  normalize</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Normalizes this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.normalize();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' swap'></A><u>  swap</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Swaps this instance's properties with 'V'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.swap(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a  Vector object input to swap properties.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' angleVector'></A><u>  angleVector</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines angle between this instance and 'V'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.angleVector(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the angle between this instance and 'V'.
+    </P>
+
+				<P class='methodTitle'><A name=' areaPara'></A><u>  areaPara</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the area of a parallelogram defined by this
+     instance and the input vector.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.areaPara(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the area of a parallelogram defined by this instance and the input vector.
+    </P>
+
+				<P class='methodTitle'><A name=' areaTriangle'></A><u>  areaTriangle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the area of a triangle defined by this
+     instance and two input vectors.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.areaTriangle(A,B);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  A   (Vector)  -- a direction Vector object.</li>
+<li>  B   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the area of a triangle defined by this instance and two input vectors.
+    </P>
+
+				<P class='methodTitle'><A name=' volumePara3d'></A><u>  volumePara3d</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the volume of a parallelepiped in 3-space defined
+     by this instance and the input vector.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.volumePara3d(A,B);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  A   (Vector)  -- a direction Vector object.</li>
+<li>  B   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the volume of a parallelepiped in 3-space defined by this instance and the input vector.
+    </P>
+
+				<P class='methodTitle'><A name=' perp'></A><u>  perp</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines perpendicular direction vector of this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.perp();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns perpendicular direction vector of this instance.
+    </P>
+
+				<P class='methodTitle'><A name=' fromPointVals'></A><u>  fromPointVals</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines a new Vector object using input x, y, and z values.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.fromPointVals(x1,x2,y1,y2,z1,z2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  x1   (Number)  -- a real number.</li>
+<li>  x2   (Number)  -- a real number.</li>
+<li>  y1   (Number)  -- a real number.</li>
+<li>  y2   (Number)  -- a real number.</li>
+<li>  z1   (Number)  -- a real number.</li>
+<li>  z2   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns a new Vector object using input x, y, and z values.
+    </P>
+
+				<P class='methodTitle'><A name=' equal'></A><u>  equal</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Boolean 'equality' comparison of this instance and 'V'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.equal(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' sameDirection'></A><u>  sameDirection</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Boolean 'direction' comparison of this instance and 'V'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.sameDirection(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' greater'></A><u>  greater</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Boolean 'greater than' comparison of this instance and 'V'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.greater(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' greaterEqual'></A><u>  greaterEqual</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Boolean 'greater than or equal' comparison of this instance and 'V'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.greaterEqual(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' less'></A><u>  less</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Boolean 'less than' comparison of this instance and 'V'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.less(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' lessEqual'></A><u>  lessEqual</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Boolean 'less than or equal' comparison of this instance and 'V'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.lessEqual(V);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' round3'></A><u>  round3</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Rounds input value to 3 decimals.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.round3(n);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  n   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the input value rounded to 3 decimals.
+    </P>
+
+				<P class='methodTitle'><A name=' inv'></A><u>  inv</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines the inverse of this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.inv();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a new Vector object, an inverse of this instance.
+    </P>
+
+				<P class='methodTitle'><A name=' get _len'></A><u>  get _len</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the magnitude of this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._len;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the magnitude of this instance.
+    </P>
+
+				<P class='methodTitle'><A name=' get _lenSq'></A><u>  get _lenSq</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the square of the magnitude of this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._lenSq;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the square of the magnitude of this instance.
+    </P>
+
+				<P class='methodTitle'><A name=' copy'></A><u>  copy</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a copy of this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.copy();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns a new Vector object, a copy of this instance.
+    </P>
+
+				<P class='methodTitle'><A name=' transform'></A><u>  transform</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Transforms this instance, with or without translation.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.transform(trans,dontTranslate);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  trans   (Transformation)  -- an object containing transformation matrix.</li>
+<li>  dontTranslate   (Boolean)  -- if true, transform without translation.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' transformed'></A><u>  transformed</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a new Vector object with the transformation of
+     this instance, with or without translation.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.transformed(trans,dontTranslate);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  trans   (Transformation)  -- an object containing transformation matrix.</li>
+<li>  dontTranslate   (Boolean)    -- if true, transform without translation.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- a new Vector object with the result of tranform.
+    </P>
+
+				<P class='methodTitle'><A name=' normalizer'></A><u>  normalizer</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Static -- creates a new Vector object of the normalized input vector.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Vector.normalizer(vec);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  vec   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns a new Vector object of the normalized input vector.
+    </P>
+
+				<P class='methodTitle'><A name=' neg'></A><u>  neg</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Static -- creates a new Vector object of the negative of input vector.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Vector.neg(v);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  v   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns a new Vector object of the negative of input vector.
+    </P>
+
+				<P class='methodTitle'><A name=' adder'></A><u>  adder</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Static -- creates a new Vector object from the addition of two input vectors.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Vector.adder(v1,v2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  v1   (Vector)  -- a direction Vector object.</li>
+<li>  v2   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns a new Vector object from the addition of two input vectors.
+    </P>
+
+				<P class='methodTitle'><A name=' scaler'></A><u>  scaler</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Static -- creates a new Vector object from the scaled result
+     of input vector and scalar value.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Vector.scaler(v1,s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  v1   (Vector)  -- a direction Vector object.</li>
+<li>  s   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns a new Vector object from the scaled result of input vector and scalar value.
+    </P>
+
+				<P class='methodTitle'><A name=' compare'></A><u>  compare</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Static -- Boolean comparison of two input vectors.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Vector.compare(v1,v2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  v1   (Vector)  -- a direction Vector object.</li>
+<li>  v2   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' mult'></A><u>  mult</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Static -- creates a new Vector object from the multiplication
+     of two input vectors.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Vector.mult(v1,v2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  v1   (Vector)  -- a direction Vector object.</li>
+<li>  v2   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns a new Vector object from the multiplication of two input vectors.
+    </P>
+
+				<P class='methodTitle'><A name=' dot'></A><u>  dot</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Static -- defines the dot product of two input vectors.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Vector.dot(v1,v2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  v1   (Vector)  -- a direction Vector object.</li>
+<li>  v2   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the dot product of two input vectors.
+    </P>
+
+				<P class='methodTitle'><A name=' cross'></A><u>  cross</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Static -- defines the cross product of two input vectors.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Vector.cross(v1,v2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  v1   (Vector)  -- a direction Vector object.</li>
+<li>  v2   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns the cross product of two input vectors.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

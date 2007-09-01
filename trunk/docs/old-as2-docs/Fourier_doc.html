@@ -1,0 +1,148 @@
+		<HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Fourier - Wright Internet Solutions">
+		<meta name="keywords" content="calculus,Fourier,fft,dft,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,classes,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.calc.Fourier Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.calc.Fourier Documentation</P>
+
+        <P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary  Fourier Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 01/11/05 17:59:06<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.calc.Fourier class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.calc.Fourier Properties:</P><div class='methodsDiv'>
+<a href='#none'>- none</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.calc.Fourier Methods:</P><div class='methodsDiv'>
+<a href='# dft'>-  dft</a><br>
+<a href='# fft'>-  fft</a><br>
+<a href='# fft2D'>-  fft2D</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.calc.Fourier <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.7</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the static behaviours of the Fourier Class.
+ </P>
+		<P class="methodTitle">usage:</P> <code>Fourier.classMethod(args);</code>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      none  -- static methods are called directly without class instantiation.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.calc.Fourier Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='none'></A><u> none</u></P>
+				<P> -- no class properties.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.calc.Fourier Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' dft'></A><u>  dft</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Discrete Fourier transform -- this calculates an in-place
+     complex-to-complex dft. x_arr and y_arr are the real and
+     imaginary number arrays of 2^m points. This algorithm is
+     about ten times slower than fft, but is useful when
+     comparing many transforms.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Fourier.dft(dir,m,x_arr,y_arr);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  dir   (Number)  -- 1 gives forward transform, -1 gives reverse transform.</li>
+<li>  m   (Number)  -- a positive integer.</li>
+<li>  x_arr   (Array)  -- an array containing x-axis values for real number input.</li>
+<li>  y_arr   (Array)  -- an array containing y-axis values for imaginary number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' fft'></A><u>  fft</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Fast Fourier transform -- this calculates an in-place
+     complex-to-complex fft. x_arr and y_arr are the real and
+     imaginary number arrays of 2^m points.
+     <blockquote><pre>
+     Formula: forward
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N-1
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1   \          - j k 2 pi n / N
+     X(n) = ---   >   x(k) e                    = forward transform
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N   /                                n=0..N-1
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k=0
+
+     Formula: reverse
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N-1
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\          j k 2 pi n / N
+     X(n) =       >   x(k) e                    = reverse transform
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/                                n=0..N-1
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k=0
+     </pre></blockquote>
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Fourier.fft(dir,m,x_arr,y_arr);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  dir   (Number)  -- 1 gives forward transform, -1 gives reverse transform.</li>
+<li>  m   (Number)  -- a positive integer.</li>
+<li>  x_arr   (Array)  -- an array containing x-axis values for real number input.</li>
+<li>  y_arr   (Array)  -- an array containing y-axis values for imaginary number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' fft2D'></A><u>  fft2D</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Performs a 2D fft in place given a complex 2D array.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Fourier.fft2D(comp_arr,nx,ny,dir);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li> comp_arr  (Array)  -- a 2d array, each element contains a {re:val,im:val} Complex object.</li>
+<li> nx  (Number)  -- an integer, the size of the array rows.</li>
+<li> ny  (Number)  -- an integer, the size of the array columns.</li>
+<li> dir  (Number)  -- the direction dir, 1 for forward, -1 for reverse.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)  -- returns false if there are memory problems or the dimensions are not powers of 2
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

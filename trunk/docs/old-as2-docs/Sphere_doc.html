@@ -1,0 +1,153 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Sphere - Wright Internet Solutions">
+		<meta name="keywords" content="geometry,quadric,Sphere,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.geom.quadric.Sphere Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.geom.quadric.Sphere Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Sphere Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 08/03/04 00:54:51<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.geom.quadric.Sphere class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.geom.quadric.Sphere Properties:</P><div class='methodsDiv'>
+<a href='#$pos'>- $pos</a><br>
+<a href='#$negPos'>- $negPos</a><br>
+<a href='#$rad'>- $rad</a><br>
+<a href='#$radSquared'>- $radSquared</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.geom.quadric.Sphere Methods:</P><div class='methodsDiv'>
+<a href='# copy'>-  copy</a><br>
+<a href='# initialize'>-  initialize</a><br>
+<a href='# findIntersectionsUntransformed'>-  findIntersectionsUntransformed</a><br>
+<a href='# isPointInsideUntransformed'>-  isPointInsideUntransformed</a><br>
+<a href='# getNormalAtUntransformed'>-  getNormalAtUntransformed</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.geom.quadric.Sphere <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.7</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Sphere Class.
+ <p>
+ 		        Provides methods for the IObj interface based on JS RayTracer2 by
+ John Haggerty.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:Sphere= new Sphere(pos,rad);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      pos (Vector)  -- a position Vector object.</li>
+<li>      rad (Number)  -- a real number for radius value.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.geom.quadric.Sphere Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='$pos'></A><u> $pos</u></P>
+				<P> (Vector)  -- a position Vector object.</P>
+
+				<P class='methodTitle'><A name='$negPos'></A><u> $negPos</u></P>
+				<P> (Vector)  -- a position Vector object.</P>
+
+				<P class='methodTitle'><A name='$rad'></A><u> $rad</u></P>
+				<P> (Number)  -- a real number for radius value.</P>
+
+				<P class='methodTitle'><A name='$radSquared'></A><u> $radSquared</u></P>
+				<P> (Number)  -- a real number for square of radius value.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.geom.quadric.Sphere Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' copy'></A><u>  copy</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Copies super's properties with its 'copyModifiers' method.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.copy();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Obj)  -- returns a new Sphere object populated with super's properties.
+    </P>
+
+				<P class='methodTitle'><A name=' initialize'></A><u>  initialize</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Initializes this instance's bounding box and its super's low-level properties,
+     and defines $radSquared and $negPos properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.initialize();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' findIntersectionsUntransformed'></A><u>  findIntersectionsUntransformed</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates enter and exit intersections, if any, defined by 'ray' tracer.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.findIntersectionsUntransformed(ray);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  ray   (Ray)  -- tracer object that defines its point and direction in 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Array)  -- returns a list of Intersection objects, or an empty list.
+    </P>
+
+				<P class='methodTitle'><A name=' isPointInsideUntransformed'></A><u>  isPointInsideUntransformed</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Tests whether passed 'pos' Vector object is inside this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.isPointInsideUntransformed(pos);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pos   (Vector)  -- a position Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' getNormalAtUntransformed'></A><u>  getNormalAtUntransformed</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines the normal to the passed 'pos' Vector object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.getNormalAtUntransformed(pos);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pos   (Vector)  -- a position Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns normal of untransformed vector.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

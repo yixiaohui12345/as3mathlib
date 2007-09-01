@@ -1,0 +1,878 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Complex - Wright Internet Solutions">
+		<meta name="keywords" content="algebra,Complex,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.alg.Complex Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.alg.Complex Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Complex Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 08/08/04 19:07:58<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.alg.Complex class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.alg.Complex Properties:</P><div class='methodsDiv'>
+<a href='#$r'>- $r</a><br>
+<a href='#$i'>- $i</a><br>
+<a href='#Mem'>- Mem</a><br>
+<a href='#One'>- One</a><br>
+<a href='#Pi'>- Pi</a><br>
+<a href='#ToRad'>- ToRad</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.alg.Complex Methods:</P><div class='methodsDiv'>
+<a href='# input'>-  input</a><br>
+<a href='# arg'>-  arg</a><br>
+<a href='# chSign'>-  chSign</a><br>
+<a href='# norm'>-  norm</a><br>
+<a href='# rAbs'>-  rAbs</a><br>
+<a href='# abs'>-  abs</a><br>
+<a href='# timesi'>-  timesi</a><br>
+<a href='# timesi3'>-  timesi3</a><br>
+<a href='# adds'>-  adds</a><br>
+<a href='# subt'>-  subt</a><br>
+<a href='# mult'>-  mult</a><br>
+<a href='# div'>-  div</a><br>
+<a href='# log'>-  log</a><br>
+<a href='# exp'>-  exp</a><br>
+<a href='# sqrt'>-  sqrt</a><br>
+<a href='# power'>-  power</a><br>
+<a href='# root'>-  root</a><br>
+<a href='# rSinh'>-  rSinh</a><br>
+<a href='# rCosh'>-  rCosh</a><br>
+<a href='# sin'>-  sin</a><br>
+<a href='# cos'>-  cos</a><br>
+<a href='# tan'>-  tan</a><br>
+<a href='# cot'>-  cot</a><br>
+<a href='# sec'>-  sec</a><br>
+<a href='# cosec'>-  cosec</a><br>
+<a href='# asin'>-  asin</a><br>
+<a href='# acos'>-  acos</a><br>
+<a href='# atan'>-  atan</a><br>
+<a href='# acot'>-  acot</a><br>
+<a href='# asec'>-  asec</a><br>
+<a href='# acosec'>-  acosec</a><br>
+<a href='# sinh'>-  sinh</a><br>
+<a href='# cosh'>-  cosh</a><br>
+<a href='# tanh'>-  tanh</a><br>
+<a href='# coth'>-  coth</a><br>
+<a href='# sech'>-  sech</a><br>
+<a href='# cosech'>-  cosech</a><br>
+<a href='# asinh'>-  asinh</a><br>
+<a href='# acosh'>-  acosh</a><br>
+<a href='# atanh'>-  atanh</a><br>
+<a href='# acoth'>-  acoth</a><br>
+<a href='# asech'>-  asech</a><br>
+<a href='# acosech'>-  acosech</a><br>
+<a href='# contFrac'>-  contFrac</a><br>
+<a href='# factorial'>-  factorial</a><br>
+<a href='# equals'>-  equals</a><br>
+<a href='# conjugate'>-  conjugate</a><br>
+<a href='# modulo'>-  modulo</a><br>
+<a href='# logGamma'>-  logGamma</a><br>
+<a href='# diGamma'>-  diGamma</a><br>
+<a href='# triGamma'>-  triGamma</a><br>
+<a href='# tetraGamma'>-  tetraGamma</a><br>
+<a href='# pentaGamma'>-  pentaGamma</a><br>
+<a href='# hexaGamma'>-  hexaGamma</a><br>
+<a href='# get _real'>-  get _real</a><br>
+<a href='# set _real'>-  set _real</a><br>
+<a href='# get _imag'>-  get _imag</a><br>
+<a href='# get _imag'>-  get _imag</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.alg.Complex <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.7</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the static behaviours of the Complex Class, with
+ algorithm logic based on the use of reverse Polish notation.
+ <p>
+ 		        Supports all functions pertaining to the complex number calculator
+ and three added functions that are beyond the calculator's scope.
+ The calculator is capable of performing all basic operations:
+ powers, roots, logarithms, trigonometric functions, hyperbolic
+ functions, gamma and polygamma functions. Other than the following
+ exceptions, all methods call an inner 'Complex.input(re,im)' method
+ to capture the values of the two UI input fields for manipulation
+ within the outer method:
+ <blockquote><pre>
+ - new complex number instantiation (C button).
+ - new Math.PI complex number instantiation (Pi button).
+ - hold active complex number in memory (MR button).
+ </pre></blockquote>
+ Although many of the methods are only used privately within the
+ class for the calculator's procedures, I have left all methods
+ declared as 'public static' to be able to utilize all class methods
+ in other application structures.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>
+ var inst:Complex = new Complex(re,im);
+ Complex.classMethod(args);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      re (Number)  -- real portion of complex number from re_txt string</li>
+<li>      im (Number)  --imaginary portion of complex number from im_txt</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.alg.Complex Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='$r'></A><u> $r</u></P>
+				<P> (Number)  -- real portion of complex number, any real number.</P>
+
+				<P class='methodTitle'><A name='$i'></A><u> $i</u></P>
+				<P> (Number)  -- imaginary portion of complex number, any real number.</P>
+
+				<P class='methodTitle'><A name='Mem'></A><u> Mem</u></P>
+				<P> (Complex)  -- static -- holder for saved complex number.</P>
+
+				<P class='methodTitle'><A name='One'></A><u> One</u></P>
+				<P> (Complex)  -- static -- identity instantiated complex number.</P>
+
+				<P class='methodTitle'><A name='Pi'></A><u> Pi</u></P>
+				<P> (Complex)  -- static -- pi instantiated complex number.</P>
+
+				<P class='methodTitle'><A name='ToRad'></A><u> ToRad</u></P>
+				<P> (Complex)  -- static -- (to radio group) rad-to-deg instantiated complex number for radio group manipulation.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.alg.Complex Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' input'></A><u>  input</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Main public  method for capture of UI input from textfields to
+     instantiate a new Complex class instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.input(re,im);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  re   (Number)  -- real portion of complex number from re_txt string converted in UI.</li>
+<li>  im   (Number)  -- imaginary portion of complex number from im_txt string converted in UI.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' arg'></A><u>  arg</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Method used within 'log' and 'atan' methods.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.arg(x,y);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  x   (Number)  -- any real number.</li>
+<li>  y   (Number)  -- any real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a real number based on input signs.
+    </P>
+
+				<P class='methodTitle'><A name=' chSign'></A><u>  chSign</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Method used within 'asinh' method and called with
+     'chSign' button in UI.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.chSign(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- 'log' of 'asinh' inner c2 complex number, or UI complex input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a modified Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' norm'></A><u>  norm</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Complex normal method used within 'atan', 'asinh',
+     and 'acosh' methods as a boolean construct.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.norm(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number to be normalized.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a real number.
+    </P>
+
+				<P class='methodTitle'><A name=' rAbs'></A><u>  rAbs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Used within 'abs', 'log', and 'sqrt' methods.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.rAbs(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a positive real number.
+    </P>
+
+				<P class='methodTitle'><A name=' abs'></A><u>  abs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Method called by the UI abs button.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.abs(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)    -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' timesi'></A><u>  timesi</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Input is multiplied by i ... (sqrt(-1)).
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.timesi(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' timesi3'></A><u>  timesi3</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Input is multiplied by i^3 ... (sqrt(-1)^3).
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.timesi3(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' adds'></A><u>  adds</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Adds two complex numbers.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.adds(c1,c2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c1   (Complex)  -- complex number input.</li>
+<li>  c2   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' subt'></A><u>  subt</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Subtracts two complex numbers.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.subt(c1,c2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c1   (Complex)  -- complex number input.</li>
+<li>  c2   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' mult'></A><u>  mult</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Multiplies two complex numbers.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.mult(c1,c2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c1   (Complex)  -- complex number input.</li>
+<li>  c2   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' div'></A><u>  div</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Divides two complex numbers.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.div(c1,c2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c1   (Complex)  -- complex number input.</li>
+<li>  c2   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' log'></A><u>  log</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the logarithm of the complex number.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.log(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' exp'></A><u>  exp</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the product of the exponential number and
+     the complex number.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.exp(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' sqrt'></A><u>  sqrt</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the squareroot of the complex number.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.sqrt(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' power'></A><u>  power</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates c2 power of c1.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.power(c1,c2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c1   (Complex)  -- complex number input.</li>
+<li>  c2   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' root'></A><u>  root</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates c2 root of c1.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.root(c1,c2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c1   (Complex)  -- complex number input.</li>
+<li>  c2   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' rSinh'></A><u>  rSinh</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates hyperbolic sine of real number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.rSinh(r);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  r   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a real number.
+    </P>
+
+				<P class='methodTitle'><A name=' rCosh'></A><u>  rCosh</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates hyperbolic cosine of real number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.rCosh(r);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  r   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a real number.
+    </P>
+
+				<P class='methodTitle'><A name=' sin'></A><u>  sin</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates sine of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.sin(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' cos'></A><u>  cos</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates cosine of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.cos(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' tan'></A><u>  tan</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates tangent of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.tan(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' cot'></A><u>  cot</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates cotangent of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.cot(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' sec'></A><u>  sec</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates secant of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.sec(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' cosec'></A><u>  cosec</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates cosecant of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.cosec(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' asin'></A><u>  asin</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates arcsine of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.asin(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' acos'></A><u>  acos</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates arccosine of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.acos(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' atan'></A><u>  atan</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates arctangent of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.atan(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' acot'></A><u>  acot</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates arccotangent of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.acot(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' asec'></A><u>  asec</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates arcsecant of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.asec(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' acosec'></A><u>  acosec</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates arccosecant of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.acosec(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' sinh'></A><u>  sinh</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates hyperbolic sine of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.sinh(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' cosh'></A><u>  cosh</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates hyperbolic cosine of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.cosh(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' tanh'></A><u>  tanh</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates hyperbolic tangent of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.tanh(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' coth'></A><u>  coth</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates hyperbolic cotangent of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.coth(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' sech'></A><u>  sech</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates hyperbolic secant of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.sech(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' cosech'></A><u>  cosech</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates hyperbolic cosecant of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.cosech(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' asinh'></A><u>  asinh</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates hyperbolic arcsine of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.asinh(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' acosh'></A><u>  acosh</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates hyperbolic arccosine of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.acosh(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' atanh'></A><u>  atanh</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates hyperbolic arctangent of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.atanh(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' acoth'></A><u>  acoth</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates hyperbolic arccotangent of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.acoth(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' asech'></A><u>  asech</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates hyperbolic arcsecant of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.asech(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' acosech'></A><u>  acosech</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates hyperbolic arccosecant of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.acosech(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' contFrac'></A><u>  contFrac</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates continued fraction loop of complex number input
+     by applying variant fractional arguments.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.contFrac(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  arguments   (variant)  -- 1st argument is complex number, balance are fractional input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' factorial'></A><u>  factorial</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates factorial of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.factorial(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' equals'></A><u>  equals</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Determines whether complex numbers c1 and c2 are equal.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.equals(c1,c2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c1   (Complex)  -- complex number input.</li>
+<li>  c2   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' conjugate'></A><u>  conjugate</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines the conjugate of the complex number.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.conjugate(c)</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a new Complex object.
+    </P>
+
+				<P class='methodTitle'><A name=' modulo'></A><u>  modulo</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the modulo of the complex number (length of vector).
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.modulo(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a real number.
+    </P>
+
+				<P class='methodTitle'><A name=' logGamma'></A><u>  logGamma</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates log Gamma of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.logGamma(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' diGamma'></A><u>  diGamma</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates power2 Gamma of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.diGamma(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' triGamma'></A><u>  triGamma</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates power3 Gamma of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.triGamma(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' tetraGamma'></A><u>  tetraGamma</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates power4 Gamma of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.tetraGamma(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' pentaGamma'></A><u>  pentaGamma</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates power5 Gamma of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.pentaGamma(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' hexaGamma'></A><u>  hexaGamma</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates power6 Gamma of complex number input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex.hexaGamma(c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c   (Complex)  -- complex number input.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Complex)  -- returns a Complex object result.
+    </P>
+
+				<P class='methodTitle'><A name=' get _real'></A><u>  get _real</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets real portion of Complex object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex._real;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a real number.
+    </P>
+
+				<P class='methodTitle'><A name=' set _real'></A><u>  set _real</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets real portion of Complex object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex._real = num;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li> (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _imag'></A><u>  get _imag</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets imaginary portion of Complex object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex._imag);</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a real number (to be multiplied by i).
+    </P>
+
+				<P class='methodTitle'><A name=' get _imag'></A><u>  get _imag</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets imaginary portion of Complex object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Complex._imag = num;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

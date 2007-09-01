@@ -1,0 +1,275 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Noise - Wright Internet Solutions">
+		<meta name="keywords" content="geometry,Noise,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.geom.util.Noise Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.geom.util.Noise Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Noise Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 08/05/04 21:37:14<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.geom.util.Noise class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.geom.util.Noise Properties:</P><div class='methodsDiv'>
+<a href='#$seed'>- $seed</a><br>
+<a href='#$arraySize'>- $arraySize</a><br>
+<a href='#$gradients'>- $gradients</a><br>
+<a href='#$permutation'>- $permutation</a><br>
+<a href='#$BIGNUM'>- $BIGNUM</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.geom.util.Noise Methods:</P><div class='methodsDiv'>
+<a href='# init'>-  init</a><br>
+<a href='# rand'>-  rand</a><br>
+<a href='# interpolate'>-  interpolate</a><br>
+<a href='# cubicWave'>-  cubicWave</a><br>
+<a href='# getVal'>-  getVal</a><br>
+<a href='# evaluate'>-  evaluate</a><br>
+<a href='# noise1D'>-  noise1D</a><br>
+<a href='# noise2D'>-  noise2D</a><br>
+<a href='# noise3D'>-  noise3D</a><br>
+<a href='# smoothNoise2D'>-  smoothNoise2D</a><br>
+<a href='# interpolate2'>-  interpolate2</a><br>
+<a href='# interpolatedNoise2D'>-  interpolatedNoise2D</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.geom.util.Noise <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.7</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Noise Class.
+ <p>
+ Possible input values are (.8296815753293, 11). Don't go high with
+ the second argument; it's exponential. Creation of a Noise object
+ can be very slow; evaluation of one isn't all that speedy either.
+ This class includes duplication of method strategy to support
+ existing applications.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:Noise = new Noise(seedNum,power);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      seedNum (Number)  -- a real number between 0 and 1.</li>
+<li>      power (Number)  -- creates a multiple of 2.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.geom.util.Noise Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='$seed'></A><u> $seed</u></P>
+				<P> (Number)  -- a calculated random number between 0 and 1.</P>
+
+				<P class='methodTitle'><A name='$arraySize'></A><u> $arraySize</u></P>
+				<P> (Number)  -- a power of 2 based on passed 'power' argument.</P>
+
+				<P class='methodTitle'><A name='$gradients'></A><u> $gradients</u></P>
+				<P> (Array)  -- an array to hold gradient values.</P>
+
+				<P class='methodTitle'><A name='$permutation'></A><u> $permutation</u></P>
+				<P> (Array)  -- an array to hold permutation values.</P>
+
+				<P class='methodTitle'><A name='$BIGNUM'></A><u> $BIGNUM</u></P>
+				<P> (Number)  -- static -- Math.pow(2,11)-1.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.geom.util.Noise Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' init'></A><u>  init</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Initializes this instance's properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.init(seedNum,power);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  seedNum   (Number)  -- a real number between 0 and 1.</li>
+<li>  power   (Number)  -- a real number for exponentiation.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' rand'></A><u>  rand</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Random number generator.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Noise.rand(seedNum);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  seedNum   (Number)  -- a real number between 0 and 1.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns decimal portion of base calculation.
+    </P>
+
+				<P class='methodTitle'><A name=' interpolate'></A><u>  interpolate</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Interpolates input by adding to g the result of multiplying
+     amnt by the difference between h and g.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Noise.interpolate(g,h,amnt);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  g   (Number)  -- a real number.</li>
+<li>  h   (Number)  -- a real number.</li>
+<li>  amnt   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns an interpolated number.
+    </P>
+
+				<P class='methodTitle'><A name=' cubicWave'></A><u>  cubicWave</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines a 'cubic wave' for further use in 'interpolation'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Noise.cubicWave(x);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  x   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a real number.
+    </P>
+
+				<P class='methodTitle'><A name=' getVal'></A><u>  getVal</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates unit box corner vector multiplication.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Noise.getVal(gradient,x,y,z);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  gradient   (Vector)  -- a direction Vector object.</li>
+<li>  x   (Number)  -- a real number.</li>
+<li>  y   (Number)  -- a real number.</li>
+<li>  z   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the result of vector multiplication.
+    </P>
+
+				<P class='methodTitle'><A name=' evaluate'></A><u>  evaluate</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines unit box, interpolates each corner, then interpolates
+     those results.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.evaluate(pos);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pos   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the interpolated results.
+    </P>
+
+				<P class='methodTitle'><A name=' noise1D'></A><u>  noise1D</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates noise using one passed argument, prime numbers, and
+     bitwise XOR operations.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Noise.noise1D(x);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  x   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the resulting noise value.
+    </P>
+
+				<P class='methodTitle'><A name=' noise2D'></A><u>  noise2D</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates noise using two passed arguments, prime numbers, and
+     bitwise XOR operations.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Noise.noise2D(x,y);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  x   (Number)  -- a real number.</li>
+<li>  y   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the resulting noise value.
+    </P>
+
+				<P class='methodTitle'><A name=' noise3D'></A><u>  noise3D</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates noise using three passed arguments, prime numbers, and
+     bitwise XOR operations.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Noise.noise3D(x,y,z);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  x   (Number)  -- a real number.</li>
+<li>  y   (Number)  -- a real number.</li>
+<li>  z   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the resulting noise value.
+    </P>
+
+				<P class='methodTitle'><A name=' smoothNoise2D'></A><u>  smoothNoise2D</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates layered noise for the unit box, called from 'interpolatedNoise2D'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Noise.smoothNoise2D(x,y);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  x   (Number)  -- a real number.</li>
+<li>  y   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns addition result for method operations.
+    </P>
+
+				<P class='methodTitle'><A name=' interpolate2'></A><u>  interpolate2</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Interpolates input by adding to a percentage of g the result
+     of multiplying h and f.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Noise.interpolate2(g,h,x);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  g   (Number)  -- a real number.</li>
+<li>  h   (Number)  -- a real number.</li>
+<li>  x   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the interpolated result.
+    </P>
+
+				<P class='methodTitle'><A name=' interpolatedNoise2D'></A><u>  interpolatedNoise2D</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Final interpolation of the results accumulated from method calculations.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Noise.interpolatedNoise2D(x,y);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  x   (Number)  -- a real number.</li>
+<li>  y   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the final interpolated result.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

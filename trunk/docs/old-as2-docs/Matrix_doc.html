@@ -1,0 +1,418 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Matrix - Wright Internet Solutions">
+		<meta name="keywords" content="algebra,Matrix,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.alg.Matrix Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.alg.Matrix Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Matrix Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 07/17/04 18:46:29<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.alg.Matrix class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.alg.Matrix Properties:</P><div class='methodsDiv'>
+<a href='#$rows'>- $rows</a><br>
+<a href='#$columns'>- $columns</a><br>
+<a href='#$m'>- $m</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.alg.Matrix Methods:</P><div class='methodsDiv'>
+<a href='# resize'>-  resize</a><br>
+<a href='# augment'>-  augment</a><br>
+<a href='# fragment'>-  fragment</a><br>
+<a href='# identity'>-  identity</a><br>
+<a href='# constant'>-  constant</a><br>
+<a href='# random'>-  random</a><br>
+<a href='# addition'>-  addition</a><br>
+<a href='# subtract'>-  subtract</a><br>
+<a href='# scalar'>-  scalar</a><br>
+<a href='# transpose'>-  transpose</a><br>
+<a href='# mult'>-  mult</a><br>
+<a href='# vectorMult'>-  vectorMult</a><br>
+<a href='#  determinant'>-   determinant</a><br>
+<a href='# inverse'>-  inverse</a><br>
+<a href='# elemConstant'>-  elemConstant</a><br>
+<a href='# elemSwitch'>-  elemSwitch</a><br>
+<a href='# elemCMA'>-  elemCMA</a><br>
+<a href='# rowReduce'>-  rowReduce</a><br>
+<a href='# print'>-  print</a><br>
+<a href='# copy'>-  copy</a><br>
+<a href='# rotationX'>-  rotationX</a><br>
+<a href='# rotationY'>-  rotationY</a><br>
+<a href='# rotationZ'>-  rotationZ</a><br>
+<a href='# rotationAxis'>-  rotationAxis</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.alg.Matrix <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.6</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Matrix Class -- provides
+ methods for matrix manipulation.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:Matrix = new Matrix(r,c)</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      r (Number)  -- number of rows in new matrix.</li>
+<li>      c (Number)  -- number of columns in new matrix.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.alg.Matrix Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='$rows'></A><u> $rows</u></P>
+				<P> -- number of rows in matrix.</P>
+
+				<P class='methodTitle'><A name='$columns'></A><u> $columns</u></P>
+				<P> -- number of columns in matrix.</P>
+
+				<P class='methodTitle'><A name='$m'></A><u> $m</u></P>
+				<P> -- matrix array.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.alg.Matrix Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' resize'></A><u>  resize</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Resize this instance's properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.resize(r,c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  r   (Number)  -- a positive integer.</li>
+<li>  c   (Number)  -- a positive integer.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' augment'></A><u>  augment</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Augment this instance with passed Matrix object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.augment(m1);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  m1   (Matrix)  -- an existing Matrix object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' fragment'></A><u>  fragment</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines this instance with a fragment of this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.fragment(m1,sr,sc,er,ec);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  m1   (Matrix)  -- an existing Matrix object. </li>
+<li>  sr   (Number)  -- fragment starting row value (positive integer).</li>
+<li>  sc   (Number)  -- fragment starting column value (positive integer). </li>
+<li>  er   (Number)  -- fragment ending row value (positive integer). </li>
+<li>  ec   (Number)  -- fragment ending column value (positive integer). </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' identity'></A><u>  identity</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines this instance as an identity matrix.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.identity();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' constant'></A><u>  constant</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines each matrix element as the passed constant value.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.constant(a);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' random'></A><u>  random</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines each matrix element as a random number clamped
+     between passed min-max values.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.random(a,b);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Number)  -- a real number.</li>
+<li>  b   (Number)  -- a real number. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' addition'></A><u>  addition</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Resets this instance's $m property with the addition results
+     of the passed Matrix objects if they both are sized equally,
+     or else with the constant '0' if they differ.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.addition(m1,m2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  m1   (Matrix)  -- an existing Matrix object. </li>
+<li>  m2   (Matrix)  -- an existing Matrix object. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' subtract'></A><u>  subtract</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Resets this instance's $m property with the subtraction results
+     of the passed Matrix objects if they both are sized equally,
+     or else with the constant '0' if they differ.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.subtract(m1,m2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  m1   (Matrix)  -- an existing Matrix object. </li>
+<li>  m2   (Matrix)  -- an existing Matrix object. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' scalar'></A><u>  scalar</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Scales this instance's $m elements by the passed value.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.scalar(s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  s   (Number)  -- a real number. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' transpose'></A><u>  transpose</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Resizes this instance and transposes its $m elements.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.transpose();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' mult'></A><u>  mult</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Resets this instance's $m property with the multiplication
+     results of the passed Matrix objects if they both are sized
+     equally, or else with the constant '0' if they differ.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.mult(m1,m2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  m1   (Matrix)  -- an existing Matrix object. </li>
+<li>  m2   (Matrix)  -- an existing Matrix object. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' vectorMult'></A><u>  vectorMult</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines the vector made from multiplying this instance with 'V'.
+	 </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.vectorMult(V);</pre>
+	 </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a direction Vector object. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  --  returns a new Vector object.
+	</P>
+
+				<P class='methodTitle'><A name='  determinant'></A><u>   determinant</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the determinant of this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.determinant();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the determinant value.
+    </P>
+
+				<P class='methodTitle'><A name=' inverse'></A><u>  inverse</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the inverse of this instance using the
+     row-reduction method.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.inverse();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' elemConstant'></A><u>  elemConstant</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Scales every element in the passed 'r' row of this
+     instance's $m property by the passed 's' scalar value.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.elemConstant(r,s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  r   (Number)  -- a positive integer. </li>
+<li>  s   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' elemSwitch'></A><u>  elemSwitch</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				A swap routine that exchanges two rows in this
+     instance's $m property.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.elemSwitch(r1,r2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  r1   (Number)  -- a positive integer. </li>
+<li>  r2   (Number)  -- a positive integer.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' elemCMA'></A><u>  elemCMA</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Copies $m[r1] elements to temp[r2] row, multiplies that
+     row's elements by the constant 's', then adds 'temp.$m'
+     elements to this instance's $m elements.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.elemCMA(r1,s,r2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  r1   (Number)  -- a positive integer.  </li>
+<li>  s   (Number)  -- a real number. </li>
+<li>  r2   (Number)  -- a positive integer.  </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' rowReduce'></A><u>  rowReduce</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines this instance's $m property using a 'row-reduction'
+     algorithm that employs the three elementary row methods.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rowReduce();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' print'></A><u>  print</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Used for debugging -- traces Matrix object properties.
+	 </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.print();</pre>
+	 </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+	</P>
+
+				<P class='methodTitle'><A name=' copy'></A><u>  copy</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Copy this instance's $m property elements into passed
+     Matrix object's $m property elements.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.copy(m1);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  m1   (Matrix)  -- an existing Matrix object. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' rotationX'></A><u>  rotationX</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines this instance's $m property elements for a rotation
+     around the x-axis given the sine and cosine of the rotation angle.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rotationX(sine,cosine);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  sine   (Number)  -- a real number between -1 and 1 inclusive.</li>
+<li>  cosine   (Number)  -- a real number between -1 and 1 inclusive. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' rotationY'></A><u>  rotationY</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines this instance's $m property elements for a rotation
+     around the y-axis given the sine and cosine of the rotation angle.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rotationY(sine,cosine);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  sine   (Number)  -- a real number between -1 and 1 inclusive. </li>
+<li>  cosine   (Number)  -- a real number between -1 and 1 inclusive. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' rotationZ'></A><u>  rotationZ</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines this instance's $m property elements for a rotation
+     around the z-axis given the sine and cosine of the rotation angle.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rotationZ(sine,cosine);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  sine   (Number)  -- a real number between -1 and 1 inclusive. </li>
+<li>  cosine   (Number)  -- a real number between -1 and 1 inclusive. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' rotationAxis'></A><u>  rotationAxis</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines this instance's $m property elements for a rotation
+     around a unit Vector object axis given the sine and cosine of
+     the rotation angle.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rotationAxis(V,sine,cosine);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  V   (Vector)  -- a direction Vector object. </li>
+<li>  sine   (Number)  -- a real number between -1 and 1 inclusive. </li>
+<li>  cosine   (Number)  -- a real number between -1 and 1 inclusive. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

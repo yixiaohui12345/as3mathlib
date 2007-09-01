@@ -1,0 +1,214 @@
+		<HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Derivative - Wright Internet Solutions">
+		<meta name="keywords" content="calculus,Derivative,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,classes,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.calc.Derivative Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.calc.Derivative Documentation</P>
+
+        <P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary  Derivative Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 07/08/05 15:33:10<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.calc.Derivative class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.calc.Derivative Properties:</P><div class='methodsDiv'>
+<a href='#none'>- none</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.calc.Derivative Methods:</P><div class='methodsDiv'>
+<a href='# romberg'>-  romberg</a><br>
+<a href='# centered'>-  centered</a><br>
+<a href='# centeredPartial'>-  centeredPartial</a><br>
+<a href='# second'>-  second</a><br>
+<a href='# secondFillArray'>-  secondFillArray</a><br>
+<a href='# secondFillArrayData'>-  secondFillArrayData</a><br>
+<a href='# fillArray'>-  fillArray</a><br>
+<a href='# fillArrayData'>-  fillArrayData</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.calc.Derivative <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.8</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Derivative Class. This class is presently under
+ construction ... it originally was written with static methods, but I am
+ still experimenting, and the class may be instantiated first as well.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>Derivative.classMethod(args);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      none  -- static methods are called directly without class instantiation.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.calc.Derivative Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='none'></A><u> none</u></P>
+				<P> -- no class properties.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.calc.Derivative Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' romberg'></A><u>  romberg</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the derivative using the Romberg scheme for
+     Richardson extrapolation.
+     <p>
+     This method runs until all Romberg rows are filled or until
+     the step size drops below defaultNumericalPrecision or if the
+     desired tolerance is reached.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.romberg(f,x0,h,tol);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>f  (Function)  -- the function.</li>
+<li>x  (Number)  -- where derivative is to be calculated.</li>
+<li>h  (Number)  -- initial step size.</li>
+<li>tol  (Number)  -- desired accuracy.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the derivative.
+    </P>
+
+				<P class='methodTitle'><A name=' centered'></A><u>  centered</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the derivative of a function using the centered
+     difference approximation.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.centered(f,x,h);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>f  (Function)  -- the function.</li>
+<li>x  (Number)  -- the x value.</li>
+<li>h  (Number)  -- initial step size.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the derivative.
+    </P>
+
+				<P class='methodTitle'><A name=' centeredPartial'></A><u>  centeredPartial</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the partial derivative of a function using the
+     centered difference approximation.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.centeredPartial(f,x,n,tol);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>f  (Function)  -- the function.</li>
+<li>x_arr  (Array)  -- a list of x values.</li>
+<li>n  (Number)  -- initial step size.</li>
+<li>tol  (Number)  -- desired accuracy.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the partial derivative.
+    </P>
+
+				<P class='methodTitle'><A name=' second'></A><u>  second</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the second derivative of a function.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.second(f,x,tol);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>f  (Function)  -- the function.</li>
+<li>x  (Number)  -- the x value.</li>
+<li>tol  (Number)  -- desired accuracy.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the second derivative.
+    </P>
+
+				<P class='methodTitle'><A name=' secondFillArray'></A><u>  secondFillArray</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Fills an array with the second derivative of a function.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.secondFillArray(f,start,stop,tol,n);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>f  (Function)  -- the function.</li>
+<li>start  (Number)  --</li>
+<li>stop  (Number)  --</li>
+<li>tol  (Number)  --</li>
+<li>n  (Number)  --</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Array)  -- returns
+    </P>
+
+				<P class='methodTitle'><A name=' secondFillArrayData'></A><u>  secondFillArrayData</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Fills an array with the second derivative of a function.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.secondFillArrayData(f,start,stop,tol,data);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>f  (Function)  -- the function.</li>
+<li>start  (Number)  --</li>
+<li>stop  (Number)  --</li>
+<li>tol  (Number)  --</li>
+<li>data  (Array)  --</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Array)  --
+    </P>
+
+				<P class='methodTitle'><A name=' fillArray'></A><u>  fillArray</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Fills an array with the derivatives of a function.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.fillArrayData(f,start,stop,tol,data);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>f  (Function)  -- the function.</li>
+<li>start  (Number)  --</li>
+<li>stop  (Number)  --</li>
+<li>tol  (Number)  --</li>
+<li>n  (Number)  --</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Array)  --
+    </P>
+
+				<P class='methodTitle'><A name=' fillArrayData'></A><u>  fillArrayData</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Fills an array with the derivatives of a function.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.fillArrayData(f,start,stop,tol,data);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>f  (Function)  -- the function.</li>
+<li>start  (Number)  --</li>
+<li>stop  (Number)  --</li>
+<li>tol  (Number)  --</li>
+<li>data  (Array)  --</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Array)  --
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

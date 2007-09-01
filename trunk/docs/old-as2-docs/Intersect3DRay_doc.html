@@ -1,0 +1,361 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Intersect3DRay - Wright Internet Solutions">
+		<meta name="keywords" content="geometry,Intersect3DRay,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.geom.intersect3D.Intersect3DRay Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.geom.intersect3D.Intersect3DRay Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Intersect3DRay Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 07/08/05 15:20:01<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.geom.intersect3D.Intersect3DRay class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.geom.intersect3D.Intersect3DRay Properties:</P><div class='methodsDiv'>
+<a href='#none'>- none</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.geom.intersect3D.Intersect3DRay Methods:</P><div class='methodsDiv'>
+<a href='# findRoots'>-  findRoots</a><br>
+<a href='# raySphere'>-  raySphere</a><br>
+<a href='# rayInfiniteCylinder'>-  rayInfiniteCylinder</a><br>
+<a href='# rayCylinderCaps'>-  rayCylinderCaps</a><br>
+<a href='# rayCappedCylinder'>-  rayCappedCylinder</a><br>
+<a href='# rayCapsule'>-  rayCapsule</a><br>
+<a href='# rayTriangle'>-  rayTriangle</a><br>
+<a href='# rayCvxPolyhedron'>-  rayCvxPolyhedron</a><br>
+<a href='# rayBox'>-  rayBox</a><br>
+<a href='# rayRay'>-  rayRay</a><br>
+<a href='# POINT4'>-  POINT4</a><br>
+<a href='# DOT3'>-  DOT3</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.geom.intersect3D.Intersect3DRay <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.8</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Intersect3DRay Class.
+ <p>
+ 		This is a collection of 3-space intersection algorithms that will
+ provide intersection checks for the IObj interface shape objects.
+ Presently, there is no method interaction coded.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:Intersect3DRay = new Intersect3DRay(objects);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      objects (Array)  -- a list of shape objects.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.geom.intersect3D.Intersect3DRay Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='none'></A><u> none</u></P>
+				<P> -- no class properties.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.geom.intersect3D.Intersect3DRay Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' findRoots'></A><u>  findRoots</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Solves a second order equation, find the two roots. If there
+     is no solution, return false. Sort the solutions as well.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.findRoots(a,b,c,t0,t1);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Number)  -- a real number.</li>
+<li>  b   (Number)  -- a real number.</li>
+<li>  c   (Number)  -- a real number.</li>
+<li>  t0   (Number)  -- a real number pointer for return assignment.</li>
+<li>  t1   (Number)  -- a real number pointer for return assignment.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' raySphere'></A><u>  raySphere</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Solving the equation will give two solutions, t0 and t1,
+     the times where the ray intersects the sphere
+     <blockquote><pre>
+     Sphere (centre=C, radius=r)
+     Ray (start=O, direction=D)
+     Point P is on sphere if [eq1] (P - C)^2 = r^2
+     Point on ray verifies [eq2] P = O + D.t
+     Substitute [eq2] to (P) in [eq1]
+     => (O + D.t - C)^2 = r^2
+     => ((O - C) + D.t)^2 - r^2 = 0
+     => [(O-C)^2 - r^2] + [2 (O-C).D].t + [D.D].t^2 = 0
+     => second order equation in the form a.t^2 + b.t + c = 0
+     where a = (D.D)
+     b = 2.0 (O-C).D
+     c = (O-C)^2 - r^2
+     </pre></blockquote>
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.raySphere(O,D,C,r,t0,t1);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  O   (Vector)  -- a position Vector object.</li>
+<li>  D   (Vector)  -- a direction Vector object.</li>
+<li>  C   (Vector)  -- a position Vector object.</li>
+<li>  r   (Number)  -- a real nmuber for radius of Sphere object.</li>
+<li>  t0   (Number)  -- a real number pointer for return assignment.</li>
+<li>  t1   (Number)  -- a real number pointer for return assignment.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' rayInfiniteCylinder'></A><u>  rayInfiniteCylinder</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Solving the equation will give two solutions, t0 and t1,
+     the times where the ray intersects the sphere
+     <blockquote><pre>
+     Cylinder (base=B, direction=L, radius=r)
+     Ray (start=O, direction=D)
+     Point P is on cylinder if [eq1] [(P - B) x L]^2 = r^2
+     Point on ray verifies [eq2] P = O + D.t
+     Substitute [eq2] to (P) in [eq1]
+     => ((O + D.t - B) x L)^2 = r^2
+     => ((O - B)xL + (DxL).t)^2 - r^2 = 0
+     => [((O-B)xL)^2 - r^2] + [2 ((O-B)xL).(DxL)].t + [(DxL)^2].t^2 = 0
+     => second order equation in the form a.t^2 + b.t + c = 0
+     where a = (DxL)^2
+     b = 2.0 ((O-B)xL).(DxL)
+     c = ((O-B)xL)^2 - r^2
+     </pre></blockquote>
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rayInfiniteCylinder(O,D,B,L,r,t0,t1);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  O   (Vector)  -- a position Vector object.</li>
+<li>  D   (Vector)  -- a direction Vector object.</li>
+<li>  B   (Vector)  -- a position Vector object.</li>
+<li>  L   (Vector)  -- a direction Vector object.</li>
+<li>  r   (Number)  -- a real number for radius of Cylinder object.</li>
+<li>  t0   (Number)  -- a real number pointer for return assignment.</li>
+<li>  t1   (Number)  -- a real number pointer for return assignment.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' rayCylinderCaps'></A><u>  rayCylinderCaps</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Find intersections between a ray and the caps of a cylinder
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rayCylinderCaps(O,D,B,L,ll,t0,t1);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  O   (Vector)  -- a position Vector object.</li>
+<li>  D   (Vector)  -- a direction Vector object.</li>
+<li>  B   (Vector)  -- a position Vector object.</li>
+<li>  L   (Vector)  -- a direction Vector object.</li>
+<li>  ll   (Number)  -- a real number for cylinder axis length.</li>
+<li>  t0   (Number)  -- a real number pointer for return assignment.</li>
+<li>  t1   (Number)  -- a real number pointer for return assignment.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' rayCappedCylinder'></A><u>  rayCappedCylinder</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculate the intersection points of a ray and a capped cylinder
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rayCappedCylinder(O,D,B,L,ll,r,t0,t1);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  O   (Vector)  -- a position Vector object.</li>
+<li>  D   (Vector)  -- a direction Vector object.</li>
+<li>  B   (Vector)  -- a position Vector object.</li>
+<li>  L   (Vector)  -- a direction Vector object.</li>
+<li>  ll   (Number)  -- a real number for cylinder axis length between caps.</li>
+<li>  r   (Number)  -- a real number for radius of Cylinder object.</li>
+<li>  t0   (Number)  -- a real number pointer for return assignment.</li>
+<li>  t1   (Number)  -- a real number pointer for return assignment.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' rayCapsule'></A><u>  rayCapsule</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				A capsule is basically a cylinder with rounded caps of radius
+     equal to the radius of the cylinder. Doing a ray-capsule test
+     can be broken down to doing two ray-sphere tests and one
+     ray-capped_cylinder test.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rayCapsule(O,D,B,L,ll,r,t0,t1,tMax);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  O   (Vector)  -- a position Vector object.</li>
+<li>  D   (Vector)  -- a direction Vector object.</li>
+<li>  B   (Vector)  -- a position Vector object.</li>
+<li>  L   (Vector)  -- a direction Vector object.</li>
+<li>  ll   (Number)  -- a real number for cylinder axis length between rounded caps.</li>
+<li>  r   (Number)  -- a real number for radius of cylinder and caps.</li>
+<li>  t0   (Number)  -- a real number pointer for return assignment.</li>
+<li>  t1   (Number)  -- a real number pointer for return assignment.</li>
+<li>  tMax   (Number)   --</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' rayTriangle'></A><u>  rayTriangle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Determine whether or not the line segment p1,p2
+     Intersects the 3 vertex facet bounded by pa,pb,pc
+     Return true/false and the intersection point p
+     <p>
+     The equation of the line is:
+     <blockquote><pre>
+     p = p1 + mu (p2 - p1)
+     </pre></blockquote>
+     The equation of the plane is:
+     <blockquote><pre>
+     a x + b y + c z + d = 0
+     n.x x + n.y y + n.z z + d = 0
+     </pre></blockquote>
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rayTriangle(p1,p2,pa,pb,pc,p);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  p1   (Vector)  -- a position Vector object for start of Ray object.</li>
+<li>  p2   (Vector)  -- a position Vector object for end of Ray object.</li>
+<li>  pa   (Vector)  -- a position Vector object for vertex 'a' of Triangle object.</li>
+<li>  pb   (Vector)  -- a position Vector object for vertex 'b' of Triangle object.</li>
+<li>  pc   (Vector)  -- a position Vector object for vertex 'c' of Triangle object.</li>
+<li>  p   (Point)  -- a pointer for Point object return.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' rayCvxPolyhedron'></A><u>  rayCvxPolyhedron</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Ray-Convex Polyhedron Intersection Test by Eric Haines, erich AT eye DOT com<br>
+     ref: http://www.acm.org/tog/GraphicsGems/gemsii/RayCPhdron.c
+     <p>
+     This test checks the ray against each face of a polyhedron,
+     checking whether the set of intersection points found for each
+     ray-plane intersection overlaps the previous intersection
+     results.  If there is no overlap (i.e. no line segment along
+     the ray that is inside the polyhedron), then the ray misses and
+     returns 0; else 1 is returned if the ray is entering the
+     polyhedron, -1 if the ray originates inside the polyhedron.
+     If there is an intersection, the distance and the normal of the
+     face hit is returned.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rayCvxPolyhedron(org,dir,tmax,phdrn_arr,phNum,tresult,norm);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  org   (Vector)  -- a position Vector object.</li>
+<li>  dir   (Vector)  -- a direction Vector object.</li>
+<li>  tmax   (Number)  -- a real number for maximum distance.</li>
+<li>  phdrn_arr   (Array)  -- a list of polyhedron planes.</li>
+<li>  phNum   (Number)  -- a positive integer for array size.</li>
+<li>  tresult   (Number)  --  a real number for distance to the plane result.</li>
+<li>  norm   (Vector)  -- normal Vector object of the focus plane.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns -1, 0, or 1.
+    </P>
+
+				<P class='methodTitle'><A name=' rayBox'></A><u>  rayBox</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Fast Ray-Box Intersection by Andrew Woo from 'Graphics Gems',
+     Academic Press, 1990.
+     Reference: <a href='http://www.acm.org/tog/GraphicsGems/gems/RayBox.c'>GraphicsGems: RayBox.c</a>
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rayBox(minB,maxB,origin,dir,coord);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  minB_arr   (Array)  -- a list of minimum box values.</li>
+<li>  maxB_arr   (Array)  -- a list of maximum box values.</li>
+<li>  origin_arr   (Array)  -- a list of origin ray values.</li>
+<li>  dir_arr   (Array)  -- a list of direction ray values.</li>
+<li>  coord_arr   (Array)  -- a list to hold hit values.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' rayRay'></A><u>  rayRay</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the line segment PaPb that is the shortest route
+     between two lines P1P2 and P3P4. Calculate also the values
+     of mua and mub where:
+     <pre>
+     Pa = P1 + mua (P2 - P1)
+     Pb = P3 + mub (P4 - P3)
+     </pre>
+     ref: <a href="http://astronomy.swin.edu.au/~pbourke/geometry/lineline3d/">Paul Bourke - lineLine3d</a>
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rayRay(p1,p2,p3,p4,pa,pb[,true]);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  p1   (Point)   -- start of line1 segment.</li>
+<li>  p2   (Point)   -- end of line1 segment.</li>
+<li>  p3   (Point)   -- start of line2 segment.</li>
+<li>  p4   (Point)   -- end of line2 segment.</li>
+<li>  pa   (Point)   -- point on line1 segment for shortest connecting line.</li>
+<li>  pb   (Point)   -- point on line2 segment for shortest connecting line.</li>
+<li>  bSeg  (Boolean)  -- clamps calculation to segment if passed true.</li>
+<li>  mua   (Number)   -- (not passed) scalar of line1 segment for point of shortest connecting line.</li>
+<li>  mub   (Number)   -- (not passed) scalar of line2 segment for point of shortest connecting line.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)  -- returns false if no solution exists.
+)
+    </P>
+
+				<P class='methodTitle'><A name=' POINT4'></A><u>  POINT4</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				4d point macro.
+	 </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.POINT4();</pre>
+	 </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns an object containing class properties.
+	</P>
+
+				<P class='methodTitle'><A name=' DOT3'></A><u>  DOT3</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Fast macro version of V3Dot, usable with POINT4.
+	 </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.DOT3(a,b);</pre>
+	 </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Vector)  -- a position Vector object.</li>
+<li>  b   (Vector)  -- a position Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a 3-space dot product.
+	</P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

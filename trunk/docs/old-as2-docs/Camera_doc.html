@@ -1,0 +1,126 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Camera - Wright Internet Solutions">
+		<meta name="keywords" content="geometry,Camera,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.geom.util.Camera Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.geom.util.Camera Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Camera Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 08/05/04 20:21:20<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.geom.util.Camera class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.geom.util.Camera Properties:</P><div class='methodsDiv'>
+<a href='#$loc'>- $loc</a><br>
+<a href='#$dir'>- $dir</a><br>
+<a href='#$right(Vector)'>- $right(Vector)</a><br>
+<a href='#$down'>- $down</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.geom.util.Camera Methods:</P><div class='methodsDiv'>
+<a href='# transform'>-  transform</a><br>
+<a href='# trace'>-  trace</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.geom.util.Camera <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.7</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Camera Class.
+ <p>
+ 		        Provides utility methods for the IObj interface based on JS
+ RayTracer2 by John Haggerty.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:Camera = new Camera(loc,dir,right,down);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      loc (Vector)  -- a position Vector object.</li>
+<li>      dir (Vector)  -- a direction Vector object.</li>
+<li>      right (Vector)  -- a direction Vector object.</li>
+<li>      down (Vector)  -- a direction Vector object.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.geom.util.Camera Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='$loc'></A><u> $loc</u></P>
+				<P> (Vector)  -- a position Vector object.</P>
+
+				<P class='methodTitle'><A name='$dir'></A><u> $dir</u></P>
+				<P> (Vector)  -- a direction Vector object.</P>
+
+				<P class='methodTitle'><A name='$right(Vector)'></A><u> $right(Vector)</u></P>
+				<P> -- a direction Vector object.</P>
+
+				<P class='methodTitle'><A name='$down'></A><u> $down</u></P>
+				<P> (Vector)  -- a direction Vector object.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.geom.util.Camera Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' transform'></A><u>  transform</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Transforms this instance's properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.transform(trans);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  trans   (Transformation)  -- a Transformation object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' trace'></A><u>  trace</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Create a new Col object from Ray class instance's
+     'traceForClor' method, which in turn calls super's
+     'getColorAt' method.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.trace(object_arr,light_arr,xAmnt,yAmnt);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  object_arr   (Array)  -- a list of shape objects.</li>
+<li>  light_arr   (Array)  -- a list of LightSource objects.</li>
+<li>  xAmnt   (Number)  -- a real number.</li>
+<li>  yAmnt   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Col)  -- returns a new Col object.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+
