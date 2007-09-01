@@ -1,0 +1,15 @@
+#summary Main page for as3mathlib
+
+= Introduction =
+
+The as3mathlib is intended to provide rudimentary numerical analysis tools for the Actionscript/Flex programming environment.
+
+It is based off of the WIS Actionscript 2 libraries, which are still [http://members.shaw.ca/flashprogramming/wisASLibrary/wis/index.html available]
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
