@@ -1,23 +1,24 @@
+package com.wis3.math.geom.util {
 /**
- * @class       com.wis.math.geom.util.Intersection
+ * @class       com.wis3.math.geom.util.Intersection
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the Intersection Class.
  *              <p>
  *		        Provides methods for the IObj interface based on JS RayTracer2 by
  *              John Haggerty.
- * @usage       <pre>var inst:Intersection = new Intersection(depth,ray,obj);</pre>
+ * @usage       <pre>var inst:Intersection = new Intersection(depth, ray, obj);</pre>
  * @param       depth (Number)  -- a scalar value.
  * @param       ray (Ray)  -- a Ray object.
  * @param       obj (Object)  -- first object passed to stack.
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis.math.alg.Vector
- *                com.wis.math.geom.util.Ray
+ * Dependencies:  com.wis3.math.alg.Vector
+ *                com.wis3.math.geom.util.Ray
  * -----------------------------------------------
- * AS2 revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
- * JS  original copyright © 2003, John Haggerty  [http://www.slimeland.com/]
+ * AS2 revision copyright ï¿½ 2004, Richard Wright [wisolutions2002@shaw.ca]
+ * JS  original copyright ï¿½ 2003, John Haggerty  [http://www.slimeland.com/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -45,10 +46,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * -----------------------------------------------
  * Functions:
- *       Intersection(depth,ray,obj)
+ *       Intersection(depth, ray, obj)
  *             1.  getPos()
  *             2.  addsObject(obj)
- *             3.  closerIntersection(i1,i2) - static
+ *             3.  closerIntersection(i1, i2) - static
  * -----------------------------------------------
  *  Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
@@ -59,33 +60,31 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.alg.Vector;
-import com.wis.math.geom.util.Ray;
+import com.wis3.math.alg.Vector;
+import com.wis3.math.geom.util.Ray;
 
-class com.wis.math.geom.util.Intersection
-{
+public class Intersection  {
     /**
      * @property $depth (Number)  -- a scalar value.
      * @property $data (Number)  -- initialized to 'null'.
      * @property $ray (Ray)  -- passed Ray object.
      * @property $objectStack (Array)  -- a list of shape objects.
     **/
-    var $depth:Number;
-    var $data:Number;
-    var $ray:Ray;
-    var $objectStack:Array;
+    public var $depth:Number;
+    public var $data:Number;
+    public var $ray:Ray;
+    public var $objectStack:Array;
 
     // constructor
-    function Intersection(depth:Number,ray:Ray,obj:Object)
-    {
+    public function Intersection(depth:Number, ray:Ray, obj:Object) {
         trace ("Intersection Class fired");
     	$depth = depth;
-    	$data = null;
+    	$data = NaN;
     	$ray = ray;
     	$objectStack = [obj]; // first element is the lowest level object; rest of elements are unions/intersections/etc
     }
 
-// 1. getPos -------------------------------------
+      // 1. getPos -------------------------------------
 
     /**
      * @method  getPos
@@ -94,26 +93,24 @@ class com.wis.math.geom.util.Intersection
      * @usage  <pre>inst.addsObject(obj);</pre>
      * @return  (Vector)  -- returns a new Vector object.
     **/
-    function getPos():Vector
-    {
-    	return Vector.adder($ray.$start,Vector.scaler($ray.$dir,$depth));
+    public function getPos():Vector {
+    	return Vector.adder($ray.$start, Vector.scaler($ray.$dir, $depth));
     }
 
-// 2. addsObject ---------------------------------
+      // 2. addsObject ---------------------------------
 
     /**
      * @method  addsObject
      * @description  Appends passed 'obj' to end of stack.
      * @usage  <pre>inst.addsObject(obj);</pre>
      * @param   obj   (Object)  -- an Object object.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function addsObject(obj:Object):Void
-    {
+    public function addsObject(obj:Object):void {
     	$objectStack[$objectStack.length] = obj;
     }
 
-// 3. closerIntersection -------------------------
+      // 3. closerIntersection -------------------------
 
     /**
      * @method  closerIntersection
@@ -123,10 +120,10 @@ class com.wis.math.geom.util.Intersection
      * @param   i2   (Intersection)  -- an Intersection object.
      * @return  (Number)  -- returns the difference between Intersection object $depths.
     **/
-    static function closerIntersection(i1:Intersection,i2:Intersection):Number
-    {
+    public static function closerIntersection(i1:Intersection, i2:Intersection):Number {
     	return i1.$depth - i2.$depth;
     }
 
-}
+}// class
+}//package
 

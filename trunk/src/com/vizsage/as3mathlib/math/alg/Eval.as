@@ -1,5 +1,6 @@
+package com.wis3.math.alg {
 /**
- * @class       com.wis.math.alg.Eval
+ * @class       com.wis3.math.alg.Eval
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the Eval Class.
@@ -17,7 +18,7 @@
  *              &lt;unaryExpr&gt;   ::= [+|-]&lt;primaryExpr&gt;
  *              &lt;primaryExp&gt;  ::= &lt;number&gt; | ( addExpr ) | &lt;functionId&gt;(exprList)
  *              &lt;functionId&gt;  ::= [Math.]( sin | cos | pow | sqrt | tan | atan | ...)
- *              &lt;exprList&gt;    ::= [&lt;addExpr&gt;(,&lt;addExpr&gt;)*]
+ *              &lt;exprList&gt;    ::= [&lt;addExpr&gt;(, &lt;addExpr&gt;)*]
  *              &lt;number&gt;      ::= &lt;decNumber&gt; | &lt;floatNumber&gt;
  *              </pre></blockquote>
  * @usage       <pre>var inst:Eval = new Eval([stringExp])</pre>
@@ -41,8 +42,8 @@
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * AS2 revision copyright: © 2003, Richard Wright [wisolutions2002@shaw.ca]
- * AS1 original copyright: © 2001, Ralf Bokelberg [www.bokelberg.de/actionscript]
+ * AS2 revision copyright: ï¿½ 2003, Richard Wright [wisolutions2002@shaw.ca]
+ * AS1 original copyright: ï¿½ 2001, Ralf Bokelberg [www.bokelberg.de/actionscript]
  * -----------------------------------------------
  * nov. 2001 ralf bokelberg v0.01112602
  * actionscript@bokelberg.de
@@ -78,18 +79,18 @@
  *           1.  init(stringExp)
  *           2.  compile(stringExp)
  *           3.  execute(compiledExp)
- *           4.  token(sName,sType,value)
+ *           4.  token(sName, sType, value)
  *           5.  nextToken()
  *           6.  isNotIDChar(ch)
  *           7.  isOperatorChar(ch)
  *           8.  isNotNumberChar(ch)
  *           9.  error(msg)
- *           10. plus(a,b)
- *           11. minus(a,b)
- *           12. mul(a,b)
- *           13. div(a,b)
- *           14. mod(a,b)
- *           15. pow2(x,y)
+ *           10. plus(a, b)
+ *           11. minus(a, b)
+ *           12. mul(a, b)
+ *           13. div(a, b)
+ *           14. mod(a, b)
+ *           15. pow2(x, y)
  *           16. addExpr()
  *           17. mulExpr()
  *           18. unaryExpr()
@@ -101,8 +102,7 @@
  *  ----------------------------------------------
 **/
 
-class com.wis.math.alg.Eval
-{
+public class Eval  {
 	/**
 	 * @property $tok (Object)  -- a token object.
 	 * @property $bError (Boolean)  -- flag for tracing error message.
@@ -124,13 +124,12 @@ class com.wis.math.alg.Eval
     private var $sExpr:String;
     private var $aStack:Array;
 
-    public function Eval(stringExp:String)
-    {
+    public function Eval(stringExp:String) {
         trace ("***** Eval Class fired");
         if (stringExp!=null) init(stringExp);
     }
 
-// 1. init ---------------------------------------
+      // 1. init ---------------------------------------
 
     /**
      * @method  init
@@ -142,13 +141,12 @@ class com.wis.math.alg.Eval
      * @param   stringExp   (String)  -- a string representation of the expression to be evaluated.
      * @return  (String)  -- returns a string representation of the result of Eval manipulations.
     **/
-    public function init(stringExp:String) //:Eval
-    {
+    private function init(stringExp:String):Object {
         trace ("** Eval execute fired");
     	return execute(compile(stringExp));
     };
 
-// 2. compile ------------------------------------
+      // 2. compile ------------------------------------
 
     /**
      * @method  compile
@@ -159,8 +157,7 @@ class com.wis.math.alg.Eval
      * @param   stringExp   (String)  -- a string representation of the expression to be evaluated.
      * @return  (String)  -- returns a string representation of the stack to be passed for Eval manipulations.
     **/
-    public function compile(stringExp:String):String
-    {
+    public function compile(stringExp:String):String {
         trace ("** Eval compile fired");
         $bError = false;
         $sErrorMsg = "";
@@ -173,8 +170,7 @@ class com.wis.math.alg.Eval
         $tok.$value = null;
         trace ("1. compile: typeof(nextToken): "+(typeof(nextToken)));
         nextToken();
-    	if (addExpr())
-    	{
+    	if (addExpr()) {
     	    trace ("2. compile: addExp(): "+($iPos>=$iLen)+", "+$aStack);
             if ($iPos>=$iLen) return $aStack.toString();
             else error("3. compile: error: too many tokens");
@@ -182,7 +178,7 @@ class com.wis.math.alg.Eval
     	return $sErrorMsg;
     }
 
-// 3. execute ------------------------------------
+      // 3. execute ------------------------------------
 
     /**
      * @method  execute
@@ -192,48 +188,41 @@ class com.wis.math.alg.Eval
      * @param   compiledExp   (String)  -- a string representation of the stack.
      * @return  (String)  -- returns a string representation of the stack's first element after executing the stack manipulation.
     **/
-    public function execute(compiledExp:String):String
-    {
+    public function execute(compiledExp:String):String {
         trace ("** Eval execute fired");
         trace ("1. execute: "+compiledExp);
-    	var type = "";
-    	var operands = [];
-    	for (var i:Number=0;i<compiledExp.length;i++)
-    	{
+    	var type:String 	= "";
+    	var operands:Array 	= [];
+    	for (var i:Number=0;i<compiledExp.length;i++) {
             type = compiledExp[i++];
             trace("2. execute: i: "+i+": type: "+type);
-            if (type=="n")
-            {
-                operands.push(compiledExp[i]);
+            if (type=="n") {
+                operands.push( compiledExp[i] );
                 trace ("3. execute:  push number ... operands.push(compiledExp["+i+"]): "+compiledExp[i]);
             }
-            else if (type=="v")
-            {
-                operands.push(eval(compiledExp[i]));
+            else if (type=="v") {
+            	/*
+                operands.push( eval(compiledExp[i]) );*/
                 trace ("4. execute:  push variable ... operands.push(compiledExp["+i+"]): "+compiledExp[i]);
+                throw new Error("AS2-AS3 Transition Error: can't eval in AS3 (tried to eval("+compiledExp[i]+")");
             }
-            else if (type=="f0")
-            {
-                operands.push(compiledExp[i]());
+            else if (type=="f0") {
+                operands.push( compiledExp[i]() );
                 trace ("5. execute:  push result from f0 ... operands.push(compiledExp["+i+"]()): "); //+compiledExp[i]());
             }
-            else if(type=="f1")
-            {
-                operands.push(compiledExp[i](operands.pop()));
+            else if(type=="f1") {
+                operands.push( compiledExp[i](operands.pop()) );
                 trace ("6. execute:  push result from f1 ... operands.push(compiledExp["+i+"](operands.pop())): "); //+compiledExp[i](operands.pop()));
             }
-            else if (type=="f2")
-            {
-                operands.push(compiledExp[i](operands.pop(),operands.pop()));
-                trace ("7. execute:  push result from f2 ... operands.push(compiledExp["+i+"](operands.pop(),operands.pop())): "); //+compiledExp[i](operands.pop(),operands.pop()));
+            else if (type=="f2") {
+                operands.push(compiledExp[i](operands.pop(), operands.pop()));
+                trace ("7. execute:  push result from f2 ... operands.push(compiledExp["+i+"](operands.pop(), operands.pop())): "); //+compiledExp[i](operands.pop(), operands.pop()));
             }
-            else if (type=="f3")
-            {
-                operands.push(compiledExp[i](operands.pop(),operands.pop(),operands.pop()));
-                trace ("8. execute:  push result from f3 ... operands.push(compiledExp["+i+"](operands.pop(),operands.pop(),operands.pop())): "); //+compiledExp[i](operands.pop(),operands.pop(),operands.pop()));
+            else if (type=="f3") {
+                operands.push(compiledExp[i](operands.pop(), operands.pop(), operands.pop()));
+                trace ("8. execute:  push result from f3 ... operands.push(compiledExp["+i+"](operands.pop(), operands.pop(), operands.pop())): "); //+compiledExp[i](operands.pop(), operands.pop(), operands.pop()));
             }
-            else
-            {
+            else {
                 trace ("9. execute: tokentype not recognized: "+type);
                 //return error("9. execute: tokentype not recognized: "+type);
             }
@@ -244,19 +233,18 @@ class com.wis.math.alg.Eval
     	return operands[0];
     }
 
-// 4. token --------------------------------------
+      // 4. token --------------------------------------
 
     /**
      * @method  token
      * @description  Defines token object.
-     * @usage  <pre>inst.token(sName,sType,value);</pre>
+     * @usage  <pre>inst.token(sName, sType, value);</pre>
      * @param   sName   (String)  -- token character.
      * @param   sType   (String)  -- type of token.
      * @param   value   (Object)  -- evaluation of sName.
      * @return  (Object)  -- returns populated $tok object.
     **/
-    private function token(sName:String,sType:String,value:Object):Object
-    {
+    private function token(sName:String, sType:String, value:Object):Object {
         trace ("** Eval token fired");
     	$tok.$name = sName;
     	$tok.$type = sType;
@@ -265,7 +253,7 @@ class com.wis.math.alg.Eval
     	return $tok;
     }
 
-// 5. nextToken ----------------------------------
+      // 5. nextToken ----------------------------------
 
     /**
      * @method  nextToken
@@ -273,35 +261,30 @@ class com.wis.math.alg.Eval
      * @usage  <pre>inst.nextToken();</pre>
      * @return  (Boolean)
     **/
-    private function nextToken():Boolean
-    {
+    private function nextToken():Boolean {
         trace ("** Eval nextToken fired");
     	var ch:String;
     	var s:String;
     	// skip whitespace
     	do $iPos++;
     	while ($iPos<$iLen && (ch=$sExpr.charAt($iPos))<=" ");
-    	if ($iPos>=$iLen)
-    	{
+    	if ($iPos>=$iLen) {
             trace ("1. nextToken: $iPos > $sExpr.length");
             return false;
     	}
 
     	// is it an operator ?
-    	if (isOperatorChar(ch))
-    	{
-            $tok = token(ch,"","");
+    	if (isOperatorChar(ch)) {
+            $tok = token(ch, "", "");
             trace ("2. nextToken: operator: "+ch+" rest:"+$sExpr.substring($iPos+1)+":end");
             return true;
     	}
 
 		// is it an identifier ?
-    	if (ch>="a" && ch<="z")
-    	{
+    	if (ch>="a" && ch<="z") {
     	    trace ("3. nextToken: if (ch>='a' && ch<='z')");
             s = ch;
-            do
-            {
+            do {
                 $iPos++;
                 if ($iPos>=$iLen) break;
                 ch = $sExpr.charAt($iPos);
@@ -312,19 +295,17 @@ class com.wis.math.alg.Eval
             while (1);
             $iPos--;
             if (s.indexOf("math.")==0) s = s.substring(5);
-            if (typeof(s)=="function")
-            {
-                $tok = token(s,"f",s);
+            if (typeof(s)=="function") {
+                $tok = token(s, "f", s);
                 trace ("5. nextToken: (typeof(s)=='function')) ... $tok: "+$tok);
-            }
-            else if (typeof(eval(s))=="function")
-            {
-                $tok = token(s,"f",eval(s));
+            }/*
+            // FIXME -- can't eval in AS3 
+            else if (typeof(eval(s))=="function") {
+                $tok = token(s, "f", eval(s));
                 trace ("6. nextToken: (typeof(eval(s))=='function')) ... $tok: "+$tok);
-            }
-            else
-            {
-                $tok = token(s,"v",s);
+            }*/
+            else {
+                $tok = token(s, "v", s);
                 trace ("7. nextToken: else ... $tok: "+$tok);
             }
             trace ("8. nextToken: ID: "+s+" rest:"+$sExpr.substring($iPos+1)+":end");
@@ -333,11 +314,9 @@ class com.wis.math.alg.Eval
         }
 
         //is it a number ?
-        if ((ch>="0" && ch<="9") || ch==".")
-        {
+        if ((ch>="0" && ch<="9") || ch==".") {
             s = ch;
-            do
-            {
+            do {
                 $iPos++;
                 if ($iPos>=$iLen) break;
                 ch = $sExpr.charAt($iPos);
@@ -347,14 +326,12 @@ class com.wis.math.alg.Eval
             while (1);
             $iPos--;
             trace ("9. nextToken: $tok.$type: "+$tok.$type+": $tok.$name: "+$tok.$name+", rest:"+$sExpr.substring($iPos+1)+":end");
-            if (typeof(Number(s))=="number")
-            {
+            if (typeof(Number(s))=="number") {
                 trace ("10. nextToken: (typeof(Number(s))=='number'): "+(typeof(Number(s))=="number"));
-                $tok = token(s,"n",Number(s));
+                $tok = token(s, "n", Number(s));
                 return true;
             }
-            else
-            {
+            else {
                 trace ("11. nextToken: (typeof(Number(s))=='number'): "+(typeof(Number(s))=="number"));
                 return false;
             }
@@ -362,7 +339,7 @@ class com.wis.math.alg.Eval
     	return error("12. nextToken: no more tokens available: "+ch+" rest: "+$sExpr.substring($iPos+1));
 	}
 
-// 6. isNotIDChar --------------------------------
+      // 6. isNotIDChar --------------------------------
 
     /**
      * @method  isNotIDChar
@@ -371,13 +348,12 @@ class com.wis.math.alg.Eval
      * @param   ch   (String)  -- a single character from 'stringExp'.
      * @return  (Boolean)
     **/
-    private function isNotIDChar(ch:String):Boolean
-    {
+    private function isNotIDChar(ch:String):Boolean {
         trace ("** Eval isNotIDChar fired");
     	return ("abcdefghijklmnopqrstuvwxyz._").indexOf(ch)<0;
     }
 
-// 7. isOperatorChar -----------------------------
+      // 7. isOperatorChar -----------------------------
 
     /**
      * @method  isOperatorChar
@@ -386,13 +362,12 @@ class com.wis.math.alg.Eval
      * @param   ch   (String)  -- a single character from 'stringExp'.
      * @return  (Boolean)
     **/
-    private function isOperatorChar(ch:String):Boolean
-    {
+    private function isOperatorChar(ch:String):Boolean {
         trace ("** Eval isOperatorChar fired");
-    	return ("+-*/%(),").indexOf(ch)>=0;
+    	return ("+-*/%(), ").indexOf(ch)>=0;
     }
 
-// 8. isNotNumberChar ----------------------------
+      // 8. isNotNumberChar ----------------------------
 
     /**
      * @method  isNotNumberChar
@@ -401,13 +376,12 @@ class com.wis.math.alg.Eval
      * @param   ch   (String)  -- a single character from 'stringExp'.
      * @return  (Boolean)
     **/
-    private function isNotNumberChar(ch:String):Boolean
-    {
+    private function isNotNumberChar(ch:String):Boolean {
         trace ("** Eval isNotNumberChar fired");
     	return ("0123456789.e").indexOf(ch)<0;
     }
 
-// 9. error --------------------------------------
+      // 9. error --------------------------------------
 
     /**
      * @method  error
@@ -416,11 +390,9 @@ class com.wis.math.alg.Eval
      * @param   msg   (String)  -- an error message.
      * @return  (Boolean)
     **/
-    private function error(msg:String):Boolean
-    {
+    private function error(msg:String):Boolean {
         trace ("** Eval error fired");
-    	if (!$bError)
-    	{
+    	if (!$bError) {
             $sErrorMsg = "1. ERROR at "+$iPos+": "+msg;
             trace("1. error: $sErrorMsg: "+$sErrorMsg);
             $bError = true;
@@ -428,109 +400,102 @@ class com.wis.math.alg.Eval
     	return false;
     }
 
-// 10. plus ---------------------------------------
+      // 10. plus ---------------------------------------
 
     /**
      * @method  plus
      * @description  Calculates 'a' added to 'b'.
-     * @usage  <pre>inst.plus(a,b);</pre>
+     * @usage  <pre>inst.plus(a, b);</pre>
      * @param   a   (Number)  -- a real number.
      * @param   b   (Number)  --  a real number.
      * @return  (Number)  -- returns addition result.
     **/
-    private function plus(a:Number,b:Number):Number
-    {
+    private function plus(a:Number, b:Number):Number {
         trace ("** Eval plus fired");
     	return a+b;
     }
 
-// 11. minus --------------------------------------
+      // 11. minus --------------------------------------
 
     /**
      * @method  minus
      * @description  Calculates 'b' subtracted from 'a'.
-     * @usage  <pre>inst.minus(a,b);</pre>
+     * @usage  <pre>inst.minus(a, b);</pre>
      * @param   a   (Number)  -- a real number.
      * @param   b   (Number)  -- a real number.
      * @return  (Number)  -- returns subtraction result.
     **/
-    private function minus(a:Number,b:Number):Number
-    {
+    private function minus(a:Number, b:Number):Number {
         trace ("** Eval minus fired");
     	return a-b;
     }
 
-// 12. mul ----------------------------------------
+      // 12. mul ----------------------------------------
 
     /**
      * @method  mul
      * @description  Calculates 'a' multiplied by 'b'.
-     * @usage  <pre>inst.mul(a,b);</pre>
+     * @usage  <pre>inst.mul(a, b);</pre>
      * @param   a   (Number)  -- a real number.
      * @param   b   (Number)  -- a real number.
      * @return  (Number)  -- returns multiplication result.
     **/
-    private function mul(a:Number,b:Number):Number
-    {
+    private function mul(a:Number, b:Number):Number {
         trace ("** Eval mul fired");
     	return a*b;
     }
 
-// 13. div ----------------------------------------
+      // 13. div ----------------------------------------
 
     /**
      * @method  div
      * @description  Calculates 'a' division by 'b'.
-     * @usage  <pre>inst.div(a,b);</pre>
+     * @usage  <pre>inst.div(a, b);</pre>
      * @param   a   (Number)  -- a real number.
      * @param   b   (Number)  -- a real number.
      * @return  (Number)  -- returns division result.
     **/
-    private function div(a:Number,b:Number):Number
-    {
+    private function div(a:Number, b:Number):Number {
         trace ("** Eval div fired");
     	return a/b;
     }
 
-// 14. mod ----------------------------------------
+      // 14. mod ----------------------------------------
 
     /**
      * @method  mod
      * @description  Calculates 'a' modulo 'b'.
-     * @usage  <pre>inst.mod(a,b);</pre>
+     * @usage  <pre>inst.mod(a, b);</pre>
      * @param   a   (Number)  -- a real number.
      * @param   b   (Number)  -- a real number.
      * @return  (Number)  -- returns modulo result.
     **/
-    private function mod(a:Number,b:Number):Number
-    {
+    private function mod(a:Number, b:Number):Number {
         trace ("** Eval mod fired");
     	return a%b;
     }
 
-// 15. pow2 ----------------------------------------
+      // 15. pow2 ----------------------------------------
 
     /**
      * @method  pow2
      * @description  Solves the 'Math.pow()' negative input bug.
-     * @usage  <pre>inst.pow2(x,y);</pre>
+     * @usage  <pre>inst.pow2(x, y);</pre>
      * @param   x   (Number)  -- a real number.
      * @param   y   (Number)  --  a real number.
      * @return  (Number)  -- returns exponentiation result.
     **/
-    private function pow2(x:Number,y:Number):Number
-    {
+    private function pow2(x:Number, y:Number):Number {
         trace ("** Eval pow2 fired");
         if (x==0 && y>0) return 0;
-        if (x<0 && y==Math.floor(y))
-        {
-            if (y%2) return(-Math.pow(-x,y));
-            else return Math.pow(-x,y);
+        if (x<0 && y==Math.floor(y)) {
+            if (y%2) return(-Math.pow(-x, y));
+            else return Math.pow(-x, y);
         }
-        return Math.pow(x,y);
+        return Math.pow(x, y);
     }
 
-// 16. addExpr ------------------------------------
+      // 16. addExpr ------------------------------------
 
     /**
      * @method  addExpr
@@ -539,32 +504,25 @@ class com.wis.math.alg.Eval
      * @usage  <pre>inst.addExpr();</pre>
      * @return  (Boolean)
     **/
-    private function addExpr():Boolean
-    {
+    private function addExpr():Boolean {
         trace ("** Eval addExpr fired");
     	//var r1;
     	//var r2;
-    	if (mulExpr())
-    	{
-            while (1)
-            {
-                if ($tok.$name=="+")
-                {
+    	if (mulExpr()) {
+            while (1) {
+                if ($tok.$name=="+") {
                     if (!nextToken()) return error("1. addExpr: 1 expression expected");
-                    if (mulExpr())
-                    {
+                    if (mulExpr()) {
                         $aStack.push("f2");
-                        $aStack.push(plus());
+                        $aStack.push(plus);
                     }
                     else return error("2. addExpr: 2 expression expected");
                 }
-                else if ($tok.$name=="-")
-                {
+                else if ($tok.$name=="-") {
                     if (!nextToken()) return error("3. addExpr: 3 expression expected");
-                    if (mulExpr())
-                    {
+                    if (mulExpr()) {
                         $aStack.push("f2");
-                        $aStack.push(minus());
+                        $aStack.push(minus);
                     }
                     else return error("4. addExpr: 4 expression expected");
                 }
@@ -575,7 +533,7 @@ class com.wis.math.alg.Eval
     	else return error("5. addExpr: 6 expression expected");
     }
 
-// 17. mulExpr ------------------------------------
+      // 17. mulExpr ------------------------------------
 
     /**
      * @method  mulExpr
@@ -584,42 +542,33 @@ class com.wis.math.alg.Eval
      * @usage  <pre>inst.mulExpr();</pre>
      * @return  (Boolean)
     **/
-    private function mulExpr():Boolean
-    {
+    private function mulExpr():Boolean {
         trace ("** Eval mulExpr fired");
     	//var r1;
     	//var r2;
-    	if (unaryExpr())
-    	{
-            while (1)
-            {
-                if ($tok.$name=="*")
-                {
+    	if (unaryExpr()) {
+            while (1) {
+                if ($tok.$name=="*") {
                     if (!nextToken()) return error("1. mulExpr: 1 expression expected");
-                    if (unaryExpr())
-                    {
+                    if (unaryExpr()) {
                         $aStack.push("f2");
-                        $aStack.push(mul());
+                        $aStack.push(mul);
                     }
                     else return error("2. mulExp: 2 expression expected");
                 }
-                else if ($tok.$name=="/")
-                {
+                else if ($tok.$name=="/") {
                     if (!nextToken()) return error("3. mulExpr: 3 expression expected");
-                    if (unaryExpr())
-                    {
+                    if (unaryExpr()) {
                         $aStack.push("f2");
-                        $aStack.push(div());
+                        $aStack.push(div);
                     }
                     else return error("4. mulExp: 4 expression expected");
                 }
-                else if ($tok.$name=="%")
-                {
+                else if ($tok.$name=="%") {
                     if (!nextToken()) return error("5. mulExpr: 5 expression expected");
-                    if (unaryExpr())
-                    {
+                    if (unaryExpr()) {
                         $aStack.push("f2");
-                        $aStack.push(mod());
+                        $aStack.push(mod);
                     }
                     else return error("6. mulExp: 6 expression expected");
                 }
@@ -630,7 +579,7 @@ class com.wis.math.alg.Eval
     	else return error("7. mulExp: 7 expression expected");
     }
 
-// 18. unaryExpr ----------------------------------
+      // 18. unaryExpr ----------------------------------
 
     /**
      * @method  unaryExpr
@@ -639,24 +588,20 @@ class com.wis.math.alg.Eval
      * @usage  <pre>inst.unaryExpr();</pre>
      * @return  (Boolean)
     **/
-    private function unaryExpr():Boolean
-    {
+    private function unaryExpr():Boolean {
         trace ("** Eval unaryExpr fired");
-    	if ($tok.$name=="+")
-    	{
+    	if ($tok.$name=="+") {
             if (!nextToken()) return error("1. unaryExpr: 1 expression expected");
             if (unaryExpr()) return true;
             else return error("2. unaryExpr: 2 expression expected");
     	}
-    	else if ($tok.$name=="-")
-    	{
+    	else if ($tok.$name=="-") {
             if (!nextToken()) return error("3. unaryExpr: 3 expression expected");
             $aStack.push("n");
             $aStack.push(0);
-            if (unaryExpr())
-            {
+            if (unaryExpr()) {
                 $aStack.push("f2");
-                $aStack.push(minus());
+                $aStack.push(minus);
                 return true;
             }
             else return error("4. unaryExpr: 4 expression expected");
@@ -665,7 +610,7 @@ class com.wis.math.alg.Eval
     	else return error("5. unaryExpr: 3 expression expected");
     }
 
-// 19. primaryExpr --------------------------------
+      // 19. primaryExpr --------------------------------
 
     /**
      * @method  primaryExpr
@@ -676,21 +621,17 @@ class com.wis.math.alg.Eval
      * @usage  <pre>inst.primaryExpr();</pre>
      * @return  (Boolean)
     **/
-    private function primaryExpr():Boolean
-    {
+    private function primaryExpr():Boolean {
         trace ("** Eval primaryExpr fired");
     	var r1:Object;
     	//var r2;
     	//var r3;
     	var tVal_arr:Array = [];
 
-    	if ($tok.$name=="(")
-    	{
+    	if ($tok.$name=="(") {
             if (!nextToken()) return error("1. primaryExpr: 1 expression expected");
-            if (addExpr())
-            {
-                if ($tok.$name==")")
-                {
+            if (addExpr()) {
+                if ($tok.$name==")") {
                     nextToken();
                     return true;
                 }
@@ -698,35 +639,29 @@ class com.wis.math.alg.Eval
             }
             else return error("3. primaryExpr: 3 expression expected");
     	}
-    	else if ($tok.$type=="n")
-    	{
+    	else if ($tok.$type=="n") {
             $aStack.push("n");
             $aStack.push($tok.$value);
             trace ("4. primaryExpr: number: tVal??"); //+this.tVal); // no reference
             nextToken();
             return true;
     	}
-    	else if ($tok.$type=="f")
-    	{
+    	else if ($tok.$type=="f") {
             r1 = $tok;
-            if (nextToken() && $tok.$name=="(")
-            {
+            if (nextToken() && $tok.$name=="(") {
                 if (!nextToken()) return error("5. primaryExpr: 4 token expected");
-                if ($tok.$name==")")
-                {
+                if ($tok.$name==")") {
                     nextToken();
                     $aStack.push("f0");
                     $aStack.push(r1.$value);
                     return true;
                 }
-                else if (exprList(tVal_arr))
-                {
-                    if ($tok.$name==")")
-                    {
+                else if (exprList(tVal_arr)) {
+                    if ($tok.$name==")") {
                         nextToken();
                         $aStack.push("f"+tVal_arr.length);
-                        //replace original pow(x,y) because of a bug with x <= 0
-                        if (tVal_arr.length==2 && r1.$name=="pow") $aStack.push(pow2());
+                        //replace original pow(x, y) because of a bug with x <= 0
+                        if (tVal_arr.length==2 && r1.$name=="pow") $aStack.push(pow2);
                         else $aStack.push(r1.$value);
                         trace("function: "+r1.$value+typeof(r1.$value)+typeof(r1));
                         return true;
@@ -737,8 +672,7 @@ class com.wis.math.alg.Eval
             }
             else return error("8. primaryExp: 7 '(' expected");
     	}
-    	else if ($tok.$type=="v")
-    	{
+    	else if ($tok.$type=="v") {
             $aStack.push("v");
             $aStack.push($tok.$name);
             nextToken();
@@ -748,7 +682,7 @@ class com.wis.math.alg.Eval
     	else return error("9. primaryExpr: 8 expression expected: "+$tok.$name+" "+$tok.$type);
     }
 
-// 20. exprList -----------------------------------
+      // 20. exprList -----------------------------------
 
     /**
      * @method  exprList
@@ -757,21 +691,19 @@ class com.wis.math.alg.Eval
      * @param   tVal_arr   (Array)  -- passed array from 'primaryExpr'.
      * @return  (Boolean)
     **/
-    private function exprList(tVal_arr:Array):Boolean
-    {
+    private function exprList(tVal_arr:Array):Boolean {
         trace ("** Eval exprList fired");
-    	while (addExpr())
-    	{
+    	while (addExpr()) {
             tVal_arr.push(1);
-            if ($tok.$name!=",") break;
+            if ($tok.$name!=", ") break;
             if (!nextToken()) return error("1. exprList: 1 expression expected");
     	}
     	return true;
     }
 
-//////////////////////////////////////////////////
-// Tests
-//////////////////////////////////////////////////
+      //////////////////////////////////////////////////
+      // Tests
+      //////////////////////////////////////////////////
 
     /*
     trace("\n\n\n___________________________________________\n" + (s = "2") + " = " + new Eval(s));
@@ -779,10 +711,11 @@ class com.wis.math.alg.Eval
     trace("\n\n\n___________________________________________\n" + (s = "2 * 3") + " = " + new Eval(s));
     trace("\n\n\n___________________________________________\n" + (s = "2 + 3 * 4") + " = " + new Eval(s));
     trace("\n\n\n___________________________________________\n" + (s = "(2 + 3) * 4") + " = " + new Eval(s));
-    trace("\n\n\n___________________________________________\n" + (s = "pow(sin(1),2)") + " = " + new Eval(s));
+    trace("\n\n\n___________________________________________\n" + (s = "pow(sin(1), 2)") + " = " + new Eval(s));
     trace("\n\n\n___________________________________________\n" + (s = "random() * 10 + sin(1)") + " = " + new Eval(s));
-    trace("\n\n\n___________________________________________\n" + (s = "round(random() * 50) + pow(sin(1),2)") + " = " + new Eval(s));
+    trace("\n\n\n___________________________________________\n" + (s = "round(random() * 50) + pow(sin(1), 2)") + " = " + new Eval(s));
      */
 
-}
+}// class
+}//package
 

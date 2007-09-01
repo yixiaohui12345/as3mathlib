@@ -1,5 +1,6 @@
+package com.wis3.math.calc.solvers {
 /**
- * @class       com.wis.math.calc.solvers.Verlet
+ * @class       com.wis3.math.calc.solvers.Verlet
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description Verlet method IODE solver. The Verlet algorithm is a third order
@@ -27,8 +28,8 @@
  * -----------------------------------------------
  * Latest update: January 11, 2005
  * -----------------------------------------------
- * AS2  revision copyright: © 2005, Richard Wright     [wisolutions2002@shaw.ca]
- * Java original copyright: © 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
+ * AS2  revision copyright: ï¿½ 2005, Richard Wright     [wisolutions2002@shaw.ca]
+ * Java original copyright: ï¿½ 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -70,10 +71,9 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.calc.*;
+import com.wis3.math.calc.*;
 
-class com.wis.math.calc.solvers.Verlet implements com.wis.math.calc.IODESolver
-{
+public class Verlet implements com.wis3.math.calc.IODESolver {
 	/**
 	 * @property $stepSize  (Number)  -- parameter increment such as delta time.
 	 * @property $numEqn  (Number)  -- number of equations.
@@ -89,13 +89,12 @@ class com.wis.math.calc.solvers.Verlet implements com.wis.math.calc.IODESolver
     private var $currentState:Array;  // current state
     private var $ode:IODE;
 
-    public function Verlet(_ode:IODE)
-    {
+    public function Verlet(_ode:IODE) {
         $ode = _ode;
         initialize($stepSize);
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  initialize
@@ -105,10 +104,9 @@ class com.wis.math.calc.solvers.Verlet implements com.wis.math.calc.IODESolver
      *                IODE.
      * @usage  <pre>inst.initialize(_stepSize);</pre>
      * @param   _stepSize  (Number) -- step integer.
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function initialize(_stepSize:Number):Void
-    {
+    public function initialize(_stepSize:Number):void {
         $stepSize = _stepSize;
         var state:Array = $ode.getState();
         // if state vector not defined.
@@ -121,7 +119,7 @@ class com.wis.math.calc.solvers.Verlet implements com.wis.math.calc.IODESolver
         estimatePreviousState(state);
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  step
@@ -133,26 +131,26 @@ class com.wis.math.calc.solvers.Verlet implements com.wis.math.calc.IODESolver
      * @usage  <pre>inst.step();</pre>
      * @return  (Number)  -- returns step size.
     **/
-    public function step():Number
-    {
+    public function step():Number {
+    	var i:uint;
         // state[]: x1, d x1/dt, x2, d x2/dt .... xN, d xN/dt, t
         var state:Array = $ode.getState();
         state = $currentState.concat();  // save the current state as the prior state
         if (state.length!=$numEqn) initialize($stepSize);
-        $ode.getRate(state,$rate);  // get the initial rate
+        $ode.getRate(state, $rate);  // get the initial rate
         var dt2:Number = $stepSize*$stepSize;  // the step size squared
         // increment the positions
-        for (var i:Number=0;i<$numEqn-1;i+=2) // even numbers are positions
+        for (i=0;i<$numEqn-1;i+=2) // even numbers are positions
             state[i] = 2*state[i]-$priorState[i]+dt2*$rate[i+1];
         // increment the velocities
-        for (var i:Number=1;i<$numEqn-1;i+=2)  // odd numbers are velocities
+        for (i=1;i<$numEqn-1;i+=2)  // odd numbers are velocities
             state[i] = (state[i-1]-$priorState[i-1])/2.0/$stepSize;
         state[$numEqn-1] += $rate[$numEqn-1]*$stepSize;  // increment the independent parameter
         $currentState = $priorState.concat();  // save the current state as the prior state
         return $stepSize;
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  setStepSize
@@ -160,15 +158,14 @@ class com.wis.math.calc.solvers.Verlet implements com.wis.math.calc.IODESolver
      *                algorithm. The prior state array is reinitialized.
      * @usage  <pre>inst.setStepSize(_stepSize);</pre>
      * @param   _stepSize  (Number) -- step integer.
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function setStepSize(_stepSize:Number):Void
-    {
+    public function setStepSize(_stepSize:Number):void {
         $stepSize = _stepSize;
         estimatePreviousState($ode.getState());
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  getStepSize
@@ -176,23 +173,22 @@ class com.wis.math.calc.solvers.Verlet implements com.wis.math.calc.IODESolver
      * @usage  <pre>inst.getStepSize();</pre>
      * @return  (Number)  -- returns step size.
     **/
-    public function getStepSize():Number
-    {
+    public function getStepSize():Number {
         return $stepSize;
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  setTolerance
      * @description   Abstract interface method.
      * @usage  <pre>not used.</pre>
      * @param   _tol  (Number) -- .
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function setTolerance(_tol:Number):Void {}
+    public function setTolerance(_tol:Number):void {}
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  getTolerance
@@ -202,7 +198,7 @@ class com.wis.math.calc.solvers.Verlet implements com.wis.math.calc.IODESolver
     **/
     public function getTolerance():Number {return 1.0e-9;}
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  estimatePreviousState
@@ -210,19 +206,20 @@ class com.wis.math.calc.solvers.Verlet implements com.wis.math.calc.IODESolver
      *                self-starting.
      * @usage  <pre>inst.estimatePreviousState(state);</pre>
      * @param   state  (Array) -- state array.
-     * @return  (Void)
+     * @return  (void)
     **/
-    private function estimatePreviousState(state:Array):Void
-    {
-        $ode.getRate(state,$rate);  // get the rate at the start
+    private function estimatePreviousState(state:Array):void {
+    	var i:uint;
+        $ode.getRate(state, $rate);  // get the rate at the start
         var midstate:Array = new Array($numEqn);
-        for (var i:Number=0;i<$numEqn;i++) {
+        for (i=0;i<$numEqn;i++) {
             // estimate the state at the midpoint
             midstate[i] = state[i]-$stepSize*$rate[i]/2;
         }
-        $ode.getRate(midstate,$rate);  // get the rate at the midpoint
-        for (var i:Number=0;i<$numEqn;i++)
+        $ode.getRate(midstate, $rate);  // get the rate at the midpoint
+        for (i=0;i<$numEqn;i++)
             $priorState[i] = state[i]-$stepSize*$rate[i];
     }
-}
+}// class
+}//package
 

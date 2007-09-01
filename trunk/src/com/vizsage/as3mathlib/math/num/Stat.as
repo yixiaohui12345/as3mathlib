@@ -1,5 +1,6 @@
-﻿/**
- * @class       com.wis.math.num.Stat
+﻿package com.wis3.math.num {
+/**
+ * @class       com.wis3.math.num.Stat
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the static behaviours of the Stat Class, which deals
@@ -40,11 +41,11 @@
  * -----------------------------------------------
  * Functions:
  *       Stat()
- *           1. permutations(n,r)
- *           2. combinations(n,r)
- *           3. gcd(a,b)
- *           4. lcm(a,b)
- *           5. percentage(a,b)
+ *           1. permutations(n, r)
+ *           2. combinations(n, r)
+ *           3. gcd(a, b)
+ *           4. lcm(a, b)
+ *           5. percentage(a, b)
  *           6. mean(arr)
  *           7. variance(arr)
  *           8. sd(arr)
@@ -54,67 +55,61 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.num.Factor;
+import com.wis3.math.num.Factor;
 
-class com.wis.math.num.Stat
-{
+public class Stat  {
 	/**
 	 * @property none  -- no class properties.
 	**/
 
-    function Stat()
-    {
+    public function Stat() {
         //trace ("Stat Class loaded");
     }
 
-// 1. permutations -------------------------------
+      // 1. permutations -------------------------------
 
     /**
      * @method  permutations
      * @description  Number of ways to arrange a list -- order matters.
-     * @usage  <pre>Stat.permutations(n,r);</pre>
+     * @usage  <pre>Stat.permutations(n, r);</pre>
      * @param   n   (Number)  -- a real number.
      * @param   r   (Number)  -- a positive integer.
      * @return  (Number)  -- returns total number of permutations.
     **/
-    static function permutations(n:Number,r:Number):Number
-    {
+    public static function permutations(n:Number, r:Number):Number {
         return Factor.factorial(n)/Factor.factorial(n-r);
     }
 
-// 2. combinations -------------------------------
+      // 2. combinations -------------------------------
 
     /**
      * @method  combinations
      * @description  Number of ways to arrange a list -- order doesn't matter.
-     * @usage  <pre>Stat.combinations(n,r);</pre>
+     * @usage  <pre>Stat.combinations(n, r);</pre>
      * @param   n   (Number)  -- a real number.
      * @param   r   (Number)  -- a positive integer.
      * @return  (Number)  -- returns total number of combinations.
     **/
-    static function combinations(n:Number,r:Number):Number
-    {
-        return Stat.permutations(n,r)/Factor.factorial(r);
+    public static function combinations(n:Number, r:Number):Number {
+        return Stat.permutations(n, r)/Factor.factorial(r);
     }
 
-// 3. gcd ----------------------------------------
+      // 3. gcd ----------------------------------------
 
     /**
      * @method  gcd
      * @description  Defines greatest common divisor of two input numbers.
-     * @usage  <pre>Stat.gcd(a,b);</pre>
+     * @usage  <pre>Stat.gcd(a, b);</pre>
      * @param   a   (Number)  -- a real number.
      * @param   b   (Number)  -- a real number.
      * @return  (Number)  -- returns greatest common divisor of two input numbers.
     **/
-    static function gcd(a:Number,b:Number):Number
-    {
+    public static function gcd(a:Number, b:Number):Number {
         if(a==0) return b;
 
         var r:Number;
 
-        while(b!=0)
-        {
+        while(b!=0) {
             r = a%b;
             a = b;
             b = r;
@@ -123,24 +118,22 @@ class com.wis.math.num.Stat
         return Math.abs(a);
     } // actionscript@bokelberg.de - Nov. 2001
 
-// 4. lcm ----------------------------------------
+      // 4. lcm ----------------------------------------
 
     /**
      * @method  lcm
      * @description  Defines lowest common multiple of two input numbers.
-     * @usage  <pre>Stat.lcm(a,b);</pre>
+     * @usage  <pre>Stat.lcm(a, b);</pre>
      * @param   a   (Number)  -- a real number.
      * @param   b   (Number)  -- a real number.
      * @return  (Number)  -- returns lowest common multiple of two input numbers.
     **/
-    static function lcm(a:Number,b:Number):Number
-    {
+    public static function lcm(a:Number, b:Number):Number {
         var ta:Number = a;
         var tb:Number = b;
         var tr:Number;
 
-        do
-        {
+        do {
             if((tr=a%b)==0) break;
             a = b;
             b = tr;
@@ -150,22 +143,21 @@ class com.wis.math.num.Stat
         return ta*tb/b;
     } // v3nom - Feb 2002
 
-// 5. percentage ---------------------------------
+      // 5. percentage ---------------------------------
 
     /**
      * @method  percentage
      * @description  Defines percentage of two input numbers.
-     * @usage  <pre>Stat.percentage(a,b);</pre>
+     * @usage  <pre>Stat.percentage(a, b);</pre>
      * @param   a   (Number)  -- a real number.
      * @param   b   (Number)  -- a real number.
      * @return  (Number)  -- returns percentage of two input numbers.
     **/
-    static function percentage(a:Number,b:Number):Number
-    {
+    public static function percentage(a:Number, b:Number):Number {
         return (a/b)*100;
     }
 
-// 6. mean ---------------------------------------
+      // 6. mean ---------------------------------------
 
     /**
      * @method  mean
@@ -174,8 +166,7 @@ class com.wis.math.num.Stat
      * @param   arr   (Array)  -- a list of real numbers.
      * @return  (Number)  -- returns the mean for an array of numbers.
     **/
-    static function mean(arr:Array):Number
-    {
+    public static function mean(arr:Array):Number {
         var l:Number = arr.length;
         var s:Number = 0;
 
@@ -184,7 +175,7 @@ class com.wis.math.num.Stat
         return s/arr.length;
     }
 
-// 7. variance -----------------------------------
+      // 7. variance -----------------------------------
 
     /**
      * @method  variance
@@ -193,15 +184,13 @@ class com.wis.math.num.Stat
      * @param   arr   (Array)  -- a list of real numbers.
      * @return  (Number)  -- returns the variance for an array of numbers.
     **/
-    static function variance(arr:Array):Number
-    {
+    public static function variance(arr:Array):Number {
 	    var x:Number = 0;
         var x2:Number = 0;
         var len:Number = arr.length;
 	    var j:Number;
 
-	    for (j=0;j<len;j++)
-	    {
+	    for (j=0;j<len;j++) {
 		    x += arr[j];
 		    x2 += arr[j]*arr[j];
 	    }
@@ -209,7 +198,7 @@ class com.wis.math.num.Stat
 	    return ((len*x2)-(x*x))/(len*(len-1));
     }
 
-// 8. sd -----------------------------------------
+      // 8. sd -----------------------------------------
 
     /**
      * @method  sd
@@ -218,10 +207,10 @@ class com.wis.math.num.Stat
      * @param   arr   (Array)  -- a list of real numbers.
      * @return  (Number)  -- returns the standard deviation for an array of numbers.
     **/
-    static function sd(arr:Array):Number
-    {
+    public static function sd(arr:Array):Number {
         return Math.sqrt(Stat.variance(arr));
     }
 
-}
+}// class
+}//package
 

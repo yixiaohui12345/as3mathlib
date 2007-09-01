@@ -1,5 +1,6 @@
-﻿/**
- * @class       com.wis.math.geom.trig.Circular
+﻿package com.wis3.math.geom.trig {
+/**
+ * @class       com.wis3.math.geom.trig.Circular
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the static behaviours of the Circular Class.
@@ -63,18 +64,16 @@
  *  ----------------------------------------------
 **/
 
-class com.wis.math.geom.trig.Circular
-{
+public class Circular  {
 	/**
 	 * @property none  -- no class properties.
 	**/
 
-    function Circular()
-    {
+    public function Circular() {
         //trace ("Circular Class loaded");
     }
 
-// 1. sec ----------------------------------------
+      // 1. sec ----------------------------------------
 
     /**
      * @method  sec
@@ -83,12 +82,11 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the secant of the passed angle.
     **/
-    static function sec(n:Number):Number
-    {
+    public static function sec(n:Number):Number {
         return (1/Math.cos(n));
     }
 
-// 2. arcsecant ----------------------------------
+      // 2. arcsecant ----------------------------------
 
     /**
      * @method  asec
@@ -97,12 +95,11 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the arcsecant of the passed angle.
     **/
-    static function asec(n:Number):Number
-    {
+    public static function asec(n:Number):Number {
         return (Math.acos(1/n));
     }
 
-// 3. cosecant -----------------------------------
+      // 3. cosecant -----------------------------------
 
     /**
      * @method  csc
@@ -111,12 +108,11 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the cosecant of the passed angle.
     **/
-    static function csc(n:Number):Number
-    {
+    public static function csc(n:Number):Number {
         return (1/Math.sin(n));
     }
 
-// 4. arccosecant --------------------------------
+      // 4. arccosecant --------------------------------
 
     /**
      * @method  acsc
@@ -125,12 +121,11 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the arccosecant of the passed angle.
     **/
-    static function acsc(n:Number):Number
-    {
+    public static function acsc(n:Number):Number {
         return (Math.asin(1/n));
     }
 
-// 5. cotangent ----------------------------------
+      // 5. cotangent ----------------------------------
 
     /**
      * @method  cot
@@ -139,12 +134,11 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the cotangent of the passed angle.
     **/
-    static function cot(n:Number):Number
-    {
+    public static function cot(n:Number):Number {
         return (1/Math.tan(n));
     }
 
-// 6. arccotangent -------------------------------
+      // 6. arccotangent -------------------------------
 
     /**
      * @method  acot
@@ -153,12 +147,11 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the arccotangent of the passed angle.
     **/
-    static function acot(n:Number):Number
-    {
+    public static function acot(n:Number):Number {
         return (Math.atan(1/n));
     }
 
-// 7. versine ------------------------------------
+      // 7. versine ------------------------------------
 
     /**
      * @method  vers
@@ -167,12 +160,11 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the versine of the passed angle.
     **/
-    static function vers(n:Number):Number
-    {
+    public static function vers(n:Number):Number {
         return 1-Math.cos(n);
     }
 
-// 8. coversine ----------------------------------
+      // 8. coversine ----------------------------------
 
     /**
      * @method  covers
@@ -181,12 +173,11 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the coversine of the passed angle.
     **/
-    static function covers(n:Number):Number
-    {
+    public static function covers(n:Number):Number {
         return 1-Math.sin(n);
     }
 
-// 9. haversine ----------------------------------
+      // 9. haversine ----------------------------------
 
     /**
      * @method  havers
@@ -195,12 +186,11 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the haversine of the passed angle.
     **/
-    static function havers(n:Number):Number
-    {
+    public static function havers(n:Number):Number {
         return 0.5*(1-Math.cos(n));
     }
 
-// 10. cohaversine -------------------------------
+      // 10. cohaversine -------------------------------
 
     /**
      * @method  cohavers
@@ -209,12 +199,11 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the cohaversine of the passed angle.
     **/
-    static function cohavers(n:Number):Number
-    {
+    public static function cohavers(n:Number):Number {
         return 0.5*(1-Math.sin(n));
     }
 
-// 11. exsecant ----------------------------------
+      // 11. exsecant ----------------------------------
 
     /**
      * @method  exsec
@@ -223,12 +212,11 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the exsecant of the passed angle.
     **/
-    static function exsec(n:Number):Number
-    {
+    public static function exsec(n:Number):Number {
         return 1/Math.cos(n)-1;
     }
 
-// 12. coexsecant --------------------------------
+      // 12. coexsecant --------------------------------
 
     /**
      * @method  coexsec
@@ -237,12 +225,11 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the coexsecant of the passed angle.
     **/
-    static function coexsec(n:Number):Number
-    {
+    public static function coexsec(n:Number):Number {
         return 1/Math.sin(n)-1;
     }
 
-// 13. arcversine --------------------------------
+      // 13. arcversine --------------------------------
 
     /**
      * @method  avers
@@ -251,12 +238,11 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the arcversine of the passed angle.
     **/
-    static function avers(n:Number):Number
-    {
+    public static function avers(n:Number):Number {
         return Math.atan(Math.sqrt(2*n-n*n)/(1-n));
     }
 
-// 14. arccoversine ------------------------------
+      // 14. arccoversine ------------------------------
 
     /**
      * @method  acovers
@@ -265,12 +251,11 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the arccoversine of the passed angle.
     **/
-    static function acovers(n:Number):Number
-    {
+    public static function acovers(n:Number):Number {
         return Math.atan((1-n)/Math.sqrt(2*n-n*n));
     }
 
-// 15. archaversine ------------------------------
+      // 15. archaversine ------------------------------
 
     /**
      * @method  ahavers
@@ -279,12 +264,11 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the archaversine of the passed angle.
     **/
-    static function ahavers(n:Number):Number
-    {
+    public static function ahavers(n:Number):Number {
         return Math.atan(2*Math.sqrt(n-n*n)/(1-2*n));
     }
 
-// 16. arcexsecant -------------------------------
+      // 16. arcexsecant -------------------------------
 
     /**
      * @method  aexsec
@@ -293,10 +277,10 @@ class com.wis.math.geom.trig.Circular
      * @param   n   (Number)  -- a value representing angle in radians.
      * @return  (Number)  -- returns the arcexsecant of the passed angle.
     **/
-    static function aexsec(n:Number):Number
-    {
+    public static function aexsec(n:Number):Number {
         return Math.atan(Math.sqrt(n*n+2*n));
     }
 
-}
+}// class
+}//package
 

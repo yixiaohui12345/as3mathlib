@@ -1,5 +1,6 @@
-﻿/**
- * @class       com.wis.math.geom.trig.Hyperbolic
+﻿package com.wis3.math.geom.trig {
+/**
+ * @class       com.wis3.math.geom.trig.Hyperbolic
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the static behaviours of the Hyperbolic Class.
@@ -63,18 +64,16 @@
  *  ----------------------------------------------
 **/
 
-class com.wis.math.geom.trig.Hyperbolic
-{
+public class Hyperbolic  {
 	/**
 	 * @property none  -- no class properties.
 	**/
 
-    function Hyperbolic()
-    {
+    public function Hyperbolic() {
         //trace ("Hyperbolic  Class loaded");
     }
 
-// 1. sinh ---------------------------------------
+      // 1. sinh ---------------------------------------
 
     /**
      * @method  sinh
@@ -83,12 +82,11 @@ class com.wis.math.geom.trig.Hyperbolic
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the hyperbolic sine.
     **/
-    static function sinh(n:Number):Number
-    {
+    public static function sinh(n:Number):Number {
         return (Math.exp(n)-Math.exp(-n))/2;
     }
 
-// 2. asinh --------------------------------------
+      // 2. asinh --------------------------------------
 
     /**
      * @method  asinh
@@ -97,12 +95,11 @@ class com.wis.math.geom.trig.Hyperbolic
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the hyperbolic arcsine.
     **/
-    static function asinh(n:Number):Number
-    {
+    public static function asinh(n:Number):Number {
         return Math.log(n+Math.sqrt(n*n+1));
     }
 
-// 3. cosh ---------------------------------------
+      // 3. cosh ---------------------------------------
 
     /**
      * @method  cosh
@@ -111,12 +108,11 @@ class com.wis.math.geom.trig.Hyperbolic
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the hyperbolic cosine.
     **/
-    static function cosh(n:Number):Number
-    {
+    public static function cosh(n:Number):Number {
         return (Math.exp(n)+Math.exp(-n))/2;
     }
 
-// 4. acosh --------------------------------------
+      // 4. acosh --------------------------------------
 
     /**
      * @method  acosh
@@ -125,12 +121,11 @@ class com.wis.math.geom.trig.Hyperbolic
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the hyperbolic arccosine.
     **/
-    static function acosh(n:Number):Number
-    {
+    public static function acosh(n:Number):Number {
         return Math.log(n+Math.sqrt(n*n-1));
     }
 
-// 5. tanh ---------------------------------------
+      // 5. tanh ---------------------------------------
 
     /**
      * @method  tanh
@@ -139,15 +134,14 @@ class com.wis.math.geom.trig.Hyperbolic
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the hyperbolic tangent.
     **/
-    static function tanh(n:Number):Number
-    {
+    public static function tanh(n:Number):Number {
         var t1:Number = Math.exp(n);
         var t2:Number = Math.exp(-n);
 
         return (t1-t2)/(t1+t2);
     }
 
-// 6. atanh --------------------------------------
+      // 6. atanh --------------------------------------
 
     /**
      * @method  atanh
@@ -156,12 +150,11 @@ class com.wis.math.geom.trig.Hyperbolic
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the hyperbolic arctangent.
     **/
-    static function atanh(n:Number):Number
-    {
+    public static function atanh(n:Number):Number {
         return Math.log((1+n)/(1-n))/2;
     }
 
-// 7. sech ---------------------------------------
+      // 7. sech ---------------------------------------
 
     /**
      * @method  sech
@@ -170,12 +163,11 @@ class com.wis.math.geom.trig.Hyperbolic
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the hyperbolic secant.
     **/
-    static function sech(n:Number):Number
-    {
+    public static function sech(n:Number):Number {
         return (1/Hyperbolic.cosh(n));
     }
 
-// 8. asech --------------------------------------
+      // 8. asech --------------------------------------
 
     /**
      * @method  asech
@@ -184,12 +176,11 @@ class com.wis.math.geom.trig.Hyperbolic
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the hyperbolic arcsecant.
     **/
-    static function asech(n:Number):Number
-    {
+    public static function asech(n:Number):Number {
         return (Hyperbolic.acosh(1/n));
     }
 
-// 9. csch ---------------------------------------
+      // 9. csch ---------------------------------------
 
     /**
      * @method  csch
@@ -198,12 +189,11 @@ class com.wis.math.geom.trig.Hyperbolic
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the hyperbolic cosecant.
     **/
-    static function csch(n:Number):Number
-    {
+    public static function csch(n:Number):Number {
         return (1/Hyperbolic.sinh(n));
     }
 
-// 10. acsch -------------------------------------
+      // 10. acsch -------------------------------------
 
     /**
      * @method  acsch
@@ -212,12 +202,11 @@ class com.wis.math.geom.trig.Hyperbolic
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the hyperbolic arccosecant.
     **/
-    static function acsch(n:Number):Number
-    {
+    public static function acsch(n:Number):Number {
         return (Hyperbolic.asinh(1/n));
     }
 
-// 11. coth --------------------------------------
+      // 11. coth --------------------------------------
 
     /**
      * @method  coth
@@ -226,12 +215,11 @@ class com.wis.math.geom.trig.Hyperbolic
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the hyperbolic cotangent.
     **/
-    static function coth(n:Number):Number
-    {
+    public static function coth(n:Number):Number {
         return (1/Hyperbolic.tanh(n));
     }
 
-// 12. acoth -------------------------------------
+      // 12. acoth -------------------------------------
 
     /**
      * @method  acoth
@@ -240,12 +228,11 @@ class com.wis.math.geom.trig.Hyperbolic
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the hyperbolic arccotangent.
     **/
-    static function acoth(n:Number):Number
-    {
+    public static function acoth(n:Number):Number {
         return (Hyperbolic.atanh(1/n));
     }
 
-// 13. versh -------------------------------------
+      // 13. versh -------------------------------------
 
     /**
      * @method  versh
@@ -254,12 +241,11 @@ class com.wis.math.geom.trig.Hyperbolic
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the hyperbolic versine.
     **/
-    static function versh(n:Number):Number
-    {
+    public static function versh(n:Number):Number {
         return 1-0.5*(Math.exp(n)+Math.exp(-n));
     }
 
-// 14. coversh -----------------------------------
+      // 14. coversh -----------------------------------
 
     /**
      * @method  coversh
@@ -268,12 +254,11 @@ class com.wis.math.geom.trig.Hyperbolic
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the hyperbolic coversine.
     **/
-    static function coversh(n:Number):Number
-    {
+    public static function coversh(n:Number):Number {
         return 1-0.5*(Math.exp(n)-Math.exp(-n));
     }
 
-// 15. haversh -----------------------------------
+      // 15. haversh -----------------------------------
 
     /**
      * @method  haversh
@@ -282,10 +267,10 @@ class com.wis.math.geom.trig.Hyperbolic
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the hyperbolic haversine.
     **/
-    static function haversh(n:Number):Number
-    {
+    public static function haversh(n:Number):Number {
         return 0.5*(1-0.5*(Math.exp(n)+Math.exp(-n)));
     }
 
-}
+}// class
+}//package
 

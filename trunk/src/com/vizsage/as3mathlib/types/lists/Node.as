@@ -1,5 +1,6 @@
+package com.wis3.types.lists {
 /**
- * @class       com.wis.types.lists.Node
+ * @class       com.wis3.types.lists.Node
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the Node Class.
@@ -13,7 +14,7 @@
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * AS2  revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
+ * AS2  revision copyright ï¿½ 2004, Richard Wright [wisolutions2002@shaw.ca]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -48,23 +49,22 @@
  *  ----------------------------------------------
 **/
 
-class com.wis.types.lists.Node
-{
+public class Node  {
 	/**
 	 * @property $left (Node)  -- holder for left Node.
 	 * @property $right (Node)  -- holder for right Node.
 	 * @property $data (Number)  -- a real number.
 	**/
-    var $left:Node;
-    var $right:Node;
-    var $data:Number;
+    public var $left:	Node;
+    public var $right:	Node;
+    public var $data:	Number;
 
-    function Node(newData:Number)
-    {
-        $left = null;
+    public function Node(newData:Number) {
+        $left  = null;
         $right = null;
-        $data = newData;
+        $data  = newData;
     }
 
-}
+}// class
+}//package
 

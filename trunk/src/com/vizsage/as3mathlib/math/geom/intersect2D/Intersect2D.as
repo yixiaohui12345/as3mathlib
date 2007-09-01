@@ -1,5 +1,6 @@
+package com.wis3.math.geom.intersect2D {
 /**
- * @class       com.wis.math.geom.intersect2D.Intersect2D
+ * @class       com.wis3.math.geom.intersect2D.Intersect2D
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Intersect2D Class.
@@ -14,19 +15,19 @@
  * -----------------------------------------------
  * Latest update: August 5, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis.math.alg.Point
- *                com.wis.math.alg.Polynomial
- *                com.wis.math.alg.Vector
+ * Dependencies:  com.wis3.math.alg.Point
+ *                com.wis3.math.alg.Polynomial
+ *                com.wis3.math.alg.Vector
  *                -- subclass list:
- *                    - com.wis.math.geom.intersect2D.Intersect2DBez2
- *                    - com.wis.math.geom.intersect2D.Intersect2DBez3
- *                    - com.wis.math.geom.intersect2D.Intersect2DBez3Bez3
- *                    - com.wis.math.geom.intersect2D.Intersect2DCircle
- *                    - com.wis.math.geom.intersect2D.Intersect2DLine
- *                    - com.wis.math.geom.intersect2D.Intersect2DParams
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DBez2
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DBez3
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DBez3Bez3
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DCircle
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DLine
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DParams
  * -----------------------------------------------
- * AS2 revision copyright: © 2003, Richard Wright     [wisolutions2002@shaw.ca]
- * JS  original copyright: © 2000-2002, Kevin Lindsey [http://www.kevlindev.com/]
+ * AS2 revision copyright: ï¿½ 2003, Richard Wright     [wisolutions2002@shaw.ca]
+ * JS  original copyright: ï¿½ 2000-2002, Kevin Lindsey [http://www.kevlindev.com/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -61,59 +62,59 @@
  *             3.  appendPoints(points)
  *             4.  pointsToString()
  *             5.  toString()
- *             6.  shapes(shape1,shape2)
- *             7.  pathShape(path,shape)
- *             8.  bezout(e1,e2)
+ *             6.  shapes(shape1, shape2)
+ *             7.  pathShape(path, shape)
+ *             8.  bezout(e1, e2)
  8
  8       Extensions:
  *
  *       Intersect2DBez2(status)
  *             1.  init(status)
- *             2.  bez2Bez2(a1,a2,a3,b1,b2,b3)
- *             3.  bez2Bez3(a1,a2,a3,b1,b2,b3,b4)
- *             4.  bez2Circle(p1,p2,p3,c,r)
- *             5.  bez2Ellipse(p1,p2,p3,ec,rx,ry)
- *             6.  bez2Line(p1,p2,p3,a1,a2)
- *             7.  bez2Polygon(p1,p2,p3,points)
- *             8.  bez2Rectangle(p1,p2,p3,r1,r2)
+ *             2.  bez2Bez2(a1, a2, a3, b1, b2, b3)
+ *             3.  bez2Bez3(a1, a2, a3, b1, b2, b3, b4)
+ *             4.  bez2Circle(p1, p2, p3, c, r)
+ *             5.  bez2Ellipse(p1, p2, p3, ec, rx, ry)
+ *             6.  bez2Line(p1, p2, p3, a1, a2)
+ *             7.  bez2Polygon(p1, p2, p3, points)
+ *             8.  bez2Rectangle(p1, p2, p3, r1, r2)
  *
  *       Intersect2DBez3(status)
  *             1.  init(status)
- *             2.  bez3Circle(p1,p2,p3,p4,c,r)
- *             3.  bez3Ellipse(p1,p2,p3,p4,ec,rx,ry)
- *             4.  bez3Line(p1,p2,p3,p4,a1,a2)
- *             5.  bez3Polygon(p1,p2,p3,p4,points)
- *             6.  bez3Rectangle(p1,p2,p3,p4,r1,r2)
+ *             2.  bez3Circle(p1, p2, p3, p4, c, r)
+ *             3.  bez3Ellipse(p1, p2, p3, p4, ec, rx, ry)
+ *             4.  bez3Line(p1, p2, p3, p4, a1, a2)
+ *             5.  bez3Polygon(p1, p2, p3, p4, points)
+ *             6.  bez3Rectangle(p1, p2, p3, p4, r1, r2)
  *
  *       Intersect2DBez3Bez3(status)
  *             1.  init(status)
- *             2.  bez3Bez3(a1,a2,a3,a4,b1,b2,b3,b4)
+ *             2.  bez3Bez3(a1, a2, a3, a4, b1, b2, b3, b4)
  *
  *       Intersect2DCircle(status)
  *             1.  init(status)
- *             2.  circleCircle(c1,r1,c2,r2)
- *             3.  circleEllipse(cc,r,ec,rx,ry)
- *             4.  circleLine(c,r,a1,a2)
- *             5.  circlePolygon(c,r,points)
- *             6.  circleRectangle(c,r,r1,r2)
- *             7.  ellipseEllipse(c1,rx1,ry1,c2,rx2,ry2)
- *             8.  ellipseLine(c,rx,ry,a1,a2)
- *             9.  ellipsePolygon(c,rx,ry,points)
- *             10. ellipseRectangle(c,rx,ry,r1,r2)
+ *             2.  circleCircle(c1, r1, c2, r2)
+ *             3.  circleEllipse(cc, r, ec, rx, ry)
+ *             4.  circleLine(c, r, a1, a2)
+ *             5.  circlePolygon(c, r, points)
+ *             6.  circleRectangle(c, r, r1, r2)
+ *             7.  ellipseEllipse(c1, rx1, ry1, c2, rx2, ry2)
+ *             8.  ellipseLine(c, rx, ry, a1, a2)
+ *             9.  ellipsePolygon(c, rx, ry, points)
+ *             10. ellipseRectangle(c, rx, ry, r1, r2)
  *
  *       Intersect2DLine(status)
  *             1.  init(status)
- *             2.  lineLine(a1,a2,b1,b2)
- *             3.  linePolygon(a1,a2,points)
- *             4.  lineRectangle(a1,a2,r1,r2)
- *             5.  polygonPolygon(points1,points2)
- *             6.  polygonRectangle(points,r1,r2)
- *             7.  rayRay(a1,a2,b1,b2)
- *             8.  lineRay(a1,a2,b1,b2)
- *             9.  rectangleRectangle(a1,a2,b1,b2)
+ *             2.  lineLine(a1, a2, b1, b2)
+ *             3.  linePolygon(a1, a2, points)
+ *             4.  lineRectangle(a1, a2, r1, r2)
+ *             5.  polygonPolygon(points1, points2)
+ *             6.  polygonRectangle(points, r1, r2)
+ *             7.  rayRay(a1, a2, b1, b2)
+ *             8.  lineRay(a1, a2, b1, b2)
+ *             9.  rectangleRectangle(a1, a2, b1, b2)
  *
- *       Intersect2DParams(name,params) - supports 'Path' shape functions
- *             1.  init(name,params)
+ *       Intersect2DParams(name, params) - supports 'Path' shape functions
+ *             1.  init(name, params)
  * -----------------------------------------------
  * Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
@@ -124,73 +125,67 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.alg.Point;
-import com.wis.math.alg.Polynomial;
-import com.wis.math.alg.Vector;
+import com.wis3.math.alg.Point;
+import com.wis3.math.alg.Polynomial;
+import com.wis3.math.alg.Vector;
 
-class com.wis.math.geom.intersect2D.Intersect2D
-{
+public class Intersect2D  {
 	/**
 	 * @property $status (String)  -- an identifier string.
 	 * @property $points (Array)  -- a holder for vertex Point objects.
 	**/
-    var $status:String;
-    var $points:Array;
+    public var $status:String;
+    public var $points:Array;
 
     // constructor
-    function Intersect2D(status:String)
-    {
+    public function Intersect2D (status:String) {
         //trace ("Intersect2D Class loaded");
-        if (arguments.length>0)
-        {
+        if (arguments.length>0) {
             this.init(status);
         }
     }
 
-// 1. init ---------------------------------------
+      // 1. init ---------------------------------------
 
     /**
      * @method  init
      * @description  Initializes anew Intersect2D instance.
      * @usage  <pre>inst.init(status);</pre>
      * @param   status   (String)  -- an identifier string.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function init(status:String):Void
-    {
+    private function init(status:String):void {
         $status = status;
         $points = [];
     }
 
-// 2. appendPoint --------------------------------
+      // 2. appendPoint --------------------------------
 
     /**
      * @method  appendPoint
      * @description  Adds a new vertex Point object to the stack.
      * @usage  <pre>inst.appendPoint(point);</pre>
      * @param   point   (Object)  -- a vertex Point object.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function appendPoint(point:Object):Void
-    {
+    public function appendPoint(point:Object):void {
         $points.push(point);
     }
 
-// 3. appendPoints -------------------------------
+      // 3. appendPoints -------------------------------
 
     /**
      * @method  appendPoints
      * @description  Adds a list of new vertex Point objects to the stack.
      * @usage  <pre>inst.appendPoints(points);</pre>
      * @param   points   (Array)  -- a holder for vertex Point objects.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function appendPoints(points:Array):Void
-    {
+    public function appendPoints(points:Array):void {
         $points = $points.concat(points);
     }
 
-// 4. pointsToString -----------------------------
+      // 4. pointsToString -----------------------------
 
     /**
      * @method  pointsToString
@@ -198,19 +193,17 @@ class com.wis.math.geom.intersect2D.Intersect2D
      * @usage  <pre>inst.pointsToString();</pre>
      * @return  (String)  -- returns a string representation of the stack data for display.
     **/
-    function pointsToString():String
-    {
+    public function pointsToString():String {
         var point_str:String = "[";
         var j:Number;
 
-        for (j=0;j<$points.length;j++)
-        {
-            point_str += "[x:"+$points[j].x+",y:"+$points[j].y+"],";
+        for (j=0;j<$points.length;j++) {
+            point_str += "[x:"+$points[j].x+", y:"+$points[j].y+"], ";
         }
-        return point_str = point_str.substr(0,-1)+"]";
+        return point_str = point_str.substr(0, -1)+"]";
     }
 
-// 5. toString -----------------------------------
+      // 5. toString -----------------------------------
 
     /**
      * @method  toString
@@ -219,55 +212,47 @@ class com.wis.math.geom.intersect2D.Intersect2D
      * @usage  <pre>inst.toString();</pre>
      * @return  (String)  -- returns a string representation of the stack data that includes this instance's $status string as an identifier.
     **/
-    function toString():String
-    {
+    public function toString():String {
 	    var point_str:String = pointsToString();
 
 	    return $status+":\n"+point_str+"\n";
     }
 
-// 6. shapes -------------------------------------
+      // 6. shapes -------------------------------------
 
     /**
      * @method  shapes
      * @description  Called from subclasses, it concatenates shape object returns
      *               from 'getIntersect2DParams' to define type of Intersect2D
      *               intersection test.
-     * @usage  <pre>inst.shapes(shape1,shape2);</pre>
+     * @usage  <pre>inst.shapes(shape1, shape2);</pre>
      * @param   shape1   (Object)  -- a generic shape object.
      * @param   shape2   (Object)  -- a generic shape object.
      * @return  (Intersect2D)  -- returns anew Intersect2D object.
     **/
-    function shapes(shape1:Object,shape2:Object):Intersect2D
-    {
+    public function shapes(shape1:Object, shape2:Object):Intersect2D {
         var ip1:Object = shape1.getIntersect2DParams();
         var ip2:Object = shape2.getIntersect2DParams();
         var result:Intersect2D;
 
-        if (ip1!=null && ip2!=null)
-        {
-            if (ip1.name=="Path")
-            {
-                //result = Intersect2D.pathShape(shape1,shape2); // *** TODO
-                //result = pathShape(shape1,shape2);
+        if (ip1!=null && ip2!=null) {
+            if (ip1.name=="Path") {
+                //result = Intersect2D.pathShape(shape1, shape2); // *** TODO
+                //result = pathShape(shape1, shape2);
             }
-            else if (ip2.name=="Path")
-            {
-                //result = Intersect2D.pathShape(shape2,shape1); // *** TODO
-                //result = pathShape(shape2,shape1);
+            else if (ip2.name=="Path") {
+                //result = Intersect2D.pathShape(shape2, shape1); // *** TODO
+                //result = pathShape(shape2, shape1);
             }
-            else
-            {
+            else {
                 var method:String;
                 var params:Array;
 
-                if (ip1.name<ip2.name)
-                {
+                if (ip1.name<ip2.name) {
                     method = ip1.name+ip2.name;
                     params = ip1.params.concat(ip2.params);
                 }
-                else
-                {
+                else {
                     method = ip2.name+ip1.name;
                     params = ip2.params.concat(ip1.params);
                 }
@@ -275,44 +260,42 @@ class com.wis.math.geom.intersect2D.Intersect2D
                 //if (!method in Intersect2D) trace("Intersect2D not available: "+method);
                 if (!method) trace("Intersect2D not available: "+method);
 
-                result = this[method].apply(null,params);
+                result = this[method].apply(null, params);
             }
         }
-        else
-        {
+        else {
             result = new Intersect2D("No Intersect");
         }
 
         return result;
     }
 
-// 7. pathShape ----------------------------------
+      // 7. pathShape ----------------------------------
 
     /**
      * @method  pathShape
      * @description  Static -- subclass method overrides this method.
-     * @usage  <pre>inst.pathShape(path,shape);</pre>
-     * @param   path   (Function)  -- a shape object function.
-     * @param   shape   (Object)  -- a generic shape object.
+     * @usage  <pre>inst.pathShape(path, shape);</pre>
+     * @param   path    (Function)  -- a shape object function.
+     * @param   shape   (Object)    -- a generic shape object.
      * @return  (Intersect2D)  -- returns a new Intersect2D object.
     **/
-    static function pathShape(path:Function,shape:Object):Intersect2D
-    {
-        return path.intersectShape(shape);
+    public static function pathShape(path:Function, shape:Object):Intersect2D {
+    	throw new Error ("AS2-AS3 Transition Error: what did 'path.intersectShape(shape)' (path is a Function) mean?");
+	    //    return path.intersectShape(shape);
     }
 
-// 8. bezout -------------------------------------
+      // 8. bezout -------------------------------------
 
     /**
      * @method  bezout
      * @description ** function description here
-     * @usage  <pre>inst.bezout(e1,e2);</pre>
+     * @usage  <pre>inst.bezout(e1, e2);</pre>
      * @param   e1   (Array)  -- a holder for polynomial '1' coefficients.
      * @param   e2   (Array)  -- a holder for polynomial '2' coefficients.
      * @return  (Polynomial)  -- returns a new Polynomial object.
     **/
-    function bezout(e1:Array,e2:Array):Polynomial
-    {
+    public function bezout(e1:Array, e2:Array):Polynomial {
         trace ("$$$$$$$$$$ bezout fired! $$$$$$$$$$");
 
         var AB:Number = e1[0]*e2[1]-e2[0]*e1[1];
@@ -329,8 +312,7 @@ class com.wis.math.geom.intersect2D.Intersect2D
         var BFpDE:Number = BF+DE;
         var BEmCD:Number = BE-CD;
 
-        return new Polynomial
-        (
+        return new Polynomial (
             AB*BC-AC*AC,
             AB*BEmCD+AD*BC-2*AC*AE,
             AB*BFpDE+AD*BEmCD-AE*AE-2*AC*AF,
@@ -339,5 +321,6 @@ class com.wis.math.geom.intersect2D.Intersect2D
         );
     }
 
-}
+}// class
+}//package
 

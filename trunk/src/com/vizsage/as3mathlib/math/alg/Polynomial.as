@@ -1,5 +1,6 @@
+package com.wis3.math.alg {
 /**
- * @class       com.wis.math.alg.Polynomial
+ * @class       com.wis3.math.alg.Polynomial
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the Polynomial Class -- provides
@@ -10,10 +11,10 @@
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * Dependency:    com.wis.math.alg.Vector
+ * Dependency:    com.wis3.math.alg.Vector
  * -----------------------------------------------
- * AS2 revision copyright: © 2003, Richard Wright     [wisolutions2002@shaw.ca]
- * JS  original copyright: © 2000-2002, Kevin Lindsey [http://www.kevlindev.com/]
+ * AS2 revision copyright: ï¿½ 2003, Richard Wright     [wisolutions2002@shaw.ca]
+ * JS  original copyright: ï¿½ 2000-2002, Kevin Lindsey [http://www.kevlindev.com/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -47,59 +48,56 @@
  *           3.  multiply(that)
  *           4.  divideScalar(scalar)
  *           5.  simplify()
- *           6.  bisection(min,max)
+ *           6.  bisection(min, max)
  *           7.  toString()
  *           8.  get _degree()
  *           9.  getDerivative()
  *           10. getRoots()
- *           11. getRootsInInterval(min,max)
+ *           11. getRootsInInterval(min, max)
  *           12. getLinearRoot()
  *           13. getQuadraticRoots()
  *           14. getCubicRoots()
  *           15. getQuarticRoots()
- *           16. pow2(num,exp)
+ *           16. pow2(num, exp)
  *  ----------------------------------------------
  *  Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
  *  ----------------------------------------------
 **/
 
-class com.wis.math.alg.Polynomial
-{
+public class Polynomial  {
 	/**
 	 * @property $coefs  -- array to hold polynomial coefficients.
 	 * @property $TOLERANCE  -- static -- minimum value to truncate computation.
 	 * @property $ACCURACY  -- static -- ceiling applied to log value in 'bisection' method.
 	**/
     private var $coefs:Array;
-    static var $TOLERANCE:Number = 1e-6;
-    static var $ACCURACY:Number  = 6;
+    public static var $TOLERANCE:Number = 1e-6;
+    public static var $ACCURACY:Number  = 6;
 
     // constructor
-    function Polynomial()
-    {
+    public function Polynomial(...args) {
         //trace ("Polynomial Class loaded");
-        this.init(arguments);
+        this.init(args);
     }
 
-// 1. init ---------------------------------------
+      // 1. init ---------------------------------------
 
     /**
      * @method  init
      * @description  Populates new instance's $coefs array with input array values.
      * @usage  <pre>inst.init(coefs);</pre>
      * @param   coefs   (Array)  -- an array containing coefficients of this instance.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function init(coefs:Array):Void
-    {
+    private function init(coefs:Array):void {
         $coefs = [];
         var j:Number;
 
         for (j=coefs.length-1;j>=0;j--) $coefs.push(coefs[j]);
     }
 
-// 2. eval ---------------------------------------
+      // 2. eval ---------------------------------------
 
     /**
      * @method  eval
@@ -109,8 +107,7 @@ class com.wis.math.alg.Polynomial
      * @param   x   (Number)  -- a real number.
      * @return  (Number)  -- returns result of claculation.
     **/
-    function eval(x:Number):Number
-    {
+    public function eval(x:Number):Number {
         var result:Number = 0;
         var j:Number;
 
@@ -119,7 +116,7 @@ class com.wis.math.alg.Polynomial
         return result;
     }
 
-// 3. multiply -----------------------------------
+      // 3. multiply -----------------------------------
 
     /**
      * @method  multiply
@@ -129,17 +126,14 @@ class com.wis.math.alg.Polynomial
      * @param   that   (Polynomial)  -- a Polynomial object.
      * @return  (Polynomial)  -- returns a new Polynomial object containing the result of the multiplications.
     **/
-    function multiply(that:Polynomial):Polynomial
-    {
+    public function multiply(that:Polynomial):Polynomial {
         var result:Polynomial = new Polynomial();
         var j:Number;
         var k:Number;
 
         for (j=0;j<=this._degree+that._degree;j++) result.$coefs.push(0);
-        for (j=0;j<=this._degree;j++)
-        {
-            for (k=0;k<=that._degree;k++)
-            {
+        for (j=0;j<=this._degree;j++) {
+            for (k=0;k<=that._degree;k++) {
                 result.$coefs[j+k] += $coefs[j]*that.$coefs[k];
             }
         }
@@ -147,92 +141,80 @@ class com.wis.math.alg.Polynomial
         return result;
     }
 
-// 4. divideScalar -------------------------------
+      // 4. divideScalar -------------------------------
 
     /**
      * @method  divideScalar
      * @description  Calculates division of this instance's coefficients by the paseed scalar value.
      * @usage  <pre>inst.divideScalar(scalar);</pre>
      * @param   scalar   (Number)  -- a real number.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function divideScalar(scalar:Number):Void
-    {
+    public function divideScalar(scalar:Number):void {
         var j:Number;
 
         for (j=0;j<$coefs.length;j++) $coefs[j] /= scalar;
     }
 
-// 5. simplify -----------------------------------
+      // 5. simplify -----------------------------------
 
     /**
      * @method  simplify
      * @description  Simplifies this instance by testing $coefs elements against
      *               class tolerance property.
      * @usage  <pre>inst.simplify();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function simplify():Void
-    {
+    public function simplify():void {
         var j:Number;
 
-        for (j=this._degree;j>=0;j--)
-        {
+        for (j=this._degree;j>=0;j--) {
             if (Math.abs($coefs[j])<=Polynomial.$TOLERANCE) $coefs.pop();
             else break;
         }
     }
 
-// 6. bisection ----------------------------------
+      // 6. bisection ----------------------------------
 
     /**
      * @method  bisection
      * @description  Calculates bisection of this Polynomial instance.
-     * @usage  <pre>inst.bisection(min,max);</pre>
+     * @usage  <pre>inst.bisection(min, max);</pre>
      * @param   min   (Number)  -- a real number.
      * @param   max   (Number)  -- a real number.
      * @return  (Number)  -- returns result of Polynomial bisection operation.
     **/
-    function bisection(min:Number,max:Number):Number
-    {
+    public function bisection(min:Number, max:Number):Number {
         var minValue:Number = this.eval(min);
         var maxValue:Number = this.eval(max);
-        var result:Number;
+        var result:Number = NaN;
         var j:Number;
 
-        if (Math.abs(minValue)<=Polynomial.$TOLERANCE) result = min;
-        else if (Math.abs(maxValue)<=Polynomial.$TOLERANCE) result = max;
-        else if (minValue*maxValue<=0)
-        {
-            var tmp1:Number = Math.log(max-min);
-            var tmp2:Number = Math.log(10)*Polynomial.$ACCURACY;
+        if 		(Math.abs(minValue) <= Polynomial.$TOLERANCE) 	result = min;
+        else if (Math.abs(maxValue) <= Polynomial.$TOLERANCE) 	result = max;
+        else if (minValue*maxValue <= 0) {
+            var tmp1:Number  = Math.log(max-min);
+            var tmp2:Number  = Math.log(10)*Polynomial.$ACCURACY;
             var iters:Number = Math.ceil((tmp1+tmp2)/Math.log(2));
 
-            for (j=0;j<iters;j++)
-            {
+            for (j=0;j<iters;j++) {
                 result = 0.5*(min+max);
-
                 var value:Number = this.eval(result);
-
                 if (Math.abs(value)<=Polynomial.$TOLERANCE) break;
-
-                if (value*minValue<0)
-                {
-                    max = result;
-                    maxValue = value;
+                if (value*minValue < 0) {
+                    max 		= result;
+                    maxValue 	= value;
                 }
-                else
-                {
-                    min = result;
-                    minValue = value;
+                else {
+                    min 		= result;
+                    minValue 	= value;
                 }
             }
         }
-
         return result;
     }
 
-// 7. toString -----------------------------------
+      // 7. toString -----------------------------------
 
     /**
      * @method  toString
@@ -241,8 +223,7 @@ class com.wis.math.alg.Polynomial
      * @usage  <pre>inst.toString();</pre>
      * @return  (String)  -- returns a string representation of this instance's coefficients.
     **/
-    function toString():String
-    {
+    public function toString():String {
         var coefs:Array = [];
         var signs:Array = [];
         var j:Number;
@@ -250,19 +231,16 @@ class com.wis.math.alg.Polynomial
         var sign:String;
         var sVal:String;
 
-        for (j=$coefs.length-1;j>=0;j--)
-        {
-            var value = $coefs[j];
+        for (j=$coefs.length-1;j>=0;j--) {
+            var value:Number = $coefs[j];
 
-            if (value!=0)
-            {
+            if (value!=0) {
                 sign = (value<0) ? " - " : " + ";
 
                 value = Math.abs(value);
                 tVal = value;
                 sVal = value.toString();
-                if (j>0)
-                {
+                if (j>0) {
                     if (tVal==1) sVal = "x";
                     else sVal += "x";
                 }
@@ -282,7 +260,7 @@ class com.wis.math.alg.Polynomial
         return result;
     }
 
-// 8. get _degree ----------------------------------
+      // 8. get _degree ----------------------------------
 
     /**
      * @method  get _degree
@@ -290,12 +268,11 @@ class com.wis.math.alg.Polynomial
      * @usage  <pre>inst._degree;</pre>
      * @return  (Number)  -- returns degree of this instance.
     **/
-    function get _degree():Number
-    {
+    public function get _degree():Number {
         return $coefs.length-1;
     }
 
-// 9. getDerivative ------------------------------
+      // 9. getDerivative ------------------------------
 
     /**
      * @method  getDerivative
@@ -303,20 +280,18 @@ class com.wis.math.alg.Polynomial
      * @usage  <pre>inst.getDerivative();</pre>
      * @return  (Polynomial)  -- returns a new Polynomial object containing derivative coefficients of this instance's coefficients.
     **/
-    function getDerivative():Polynomial
-    {
+    public function getDerivative():Polynomial {
         var derivative:Polynomial = new Polynomial();
         var j:Number;
 
-        for (j=1;j<$coefs.length;j++)
-        {
+        for (j=1;j<$coefs.length;j++) {
             derivative.$coefs.push(j*$coefs[j]);
         }
 
         return derivative;
     }
 
-// 10. getRoots ----------------------------------
+      // 10. getRoots ----------------------------------
 
     /**
      * @method  getRoots
@@ -324,13 +299,11 @@ class com.wis.math.alg.Polynomial
      * @usage  <pre>inst.getRoots();</pre>
      * @return  (Array)  -- returns an array containing polynomial roots.
     **/
-    function getRoots():Array
-    {
+    public function getRoots():Array {
         var result:Array;
 
         this.simplify();
-        switch (this._degree)
-        {
+        switch (this._degree) {
             case 0: result = new Array();              break;
             case 1: result = this.getLinearRoot();     break;
             case 2: result = this.getQuadraticRoots(); break;
@@ -343,62 +316,56 @@ class com.wis.math.alg.Polynomial
         return result;
     }
 
-// 11. getRootsInInterval ------------------------
+      // 11. getRootsInInterval ------------------------
 
     /**
      * @method  getRootsInInterval
      * @description  Gets roots in interval of this Polynomial instance.
-     * @usage  <pre>inst.getRootsInInterval(min,max);</pre>
+     * @usage  <pre>inst.getRootsInInterval(min, max);</pre>
      * @param   min   (Number)  -- a real number.
      * @param   max   (Number)  -- a real number.
      * @return  (Array)  -- returns an array containing Polynomial roots.
     **/
-    function getRootsInInterval(min:Number,max:Number):Array
-    {
+    public function getRootsInInterval(min:Number, max:Number):Array {
         var roots:Array = [];
         var root:Number;
         var j:Number;
 
-        if (this._degree==1)
-        {
-            root = this.bisection(min,max);
-            if (root!=null) roots.push(root);
+        if (this._degree==1) {
+            root = this.bisection(min, max);
+            if (!isNaN(root)) roots.push(root);
         }
-        else
-        {
+        else {
             // get roots of derivative
             var deriv:Polynomial = this.getDerivative();
-            var droots:Array = deriv.getRootsInInterval(min,max);
+            var droots:Array = deriv.getRootsInInterval(min, max);
 
-            if (droots.length>0)
-            {
-                // find root on [min,droots[0]]
-                root = this.bisection(min,droots[0]);
-                if (root!=null) roots.push(root);
+            if (droots.length>0) {
+                // find root on [min, droots[0]]
+                root = this.bisection(min, droots[0]);
+                if (!isNaN(root)) roots.push(root);
 
-                // find root on [droots[i],droots[i+1]] for 0 <= i <= count-2
-                for (j=0;j<=droots.length-2;j++)
-                {
-                    root = this.bisection(droots[j],droots[j+1]);
-                    if (root!=null) roots.push(root);
+                // find root on [droots[i], droots[i+1]] for 0 <= i <= count-2
+                for (j=0;j<=droots.length-2;j++) {
+                    root = this.bisection(droots[j], droots[j+1]);
+                    if (!isNaN(root)) roots.push(root);
                 }
 
-                // find root on [droots[count-1],xmax]
-                root = this.bisection(droots[droots.length-1],max);
-                if (root!=null) roots.push(root);
+                // find root on [droots[count-1], xmax]
+                root = this.bisection(droots[droots.length-1], max);
+                if (!isNaN(root)) roots.push(root);
             }
-            else
-            {
-                // polynomial is monotone on [min,max], has at most one root
-                root = this.bisection(min,max);
-                if (root!=null) roots.push(root);
+            else {
+                // polynomial is monotone on [min, max], has at most one root
+                root = this.bisection(min, max);
+                if (!isNaN(root)) roots.push(root);
             }
         }
 
         return roots;
     }
 
-// 12. getLinearRoot -----------------------------
+      // 12. getLinearRoot -----------------------------
 
     /**
      * @method  getLinearRoot
@@ -406,8 +373,7 @@ class com.wis.math.alg.Polynomial
      * @usage  <pre>inst.getLinearRoot();</pre>
      * @return  (Array)  -- returns an array containing linear polynomial root.
     **/
-    function getLinearRoot():Array
-    {
+    public function getLinearRoot():Array {
         var result:Array = [];
         var a:Number = $coefs[1];
 
@@ -416,7 +382,7 @@ class com.wis.math.alg.Polynomial
         return result;
     }
 
-// 13. getQuadraticRoots -------------------------
+      // 13. getQuadraticRoots -------------------------
 
     /**
      * @method  getQuadraticRoots
@@ -424,26 +390,22 @@ class com.wis.math.alg.Polynomial
      * @usage  <pre>inst.getQuadraticRoots();</pre>
      * @return  (Array)  -- returns an array containing quadratic polynomial roots.
     **/
-    function getQuadraticRoots():Array
-    {
+    public function getQuadraticRoots():Array {
         var results:Array = [];
 
-        if (this._degree==2)
-        {
+        if (this._degree==2) {
             var a:Number = $coefs[2];
             var b:Number = $coefs[1]/a;
             var c:Number = $coefs[0]/a;
             var d:Number = b*b-4*c;
 
-            if (d>0)
-            {
+            if (d>0) {
                 var e:Number = Math.sqrt(d);
 
                 results.push(0.5*(-b+e));
                 results.push(0.5*(-b-e));
             }
-            else if (d==0)
-            {
+            else if (d==0) {
                 // really two roots with same value, but we only return one
                 results.push(0.5*-b);
             }
@@ -452,7 +414,7 @@ class com.wis.math.alg.Polynomial
         return results;
     }
 
-// 14. getCubicRoots -----------------------------
+      // 14. getCubicRoots -----------------------------
 
     /**
      * @method  getCubicRoots
@@ -460,12 +422,10 @@ class com.wis.math.alg.Polynomial
      * @usage  <pre>inst.getCubicRoots();</pre>
      * @return  (Array)  -- returns an array containing cubic polynomial roots.
     **/
-    function getCubicRoots():Array
-    {
+    public function getCubicRoots():Array {
         var results:Array = [];
 
-        if (this._degree==3)
-        {
+        if (this._degree==3) {
             var c3:Number = $coefs[3];
             var c2:Number = $coefs[2]/c3;
             var c1:Number = $coefs[1]/c3;
@@ -480,24 +440,22 @@ class com.wis.math.alg.Polynomial
 
             if (Math.abs(discrim)<=Polynomial.$TOLERANCE) discrim = 0;
 
-            if (discrim>0)
-            {
+            if (discrim>0) {
                 var e:Number = Math.sqrt(discrim);
 
                 tmp = -halfB+e;
-                if (tmp>=0) root = Polynomial.pow2(tmp,1/3);
-                else root = -Polynomial.pow2(-tmp,1/3);
+                if (tmp>=0) root = Polynomial.pow2(tmp, 1/3);
+                else root = -Polynomial.pow2(-tmp, 1/3);
 
                 tmp = -halfB-e;
-                if (tmp>=0 ) root += Polynomial.pow2(tmp,1/3);
-                else root -= Polynomial.pow2(-tmp,1/3);
+                if (tmp>=0 ) root += Polynomial.pow2(tmp, 1/3);
+                else root -= Polynomial.pow2(-tmp, 1/3);
 
                 results.push(root-offset);
             }
-            else if (discrim<0)
-            {
-                var distance:Number = Polynomial.pow2(-a/3,1/2);
-                var angle:Number = Math.atan2(Math.sqrt(-discrim),-halfB)/3;
+            else if (discrim<0) {
+                var distance:Number = Polynomial.pow2(-a/3, 1/2);
+                var angle:Number = Math.atan2(Math.sqrt(-discrim), -halfB)/3;
                 var cos:Number = Math.cos(angle);
                 var sin:Number = Math.sin(angle);
                 var sqrt3:Number = Math.sqrt(3);
@@ -506,10 +464,9 @@ class com.wis.math.alg.Polynomial
                 results.push(-distance*(cos+sqrt3*sin)-offset);
                 results.push(-distance*(cos-sqrt3*sin)-offset);
             }
-            else
-            {
-                if (halfB>=0) tmp = -Polynomial.pow2(halfB,1/3);
-                else tmp = Polynomial.pow2(-halfB,1/3);
+            else {
+                if (halfB>=0) tmp = -Polynomial.pow2(halfB, 1/3);
+                else tmp = Polynomial.pow2(-halfB, 1/3);
                 results.push(2*tmp-offset);
                 // really should return next root twice, but we return only one
                 results.push(-tmp-offset);
@@ -519,7 +476,7 @@ class com.wis.math.alg.Polynomial
         return results;
     }
 
-// 15. getQuarticRoots ---------------------------
+      // 15. getQuarticRoots ---------------------------
 
     /**
      * @method  getQuarticRoots
@@ -527,8 +484,7 @@ class com.wis.math.alg.Polynomial
      * @usage  <pre>inst.getQuarticRoots();</pre>
      * @return  (Array)  -- returns an array containing quartic polynomial roots.
     **/
-    function getQuarticRoots():Array
-    {
+    public function getQuarticRoots():Array {
         var results:Array = [];
         var d:Number;
         var e:Number;
@@ -538,21 +494,19 @@ class com.wis.math.alg.Polynomial
         var plus:Number;
         var minus:Number;
 
-        if (this._degree==4)
-        {
+        if (this._degree==4) {
             var c4:Number = $coefs[4];
             var c3:Number = $coefs[3]/c4;
             var c2:Number = $coefs[2]/c4;
             var c1:Number = $coefs[1]/c4;
             var c0:Number = $coefs[0]/c4;
-            var resolveRoots:Array = new Polynomial(1,-c2,c3*c1-4*c0,-c3*c3*c0+4*c2*c0-c1*c1).getCubicRoots();
+            var resolveRoots:Array = new Polynomial(1, -c2, c3*c1-4*c0, -c3*c3*c0+4*c2*c0-c1*c1).getCubicRoots();
             var y:Number = resolveRoots[0];
             var discrim:Number = c3*c3/4-c2+y;
 
             if (Math.abs(discrim)<=Polynomial.$TOLERANCE) discrim = 0;
 
-            if (discrim>0)
-            {
+            if (discrim>0) {
                 e = Math.sqrt(discrim);
                 t1 = 3*c3*c3/4-e*e-2*c2;
                 t2 = ( 4*c3*c2-8*c1-c3*c3*c3)/(4*e);
@@ -562,41 +516,34 @@ class com.wis.math.alg.Polynomial
                 if (Math.abs(plus)<=Polynomial.$TOLERANCE) plus = 0;
                 if (Math.abs(minus)<=Polynomial.$TOLERANCE) minus = 0;
 
-                if (plus>=0)
-                {
-                    var f = Math.sqrt(plus);
+                if (plus>=0) {
+                    f = Math.sqrt(plus);
 
                     results.push(-c3/4+(e+f)/2);
                     results.push(-c3/4+(e-f)/2);
                 }
-                if (minus>=0)
-                {
+                if (minus>=0) {
                     f = Math.sqrt(minus);
                     results.push(-c3/4+(f-e)/2);
                     results.push(-c3/4-(f+e)/2);
                 }
             }
-            else if (discrim<0)
-            {
+            else if (discrim<0) {
                 // no roots
             }
-            else
-            {
+            else {
                 t2 = y*y-4*c0;
 
-                if (t2>=-Polynomial.$TOLERANCE)
-                {
+                if (t2>=-Polynomial.$TOLERANCE) {
                     if (t2<0) t2 = 0;
                     t2 = 2*Math.sqrt(t2);
                     t1 = 3*c3*c3/4-2*c2;
-                    if (t1+t2>=Polynomial.$TOLERANCE)
-                    {
+                    if (t1+t2>=Polynomial.$TOLERANCE) {
                         d = Math.sqrt(t1+t2);
                         results.push(-c3/4+d/2);
                         results.push(-c3/4-d/2 );
                     }
-                    if (t1-t2>=Polynomial.$TOLERANCE)
-                    {
+                    if (t1-t2>=Polynomial.$TOLERANCE) {
                         d = Math.sqrt(t1-t2);
                         results.push(-c3/4+d/2);
                         results.push(-c3/4-d/2);
@@ -608,20 +555,20 @@ class com.wis.math.alg.Polynomial
         return results;
     }
 
-// 16. pow2 --------------------------------------
+      // 16. pow2 --------------------------------------
 
     /**
      * @method  pow2
      * @description  Solves the Math.pow() negative value input bug.
-     * @usage  <pre>inst.pow2(a,n);</pre>
+     * @usage  <pre>inst.pow2(a, n);</pre>
      * @param   a   (Number)  -- a real number.
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the result of the 'Math.pow' method.
     **/
-    static function pow2(a:Number,n:Number):Number
-    {
-        return (a==0) ? 0 : (a>0 ? Math.pow(a,n) : Math.pow(a*-1,n)*-1);
+    public static function pow2(a:Number, n:Number):Number {
+        return (a==0) ? 0 : (a>0 ? Math.pow(a, n) : Math.pow(a*-1, n)*-1);
     }
 
-}
+}// class
+}//package
 

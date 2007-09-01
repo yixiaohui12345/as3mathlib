@@ -1,5 +1,6 @@
+package com.wis3.math.calc.solvers {
 /**
- * @class       com.wis.math.calc.solvers.Euler
+ * @class       com.wis3.math.calc.solvers.Euler
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description Euler implements the behaviours of the IODESolver Interface
@@ -12,8 +13,8 @@
  * -----------------------------------------------
  * Latest update: January 11, 2005
  * -----------------------------------------------
- * AS2  revision copyright: © 2005, Richard Wright     [wisolutions2002@shaw.ca]
- * Java original copyright: © 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
+ * AS2  revision copyright: ï¿½ 2005, Richard Wright     [wisolutions2002@shaw.ca]
+ * Java original copyright: ï¿½ 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -54,10 +55,9 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.calc.*;
+import com.wis3.math.calc.*;
 
-class com.wis.math.calc.solvers.Euler implements com.wis.math.calc.IODESolver
-{
+public class Euler implements com.wis3.math.calc.IODESolver {
 	/**
 	 * @property $stepSize  (Number)  -- parameter increment such as delta time.
 	 * @property $numEqn  (Number)  -- number of equations.
@@ -69,13 +69,12 @@ class com.wis.math.calc.solvers.Euler implements com.wis.math.calc.IODESolver
     private var $rate:Array;
     private var $ode:IODE;
 
-    public function Euler(_ode:IODE)
-    {
+    public function Euler(_ode:IODE) {
         $ode = _ode;
         initialize(0.1);
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  initialize
@@ -84,10 +83,9 @@ class com.wis.math.calc.solvers.Euler implements com.wis.math.calc.IODESolver
      *                invoking getState().length on the IODE.
      * @usage  <pre>inst.initialize(_stepSize);</pre>
      * @param   _stepSize  (Number) -- step integer.
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function initialize(_stepSize:Number):Void
-    {
+    public function initialize(_stepSize:Number):void {
         $stepSize = _stepSize;
         var state:Array = $ode.getState();
         // if state vector not defined
@@ -96,7 +94,7 @@ class com.wis.math.calc.solvers.Euler implements com.wis.math.calc.IODESolver
         $rate = new Array($numEqn);
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  step
@@ -108,30 +106,28 @@ class com.wis.math.calc.solvers.Euler implements com.wis.math.calc.IODESolver
      * @usage  <pre>inst.step();</pre>
      * @return  (Number)  -- returns step size.
     **/
-    public function step():Number
-    {
+    public function step():Number {
         var state:Array = $ode.getState();
-        $ode.getRate(state,$rate);
+        $ode.getRate(state, $rate);
         for (var i:Number=0;i<$numEqn;i++)
             state[i] = state[i]+$stepSize*$rate[i];
         return $stepSize;
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  setStepSize
      * @description   The step size remains fixed in this algorithm.
      * @usage  <pre>inst.setStepSize(_stepSize);</pre>
      * @param   _stepSize  (Number) -- step integer.
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function setStepSize(_stepSize:Number):Void
-    {
+    public function setStepSize(_stepSize:Number):void {
         $stepSize = _stepSize;
     }
 
-// --------------------------------------------
+      // --------------------------------------------
 
     /**
      * @method  getStepSize
@@ -139,23 +135,22 @@ class com.wis.math.calc.solvers.Euler implements com.wis.math.calc.IODESolver
      * @usage  <pre>inst.getStepSize();</pre>
      * @return  (Number)  -- returns the step size.
     **/
-    public function getStepSize():Number
-    {
+    public function getStepSize():Number {
         return $stepSize;
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  setTolerance
      * @description   Abstract interface method.
      * @usage  <pre>not used.</pre>
      * @param   _tol  (Number) -- .
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function setTolerance(_tol:Number):Void {}
+    public function setTolerance(_tol:Number):void {}
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  getTolerance
@@ -165,5 +160,6 @@ class com.wis.math.calc.solvers.Euler implements com.wis.math.calc.IODESolver
     **/
     public function getTolerance():Number {return 1.0e-9;}
 
-}
+}// class
+}//package
 

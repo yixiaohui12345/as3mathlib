@@ -1,5 +1,6 @@
+package com.wis3.types {
 /**
- * @class         com.wis.types.Obj
+ * @class         com.wis3.types.Obj
  * @author        Richard Wright
  * @version       1.6
  * @description   Implements the behaviours of the Obj SuperClass.
@@ -11,16 +12,16 @@
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis.math.alg.Vector
- *                com.wis.math.geom.polytope.Box
- *                com.wis.math.geom.util.Intersection
- *                com.wis.math.geom.util.Ray
- *                com.wis.math.geom.util.Texture
- *                com.wis.math.geom.util.Transformation
- *                com.wis.types.Col
+ * Dependencies:  com.wis3.math.alg.Vector
+ *                com.wis3.math.geom.polytope.Box
+ *                com.wis3.math.geom.util.Intersection
+ *                com.wis3.math.geom.util.Ray
+ *                com.wis3.math.geom.util.Texture
+ *                com.wis3.math.geom.util.Transformation
+ *                com.wis3.types.wis3Color
  * -----------------------------------------------
- * AS2 revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
- * JS  original copyright © 2003, John Haggerty  [http://www.slimeland.com/]
+ * AS2 revision copyright ï¿½ 2004, Richard Wright [wisolutions2002@shaw.ca]
+ * JS  original copyright ï¿½ 2003, John Haggerty  [http://www.slimeland.com/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -54,15 +55,15 @@
  *             3.  findIntersectionsUntransformed(ray)
  *             4.  isPointInsideUntransformed(pos)
  *             5.  getNormalAtUntransformed(pos)
- *             6.  getColorAt(isect,objs,lights,traceLevel,effect)
- *             7.  numericalOrder(a,b) - static
+ *             6.  getColorAt(isect, objs, lights, traceLevel, effect)
+ *             7.  numericalOrder(a, b) - static
  *             8.  correctBounds()
  *             9.  generalLowLevelObjectInitialization()
- *             10. findBoundInts(v1,v2,dim,odim1,odim2,s,d) - static
+ *             10. findBoundInts(v1, v2, dim, odim1, odim2, s, d) - static
  *             11. boundTest(ray)
  *             12. boundTestPoint(pos)
  *             13. findIntersections(ray)
- *             14. getNormalAt(pos,isect)
+ *             14. getNormalAt(pos, isect)
  *             15. isPointInside(pos)
  *             16. setupDefaultModifiers()
  *             17. copyModifiers(newObj)
@@ -77,16 +78,16 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.alg.Vector;
-import com.wis.math.geom.polytope.Box;
-import com.wis.math.geom.util.Intersection;
-import com.wis.math.geom.util.Ray;
-import com.wis.math.geom.util.Texture;
-import com.wis.math.geom.util.Transformation;
-import com.wis.types.Col;
+import com.wis3.math.alg.Vector;
+import com.wis3.math.geom.polytope.Box;
+import com.wis3.math.geom.util.Intersection;
+import com.wis3.math.geom.util.Ray;
+import com.wis3.math.geom.util.Texture;
+import com.wis3.math.geom.util.Transformation;
+import com.wis3.types.wis3Color;
+import flash.geom.ColorTransform;
 
-class com.wis.types.Obj implements com.wis.types.IObj
-{
+public class Obj implements com.wis3.types.IObj {
 	/**
 	 * @property $texture (Texture)  -- object passed with class instance 'arguments[0]'.
 	 * @property $transform (Transformation)  -- object passed with class instance 'arguments[1]'.
@@ -100,36 +101,35 @@ class com.wis.types.Obj implements com.wis.types.IObj
 	 * @property $bailout (Number)  -- value sent from UI main.as.
 	 * @property $boundsTransformed (Boolean)  -- static -- default is 'false'.
 	**/
-    var $texture:Texture;
-    var $transform:Transformation;
-    var $boundedBy:Box;
-    var $castShadows:Boolean;
-    var $inversed:Boolean;
-    var $infiniteBounds:Boolean;
-    var $volumeOutsideOfBounds:Boolean;
-    var $textureOverridesParent:Boolean;
-    var $maxTraceLevel:Number = 10;
-    var $bailout:Number = 1/255;
-    static var $boundsTransformed:Boolean = false;
+    public var $texture:Texture;
+    public var $transform:Transformation;
+    public var $boundedBy:Box;
+    public var $castShadows:Boolean;
+    public var $inversed:Boolean;
+    public var $infiniteBounds:Boolean;
+    public var $volumeOutsideOfBounds:Boolean;
+    public var $textureOverridesParent:Boolean;
+    public var $maxTraceLevel:Number = 10;
+    public var $bailout:Number = 1/255;
+    public static var $boundsTransformed:Boolean = false;
 
     // Class parameters:
-    // Texture(mc:MovieClip,color:Col,finish:Finish,pigment:Function)
-    // Transformation(vx,vy,vz,c:Vector,dontFindInverse,actualOrder:Boolean)
-    // Box(v1,v2:Vector,isBound:Boolean)
+    // Texture(mc:MovieClip, color:wis3Color, finish:Finish, pigment:Function)
+    // Transformation(vx, vy, vz, c:Vector, dontFindInverse, actualOrder:Boolean)
+    // Box(v1, v2:Vector, isBound:Boolean)
 
     // constructor
-    function Obj(arguments)
-    {
+    public function Obj() { /*
         trace ("Obj Class loaded");
     	// all 3d objects are subclasses of this
-    	$texture = new Texture(arguments[0]);
-    	$transform = new Transformation(arguments[1]);
+    	$texture 	= texture;
+    	$transform 	= new Transformation(args[1]);
     	trace ("$texture: "+$texture+"\n$transform: "+$transform);
-    	$boundedBy = new Box(arguments[2]);
-    	trace ("$boundedBy: "+$boundedBy);
+    	$boundedBy = new Box(args[2]);
+    	trace ("$boundedBy: "+$boundedBy);*/
     }
 
-// 1. copy() ------------------------------------------
+      // 1. copy() ------------------------------------------
 
     /**
      * @method  copy
@@ -143,13 +143,12 @@ class com.wis.types.Obj implements com.wis.types.IObj
      * @param   none   -- no method parameters.
      * @return  (Obj)  -- returns a copy of its properties.
     **/
-    function copy():Obj
-    {
+    public function copy():Obj {
         var obj:Obj = new Obj();
         return obj;
     }
 
-// 2. initialize --------------------------------------
+      // 2. initialize --------------------------------------
 
      /**
       * @method  initialize
@@ -160,12 +159,12 @@ class com.wis.types.Obj implements com.wis.types.IObj
       *         var inst:Obj = new Obj();
       *         // which in turn fires the inst.initialize() method
       *         </pre>
-      * @param   none   (Void)  -- no method parameters.
-      * @return  (Void)
+      * @param   none   (void)  -- no method parameters.
+      * @return  (void)
      **/
-     function initialize():Void {}
+     public function initialize():void {}
 
-// 3. findIntersectionsUntransformed ------------------
+      // 3. findIntersectionsUntransformed ------------------
 
     /**
      * @method  findIntersectionsUntransformed
@@ -175,9 +174,9 @@ class com.wis.types.Obj implements com.wis.types.IObj
      * @param   ray   (Ray)  -- tracer object that defines point and direction in n3 space.
      * @return  (Array)  -- returns a list of Intersection objects, or an empty list.
     **/
-    function findIntersectionsUntransformed(ray:Ray):Array {return [];}
+    public function findIntersectionsUntransformed(ray:Ray):Array {return [];}
 
-// 4. isPointInsideUntransformed ----------------------
+      // 4. isPointInsideUntransformed ----------------------
 
     /**
      * @method  isPointInsideUntransformed
@@ -189,9 +188,9 @@ class com.wis.types.Obj implements com.wis.types.IObj
      * @param   pos   (Vector)  -- a position Vector object.
      * @return  (Boolean)
     **/
-    function isPointInsideUntransformed(pos:Vector):Boolean {return true;}
+    public function isPointInsideUntransformed(pos:Vector):Boolean {return true;}
 
-// 5. getNormalAtUntransformed ------------------------
+      // 5. getNormalAtUntransformed ------------------------
 
     /**
      * @method  getNormalAtUntransformed
@@ -204,93 +203,85 @@ class com.wis.types.Obj implements com.wis.types.IObj
      * @param   pos   (Vector)  -- a position Vector object.
      * @return  (Vector)  -- returns normal of untransformed vector.
     **/
-    function getNormalAtUntransformed(pos:Vector):Vector {return pos;}
+    public function getNormalAtUntransformed(pos:Vector):Vector { 
+    	return pos; 
+    }
 
-// 6. getColorAt ------------------------------------------------------------
+      // 6. getColorAt ------------------------------------------------------------
 
     /**
      * @method  getColorAt
      * @description
-     * @usage  <pre>inst.getColorAt(isect,objs,lights,traceLevel,effect);</pre>
+     * @usage  <pre>inst.getColorAt(isect, objs, lights, traceLevel, effect);</pre>
      * @param   isect   (Intersection)  -- focus Intersection class instance.
      * @param   objs   (Array)  -- a list of shape objects passed to a Ray class instance.
      * @param   lights   (Array)  -- a list of LightSource class instances.
      * @param   traceLevel   (Number)  -- a real number passed to test against class instance $maxTraceLevel property.
      * @param   effect   (Number)  -- a real number passed to test against class instance $bailout property.
-     * @return  (Col)  -- returns a Col object for this subclass instance.
+     * @return  (wis3Color)  -- returns a wis3Color object for this subclass instance.
     **/
-    function getColorAt(isect:Intersection,objs:Array,lights:Array,traceLevel:Number,effect:Number):Col
-    {
+    public function getColorAt(isect:Intersection, objs:Array, lights:Array, traceLevel:Number, effect:Number):ColorTransform {
+    	throw new Error("AS2-AS3 Transition Error: Color changed to ColorTransform and we haven't fixed it yet"); return null; 
+    	/*
         trace ("\n$$ 1. getColorAt fired");
 
     	var pos:Vector = isect.getPos();
     	var dir:Vector = isect.$ray.$dir;
-    	var colorHere:Col;
+    	var colorHere:wis3Color;
     	var a:Number;
 
-    	trace ("1a. pos.x:"+pos.x+",y:"+pos.y+",z:"+pos.z);
-    	trace ("1b. dir.x:"+dir.x+",y:"+dir.y+",z:"+dir.z);
+    	trace ("1a. pos.x:"+pos.x+", y:"+pos.y+", z:"+pos.z);
+    	trace ("1b. dir.x:"+dir.x+", y:"+dir.y+", z:"+dir.z);
 
-    	for (a=0;a<isect.$objectStack.length;a++)
-    	{
-    	    trace ("1c. a:"+a+", isect.$objectStack["+a+"].\n    $texture:"+isect.$objectStack[a].$texture+",\n    $transform:"+isect.$objectStack[a].$transform+",\n    $boundedBy:"+isect.$objectStack[a].$boundedBy);
-    		if (a==isect.$objectStack.length-1 || isect.$objectStack[a].$textureOverridesParent)
-    		{
+    	for (a=0;a<isect.$objectStack.length;a++) {
+    	    trace ("1c. a:"+a+", isect.$objectStack["+a+"].\n    $texture:"+isect.$objectStack[a].$texture+", \n    $transform:"+isect.$objectStack[a].$transform+", \n    $boundedBy:"+isect.$objectStack[a].$boundedBy);
+    		if (a==isect.$objectStack.length-1 || isect.$objectStack[a].$textureOverridesParent) {
     			colorHere = isect.$objectStack[a].$texture.colorAt(pos);
     			trace ("1d. Bool ||: true .. colorHere: "+colorHere);
     			break;
     		}
     	}
 
-    	var toReturn:Col = colorHere.scalar($texture.$finish.$ambient);
-    	var normal:Vector = getNormalAt(pos,isect);
+    	var toReturn:wis3Color = colorHere.scalar($texture.$finish.$ambient);
+    	var normal:Vector = getNormalAt(pos, isect);
     	var reflectionDir:Vector;
     	var reflectionRay:Ray;
 
-    	if (Vector.dot(Vector.neg(dir),normal)<0)
-    	{
+    	if (Vector.dot(Vector.neg(dir), normal)<0) {
     	    normal = Vector.neg(normal);
-    	    trace ("2a.Bool Vector.neg(dir),normal)<0: true .. normal: "+normal);
+    	    trace ("2a.Bool Vector.neg(dir), normal)<0: true .. normal: "+normal);
     	}
-    	if ($texture.$finish.$reflection!=0 || $texture.$finish.$specular!=0)
-    	{
-    	    reflectionDir = Vector.adder(Vector.neg(dir),Vector.scaler(Vector.adder(Vector.scaler(normal,Vector.dot(normal,Vector.neg(dir))),dir),2));
+    	if ($texture.$finish.$reflection!=0 || $texture.$finish.$specular!=0) {
+    	    reflectionDir = Vector.adder(Vector.neg(dir), Vector.scaler(Vector.adder(Vector.scaler(normal, Vector.dot(normal, Vector.neg(dir))), dir), 2));
     	    trace ("2b. Bool ||: true .. reflectionDir: "+reflectionDir);
     	}
-    	if ($texture.$finish.$reflection!=0 && traceLevel<$maxTraceLevel && effect>=$bailout)
-    	{
-    		reflectionRay = new Ray(pos,reflectionDir);
-    		toReturn = toReturn.adds(reflectionRay.traceForColor(objs,lights,traceLevel+1,effect*$texture.$finish.$reflection).scalar($texture.$finish.$reflection));
+    	if ($texture.$finish.$reflection!=0 && traceLevel<$maxTraceLevel && effect>=$bailout) {
+    		reflectionRay = new Ray(pos, reflectionDir);
+    		toReturn = toReturn.adds(reflectionRay.traceForColor(objs, lights, traceLevel+1, effect*$texture.$finish.$reflection).scalar($texture.$finish.$reflection));
     	    trace ("2c. Bool &&: true .. reflectionRay: "+reflectionRay+", toReturn: "+toReturn);
     	}
-    	if ($texture.$finish.$diffuse!=0 || $texture.$finish.$specular!=0)
-    	{
-    		for (a=0;a<lights.length;a++)
-    		{
+    	if ($texture.$finish.$diffuse!=0 || $texture.$finish.$specular!=0) {
+    		for (a=0;a<lights.length;a++) {
     		    trace ("2d. Bool ||: true .. a: "+a+" .. lights["+a+"]: "+lights[a]);
 
-    			var lightDir:Vector = Vector.normalizer(Vector.adder(lights[a].pos,Vector.neg(pos)));
-    			var cosAngle:Number = Vector.dot(normal,lightDir);
+    			var lightDir:Vector = Vector.normalizer(Vector.adder(lights[a].pos, Vector.neg(pos)));
+    			var cosAngle:Number = Vector.dot(normal, lightDir);
 
-    			if (cosAngle>0)
-    			{
-    				var incomingLightColor = lights[a].getLightColorAt(objs,pos); // (tests for shadow)
+    			if (cosAngle>0) {
+    				var incomingLightColor = lights[a].getLightColorAt(objs, pos); // (tests for shadow)
 
     				trace ("2da. Bool cosAngle>0: true .. incomingLightColor: "+incomingLightColor);
-    				if (incomingLightColor.red!=0 || incomingLightColor.green!=0 || incomingLightColor.blue!=0)
-    				{
-    					//toReturn = Col.adds(toReturn,Col.scalar(Col.mult(colorHere,incomingLightColor),cosAngle*$texture.$finish.$diffuse));
+    				if (incomingLightColor.red!=0 || incomingLightColor.green!=0 || incomingLightColor.blue!=0) {
+    					//toReturn = wis3Color.adds(toReturn, wis3Color.scalar(wis3Color.mult(colorHere, incomingLightColor), cosAngle*$texture.$finish.$diffuse));
     					toReturn = toReturn.adds(colorHere.mult(incomingLightColor).scalar(cosAngle*$texture.$finish.$diffuse));
     					trace ("2db. Bool ||: true .. toReturn: "+toReturn);
-    					if ($texture.$finish.$specular!=0)
-    					{
-    						var specular:Number = Vector.dot(reflectionDir,lightDir);
+    					if ($texture.$finish.$specular!=0) {
+    						var specular:Number = Vector.dot(reflectionDir, lightDir);
 
     						trace ("2dc. Bool $texture.$finish.$specular!=0: true .. specular: "+specular);
-    						if (specular>0)
-    						{
-    							specular = Math.pow(specular,$texture.$finish.$glossiness);
-    							//toReturn = Col.adds(toReturn,Col.scalar(incomingLightColor,specular*$texture.$finish.$specular));
+    						if (specular>0) {
+    							specular = Math.pow(specular, $texture.$finish.$glossiness);
+    							//toReturn = wis3Color.adds(toReturn, wis3Color.scalar(incomingLightColor, specular*$texture.$finish.$specular));
     							toReturn = toReturn.adds(incomingLightColor.scalar(specular*$texture.$finish.$specular));
     						    trace ("2dd. Bool specular>0: true .. specular: "+specular+", toReturn: "+toReturn);
     						}
@@ -301,9 +292,10 @@ class com.wis.types.Obj implements com.wis.types.IObj
     	}
 
     	return toReturn;
+    	*/
     }
 
-// 7. numericalOrder ------------------------------------------------------------
+      // 7. numericalOrder ------------------------------------------------------------
 
     /**
      * @method  numericalOrder
@@ -314,39 +306,40 @@ class com.wis.types.Obj implements com.wis.types.IObj
      * @param   b   (Number)  -- a real number _arr[n] generated with subclass' Array.sort method.
      * @return  (Number)  -- returns a positive or negative value which is evaluated by the subclass' Array.sort method.
     **/
-    static function numericalOrder(a:Number,b:Number):Number
-    {
+    public static function numericalOrder(a:Number, b:Number):Number {
         return a-b;
     }
 
-// 8. correctBounds ------------------------------------------------------------
+      // 8. correctBounds ------------------------------------------------------------
 
     /**
      * @method  correctBounds
      * @description  Changes the class instance bounding box to take
      *               transformations into account.
      * @usage  <pre>inst.correctBounds();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function correctBounds():Void
-    {
+    public function correctBounds():void {
         trace ("\n$$ 3. correctBounds fired");
 
     	var v1:Vector = $boundedBy.$v1;
     	var v2:Vector = $boundedBy.$v2;
     	var a:Number;
-    	var corners:Array = [v1,v2,new Vector(v1.x,v1.y,v2.z),new Vector(v1.x,v2.y,v1.z),new Vector(v2.x,v1.y,v1.z),new Vector(v1.x,v2.y,v2.z),new Vector(v2.x,v1.y,v2.z),new Vector(v2.x,v2.y,v1.z)];
+    	var corners:Array = [v1,
+    					v2,
+    					new Vector(v1.x, v1.y, v2.z),
+    					new Vector(v1.x, v2.y, v1.z),
+    					new Vector(v2.x, v1.y, v1.z),
+    					new Vector(v1.x, v2.y, v2.z),
+    					new Vector(v2.x, v1.y, v2.z),
+    					new Vector(v2.x, v2.y, v1.z)];
         trace ("3a. corners:Array: "+corners);
     	for (a=0;a<8;a++) corners[a] = corners[a].transformed($transform);
     	trace ("3b. corners:Array: "+corners);
-    	var nv1:Vector = new Vector();
-    	var nv2:Vector = new Vector();
+    	var nv1:Vector = new Vector(corners[0].x, corners[0].y, corners[0].z);
+    	var nv2:Vector = new Vector(corners[0].x, corners[0].y, corners[0].z);
 
-    	nv1.x = nv2.x = corners[0].x;
-    	nv1.y = nv2.y = corners[0].y;
-    	nv1.z = nv2.z = corners[0].z;
-    	for (a=1;a<8;a++)
-    	{
+    	for (a=1;a<8;a++) {
     		if (corners[a].x<nv1.x) nv1.x = corners[a].x;
     		if (corners[a].y<nv1.y) nv1.y = corners[a].y;
     		if (corners[a].z<nv1.z) nv1.z = corners[a].z;
@@ -356,20 +349,19 @@ class com.wis.types.Obj implements com.wis.types.IObj
     	}
     	$boundedBy.$v1 = nv1;
     	$boundedBy.$v2 = nv2;
-    	trace ("3c. $boundedBy.$v1.x:"+$boundedBy.$v1.x+",y:"+$boundedBy.$v1.y+",z:"+$boundedBy.$v1.z+"\n$boundedBy.$v2.x: "+$boundedBy.$v2.x+",y:"+$boundedBy.$v2.y+",z:"+$boundedBy.$v2.z+"\nnv1: "+nv1+"\nnv2: "+nv2);
+    	trace ("3c. $boundedBy.$v1.x:"+$boundedBy.$v1.x+", y:"+$boundedBy.$v1.y+", z:"+$boundedBy.$v1.z+"\n$boundedBy.$v2.x: "+$boundedBy.$v2.x+", y:"+$boundedBy.$v2.y+", z:"+$boundedBy.$v2.z+"\nnv1: "+nv1+"\nnv2: "+nv2);
     }
 
-// 9. generalLowLevelObjectInitialization ------------------------------------------------------------
+      // 9. generalLowLevelObjectInitialization ------------------------------------------------------------
 
     /**
      * @method  generalLowLevelObjectInitialization
      * @description  Called at the end of the initialization function of all
      *               lowest-level object subclasses (spheres, boxes, cylinders, etc).
      * @usage  <pre>inst.generalLowLevelObjectInitialization();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function generalLowLevelObjectInitialization():Void
-    {
+    public function generalLowLevelObjectInitialization():void {
         trace ("\n$$ 4. generalLowLevelObjectInitialization fired");
     	$volumeOutsideOfBounds = !$infiniteBounds && $inversed;
     	if (!$infiniteBounds && !$transform.$identity) this.correctBounds();
@@ -377,12 +369,12 @@ class com.wis.types.Obj implements com.wis.types.IObj
     	trace ("4b. (!$infiniteBounds && !$transform.$identity): "+(!$infiniteBounds && !$transform.$identity));
     }
 
-// 10. findBoundInts ------------------------------------------------------------
+      // 10. findBoundInts ------------------------------------------------------------
 
     /**
      * @method  findBoundInts
      * @description  Static method used by 'boundTest' method.
-     * @usage  <pre>inst.findBoundInts(v1,v2,dim,odim1,odim2,s,d);</pre>
+     * @usage  <pre>inst.findBoundInts(v1, v2, dim, odim1, odim2, s, d);</pre>
      * @param   v1   (Vector)  -- a bounding box Vector object.
      * @param   v2   (Vector)  -- a bounding box Vector object.
      * @param   dim   (String)  -- a string passing 'x'.
@@ -392,21 +384,20 @@ class com.wis.types.Obj implements com.wis.types.IObj
      * @param   d   (Vector)  -- local pointer to Ray class instance $dir Vector object.
      * @return  (Boolean)
     **/
-    static function findBoundInts(v1:Vector,v2:Vector,dim:String,odim1:String,odim2:String,s:Vector,d:Vector):Boolean
-    {
+    public static function findBoundInts(v1:Vector, v2:Vector, dim:String, odim1:String, odim2:String, s:Vector, d:Vector):Boolean {
         trace ("\n$$ 5. findBoundInts fired");
         trace ("5a. Bool (d[dim]==0): "+(d[dim]==0));
 
     	if (d[dim]==0) return false;
 
     	var int1:Number = (v1[dim]-s[dim])/d[dim];
-    	var intPoint1:Vector = Vector.adder(s,Vector.scaler(d,int1));
+    	var intPoint1:Vector = Vector.adder(s, Vector.scaler(d, int1));
 
         trace ("5b. Bool &&(1): "+(int1>0 && intPoint1[odim1]>=v1[odim1] && intPoint1[odim1]<v2[odim1] && intPoint1[odim2]>=v1[odim2] && intPoint1[odim2]<v2[odim2]));
     	if (int1>0 && intPoint1[odim1]>=v1[odim1] && intPoint1[odim1]<v2[odim1] && intPoint1[odim2]>=v1[odim2] && intPoint1[odim2]<v2[odim2]) return true;
 
     	var int2:Number = (v2[dim]-s[dim])/d[dim];
-    	var intPoint2:Vector = Vector.adder(s,Vector.scaler(d,int2));
+    	var intPoint2:Vector = Vector.adder(s, Vector.scaler(d, int2));
 
     	trace ("5c. Bool &&(2): "+(int2>0 && intPoint2[odim1]>=v1[odim1] && intPoint2[odim1]<v2[odim1] && intPoint2[odim2]>=v1[odim2] && intPoint2[odim2]<v2[odim2]));
     	if (int2>0 && intPoint2[odim1]>=v1[odim1] && intPoint2[odim1]<v2[odim1] && intPoint2[odim2]>=v1[odim2] && intPoint2[odim2]<v2[odim2]) return true;
@@ -414,7 +405,7 @@ class com.wis.types.Obj implements com.wis.types.IObj
     	return false;
     }
 
-// 11. boundTest ------------------------------------------------------------
+      // 11. boundTest ------------------------------------------------------------
 
     /**
      * @method  boundTest
@@ -424,8 +415,7 @@ class com.wis.types.Obj implements com.wis.types.IObj
      * @param   ray   (Ray)  -- a Ray class instance that defines its $start and $dir Vector objects.
      * @return  (Boolean)
     **/
-    function boundTest(ray:Ray):Boolean
-    {
+    public function boundTest(ray:Ray):Boolean {
         trace ("\n$$ 6. boundTest fired");
 
     	// create bounding box of the transformed object if it hasn't already been created:
@@ -445,15 +435,14 @@ class com.wis.types.Obj implements com.wis.types.IObj
 
     	trace ("6b. d:"+d.toString());
 
-    	return
-    	(
-    		Obj.findBoundInts(v1,v2,"x","y","z",s,d) ||
-    		Obj.findBoundInts(v1,v2,"y","x","z",s,d) ||
-    		Obj.findBoundInts(v1,v2,"z","x","y",s,d)
+    	return (
+    		Obj.findBoundInts(v1, v2, "x", "y", "z", s, d) ||
+    		Obj.findBoundInts(v1, v2, "y", "x", "z", s, d) ||
+    		Obj.findBoundInts(v1, v2, "z", "x", "y", s, d)
     	);
     }
 
-// 12. boundTestPoint ------------------------------------------------------------
+      // 12. boundTestPoint ------------------------------------------------------------
 
     /**
      * @method  boundTestPoint
@@ -462,8 +451,7 @@ class com.wis.types.Obj implements com.wis.types.IObj
      * @param   pos   (Vector)  -- a Vector object defining point wrt to Obj subclass instance.
      * @return  (Boolean)
     **/
-    function boundTestPoint(pos:Vector):Boolean
-    {
+    public function boundTestPoint(pos:Vector):Boolean {
         trace ("\n$$ 7. boundTestPoint fired");
 
     	if ($infiniteBounds) return true;
@@ -473,15 +461,14 @@ class com.wis.types.Obj implements com.wis.types.IObj
 
     	trace ("7a. v1:"+v1.toString()+", v2:"+v2.toString());
 
-    	return
-    	(
+    	return (
     	    pos.x>=v1.x && pos.y>=v1.y &&
     	    pos.z>=v1.z && pos.x<=v2.x &&
     	    pos.y<=v2.y && pos.z<=v2.z
     	);
     }
 
-// 13. findIntersections ------------------------------------------------------------
+      // 13. findIntersections ------------------------------------------------------------
 
     /**
      * @method  findIntersections
@@ -492,8 +479,7 @@ class com.wis.types.Obj implements com.wis.types.IObj
      * @param   ray   (Ray)  -- a Ray class instance that defines its $start and $dir Vector objects.
      * @return  (Array)  -- returns an array of found intersections.
     **/
-    function findIntersections(ray:Ray):Array
-    {
+    public function findIntersections(ray:Ray):Array {
         trace ("\n$$ 8. findIntersections fired");
 
     	if ((ray.$isShadowTest && !$castShadows) || !boundTest(ray)) return [];
@@ -510,8 +496,7 @@ class com.wis.types.Obj implements com.wis.types.IObj
 
     	trace ("8c. usingRay:"+usingRay+", toReturn:"+toReturn+", a:"+a);
 
-    	for (a=0;a<toReturn.length;a++)
-    	{
+    	for (a=0;a<toReturn.length;a++) {
     		toReturn[a].$depth *= usingRay.$distMult; // corrects depth since we're changing the intersection's ray
     		toReturn[a].$ray = ray;
     		trace ("8d_"+a+". toReturn["+a+"].$depth:"+toReturn[a].$depth+", toReturn["+a+"].$ray:"+toReturn[a].$ray);
@@ -520,7 +505,7 @@ class com.wis.types.Obj implements com.wis.types.IObj
     	return toReturn;
     }
 
-// 14. getNormalAt ------------------------------------------------------------
+      // 14. getNormalAt ------------------------------------------------------------
 
     /**
      * @method  getNormalAt
@@ -528,45 +513,45 @@ class com.wis.types.Obj implements com.wis.types.IObj
      *               the focus intersection using a winding number algorithm
      *               affecting the direction of the class instance $transform
      *               property.
-     * @usage  <pre>inst.getNormalAt(pos,isect);</pre>
+     * @usage  <pre>inst.getNormalAt(pos, isect);</pre>
      * @param   pos   (Vector)  -- an object defining a point in 3-space wrt the subclass instance.
      * @param   isect   (Intersection)  -- focus intersection.
      * @return  (Vector)  -- returns a normalized Vector object.
     **/
-    function getNormalAt(pos:Vector,isect:Intersection):Vector
-    {
+    public function getNormalAt(pos:Vector = null, isect:Intersection = null):Vector {
         trace ("\n$$ 9. getNormalAt fired");
-
+    	throw new Error ("AS2-AS3 Transition Error: what did 'Vector.normalizer( $boundedBy.getNormalAtUntransformed(pos, isect) );' mean?");
+		/*
     	var toReturn:Vector;
 
-    	if ($transform.$identity)
-    	{
-    	    toReturn = Vector.normalizer($boundedBy.getNormalAtUntransformed(pos,isect));
+		// FIXME -- I have no idea what the 
+    	//    toReturn = Vector.normalizer( $boundedBy.getNormalAtUntransformed(pos, isect) );
+    	// lines should be
+    	if ($transform.$identity) {
+    	    toReturn = Vector.normalizer( $boundedBy.getNormalAtUntransformed(pos, isect) );
     	    trace ("9a. ($transform.$identity):"+($transform.$identity)+", toReturn:"+toReturn.toString());
     	}
-    	else
-    	{
+    	else {
     		// multiply by the transpose of the inverse of the Transformation matrix.
     		var transInv:Transformation = $transform.$inverse;
-    		var baseNorm:Vector = $boundedBy.getNormalAtUntransformed(pos.transformed(transInv),isect);
+    		var baseNorm:Vector = $boundedBy.getNormalAtUntransformed( pos.transformed(transInv), isect );
 
     		toReturn = Vector.normalizer
     		(
     		    new Vector
     		    (
-    			    Vector.dot(new Vector(transInv.$vx.x,transInv.$vy.x,transInv.$vz.x),baseNorm),
-    			    Vector.dot(new Vector(transInv.$vx.y,transInv.$vy.y,transInv.$vz.y),baseNorm),
-    			    Vector.dot(new Vector(transInv.$vx.z,transInv.$vy.z,transInv.$vz.z),baseNorm)
+    			    Vector.dot(new Vector(transInv.$vx.x, transInv.$vy.x, transInv.$vz.x), baseNorm),
+    			    Vector.dot(new Vector(transInv.$vx.y, transInv.$vy.y, transInv.$vz.y), baseNorm),
+    			    Vector.dot(new Vector(transInv.$vx.z, transInv.$vy.z, transInv.$vz.z), baseNorm)
     		    )
     		);
-    		trace ("9b. transInv:\n"+transInv+",\nbaseNorm:"+baseNorm+", toReturn:"+toReturn.toString());
+    		trace ("9b. transInv:\n"+transInv+", \nbaseNorm:"+baseNorm+", toReturn:"+toReturn.toString());
     	}
 
     	var inverseIt:Boolean = false;
     	var a:Number;
 
-    	for (a=0;a<isect.$objectStack.length;a++)
-    	{
+    	for (a=0;a<isect.$objectStack.length;a++) {
     		if (isect.$objectStack[a].$inversed) inverseIt = !inverseIt;
     		trace ("9c_"+a+". (isect.$objectStack[a].$inversed):"+(isect.$objectStack[a].$inversed)+", inverseIt:"+inverseIt);
     	}
@@ -574,10 +559,11 @@ class com.wis.types.Obj implements com.wis.types.IObj
     	if (inverseIt) toReturn = Vector.neg(toReturn);
     	trace ("9d. (inverseIt):"+(inverseIt)+", toReturn:"+toReturn.toString());
 
-    	return toReturn;
+    	return toReturn;*/
+    	return null;
     }
 
-// 15. isPointInside ------------------------------------------------------------
+      // 15. isPointInside ------------------------------------------------------------
 
     /**
      * @method  isPointInside
@@ -587,8 +573,7 @@ class com.wis.types.Obj implements com.wis.types.IObj
      * @param   pos   (Vector)  -- a Vector object defining a point in 3-space wrt this subclass instance's bounding box.
      * @return  (Boolean)
     **/
-    function isPointInside(pos:Vector):Boolean
-    {
+    public function isPointInside(pos:Vector):Boolean {
         trace ("\n$$ 10. isPointInside fired");
 
     	var toReturn:Boolean;
@@ -604,16 +589,15 @@ class com.wis.types.Obj implements com.wis.types.IObj
     	return toReturn;
     }
 
-// 16. setupDefaultModifiers ------------------------------------------------------------
+      // 16. setupDefaultModifiers ------------------------------------------------------------
 
     /**
      * @method  setupDefaultModifiers
      * @description  Sets up subclass instance with low-level superclass properties.
      * @usage  <pre>inst.setupDefaultModifiers();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function setupDefaultModifiers():Void
-    {
+    public function setupDefaultModifiers():void {
         trace ("\n$$ 11. setupDefaultModifiers fired");
 
         $texture = $texture.$defaultTex.copy();
@@ -623,10 +607,10 @@ class com.wis.types.Obj implements com.wis.types.IObj
     	$infiniteBounds = false;
     	$volumeOutsideOfBounds = false;
     	$textureOverridesParent = false;
-    	trace ("11a. $transform:\n"+$transform+",\n$castShadows:"+$castShadows+", $inversed:"+$inversed+", $infiniteBounds:"+$infiniteBounds+",\n$volumeOutsideOfBounds:"+$volumeOutsideOfBounds+", $textureOverridesParent:"+$textureOverridesParent);
+    	trace ("11a. $transform:\n"+$transform+", \n$castShadows:"+$castShadows+", $inversed:"+$inversed+", $infiniteBounds:"+$infiniteBounds+", \n$volumeOutsideOfBounds:"+$volumeOutsideOfBounds+", $textureOverridesParent:"+$textureOverridesParent);
     }
 
-// 17. copyModifiers ------------------------------------------------------------
+      // 17. copyModifiers ------------------------------------------------------------
 
     /**
      * @method  copyModifiers
@@ -636,8 +620,7 @@ class com.wis.types.Obj implements com.wis.types.IObj
      * @param   newObj   (Obj)  -- new class instance which inherits the Obj superclass properties.
      * @return  (Obj)  -- returns a new Obj class instance with a copy of inherited properties.
     **/
-    function copyModifiers(newObj:Obj):Obj
-    {
+    public function copyModifiers(newObj:Obj):Obj {
         trace ("\n$$ 12. copyModifiers fired");
     	newObj.$texture = $texture.copy();
     	newObj.$transform = $transform.copy();
@@ -647,10 +630,11 @@ class com.wis.types.Obj implements com.wis.types.IObj
     	newObj.$volumeOutsideOfBounds = $volumeOutsideOfBounds;
     	newObj.$textureOverridesParent = $textureOverridesParent;
     	newObj.initialize();
-    	trace ("12a. newObj.$texture:"+newObj.$texture+",\n$transform:\n"+newObj.$transform+",\n$castShadows:"+newObj.$castShadows+", $inversed:"+newObj.$inversed+", $infiniteBounds:"+newObj.$infiniteBounds+",\n$volumeOutsideOfBounds:"+newObj.$volumeOutsideOfBounds+", $textureOverridesParent:"+newObj.$textureOverridesParent);
+    	trace ("12a. newObj.$texture:"+newObj.$texture+", \n$transform:\n"+newObj.$transform+", \n$castShadows:"+newObj.$castShadows+", $inversed:"+newObj.$inversed+", $infiniteBounds:"+newObj.$infiniteBounds+", \n$volumeOutsideOfBounds:"+newObj.$volumeOutsideOfBounds+", $textureOverridesParent:"+newObj.$textureOverridesParent);
 
     	return newObj;
     }
 
-}
+}// class
+}//package
 

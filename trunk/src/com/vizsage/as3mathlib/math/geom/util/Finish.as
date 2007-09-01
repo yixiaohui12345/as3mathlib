@@ -1,12 +1,13 @@
+package com.wis3.math.geom.util {
 /**
- * @class       com.wis.math.geom.util.Finish
+ * @class       com.wis3.math.geom.util.Finish
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Finish Class.
  *              <p>
  *		        Provides utility methods for the IObj interface based on JS
  *              RayTracer2 by John Haggerty.
- * @usage       <pre>var inst:Finish = new Finish(specular,glossiness,reflection,ambient,diffuse)</pre>
+ * @usage       <pre>var inst:Finish = new Finish(specular, glossiness, reflection, ambient, diffuse)</pre>
  * @param       specular (Number)  -- a real number between 0 and 1.
  * @param       glossiness (Number)  -- a real number between 1 and infinity.
  * @param       reflection (Number)  -- a real number between 0 and 1.
@@ -15,10 +16,10 @@
  * -----------------------------------------------
  * Latest update: August 5, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis.math.geom.util.Texture
+ * Dependencies:  com.wis3.math.geom.util.Texture
  * -----------------------------------------------
- * AS2 revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
- * JS  original copyright © 2003, John Haggerty  [http://www.slimeland.com/]
+ * AS2 revision copyright ï¿½ 2004, Richard Wright [wisolutions2002@shaw.ca]
+ * JS  original copyright ï¿½ 2003, John Haggerty  [http://www.slimeland.com/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -46,7 +47,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * -----------------------------------------------
  * Functions:
- *       Finish(specular,glossiness,reflection,ambient,diffuse)
+ *       Finish(specular, glossiness, reflection, ambient, diffuse)
  *             1.  copy()
  * -----------------------------------------------
  *  Updates may be available at:
@@ -58,10 +59,9 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.geom.util.Texture;
+import com.wis3.math.geom.util.Texture;
 
-class com.wis.math.geom.util.Finish
-{
+public class Finish  {
 	/**
 	 * @property $specular (Number)  -- a real number between 0 and 1.
 	 * @property $glossiness (Number)  -- a real number between 1 and infinity.
@@ -69,15 +69,14 @@ class com.wis.math.geom.util.Finish
 	 * @property $ambient (Number)  -- a real number between 0 and 1.
 	 * @property $diffuse (Number)  -- a real number between 0 and 1.
 	**/
-    var $specular:Number;
-    var $glossiness:Number;
-    var $reflection:Number;
-    var $ambient:Number;
-    var $diffuse:Number;
+    public var $specular:Number;
+    public var $glossiness:Number;
+    public var $reflection:Number;
+    public var $ambient:Number;
+    public var $diffuse:Number;
 
     // constructor
-    function Finish(specular:Number,glossiness:Number,reflection:Number,ambient:Number,diffuse:Number)
-    {
+    public function Finish(specular:Number, glossiness:Number, reflection:Number, ambient:Number, diffuse:Number) {
         trace ("Finish Class fired");
 	    if (typeof(specular)=="undefined") $specular = 0;
 	    else $specular = specular;
@@ -91,7 +90,7 @@ class com.wis.math.geom.util.Finish
 	    else $diffuse = diffuse;
     }
 
-// 1. copy ---------------------------------------
+      // 1. copy ---------------------------------------
 
     /**
      * @method  copy
@@ -99,10 +98,10 @@ class com.wis.math.geom.util.Finish
      * @usage  <pre>inst.copy();</pre>
      * @return  (Finish)  -- returns a new Finish object, a copy of this instance.
     **/
-    function copy():Finish
-    {
-	    return new Finish($specular,$glossiness,$reflection,$ambient,$diffuse);
+    public function copy():Finish {
+	    return new Finish($specular, $glossiness, $reflection, $ambient, $diffuse);
     }
 
-}
+}// class
+}//package
 
