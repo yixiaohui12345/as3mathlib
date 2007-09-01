@@ -1,10 +1,10 @@
-package com.wis3.math.geom.util {
+package com.vizsage.as3mathlib.math.geom.util {
 	import flash.display.MovieClip;
 	import flash.geom.Point;
 	import flash.display.DisplayObject;
 	
 /**
- * @class       com.wis3.math.geom.util.RegPoint
+ * @class       com.vizsage.as3mathlib.math.geom.util.RegPoint
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the RegPoint Class.

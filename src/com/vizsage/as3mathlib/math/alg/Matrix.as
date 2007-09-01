@@ -1,6 +1,6 @@
-package com.wis3.math.alg {
+package com.vizsage.as3mathlib.math.alg {
 /**
- * @class       com.wis3.math.alg.Matrix
+ * @class       com.vizsage.as3mathlib.math.alg.Matrix
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Matrix Class -- provides
@@ -11,7 +11,7 @@ package com.wis3.math.alg {
  * -----------------------------------------------
  * Latest update: August 15, 2004
  * -----------------------------------------------
- * Dependency:    com.wis3.math.alg.Vector
+ * Dependency:    com.vizsage.as3mathlib.math.alg.Vector
  * -----------------------------------------------
  * AS2 revision copyright: � 2003, Richard Wright   [wisolutions2002@shaw.ca]
  * AS1 original copyright: � 2001, Brandon Williams [brandon@plotdev.com]
@@ -73,7 +73,7 @@ package com.wis3.math.alg {
  *  ----------------------------------------------
 **/
 
-import com.wis3.math.alg.Vector;
+import com.vizsage.as3mathlib.math.alg.Vector;
 
 public class Matrix  {
 	/**

@@ -1,6 +1,6 @@
-package com.wis3.math.alg {
+package com.vizsage.as3mathlib.math.alg {
 /**
- * @class       com.wis3.math.alg.Polynomial
+ * @class       com.vizsage.as3mathlib.math.alg.Polynomial
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the Polynomial Class -- provides
@@ -11,7 +11,7 @@ package com.wis3.math.alg {
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * Dependency:    com.wis3.math.alg.Vector
+ * Dependency:    com.vizsage.as3mathlib.math.alg.Vector
  * -----------------------------------------------
  * AS2 revision copyright: � 2003, Richard Wright     [wisolutions2002@shaw.ca]
  * JS  original copyright: � 2000-2002, Kevin Lindsey [http://www.kevlindev.com/]

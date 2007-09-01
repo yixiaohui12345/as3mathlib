@@ -1,6 +1,6 @@
-package com.wis3.math.calc.solvers {
+package com.vizsage.as3mathlib.math.calc.solvers {
 /**
- * @class       com.wis3.math.calc.solvers.RK45
+ * @class       com.vizsage.as3mathlib.math.calc.solvers.RK45
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description RK45 implements the behaviours of the IODESolver Interface
@@ -53,9 +53,9 @@ package com.wis3.math.calc.solvers {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.calc.*;
+import com.vizsage.as3mathlib.math.calc.*;
 
-public class RK45 implements com.wis3.math.calc.IODESolver {
+public class RK45 implements com.vizsage.as3mathlib.math.calc.IODESolver {
     /**
      * @property $b  (Array)  -- nested constants array.
      * @property $ch  (Array)  -- constants array.

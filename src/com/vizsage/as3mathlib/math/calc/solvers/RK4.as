@@ -1,6 +1,6 @@
-package com.wis3.math.calc.solvers {
+package com.vizsage.as3mathlib.math.calc.solvers {
 /**
- * @class       com.wis3.math.calc.solvers.RK4
+ * @class       com.vizsage.as3mathlib.math.calc.solvers.RK4
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description A fourth order Runge-Kutta IODE solver. Constructs the RK4
@@ -57,9 +57,9 @@ package com.wis3.math.calc.solvers {
  * for the book Simulations in Physics.
  * Copyright (c) 2003  H. Gould, J. Tobochnik, and W. Christian.
  */
-import com.wis3.math.calc.*;
+import com.vizsage.as3mathlib.math.calc.*;
 
-public class RK4 implements com.wis3.math.calc.IODESolver {
+public class RK4 implements com.vizsage.as3mathlib.math.calc.IODESolver {
 	/**
 	 * @property $stepSize  (Number)  -- parameter increment such as delta time.
 	 * @property $numEqn  (Number)  -- number of equations.

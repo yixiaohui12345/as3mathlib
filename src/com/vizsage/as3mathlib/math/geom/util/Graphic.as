@@ -1,6 +1,6 @@
-package com.wis3.math.geom.util {
+package com.vizsage.as3mathlib.math.geom.util {
 /**
- * @class       com.wis3.math.geom.util.Graphic
+ * @class       com.vizsage.as3mathlib.math.geom.util.Graphic
  * @author      Richard Wright
  * @version     1.8
  * @description Implements the static behaviours of the Graphic Class. 
@@ -10,11 +10,11 @@ package com.wis3.math.geom.util {
  * -----------------------------------------------
  * Latest update: July 8, 2005
  * -----------------------------------------------
- * Dependencies:  com.wis3.math.alg.Point
- *                com.wis3.math.alg.Vector
- *                com.wis3.math.geom.intersect2D.*
- *                com.wis3.math.geom.intersect3D.*
- *                com.wis3.math.geom.trig.Degree
+ * Dependencies:  com.vizsage.as3mathlib.math.alg.Point
+ *                com.vizsage.as3mathlib.math.alg.Vector
+ *                com.vizsage.as3mathlib.math.geom.intersect2D.*
+ *                com.vizsage.as3mathlib.math.geom.intersect3D.*
+ *                com.vizsage.as3mathlib.math.geom.trig.Degree
  * -----------------------------------------------
  * AS2 revision copyright © 2004, Richard Wright    [wisolutions2002@shaw.ca]
  * JS  original copyright © 2003, Oscar van Vlijmen [ovv@hetnet.nl]
@@ -81,11 +81,11 @@ package com.wis3.math.geom.util {
  *  ----------------------------------------------
 **/
 
-import com.wis3.math.alg.Point;
-import com.wis3.math.alg.Vector;
-import com.wis3.math.geom.trig.Degree;
-import com.wis3.math.geom.intersect2D.*;
-import com.wis3.math.geom.intersect3D.*;
+import com.vizsage.as3mathlib.math.alg.Point;
+import com.vizsage.as3mathlib.math.alg.Vector;
+import com.vizsage.as3mathlib.math.geom.trig.Degree;
+import com.vizsage.as3mathlib.math.geom.intersect2D.*;
+import com.vizsage.as3mathlib.math.geom.intersect3D.*;
 
 public class Graphic  {
     /**

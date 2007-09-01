@@ -1,8 +1,8 @@
-package com.wis3.math.alg {
+package com.vizsage.as3mathlib.math.alg {
 	import flash.display.MovieClip;
 	
 /**
- * @class       com.wis3.math.alg.Regression
+ * @class       com.vizsage.as3mathlib.math.alg.Regression
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the Regression Class as an

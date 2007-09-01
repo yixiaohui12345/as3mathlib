@@ -1,6 +1,6 @@
-package com.wis3.math.geom.util {
+package com.vizsage.as3mathlib.math.geom.util {
 /**
- * @class       com.wis3.math.geom.util.Texture
+ * @class       com.vizsage.as3mathlib.math.geom.util.Texture
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Texture Class.
@@ -11,24 +11,24 @@ package com.wis3.math.geom.util {
  *              The <tt>color</tt> argument needs to be setup with a target assigned
  *              to a MovieClip as above. <tt>pigment</tt> is optional and should be
  *              a function that returns a color. The color argument is then ignored.
- *              Required syntax to setup wis3Color object:
+ *              Required syntax to setup Col object:
  *              <blockquote><pre>
- *              var target:wis3Color = new wis3Color(clip);
- *              var color:wis3Color = new wis3Color(target[, r:Number, g:Number, b:Number]);
+ *              var target:Col = new Col(clip);
+ *              var color:Col = new Col(target[, r:Number, g:Number, b:Number]);
  *              optional: col1.init(r:Number, g:Number, b:Number);
  *		        </pre></blockquote>
  * @usage       <pre>var inst:Texture = new Texture(mc, color, finish, pigment);</pre>
  * @param       mc (MovieClip)  -- scope MovieClip object.
- * @param       color (wis3Color)  -- a wis3Color class instance.
+ * @param       color (Col)  -- a Col class instance.
  * @param       finish (Finish)  -- a Finich class instance.
  * @param       pigment (Function)  -- a Function object.
  * -----------------------------------------------
  * Latest update: August 5, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis3.math.alg.Vector
- *                com.wis3.math.geom.util.Finish
- *                com.wis3.math.geom.util.Transformation
- *                com.wis3.types.wis3Color
+ * Dependencies:  com.vizsage.as3mathlib.math.alg.Vector
+ *                com.vizsage.as3mathlib.math.geom.util.Finish
+ *                com.vizsage.as3mathlib.math.geom.util.Transformation
+ *                com.vizsage.as3mathlib.types.Col
  * -----------------------------------------------
  * AS2 revision copyright � 2004, Richard Wright [wisolutions2002@shaw.ca]
  * JS  original copyright � 2003, John Haggerty  [http://www.slimeland.com/]
@@ -72,18 +72,18 @@ package com.wis3.math.geom.util {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.alg.Vector;
-import com.wis3.math.geom.util.Finish;
-import com.wis3.math.geom.util.Transformation;
-import com.wis3.types.wis3Color;
+import com.vizsage.as3mathlib.math.alg.Vector;
+import com.vizsage.as3mathlib.math.geom.util.Finish;
+import com.vizsage.as3mathlib.math.geom.util.Transformation;
+import com.vizsage.as3mathlib.types.Col;
 import flash.display.MovieClip;
 import flash.geom.ColorTransform;
 
 public class Texture  {
 	/**
 	 * @property $clip (MovieClip)  -- scope MovieClip object.
-	 * @property $target (wis3Color)  -- a wis3Color object for scope.
-	 * @property $color (wis3Color)  -- a wis3Color object.
+	 * @property $target (Col)  -- a Col object for scope.
+	 * @property $color (Col)  -- a Col object.
 	 * @property $finish (Finish)  -- a Finish object.
 	 * @property $pigment (Function)  -- a Function object.
 	 * @property $confirm (Function)  -- a Function object.
@@ -111,19 +111,19 @@ public class Texture  {
     	/*
         trace ("Texture Class fired");
     	if (color) {
-    	    $target = new wis3Color(mc);
-	        $color = new wis3Color($target);
+    	    $target = new Col(mc);
+	        $color = new Col($target);
     	    $color = color;
 	    }
 	    else {
-	        $target = new wis3Color(mc);
-	        $color = new wis3Color($target, 255, 255, 255);
+	        $target = new Col(mc);
+	        $color = new Col($target, 255, 255, 255);
 	    }
 	    if (finish)	$finish = finish;
 	    else $finish = new Finish();
 	    if (pigment) $pigment = pigment;
 	    $transform = Transformation.$IdentityTrans.copy();
-	    $defaultTex = new Texture($clip, new wis3Color($target, 255, 255, 255), new Finish(0, 0));
+	    $defaultTex = new Texture($clip, new Col($target, 255, 255, 255), new Finish(0, 0));
 	    */
     }
 
@@ -151,16 +151,16 @@ public class Texture  {
 
     /**
      * @method  colorAt
-     * @description  Creates a new wis3Color object if $pigment property exists.
+     * @description  Creates a new Col object if $pigment property exists.
      * @usage  <pre>inst.colorAt(pos, mc);</pre>
      * @param   pos   (Vector)  -- a direction Vector object.
      * @param   mc   (MovieClip)  -- passed scope MovieClip object.
-     * @return  (wis3Color)  -- returns a new wis3Color object if $pigment, else this instance's $color property.
+     * @return  (Col)  -- returns a new Col object if $pigment, else this instance's $color property.
     **/
     public function colorAt(pos:Vector, mc:MovieClip):ColorTransform {
     	throw new Error("AS2-AS3 Transition Error: Color changed to ColorTransform and we haven't fixed it yet"); return null; 
     	/*
-        var toReturn:wis3Color;
+        var toReturn:Col;
 
 	    if ($pigment) {
 		    var posTransformed:Vector = pos.transformed($transform.$inverse);
@@ -170,8 +170,8 @@ public class Texture  {
 		    }
 		    catch ($err) {
 			    if (!$confirm("Error in pigment function when evaluated at "+posTransformed+": \n"+$err.message+"\n Substituting black as the return value. Continue render?")) $errored = true;
-			    $target = new wis3Color(mc);
-			    toReturn = new wis3Color($target);
+			    $target = new Col(mc);
+			    toReturn = new Col($target);
 			    toReturn.init(0, 0, 0);
 		    }
 

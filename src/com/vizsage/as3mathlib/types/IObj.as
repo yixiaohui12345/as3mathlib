@@ -1,6 +1,6 @@
-﻿package com.wis3.types {
+﻿package com.vizsage.as3mathlib.types {
 /**
- * @interface   com.wis3.types.IObj
+ * @interface   com.vizsage.as3mathlib.types.IObj
  * @author      Richard Wright
  * @version     1.6
  * @description Defines the IObj interface for the Obj superclass and its
@@ -8,23 +8,23 @@
  *              <p>
  *              This is a list of the interface-dependent classes:
  *              <blockquote><pre>
- *              <a href="Obj_doc.html" target="_blank">com.wis3.types.Obj</a> - superclass
- *              <a href="Intersect3D_doc.html" target="_blank">com.wis3.math.geom.intersect3D.Intersect3D</a> - extends Obj
- *              <a href="Union_doc.html" target="_blank">com.wis3.math.geom.intersect3D.Union</a> - extends Obj
- *              <a href="Box_doc.html" target="_blank">com.wis3.math.geom.polytope.Box</a> - extends Obj
- *              <a href="Plane_doc.html" target="_blank">com.wis3.math.geom.polytope.Plane</a> - extends Obj
- *              <a href="Cone_doc.html" target="_blank">com.wis3.math.geom.quadric.Cone</a> - extends Obj
- *              <a href="Cylinder_doc.html" target="_blank">com.wis3.math.geom.quadric.Cylinder</a> - extends Obj
- *              <a href="Sphere_doc.html" target="_blank">com.wis3.math.geom.quadric.Sphere</a> - extends Obj
- *              <a href="Camera_doc.html" target="_blank">com.wis3.math.geom.util.Camera</a>
- *              <a href="Finish_doc.html" target="_blank">com.wis3.math.geom.util.Finish</a>
- *              <a href="Intersection_doc.html" target="_blank">com.wis3.math.geom.util.Intersection</a>
- *              <a href="LightSource_doc.html" target="_blank">com.wis3.math.geom.util.LightSource</a>
- *              <a href="Ray_doc.html" target="_blank">com.wis3.math.geom.util.Ray</a>
- *              <a href="Texture_doc.html" target="_blank">com.wis3.math.geom.util.Texture</a>
- *              <a href="Transformation_doc.html" target="_blank">com.wis3.math.geom.util.Transformation</a>
+ *              <a href="Obj_doc.html" target="_blank">com.vizsage.as3mathlib.types.Obj</a> - superclass
+ *              <a href="Intersect3D_doc.html" target="_blank">com.vizsage.as3mathlib.math.geom.intersect3D.Intersect3D</a> - extends Obj
+ *              <a href="Union_doc.html" target="_blank">com.vizsage.as3mathlib.math.geom.intersect3D.Union</a> - extends Obj
+ *              <a href="Box_doc.html" target="_blank">com.vizsage.as3mathlib.math.geom.polytope.Box</a> - extends Obj
+ *              <a href="Plane_doc.html" target="_blank">com.vizsage.as3mathlib.math.geom.polytope.Plane</a> - extends Obj
+ *              <a href="Cone_doc.html" target="_blank">com.vizsage.as3mathlib.math.geom.quadric.Cone</a> - extends Obj
+ *              <a href="Cylinder_doc.html" target="_blank">com.vizsage.as3mathlib.math.geom.quadric.Cylinder</a> - extends Obj
+ *              <a href="Sphere_doc.html" target="_blank">com.vizsage.as3mathlib.math.geom.quadric.Sphere</a> - extends Obj
+ *              <a href="Camera_doc.html" target="_blank">com.vizsage.as3mathlib.math.geom.util.Camera</a>
+ *              <a href="Finish_doc.html" target="_blank">com.vizsage.as3mathlib.math.geom.util.Finish</a>
+ *              <a href="Intersection_doc.html" target="_blank">com.vizsage.as3mathlib.math.geom.util.Intersection</a>
+ *              <a href="LightSource_doc.html" target="_blank">com.vizsage.as3mathlib.math.geom.util.LightSource</a>
+ *              <a href="Ray_doc.html" target="_blank">com.vizsage.as3mathlib.math.geom.util.Ray</a>
+ *              <a href="Texture_doc.html" target="_blank">com.vizsage.as3mathlib.math.geom.util.Texture</a>
+ *              <a href="Transformation_doc.html" target="_blank">com.vizsage.as3mathlib.math.geom.util.Transformation</a>
  *              </pre></blockquote>
- * @usage       Interface resides within the com.wis3.types package.
+ * @usage       Interface resides within the com.vizsage.as3mathlib.types package.
  * @param       No parameters for interface constructs.
  * -----------------------------------------------
  * Latest update: July 27, 2004
@@ -101,9 +101,9 @@
  * -----------------------------------------------
 **/
 
-import com.wis3.math.alg.Vector;
-import com.wis3.math.geom.util.Ray;
-import com.wis3.types.Obj;
+import com.vizsage.as3mathlib.math.alg.Vector;
+import com.vizsage.as3mathlib.math.geom.util.Ray;
+import com.vizsage.as3mathlib.types.Obj;
 
 public interface IObj  {
 

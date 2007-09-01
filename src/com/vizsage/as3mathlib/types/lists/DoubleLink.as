@@ -1,6 +1,6 @@
-package com.wis3.types.lists {
+package com.vizsage.as3mathlib.types.lists {
 /**
- * @class       com.wis3.types.lists.DoubleLink
+ * @class       com.vizsage.as3mathlib.types.lists.DoubleLink
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the DoubleLink Class.

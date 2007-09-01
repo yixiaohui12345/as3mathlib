@@ -1,6 +1,6 @@
-package com.wis3.math.geom.intersect3D {
+package com.vizsage.as3mathlib.math.geom.intersect3D {
 /**
- * @class       com.wis3.math.geom.intersect3D.Intersect3D
+ * @class       com.vizsage.as3mathlib.math.geom.intersect3D.Intersect3D
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Intersect3D Class.
@@ -12,13 +12,13 @@ package com.wis3.math.geom.intersect3D {
  * -----------------------------------------------
  * Latest update: August 2, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis3.math.alg.Vector
- *                com.wis3.math.geom.polytope.Box
- *                com.wis3.math.geom.util.Intersection
- *                com.wis3.math.geom.util.Ray
- *                com.wis3.math.geom.util.Transformation
- *                com.wis3.types.IObj
- *                com.wis3.types.Obj
+ * Dependencies:  com.vizsage.as3mathlib.math.alg.Vector
+ *                com.vizsage.as3mathlib.math.geom.polytope.Box
+ *                com.vizsage.as3mathlib.math.geom.util.Intersection
+ *                com.vizsage.as3mathlib.math.geom.util.Ray
+ *                com.vizsage.as3mathlib.math.geom.util.Transformation
+ *                com.vizsage.as3mathlib.types.IObj
+ *                com.vizsage.as3mathlib.types.Obj
  * -----------------------------------------------
  * AS2 revision copyright: � 2003, Richard Wright [wisolutions2002@shaw.ca]
  * JS  original copyright: � 2003, John Haggerty  [http://www.slimeland.com/]
@@ -66,13 +66,13 @@ package com.wis3.math.geom.intersect3D {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.alg.Vector;
-import com.wis3.math.geom.polytope.Box;
-import com.wis3.math.geom.util.Intersection;
-import com.wis3.math.geom.util.Ray;
-import com.wis3.math.geom.util.Transformation;
-import com.wis3.types.IObj;
-import com.wis3.types.Obj;
+import com.vizsage.as3mathlib.math.alg.Vector;
+import com.vizsage.as3mathlib.math.geom.polytope.Box;
+import com.vizsage.as3mathlib.math.geom.util.Intersection;
+import com.vizsage.as3mathlib.math.geom.util.Ray;
+import com.vizsage.as3mathlib.math.geom.util.Transformation;
+import com.vizsage.as3mathlib.types.IObj;
+import com.vizsage.as3mathlib.types.Obj;
 
 public class Intersect3D extends Obj implements IObj {
 	/**

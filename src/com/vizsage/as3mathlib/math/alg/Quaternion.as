@@ -1,6 +1,6 @@
-package com.wis3.math.alg {
+package com.vizsage.as3mathlib.math.alg {
 /**
- * @class       com.wis3.math.alg.Quaternion
+ * @class       com.vizsage.as3mathlib.math.alg.Quaternion
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Quaternion Class -- provides
@@ -8,7 +8,7 @@ package com.wis3.math.alg {
  *		        <p>
  *              I've swayed from using '$' as a class-based variable identifier for
  *              this class due to the increased usage of UI-defined class variables
- *              for this group of classes: Point, Vector, Quaternion, wis3Color, and ColMC
+ *              for this group of classes: Point, Vector, Quaternion, Col, and ColMC
  *              classes all reflect this format.
  * @usage       <pre>var inst:Quaternion = new Quaternion(x, y, z, w)</pre>
  * @param       x (Number)  -- x-axis component of quaternion.
@@ -18,8 +18,8 @@ package com.wis3.math.alg {
  * -----------------------------------------------
  * Latest update: August 5, 2004
  * -----------------------------------------------
- * Dependency:    com.wis3.math.alg.Vector
- *                com.wis3.math.alg.Matrix
+ * Dependency:    com.vizsage.as3mathlib.math.alg.Vector
+ *                com.vizsage.as3mathlib.math.alg.Matrix
  * -----------------------------------------------
  * AS2 revision copyright: � 2003, Richard Wright   [wisolutions2002@shaw.ca]
  * AS1 original copyright: � 2003, Brandon Williams [brandon@plotdev.com]
@@ -65,8 +65,8 @@ package com.wis3.math.alg {
  * ----------------------------------------------
 **/
 
-import com.wis3.math.alg.Vector;
-import com.wis3.math.alg.Matrix;
+import com.vizsage.as3mathlib.math.alg.Vector;
+import com.vizsage.as3mathlib.math.alg.Matrix;
 
 public class Quaternion  {
 	/**

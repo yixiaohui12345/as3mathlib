@@ -1,6 +1,6 @@
-package com.wis3.math.geom.intersect2D {
+package com.vizsage.as3mathlib.math.geom.intersect2D {
 /**
- * @class       com.wis3.math.geom.intersect2D.Intersect2DBez2
+ * @class       com.vizsage.as3mathlib.math.geom.intersect2D.Intersect2DBez2
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the Intersect2DBez2 Class. This
@@ -10,17 +10,17 @@ package com.wis3.math.geom.intersect2D {
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis3.math.alg.Point
- *                com.wis3.math.alg.Polynomial
- *                com.wis3.math.alg.Vector
- *                com.wis3.math.geom.intersect2D.Intersect2D -- superclass
+ * Dependencies:  com.vizsage.as3mathlib.math.alg.Point
+ *                com.vizsage.as3mathlib.math.alg.Polynomial
+ *                com.vizsage.as3mathlib.math.alg.Vector
+ *                com.vizsage.as3mathlib.math.geom.intersect2D.Intersect2D -- superclass
  *                -- subclass list:
- *                    - com.wis3.math.geom.intersect2D.Intersect2DBez2
- *                    - com.wis3.math.geom.intersect2D.Intersect2DBez3
- *                    - com.wis3.math.geom.intersect2D.Intersect2DBez3Bez3
- *                    - com.wis3.math.geom.intersect2D.Intersect2DCircle
- *                    - com.wis3.math.geom.intersect2D.Intersect2DLine
- *                    - com.wis3.math.geom.intersect2D.Intersect2DParams
+ *                    - com.vizsage.as3mathlib.math.geom.intersect2D.Intersect2DBez2
+ *                    - com.vizsage.as3mathlib.math.geom.intersect2D.Intersect2DBez3
+ *                    - com.vizsage.as3mathlib.math.geom.intersect2D.Intersect2DBez3Bez3
+ *                    - com.vizsage.as3mathlib.math.geom.intersect2D.Intersect2DCircle
+ *                    - com.vizsage.as3mathlib.math.geom.intersect2D.Intersect2DLine
+ *                    - com.vizsage.as3mathlib.math.geom.intersect2D.Intersect2DParams
  * -----------------------------------------------
  * AS2 revision copyright: � 2003, Richard Wright     [wisolutions2002@shaw.ca]
  * JS  original copyright: � 2000-2002, Kevin Lindsey [http://www.kevlindev.com/]
@@ -69,10 +69,10 @@ package com.wis3.math.geom.intersect2D {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.alg.Point;
-import com.wis3.math.alg.Polynomial;
-import com.wis3.math.alg.Vector;
-import com.wis3.math.geom.intersect2D.Intersect2D;
+import com.vizsage.as3mathlib.math.alg.Point;
+import com.vizsage.as3mathlib.math.alg.Polynomial;
+import com.vizsage.as3mathlib.math.alg.Vector;
+import com.vizsage.as3mathlib.math.geom.intersect2D.Intersect2D;
 
 public class Intersect2DBez2 extends Intersect2D {
 	/**

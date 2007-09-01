@@ -1,6 +1,6 @@
-package com.wis3.math.geom.util {
+package com.vizsage.as3mathlib.math.geom.util {
 /**
- * @class       com.wis3.math.geom.util.Transformation
+ * @class       com.vizsage.as3mathlib.math.geom.util.Transformation
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Transformation Class.
@@ -17,7 +17,7 @@ package com.wis3.math.geom.util {
  * -----------------------------------------------
  * Latest update: August 5, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis3.math.alg.Vector
+ * Dependencies:  com.vizsage.as3mathlib.math.alg.Vector
  * -----------------------------------------------
  * AS2 revision copyright � 2004, Richard Wright [wisolutions2002@shaw.ca]
  * JS  original copyright � 2003, John Haggerty  [http://www.slimeland.com/]
@@ -67,7 +67,7 @@ package com.wis3.math.geom.util {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.alg.Vector;
+import com.vizsage.as3mathlib.math.alg.Vector;
 
 public class Transformation  {
 	/**

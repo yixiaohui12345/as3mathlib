@@ -1,6 +1,6 @@
-package com.wis3.math.calc {
+package com.vizsage.as3mathlib.math.calc {
 /**
- * @class       com.wis3.math.calc.FunctionRate
+ * @class       com.vizsage.as3mathlib.math.calc.FunctionRate
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description FunctionRate implements the behaviours of the IODE Interface.
@@ -48,9 +48,9 @@ package com.wis3.math.calc {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.calc.*;
+import com.vizsage.as3mathlib.math.calc.*;
 
-public class FunctionRate implements com.wis3.math.calc.IODE {
+public class FunctionRate implements com.vizsage.as3mathlib.math.calc.IODE {
 	/**
 	 * @property $state  (Array)  --
 	 * @property $f  (Function)  --

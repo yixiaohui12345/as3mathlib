@@ -1,9 +1,9 @@
-package com.wis3.math.calc.solvers {
-	import com.wis3.math.calc.IODESolver;
-	import com.wis3.math.calc.IODE;
+package com.vizsage.as3mathlib.math.calc.solvers {
+	import com.vizsage.as3mathlib.math.calc.IODESolver;
+	import com.vizsage.as3mathlib.math.calc.IODE;
 	
 /**
- * @class       com.wis3.math.calc.solvers.VelocityVerlet
+ * @class       com.vizsage.as3mathlib.math.calc.solvers.VelocityVerlet
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description VelocityVerlet:  A velocity Verlet method IODE solver. The velocity
@@ -76,7 +76,7 @@ package com.wis3.math.calc.solvers {
 **/
 
 
-public class VelocityVerlet implements com.wis3.math.calc.IODESolver {
+public class VelocityVerlet implements com.vizsage.as3mathlib.math.calc.IODESolver {
 	/**
 	 * @property $stepSize  (Number)  -- parameter increment such as delta time.
 	 * @property $numEqn  (Number)  -- number of equations.

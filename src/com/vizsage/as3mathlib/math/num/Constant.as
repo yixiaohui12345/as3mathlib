@@ -1,6 +1,6 @@
-﻿package com.wis3.math.num {
+﻿package com.vizsage.as3mathlib.math.num {
 /**
- * @class       com.wis3.math.num.Constant
+ * @class       com.vizsage.as3mathlib.math.num.Constant
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the static properties of the Constant Class.

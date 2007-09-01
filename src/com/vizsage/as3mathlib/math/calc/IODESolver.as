@@ -1,6 +1,6 @@
-package com.wis3.math.calc {
+package com.vizsage.as3mathlib.math.calc {
 /**
- * @interface   com.wis3.math.calc.IODESolver
+ * @interface   com.vizsage.as3mathlib.math.calc.IODESolver
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description IODESolver interface defines a minimal differential equation solver.

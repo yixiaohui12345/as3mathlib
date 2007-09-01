@@ -1,6 +1,6 @@
-package com.wis3.math.alg {
+package com.vizsage.as3mathlib.math.alg {
 /**
- * @class       com.wis3.math.alg.Decomposition
+ * @class       com.vizsage.as3mathlib.math.alg.Decomposition
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Decomposition Class.
@@ -59,7 +59,7 @@ package com.wis3.math.alg {
  * -----------------------------------------------
 **/
 
-import com.wis3.math.num.Format;
+import com.vizsage.as3mathlib.math.num.Format;
 
 public class Decomposition  {
 	/**

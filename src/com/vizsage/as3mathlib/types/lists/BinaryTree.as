@@ -1,6 +1,6 @@
-package com.wis3.types.lists {
+package com.vizsage.as3mathlib.types.lists {
 /**
- * @class       com.wis3.types.lists.BinaryTree
+ * @class       com.vizsage.as3mathlib.types.lists.BinaryTree
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the BinaryTree Class.
@@ -12,7 +12,7 @@ package com.wis3.types.lists {
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * Dependency:  com.wis3.types.lists.Node
+ * Dependency:  com.vizsage.as3mathlib.types.lists.Node
  * -----------------------------------------------
  * Reference:   http://cslibrary.stanford.edu/110/BinaryTrees.html
  * -----------------------------------------------
@@ -84,7 +84,7 @@ package com.wis3.types.lists {
  *  ----------------------------------------------
 **/
 
-import com.wis3.types.lists.Node;
+import com.vizsage.as3mathlib.types.lists.Node;
 
 public class BinaryTree  {
 	/**
