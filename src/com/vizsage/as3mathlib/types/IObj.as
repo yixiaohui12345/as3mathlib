@@ -1,5 +1,6 @@
-﻿/**
- * @interface   com.wis.types.IObj
+﻿package com.wis3.types {
+/**
+ * @interface   com.wis3.types.IObj
  * @author      Richard Wright
  * @version     1.6
  * @description Defines the IObj interface for the Obj superclass and its
@@ -7,23 +8,23 @@
  *              <p>
  *              This is a list of the interface-dependent classes:
  *              <blockquote><pre>
- *              <a href="Obj_doc.html" target="_blank">com.wis.types.Obj</a> - superclass
- *              <a href="Intersect3D_doc.html" target="_blank">com.wis.math.geom.intersect3D.Intersect3D</a> - extends Obj
- *              <a href="Union_doc.html" target="_blank">com.wis.math.geom.intersect3D.Union</a> - extends Obj
- *              <a href="Box_doc.html" target="_blank">com.wis.math.geom.polytope.Box</a> - extends Obj
- *              <a href="Plane_doc.html" target="_blank">com.wis.math.geom.polytope.Plane</a> - extends Obj
- *              <a href="Cone_doc.html" target="_blank">com.wis.math.geom.quadric.Cone</a> - extends Obj
- *              <a href="Cylinder_doc.html" target="_blank">com.wis.math.geom.quadric.Cylinder</a> - extends Obj
- *              <a href="Sphere_doc.html" target="_blank">com.wis.math.geom.quadric.Sphere</a> - extends Obj
- *              <a href="Camera_doc.html" target="_blank">com.wis.math.geom.util.Camera</a>
- *              <a href="Finish_doc.html" target="_blank">com.wis.math.geom.util.Finish</a>
- *              <a href="Intersection_doc.html" target="_blank">com.wis.math.geom.util.Intersection</a>
- *              <a href="LightSource_doc.html" target="_blank">com.wis.math.geom.util.LightSource</a>
- *              <a href="Ray_doc.html" target="_blank">com.wis.math.geom.util.Ray</a>
- *              <a href="Texture_doc.html" target="_blank">com.wis.math.geom.util.Texture</a>
- *              <a href="Transformation_doc.html" target="_blank">com.wis.math.geom.util.Transformation</a>
+ *              <a href="Obj_doc.html" target="_blank">com.wis3.types.Obj</a> - superclass
+ *              <a href="Intersect3D_doc.html" target="_blank">com.wis3.math.geom.intersect3D.Intersect3D</a> - extends Obj
+ *              <a href="Union_doc.html" target="_blank">com.wis3.math.geom.intersect3D.Union</a> - extends Obj
+ *              <a href="Box_doc.html" target="_blank">com.wis3.math.geom.polytope.Box</a> - extends Obj
+ *              <a href="Plane_doc.html" target="_blank">com.wis3.math.geom.polytope.Plane</a> - extends Obj
+ *              <a href="Cone_doc.html" target="_blank">com.wis3.math.geom.quadric.Cone</a> - extends Obj
+ *              <a href="Cylinder_doc.html" target="_blank">com.wis3.math.geom.quadric.Cylinder</a> - extends Obj
+ *              <a href="Sphere_doc.html" target="_blank">com.wis3.math.geom.quadric.Sphere</a> - extends Obj
+ *              <a href="Camera_doc.html" target="_blank">com.wis3.math.geom.util.Camera</a>
+ *              <a href="Finish_doc.html" target="_blank">com.wis3.math.geom.util.Finish</a>
+ *              <a href="Intersection_doc.html" target="_blank">com.wis3.math.geom.util.Intersection</a>
+ *              <a href="LightSource_doc.html" target="_blank">com.wis3.math.geom.util.LightSource</a>
+ *              <a href="Ray_doc.html" target="_blank">com.wis3.math.geom.util.Ray</a>
+ *              <a href="Texture_doc.html" target="_blank">com.wis3.math.geom.util.Texture</a>
+ *              <a href="Transformation_doc.html" target="_blank">com.wis3.math.geom.util.Transformation</a>
  *              </pre></blockquote>
- * @usage       Interface resides within the com.wis.types package.
+ * @usage       Interface resides within the com.wis3.types package.
  * @param       No parameters for interface constructs.
  * -----------------------------------------------
  * Latest update: July 27, 2004
@@ -64,28 +65,28 @@
  *             5.  getNormalAtUntransformed(pos)
  * Dependent Class Methods:
  *       Obj(arguments)
- *             1.  getColorAt(isect,objs,lights,traceLevel,effect)
- *             2.  numericalOrder(a,b)
+ *             1.  getColorAt(isect, objs, lights, traceLevel, effect)
+ *             2.  numericalOrder(a, b)
  *             3.  correctBounds()
  *             4.  generalLowLevelObjectInitialization()
- *             5.  findBoundInts(v1,v2,dim,odim1,odim2,s,d)
+ *             5.  findBoundInts(v1, v2, dim, odim1, odim2, s, d)
  *             6.  boundTest(ray)
  *             7.  boundTestPoint(pos)
  *             8.  findIntersections(ray)
- *             9.  getNormalAt(pos,isect)
+ *             9.  getNormalAt(pos, isect)
  *             10. isPointInside(pos)
  *             11. setupDefaultModifiers()
  *             12. copyModifiers(newObj)
  *             13-17. interface methods
- *       Box(v1,v2,isBound)
+ *       Box(v1, v2, isBound)
  *             1-5. interface methods
  *             6.  isPointInsideUntransformed(pos)
  *             7.  getNormalAtUntransformed(pos)
  * All the dependent classes below only employ the 5 interface methods:
- *       Plane(normal,dist)
- *       Cone(end1,rad1,end2,rad2,open)
- *       Cylinder(end1,end2,rad,open)
- *       Sphere(pos,rad)
+ *       Plane(normal, dist)
+ *       Cone(end1, rad1, end2, rad2, open)
+ *       Cylinder(end1, end2, rad, open)
+ *       Sphere(pos, rad)
  *       Union(objects)
  *       Intersect3D(objects)
  *             1-5. interface methods
@@ -100,14 +101,13 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.alg.Vector;
-import com.wis.math.geom.util.Ray;
-import com.wis.types.Obj;
+import com.wis3.math.alg.Vector;
+import com.wis3.math.geom.util.Ray;
+import com.wis3.types.Obj;
 
-interface com.wis.types.IObj
-{
+public interface IObj  {
 
-// 1. copy() ------------------------------------------
+	// 1. copy() ------------------------------------------
 
     /**
      * @method  copy
@@ -119,12 +119,12 @@ interface com.wis.types.IObj
      *         // with a unique set of arguments for the method:
      *         this.copyModifiers(newObj);
      *         </pre>
-     * @param   none   (Void) -- no method parameters.
+     * @param   none   (void) -- no method parameters.
      * @return  (Obj)  -- returns a copy of the superclass properties.
     **/
     function copy():Obj;
 
-// 2. initialize --------------------------------------
+	// 2. initialize --------------------------------------
 
      /**
       * @method  initialize
@@ -134,12 +134,12 @@ interface com.wis.types.IObj
       *         var instObj:instObjClass = new instObjClass();
       *         // which in turn fires the 'instObj.initialize' method
       *         </pre>
-      * @param   none   (Void)  -- no method parameters.
-      * @return  (Void)
+      * @param   none   (void)  -- no method parameters.
+      * @return  (void)
      **/
-     function initialize():Void;
+     function initialize():void;
 
-// 3. findIntersectionsUntransformed ------------------
+      // 3. findIntersectionsUntransformed ------------------
 
     /**
      * @method  findIntersectionsUntransformed
@@ -153,7 +153,7 @@ interface com.wis.types.IObj
     **/
     function findIntersectionsUntransformed(ray:Ray):Array;
 
-// 4. isPointInsideUntransformed ----------------------
+      // 4. isPointInsideUntransformed ----------------------
 
     /**
      * @method  isPointInsideUntransformed
@@ -167,7 +167,7 @@ interface com.wis.types.IObj
     **/
     function isPointInsideUntransformed(pos:Vector):Boolean;
 
-// 5. getNormalAtUntransformed ------------------------
+      // 5. getNormalAtUntransformed ------------------------
 
     /**
      * @method  getNormalAtUntransformed
@@ -181,4 +181,5 @@ interface com.wis.types.IObj
     **/
     function getNormalAtUntransformed(pos:Vector):Vector;
 
-}
+}// class
+}//package

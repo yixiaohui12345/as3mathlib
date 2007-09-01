@@ -1,5 +1,6 @@
+package com.wis3.math.alg {
 /**
- * @class       com.wis.math.alg.Bitwise
+ * @class       com.wis3.math.alg.Bitwise
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the static behaviours of the Bitwise Class.
@@ -11,8 +12,8 @@
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * AS2 revision copyright © 2003, Richard Wright [wisolutions2002@shaw.ca]
- * AS1 original copyright © 2002, Jos Juffermans [jjuffermans@CHELLO.com]
+ * AS2 revision copyright ï¿½ 2003, Richard Wright [wisolutions2002@shaw.ca]
+ * AS1 original copyright ï¿½ 2002, Jos Juffermans [jjuffermans@CHELLO.com]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -43,35 +44,33 @@
  *          Bitwise()
  *              1.  binToDec(bin)
  *              2.  decToBin(dec)
- *              3.  binPad(bin,len)
- *              4.  binOr(bin1,bin2,..,binN)
- *              5.  binAnd(bin1,bin2,..,binN)
- *              6.  binXor(bin1,bin2,..,binN)
+ *              3.  binPad(bin, len)
+ *              4.  binOr(bin1, bin2, .., binN)
+ *              5.  binAnd(bin1, bin2, .., binN)
+ *              6.  binXor(bin1, bin2, .., binN)
  *              7.  binNot(bin)
  *              8.  binInvert(bin)
  *              9.  binInvert64(bin)
- *              10. binShiftLeft(bin,pos)
- *              11. binShiftRight(bin,pos)
- *              12. binShiftRightUnsigned(bin,pos)
+ *              10. binShiftLeft(bin, pos)
+ *              11. binShiftRight(bin, pos)
+ *              12. binShiftRightUnsigned(bin, pos)
  *  ----------------------------------------------
  *  Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
  *  ----------------------------------------------
 **/
 
-class com.wis.math.alg.Bitwise
-{
+public class Bitwise {
 	/**
 	 * @property none  -- no class properties.
 	**/
 
     // constructor
-    function Bitwise()
-    {
+    public function Bitwise() {
         //trace ("Bitwise Class loaded");
     }
 
-// 1. binToDec -----------------------------------
+      // 1. binToDec -----------------------------------
 
     /**
      * @method  binToDec
@@ -80,12 +79,11 @@ class com.wis.math.alg.Bitwise
      * @param   bin   (String)  -- must be a string to avoid octal conversion.
      * @return  (Number)  -- returns a decimal base.
     **/
-    static function binToDec(bin:String):Number
-    {
-    	return parseInt(bin,2);
+    public static function binToDec(bin:String):Number {
+    	return parseInt(bin, 2);
     }
 
-// 2. decToBin -----------------------------------
+      // 2. decToBin -----------------------------------
 
     /**
      * @method  decToBin
@@ -94,98 +92,90 @@ class com.wis.math.alg.Bitwise
      * @param   dec   (Number)  -- positive or negative integer - method ignores fractional input.
      * @return  (String)  -- returns a string representation of a binary base.
     **/
-    static function decToBin(dec:Number):String
-    {
+    public static function decToBin(dec:Number):String {
     	return dec.toString(2);
     }
 
-// 3. binPad -------------------------------------
+      // 3. binPad -------------------------------------
 
     /**
      * @method  binPad
      * @description  Pads binary string input to desired bit length string output.
-     * @usage   <pre>Bitwise.binPad("0111",32);</pre>
+     * @usage   <pre>Bitwise.binPad("0111", 32);</pre>
      * @param   bin   (String)  -- must be a string to avoid octal conversion.
      * @param   len   (Number)  -- 2^n (up to 64) - usually 8, 32, or 64.
      * @return  (String)  -- returns a string representation of a padded binary base.
     **/
-    static function binPad(bin:String,len:Number):String
-    {
+    public static function binPad(bin:String, len:Number):String {
         var fill:String;
 
         if (bin.charAt(0)=="-") fill = "-", bin = bin.substr(1);
         else fill = "";
 
-    	return (fill+"0000000000000000000000000000000000000000000000000000000000000000").substr(0,len-bin.length)+bin;
+    	return (fill+"0000000000000000000000000000000000000000000000000000000000000000").substr(0, len-bin.length)+bin;
     }
 
-// 4. binOr --------------------------------------
+      // 4. binOr --------------------------------------
 
     /**
      * @method  binOr
      * @description logical bitwise OR operation
-     * @usage   <pre>Bitwise.binOr("110001","000100","000111");</pre>
+     * @usage   <pre>Bitwise.binOr("110001", "000100", "000111");</pre>
      * @param   arguments   (String)  -- list of binary arguments must be strings to avoid octal conversion.
      * @return  (String)  -- returns a string representation of a binary base.
     **/
-    static function binOr(arguments):String
-    {
-    	var test:Number = parseInt(arguments[0],2);
+    public static function binOr(...args):String {
+    	var test:Number = parseInt(args[0], 2);
     	var j:Number;
 
-    	for (j=1;j<arguments.length;j++)
-    	{
-            test |= parseInt(arguments[j],2);
+    	for (j=1;j<args.length;j++) {
+            test |= parseInt(args[j], 2);
     	}
 
     	return test.toString(2);
     }
 
-// 5. binAnd -------------------------------------
+      // 5. binAnd -------------------------------------
 
     /**
      * @method  binAnd
      * @description  Logical bitwise AND operation.
-     * @usage   <pre>Bitwise.binAnd("01001","1010");</pre>
+     * @usage   <pre>Bitwise.binAnd("01001", "1010");</pre>
      * @param   arguments   (String)  -- list of  binary arguments must be strings to avoid octal conversion.
      * @return  (String)  -- returns a string representation of a binary base.
     **/
-    static function binAnd(arguments):String
-    {
-    	var test:Number = parseInt(arguments[0],2);
+    public static function binAnd(...args):String {
+    	var test:Number = parseInt(args[0], 2);
     	var j:Number;
 
-    	for (j=1;j<arguments.length;j++)
-    	{
-            test &= parseInt(arguments[j],2);
+    	for (j=1;j<args.length;j++) {
+            test &= parseInt(args[j], 2);
     	}
 
     	return test.toString(2);
     }
 
-// 6. binXor -------------------------------------
+      // 6. binXor -------------------------------------
 
     /**
      * @method  binXor
      * @description  Logical bitwise XOR operation.
-     * @usage   <pre>Bitwise.binXor("01001","1010");</pre>
+     * @usage   <pre>Bitwise.binXor("01001", "1010");</pre>
      * @param   arguments   (String)  -- list of binary arguments must be strings to avoid octal conversion.
      * @return  (String)  -- returns a string representation of a binary base.
     **/
-    static function binXor(arguments):String
-    {
-    	var test:Number = parseInt(arguments[0],2);
+    public static function binXor(...args):String {
+    	var test:Number = parseInt(args[0], 2);
     	var j:Number;
 
-    	for (j=1;j<arguments.length;j++)
-    	{
-            test ^= parseInt(arguments[j],2);
+    	for (j=1;j<args.length;j++) {
+            test ^= parseInt(args[j], 2);
     	}
 
     	return test.toString(2);
     }
 
-// 7. binNot -------------------------------------
+      // 7. binNot -------------------------------------
 
     /**
      * @method  binNot
@@ -194,12 +184,11 @@ class com.wis.math.alg.Bitwise
      * @param   bin   (String)  -- must be a string to avoid octal conversion.
      * @return  (String)  -- returns a string representation of a binary base.
     **/
-    static function binNot(bin:String):String
-    {
-    	return (~parseInt(bin,2)).toString(2);
+    public static function binNot(bin:String):String {
+    	return (~parseInt(bin, 2)).toString(2);
     }
 
-// 8. binInvert ----------------------------------
+      // 8. binInvert ----------------------------------
 
     /**
      * @method  binInvert
@@ -209,12 +198,11 @@ class com.wis.math.alg.Bitwise
      * @param   bin   (String)  -- must be a string to avoid octal conversion.
      * @return  (String)  -- returns a string representation of a 32-bit binary base.
     **/
-    static function binInvert(bin:String):String
-    {
-    	return Bitwise.binXor(bin,("11111111111111111111111111111111").substr(0,bin.length));
+    public static function binInvert(bin:String):String {
+    	return Bitwise.binXor(bin, ("11111111111111111111111111111111").substr(0, bin.length));
     }
 
-// 9. binInvert64 -------------------------------
+      // 9. binInvert64 -------------------------------
 
     /**
      * @method  binInvert64
@@ -224,58 +212,55 @@ class com.wis.math.alg.Bitwise
      * @param   bin   (String)  -- must be a string to avoid octal conversion.
      * @return  (String)  -- returns a string representation of a 64-bit binary base.
     **/
-    static function binInvert64(bin:String):String
-    {
-    	return Bitwise.binXor(bin,("1111111111111111111111111111111111111111111111111111111111111111").substr(0,bin.length));
+    public static function binInvert64(bin:String):String {
+    	return Bitwise.binXor(bin, ("1111111111111111111111111111111111111111111111111111111111111111").substr(0, bin.length));
     }
 
-// 10. binShiftLeft ------------------------------
+      // 10. binShiftLeft ------------------------------
 
     /**
      * @method  binShiftLeft
      * @description  Shifts binary string input 'pos' digits to the left --
      *               multiplication.
-     * @usage   <pre>Bitwise.binShiftLeft("-01001",2);</pre>
+     * @usage   <pre>Bitwise.binShiftLeft("-01001", 2);</pre>
      * @param   bin   (String)  -- must be a string to avoid octal conversion.
      * @param   pos   (Number)  -- a positive integer.
      * @return  (String)  -- returns a string representation of a binary base.
     **/
-    static function binShiftLeft(bin:String,pos:Number):String
-    {
-    	return (parseInt(bin,2)<<pos).toString(2);
+    public static function binShiftLeft(bin:String, pos:Number):String {
+    	return (parseInt(bin, 2)<<pos).toString(2);
     }
 
-// 11. binShiftRight -----------------------------
+      // 11. binShiftRight -----------------------------
 
     /**
      * @method  binShiftRight
      * @description  Shifts binary string input 'pos' digits to the right --
      *               diviision.
-     * @usage   <pre>Bitwise.binShiftRight("-01001",2);</pre>
+     * @usage   <pre>Bitwise.binShiftRight("-01001", 2);</pre>
      * @param   bin   (String)  --  must be a string to avoid octal conversion.
      * @param   pos   (Number)  -- a positive integer.
      * @return  (String)  -- returns a string representation of a binary base.
     **/
-    static function binShiftRight(bin:String,pos:Number):String
-    {
-    	return (parseInt(bin,2)>>pos).toString(2);
+    public static function binShiftRight(bin:String, pos:Number):String {
+    	return (parseInt(bin, 2)>>pos).toString(2);
     }
 
-// 12. binShiftRightUnsigned ---------------------
+      // 12. binShiftRightUnsigned ---------------------
 
     /**
      * @method  binShiftRightUnsigned
      * @description  The same as the binShiftRight method except that it does
      *               not preserve the sign of the binary string input.
-     * @usage   Bitwise.binShiftRightUnsigned("-01001",2)
+     * @usage   Bitwise.binShiftRightUnsigned("-01001", 2)
      * @param   bin   (String)  -- must be a string to avoid octal conversion.
      * @param   pos   (Number)  -- a positive integer.
      * @return  (String)  -- returns a string representation of a binary base.
     **/
-    static function binShiftRightUnsigned(bin:String,pos:Number):String
-    {
-    	return (parseInt(bin,2)>>>pos).toString(2);
+    public static function binShiftRightUnsigned(bin:String, pos:Number):String {
+    	return (parseInt(bin, 2)>>>pos).toString(2);
     }
 
-}
+}// class
+}//package
 

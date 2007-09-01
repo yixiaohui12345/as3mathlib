@@ -1,5 +1,6 @@
+package com.wis3.math.geom.intersect3D {
 /**
- * @class       com.wis.math.geom.intersect3D.Intersect3D
+ * @class       com.wis3.math.geom.intersect3D.Intersect3D
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Intersect3D Class.
@@ -11,16 +12,16 @@
  * -----------------------------------------------
  * Latest update: August 2, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis.math.alg.Vector
- *                com.wis.math.geom.polytope.Box
- *                com.wis.math.geom.util.Intersection
- *                com.wis.math.geom.util.Ray
- *                com.wis.math.geom.util.Transformation
- *                com.wis.types.IObj
- *                com.wis.types.Obj
+ * Dependencies:  com.wis3.math.alg.Vector
+ *                com.wis3.math.geom.polytope.Box
+ *                com.wis3.math.geom.util.Intersection
+ *                com.wis3.math.geom.util.Ray
+ *                com.wis3.math.geom.util.Transformation
+ *                com.wis3.types.IObj
+ *                com.wis3.types.Obj
  * -----------------------------------------------
- * AS2 revision copyright: © 2003, Richard Wright [wisolutions2002@shaw.ca]
- * JS  original copyright: © 2003, John Haggerty  [http://www.slimeland.com/]
+ * AS2 revision copyright: ï¿½ 2003, Richard Wright [wisolutions2002@shaw.ca]
+ * JS  original copyright: ï¿½ 2003, John Haggerty  [http://www.slimeland.com/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -65,16 +66,15 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.alg.Vector;
-import com.wis.math.geom.polytope.Box;
-import com.wis.math.geom.util.Intersection;
-import com.wis.math.geom.util.Ray;
-import com.wis.math.geom.util.Transformation;
-import com.wis.types.IObj;
-import com.wis.types.Obj;
+import com.wis3.math.alg.Vector;
+import com.wis3.math.geom.polytope.Box;
+import com.wis3.math.geom.util.Intersection;
+import com.wis3.math.geom.util.Ray;
+import com.wis3.math.geom.util.Transformation;
+import com.wis3.types.IObj;
+import com.wis3.types.Obj;
 
-class com.wis.math.geom.intersect3D.Intersect3D extends Obj implements IObj
-{
+public class Intersect3D extends Obj implements IObj {
 	/**
 	 * @property $objects (Array)    -- a list of shape objects.
 	 * @property $transform (Transformation)  -- a Transformation object.
@@ -82,21 +82,21 @@ class com.wis.math.geom.intersect3D.Intersect3D extends Obj implements IObj
 	 * @property $infiniteBounds (Boolean)  -- default is 'false', inherited from super.
 	 * @property $volumeOutsideOfBounds (Boolean)  -- default is 'false', inherited from super.
 	**/
-    var $objects:Array;
-    var $transform:Transformation;
-    var $boundedBy:Box;
-    var $infiniteBounds:Boolean;
-    var $volumeOutsideOfBounds:Boolean;
+    public var $objects:Array;
+    /* bad
+    public var $transform:Transformation;
+    public var $boundedBy:Box;
+    public var $infiniteBounds:Boolean;
+    public var $volumeOutsideOfBounds:Boolean; */
 
     // constructor
-    function Intersect3D(objects:Array)
-    {
+    public function Intersect3D(objects:Array) {
         //trace ("Intersect3D Class loaded");
     	$objects = objects;
     	this.setupDefaultModifiers();
     }
 
-// 1. copy ---------------------------------------
+      // 1. copy ---------------------------------------
 
     /**
      * @method  copy
@@ -104,8 +104,7 @@ class com.wis.math.geom.intersect3D.Intersect3D extends Obj implements IObj
      * @usage  <pre>inst.copy();</pre>
      * @return  (Obj)  -- returns a new Sphere object populated with super's properties.
     **/
-    function copy():Obj
-    {
+    override public function copy():Obj {
     	var objectsCopy:Array = [];
     	var a:Number;
 
@@ -114,7 +113,7 @@ class com.wis.math.geom.intersect3D.Intersect3D extends Obj implements IObj
     	return this.copyModifiers(new Intersect3D(objectsCopy));
     }
 
-// 2. initialize ---------------------------------
+      // 2. initialize ---------------------------------
 
     /**
      * @method  initialize
@@ -122,37 +121,31 @@ class com.wis.math.geom.intersect3D.Intersect3D extends Obj implements IObj
      *               and defines $transform, $boundedBy, $infiniteBounds, and
      *               $volumeOutsideOfBounds properties.
      * @usage  <pre>inst.initialize();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function initialize():Void
-    {
+    override public function initialize():void {
         var a:Number;
 
-    	for (a=0;a<$objects.length;a++)
-    	{
-    		$objects[a].$transform = Transformation.multipleTrans([$objects[a].$transform,$transform]);
-    		$objects[a].$texture.$transform = Transformation.multipleTrans([$objects[a].$texture.$transform,$transform]);
+    	for (a=0;a<$objects.length;a++) {
+    		$objects[a].$transform = Transformation.multipleTrans([$objects[a].$transform, $transform]);
+    		$objects[a].$texture.$transform = Transformation.multipleTrans([$objects[a].$texture.$transform, $transform]);
     		$objects[a].initialize();
     	}
     	$transform = Transformation.$IdentityTrans.copy();
 
     	// find the intersection of the bounding boxes of all sub-objects with their volume contained by their bounding boxes
-    	var v1:Vector,v2:Vector,nv1:Vector,nv2:Vector;
+    	var v1:Vector, v2:Vector, nv1:Vector, nv2:Vector;
     	//var bounds;
     	var foundContainedObject:Boolean = false;
     	var anyBoundsInfinite:Boolean = false;
 
-    	for (a=0;a<$objects.length;a++)
-    	{
-    		if (!$objects[a].$infiniteBounds && !$objects[a].$volumeOutsideOfBounds)
-    		{
-    			if (!foundContainedObject)
-    			{
+    	for (a=0;a<$objects.length;a++) {
+    		if (!$objects[a].$infiniteBounds && !$objects[a].$volumeOutsideOfBounds) {
+    			if (!foundContainedObject) {
     				v1 = $objects[a].$boundedBy.$v1.copy();
     				v2 = $objects[a].$boundedBy.$v2.copy();
     			}
-    			else
-    			{
+    			else {
     				nv1 = $objects[a].$boundedBy.$v1;
     				nv2 = $objects[a].$boundedBy.$v2;
     				if (nv1.x>v1.x) v1.x = nv1.x;
@@ -167,24 +160,20 @@ class com.wis.math.geom.intersect3D.Intersect3D extends Obj implements IObj
     		else if ($objects[a].$infiniteBounds) anyBoundsInfinite = true;
     	}
     	$volumeOutsideOfBounds = false;
-    	if (foundContainedObject)
-    	{
+    	if (foundContainedObject) {
     	    // at least one object had its volume contained by its bounding box.
-    		$boundedBy = new Box(v1,v2);
+    		$boundedBy = new Box(v1, v2);
     	}
-    	else if (anyBoundsInfinite)
-    	{
+    	else if (anyBoundsInfinite) {
     	    // no objects had volume contained by their bounding boxes, and at least one had infinite bounds.
     		$infiniteBounds = true;
     	}
-    	else
-    	{
+    	else {
     		// all of the objects have volume outside of their bounding boxes.
     		// so we take the smallest box enclosing all of them.
     		v1 = $objects[0].$boundedBy.$v1.copy();
     		v2 = $objects[0].$boundedBy.$v2.copy();
-    		for (a=1;a<$objects.length;a++)
-    		{
+    		for (a=1;a<$objects.length;a++) {
     			nv1 = $objects[a].$boundedBy.$v1;
     			nv2 = $objects[a].$boundedBy.$v2;
     			if (nv1.x<v1.x) v1.x = nv1.x;
@@ -196,8 +185,7 @@ class com.wis.math.geom.intersect3D.Intersect3D extends Obj implements IObj
     		}
     		$volumeOutsideOfBounds = true;
     	}
-    	if (this.$inversed && !$infiniteBounds)
-    	{
+    	if (this.$inversed && !$infiniteBounds) {
     		$volumeOutsideOfBounds = true;
     		// it might be false (for instance, if this is the intersection of two inversed spheres, inversed),
     		// but we don't know for sure and it's safer to assume that it's true.
@@ -205,7 +193,7 @@ class com.wis.math.geom.intersect3D.Intersect3D extends Obj implements IObj
     	}
     }
 
-// 3. findIntersectionsUntransformed -------------
+      // 3. findIntersectionsUntransformed -------------
 
     /**
      * @method  findIntersectionsUntransformed
@@ -214,24 +202,19 @@ class com.wis.math.geom.intersect3D.Intersect3D extends Obj implements IObj
      * @param   ray   (Ray)  -- tracer object that defines its point and direction in 3-space.
      * @return  (Array)  -- returns a list of Intersection objects, or an empty list.
     **/
-    function findIntersectionsUntransformed(ray:Ray):Array
-    {
+    override public function findIntersectionsUntransformed(ray:Ray):Array {
     	var toReturn:Array = [];
-    	var a:Number,b:Number,c:Number;
+    	var a:Number, b:Number, c:Number;
 
     	// take all the intersections of every object that occured within every other object.
-    	for (a=0;a<$objects.length;a++)
-    	{
+    	for (a=0;a<$objects.length;a++) {
     		var thisObjectsIntersections:Array = $objects[a].findIntersections(ray);
 
-    		for (b=0;b<thisObjectsIntersections.length;b++)
-    		{
-    			for (c=0;c<$objects.length;c++)
-    			{
+    		for (b=0;b<thisObjectsIntersections.length;b++) {
+    			for (c=0;c<$objects.length;c++) {
     				if (c!=a && !$objects[c].isPointInside(thisObjectsIntersections[b].getPos())) break;
     			}
-    			if (c==$objects.length)
-    			{
+    			if (c==$objects.length) {
     				thisObjectsIntersections[b].addObject(this);
     				toReturn[toReturn.length] = thisObjectsIntersections[b];
     			}
@@ -242,7 +225,7 @@ class com.wis.math.geom.intersect3D.Intersect3D extends Obj implements IObj
     	return toReturn;
     }
 
-// 4. isPointInsideUntransformed -----------------
+      // 4. isPointInsideUntransformed -----------------
 
     /**
      * @method  isPointInsideUntransformed
@@ -251,8 +234,7 @@ class com.wis.math.geom.intersect3D.Intersect3D extends Obj implements IObj
      * @param   pos   (Vector)  -- a position Vector object.
      * @return  (Boolean)
     **/
-    function isPointInsideUntransformed(pos:Vector):Boolean
-    {
+    override public function isPointInsideUntransformed(pos:Vector):Boolean {
         var a:Number;
 
     	for (a=0;a<$objects.length;a++) if (!$objects[a].isPointInside(pos)) return false;
@@ -260,7 +242,7 @@ class com.wis.math.geom.intersect3D.Intersect3D extends Obj implements IObj
     	return true;
     }
 
-// 5. getNormalAtUntransformed -------------------
+      // 5. getNormalAtUntransformed -------------------
 
     /**
      * @method  getNormalAtUntransformed
@@ -269,10 +251,10 @@ class com.wis.math.geom.intersect3D.Intersect3D extends Obj implements IObj
      * @param   pos   (Vector)  -- a position Vector object.
      * @return  (Vector)  -- returns normal of untransformed vector.
     **/
-    function getNormalAtUntransformed(pos:Vector):Vector
-    {
+    override public function getNormalAtUntransformed(pos:Vector):Vector {
     	return Vector.normalizer(pos);
     }
 
-}
+}// class
+}//package
 

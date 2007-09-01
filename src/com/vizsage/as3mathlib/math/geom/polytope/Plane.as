@@ -1,5 +1,6 @@
+package com.wis3.math.geom.polytope {
 /**
- * @class       com.wis.math.geom.polytope.Plane
+ * @class       com.wis3.math.geom.polytope.Plane
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Plane Class.
@@ -11,20 +12,20 @@
  *              I've changed 'getNormalAtUntransformed' into an abstract method that
  *              supports the interface structure but doesn't get called. This is a
  *              workaround and may change with testing.
- * @usage       <pre>var inst:Plane = new Plane(normal,dist);</pre>
+ * @usage       <pre>var inst:Plane = new Plane(normal, dist);</pre>
  * @param       normal (Vector)  -- a Vector object normal to this plane.
  * @param       dist (Number)  -- a scalar value.
  * -----------------------------------------------
  * Latest update: August 2, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis.math.alg.Vector
- *                com.wis.math.geom.util.Intersection
- *                com.wis.math.geom.util.Ray
- *                com.wis.types.IObj
- *                com.wis.types.Obj
+ * Dependencies:  com.wis3.math.alg.Vector
+ *                com.wis3.math.geom.util.Intersection
+ *                com.wis3.math.geom.util.Ray
+ *                com.wis3.types.IObj
+ *                com.wis3.types.Obj
  * -----------------------------------------------
- * AS2 revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
- * JS  original copyright © 2003, John Haggerty  [http://www.slimeland.com/]
+ * AS2 revision copyright ï¿½ 2004, Richard Wright [wisolutions2002@shaw.ca]
+ * JS  original copyright ï¿½ 2003, John Haggerty  [http://www.slimeland.com/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -52,7 +53,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * -----------------------------------------------
  *   Functions:
- *       Plane(normal,dist)
+ *       Plane(normal, dist)
  *             1.  copy()
  *             2.  initialize()
  *             3.  findIntersectionsUntransformed(ray)
@@ -70,34 +71,31 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.alg.Vector;
-import com.wis.math.geom.util.Intersection;
-import com.wis.math.geom.util.Ray;
-import com.wis.types.IObj;
-import com.wis.types.Obj;
+import com.wis3.math.alg.Vector;
+import com.wis3.math.geom.util.Intersection;
+import com.wis3.math.geom.util.Ray;
+import com.wis3.types.IObj;
+import com.wis3.types.Obj;
 
-class com.wis.math.geom.polytope.Plane extends Obj implements IObj
-{
+public class Plane extends Obj implements IObj {
 	/**
 	 * @property $norm (Vector) a Vector object defining normalized normal to the plane.
 	 * @property $negCenterPoint (Vector)  -- a Vector object defining negative of scaled normal to the plane.
 	 * @property $dist (Number)  -- a scalar value.
 	 * @property $infiniteBounds (Boolean)  -- default is 'true'.
 	**/
-    var $norm:Vector;
-    var $negCenterPoint:Vector;
-    var $dist:Number;
-    var $infiniteBounds:Boolean;
+    public var $norm:Vector;
+    public var $negCenterPoint:Vector;
+    public var $dist:Number;
 
     // constructor
-    function Plane(normal:Vector,dist:Number)
-    {
+    public function Plane(normal:Vector, dist:Number) {
     	$norm = Vector.normalizer(normal);
     	$dist = dist;
     	this.setupDefaultModifiers();
     }
 
-// 1. copy ---------------------------------------
+      // 1. copy ---------------------------------------
 
     /**
      * @method  copy
@@ -105,28 +103,26 @@ class com.wis.math.geom.polytope.Plane extends Obj implements IObj
      * @usage  <pre>inst.copy();</pre>
      * @return  (Obj)  -- returns a new Sphere object populated with super's properties.
     **/
-    function copy():Obj
-    {
-    	return this.copyModifiers(new Plane($norm.copy(),$dist));
+    override public function copy():Obj {
+    	return this.copyModifiers(new Plane($norm.copy(), $dist));
     }
 
-// 2. initialize ---------------------------------
+      // 2. initialize ---------------------------------
 
     /**
      * @method  initialize
      * @description  Initializes this instance's bounding box and its super's low-level properties,
      *               and defines $infiniteBounds and $negCenterPoint properties.
      * @usage  <pre>inst.initialize();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function initialize():Void
-    {
+    override public function initialize():void {
     	$infiniteBounds = true;
-    	$negCenterPoint = Vector.neg(Vector.scaler($norm,$dist));
+    	$negCenterPoint = Vector.neg(Vector.scaler($norm, $dist));
     	this.generalLowLevelObjectInitialization();
     }
 
-// 3. findIntersectionsUntransformed -------------
+      // 3. findIntersectionsUntransformed -------------
 
     /**
      * @method  findIntersectionsUntransformed
@@ -135,18 +131,17 @@ class com.wis.math.geom.polytope.Plane extends Obj implements IObj
      * @param   ray   (Ray)  -- tracer object that defines its point and direction in 3-space.
      * @return  (Array)  -- returns a list of Intersection objects, or an empty list.
     **/
-    function findIntersectionsUntransformed(ray:Ray):Array
-    {
-    	var a:Number = Vector.dot(ray.$dir,$norm);
+    override public function findIntersectionsUntransformed(ray:Ray):Array {
+    	var a:Number = Vector.dot(ray.$dir, $norm);
 
     	if (a==0) return [];
 
-    	var b:Number = Vector.dot($norm,Vector.adder(ray.$start,$negCenterPoint));
+    	var b:Number = Vector.dot($norm, Vector.adder(ray.$start, $negCenterPoint));
 
-    	return [new Intersection(-b/a,ray,this)];
+    	return [new Intersection(-b/a, ray, this)];
     }
 
-// 4. isPointInsideUntransformed -----------------
+      // 4. isPointInsideUntransformed -----------------
 
     /**
      * @method  isPointInsideUntransformed
@@ -155,12 +150,11 @@ class com.wis.math.geom.polytope.Plane extends Obj implements IObj
      * @param   pos   (Vector)  -- a position Vector object.
      * @return  (Boolean)
     **/
-    function isPointInsideUntransformed(pos:Vector):Boolean
-    {
-    	return (Vector.dot($norm,Vector.adder(pos,$negCenterPoint))<=0);
+    override public function isPointInsideUntransformed(pos:Vector):Boolean {
+    	return (Vector.dot($norm, Vector.adder(pos, $negCenterPoint))<=0);
     }
 
-// 5. getNormalAtUntransformed -------------------
+      // 5. getNormalAtUntransformed -------------------
 
     /**
      * @method  getNormalAtUntransformed
@@ -169,12 +163,11 @@ class com.wis.math.geom.polytope.Plane extends Obj implements IObj
      * @param   pos   (Vector)  -- a position Vector object.
      * @return  (Vector)  -- returns normal of passed Vector object.
     **/
-    function getNormalAtUntransformed(pos:Vector):Vector
-    {
+    override public function getNormalAtUntransformed(pos:Vector):Vector {
     	return Vector.normalizer(pos);
     }
 
-// 6. getNormalAt -------------------
+      // 6. getNormalAt -------------------
 
     /**
      * @method  getNormalAt
@@ -182,10 +175,10 @@ class com.wis.math.geom.polytope.Plane extends Obj implements IObj
      * @usage  <pre>inst.getNormalAt();</pre>
      * @return  (Vector)  -- returns a normalized 'normal' Vector object passed at initialization.
     **/
-    function getNormalAt():Vector
-    {
+    override public function getNormalAt(pos:Vector = null, isect:Intersection = null):Vector {
         return $norm;
     }
 
-}
+}// class
+}//package
 

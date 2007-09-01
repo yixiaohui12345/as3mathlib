@@ -1,5 +1,6 @@
+package com.wis3.math.calc.solvers {
 /**
- * @class       com.wis.math.calc.solvers.EulerRichardson
+ * @class       com.wis3.math.calc.solvers.EulerRichardson
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description EulerRichardson implements the behaviours of the IODESolver Interface
@@ -17,8 +18,8 @@
  * -----------------------------------------------
  * Latest update: January 11, 2005
  * -----------------------------------------------
- * AS2  revision copyright: © 2005, Richard Wright     [wisolutions2002@shaw.ca]
- * Java original copyright: © 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
+ * AS2  revision copyright: ï¿½ 2005, Richard Wright     [wisolutions2002@shaw.ca]
+ * Java original copyright: ï¿½ 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -59,10 +60,9 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.calc.*;
+import com.wis3.math.calc.*;
 
-class com.wis.math.calc.solvers.EulerRichardson implements com.wis.math.calc.IODESolver
-{
+public class EulerRichardson implements com.wis3.math.calc.IODESolver {
 	/**
 	 * @property $stepSize  (Number)  -- parameter increment such as delta time.
 	 * @property $numEqn  (Number)  -- number of equations.
@@ -76,13 +76,12 @@ class com.wis.math.calc.solvers.EulerRichardson implements com.wis.math.calc.IOD
     private var $midstate:Array;
     private var $ode:IODE;
 
-    public function EulerRichardson(_ode:IODE)
-    {
+    public function EulerRichardson(_ode:IODE) {
         $ode = _ode;
         initialize($stepSize);
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  initialize
@@ -91,10 +90,9 @@ class com.wis.math.calc.solvers.EulerRichardson implements com.wis.math.calc.IOD
      *                by invoking getState().length on the IODE.
      * @usage  <pre>inst.initialize(_stepSize);</pre>
      * @param   _stepSize  (Number) -- step integer.
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function initialize(_stepSize:Number):Void
-    {
+    public function initialize(_stepSize:Number):void {
         $stepSize = _stepSize;
         var state:Array = $ode.getState();
         // if state vector not defined.
@@ -104,7 +102,7 @@ class com.wis.math.calc.solvers.EulerRichardson implements com.wis.math.calc.IOD
         $midstate = new Array($numEqn);
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  step
@@ -116,22 +114,21 @@ class com.wis.math.calc.solvers.EulerRichardson implements com.wis.math.calc.IOD
      * @usage  <pre>inst.step();</pre>
      * @return  (Number)  -- returns step size.
     **/
-    public function step():Number
-    {
+    public function step():Number {
         var state:Array = $ode.getState();
-        $ode.getRate(state,$rate);  // get the rate at the start
-        for (var i:Number=0;i<$numEqn;i++)
-        {
+        var i:Number;
+        $ode.getRate(state, $rate);  // get the rate at the start
+        for (i=0;i<$numEqn;i++) {
             // estimate the state at the midpoint
             $midstate[i] = state[i]+$stepSize*$rate[i]/2;
         }
-        $ode.getRate($midstate,$rate);  // get the rate at the midpoint
-        for (var i:Number=0;i<$numEqn;i++)
+        $ode.getRate($midstate, $rate);  // get the rate at the midpoint
+        for (i=0;i<$numEqn;i++)
             state[i] = state[i]+$stepSize*$rate[i];
         return $stepSize;
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  setStepSize
@@ -139,14 +136,13 @@ class com.wis.math.calc.solvers.EulerRichardson implements com.wis.math.calc.IOD
      *                this algorithm.
      * @usage  <pre>inst.setStepSize(_stepSize);</pre>
      * @param   _stepSize  (Number) -- step integer.
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function setStepSize(_stepSize:Number):Void
-    {
+    public function setStepSize(_stepSize:Number):void {
         $stepSize = _stepSize;
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  getStepSize
@@ -154,23 +150,22 @@ class com.wis.math.calc.solvers.EulerRichardson implements com.wis.math.calc.IOD
      * @usage  <pre>inst.getStepSize();</pre>
      * @return  (Number)  -- returns step size
     **/
-    public function getStepSize():Number
-    {
+    public function getStepSize():Number {
         return $stepSize;
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  setTolerance
      * @description   Abstract interface method.
      * @usage  <pre>not used.</pre>
      * @param   _tol  (Number) -- .
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function setTolerance(_tol:Number):Void {}
+    public function setTolerance(_tol:Number):void {}
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  getTolerance
@@ -179,5 +174,6 @@ class com.wis.math.calc.solvers.EulerRichardson implements com.wis.math.calc.IOD
      * @return  (Number)
     **/
     public function getTolerance():Number {return 1.0e-9;}
-}
+}// class
+}//package
 

@@ -1,26 +1,27 @@
+package com.wis3.math.geom.polytope {
 /**
- * @class       com.wis.math.geom.polytope.Box
+ * @class       com.wis3.math.geom.polytope.Box
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Box Class.
  *              <p>
  *		        Provides methods for the IObj interface based on JS RayTracer2 by
  *              John Haggerty.
- * @usage       <pre>var inst:Box = new Box(v1,v2,isBound);</pre>
+ * @usage       <pre>var inst:Box = new Box(v1, v2, isBound);</pre>
  * @param       v1 (Vector)  -- a position Vector object defining one corner of the box.
  * @param       v2 (Vector)  -- a position Vector object defining the opposite corner of the box.
  * @param       isBound (Boolean)  -- if 'true', leaves dimensions as is, else inverses dimensions.
  * -----------------------------------------------
  * Latest update: August 2, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis.math.alg.Vector
- *                com.wis.math.geom.util.Intersection
- *                com.wis.math.geom.util.Ray
- *                com.wis.types.IObj
- *                com.wis.types.Obj
+ * Dependencies:  com.wis3.math.alg.Vector
+ *                com.wis3.math.geom.util.Intersection
+ *                com.wis3.math.geom.util.Ray
+ *                com.wis3.types.IObj
+ *                com.wis3.types.Obj
  * -----------------------------------------------
- * AS2 revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
- * JS  original copyright © 2003, John Haggerty  [http://www.slimeland.com/]
+ * AS2 revision copyright ï¿½ 2004, Richard Wright [wisolutions2002@shaw.ca]
+ * JS  original copyright ï¿½ 2003, John Haggerty  [http://www.slimeland.com/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -48,14 +49,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * -----------------------------------------------
  *   Functions:
- *       Box(v1,v2,isBound)
+ *       Box(v1, v2, isBound)
  *             1.  copy()
  *             2.  initialize()
  *             3.  findIntersectionsUntransformed(ray)
  *             4.  isPointInsideUntransformed(pos)
  *             5.  getNormalAtUntransformed(pos)
- *             6.  init(v1,v2,isBound)
- *             7.  findInts(ints,v1,v2,dim,odim1,odim2,s,d)
+ *             6.  init(v1, v2, isBound)
+ *             7.  findInts(ints, v1, v2, dim, odim1, odim2, s, d)
  *  ----------------------------------------------
  *  Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
@@ -67,14 +68,13 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.alg.Vector;
-import com.wis.math.geom.util.Intersection;
-import com.wis.math.geom.util.Ray;
-import com.wis.types.IObj;
-import com.wis.types.Obj;
+import com.wis3.math.alg.Vector;
+import com.wis3.math.geom.util.Intersection;
+import com.wis3.math.geom.util.Ray;
+import com.wis3.types.IObj;
+import com.wis3.types.Obj;
 
-class com.wis.math.geom.polytope.Box extends Obj implements IObj
-{
+public class Box extends Obj implements IObj {
 	/**
 	 * @property $v1 (Vector)  -- a position Vector object defining one corner of the box.
 	 * @property $v2 (Vector)  -- a position Vector object defining the opposite corner of the box.
@@ -82,21 +82,19 @@ class com.wis.math.geom.polytope.Box extends Obj implements IObj
 	 * @property $negV1 (Vector)  -- a position Vector object defining negative of $v1.
 	 * @property $boundedBy (Box)  -- a bounding box object.
 	**/
-    var $v1:Vector;
-    var $v2:Vector;
-    var $dimsInv:Vector;
-    var $negV1:Vector;
-    var $boundedBy:Box;
+    public var $v1:Vector;
+    public var $v2:Vector;
+    public var $dimsInv:Vector;
+    public var $negV1:Vector;
 
     // constructor
-    function Box(v1:Vector,v2:Vector,isBound:Boolean)
-    {
-        trace ("Box Class loaded .. super.$boundedBy: "+super.$boundedBy);
+    public function Box(v1:Vector, v2:Vector, isBound:Boolean=false) {
+        trace ("Box Class loaded .. super.$boundedBy: " + super.$boundedBy);
         //if (!super.$boundedBy && arguments.length>0) this.init(arguments);
-        init(v1,v2,isBound);
+        init(v1, v2, isBound);
     }
 
-// 1. copy ---------------------------------------
+      // 1. copy ---------------------------------------
 
     /**
      * @method  copy
@@ -104,28 +102,26 @@ class com.wis.math.geom.polytope.Box extends Obj implements IObj
      * @usage  <pre>inst.copy();</pre>
      * @return  (Obj)  -- returns a new Sphere object populated with super's properties.
     **/
-    function copy():Obj
-    {
-	    return this.copyModifiers(new Box($v1.copy(),$v2.copy()));
+    override public function copy():Obj {
+	    return this.copyModifiers(new Box($v1.copy(), $v2.copy()));
     }
 
-// 2. initialize ---------------------------------
+      // 2. initialize ---------------------------------
 
     /**
      * @method  initialize
      * @description  Initializes this instance's bounding box and its super's low-level properties,
      *               and defines $negV1 property.
      * @usage  <pre>inst.initialize();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function initialize():Void
-    {
-	    $boundedBy = new Box($v1.copy(),$v2.copy(),true);
+    override public function initialize():void {
+	    $boundedBy = new Box($v1.copy(), $v2.copy(), true);
 	    $negV1 = Vector.neg($v1);
 	    this.generalLowLevelObjectInitialization();
     }
 
-// 3. findIntersectionsUntransformed -------------
+      // 3. findIntersectionsUntransformed -------------
 
     /**
      * @method  findIntersectionsUntransformed
@@ -134,28 +130,26 @@ class com.wis.math.geom.polytope.Box extends Obj implements IObj
      * @param   ray   (Ray)  -- tracer object that defines its point and direction in 3-space.
      * @return  (Array)  -- returns a list of Intersection objects, or an empty list.
     **/
-    function findIntersectionsUntransformed(ray:Ray):Array
-    {
+    override public function findIntersectionsUntransformed(ray:Ray):Array {
 	    var ints:Array = [];
 	    var a:Number;
 
-	    Box.findInts(ints,$v1,$v2,"x","y","z",ray.$start,ray.$dir);
-	    Box.findInts(ints,$v1,$v2,"x","y","z",ray.$start,ray.$dir);
-	    Box.findInts(ints,$v1,$v2,"x","y","z",ray.$start,ray.$dir);
+	    Box.findInts(ints, $v1, $v2, "x", "y", "z", ray.$start, ray.$dir);
+	    Box.findInts(ints, $v1, $v2, "x", "y", "z", ray.$start, ray.$dir);
+	    Box.findInts(ints, $v1, $v2, "x", "y", "z", ray.$start, ray.$dir);
 
 	    ints.sort(Obj.numericalOrder);
-	    if (ints.length>1 && ints[1]<ints[0])
-	    {
+	    if (ints.length>1 && ints[1]<ints[0]) {
 		    var temp:Intersection = ints[1];
 		    ints[1] = ints[0];
 		    ints[0] = temp;
 	    }
-	    for (a=0;a<ints.length;a++) ints[a] = new Intersection(ints[a],ray,this);
+	    for (a=0;a<ints.length;a++) ints[a] = new Intersection(ints[a], ray, this);
 
 	    return ints;
     }
 
-// 4. isPointInsideUntransformed ----------------
+      // 4. isPointInsideUntransformed ----------------
 
     /**
      * @method  isPointInsideUntransformed
@@ -164,12 +158,11 @@ class com.wis.math.geom.polytope.Box extends Obj implements IObj
      * @param   pos   (Vector)  -- a position Vector object.
      * @return  (Boolean)
     **/
-    function isPointInsideUntransformed(pos:Vector):Boolean
-    {
+    override public function isPointInsideUntransformed(pos:Vector):Boolean {
 	    return (pos.x>=$v1.x && pos.x<=$v2.x && pos.y>=$v1.y && pos.y<=$v2.y && pos.z>=$v1.z && pos.z<=$v2.z);
     }
 
-// 5. getNormalAtUntransformed -------------------
+      // 5. getNormalAtUntransformed -------------------
 
     /**
      * @method  getNormalAtUntransformed
@@ -178,22 +171,18 @@ class com.wis.math.geom.polytope.Box extends Obj implements IObj
      * @param   pos   (Vector)  -- a position Vector object.
      * @return  (Vector)  -- returns normal of untransformed vector.
     **/
-    function getNormalAtUntransformed(pos:Vector):Vector
-    {
-	    var simpleBoxPos:Vector = Vector.adder(Vector.mult(Vector.adder(pos,$negV1),$dimsInv),new Vector(-.5,-.5,-.5));
-	    var absSimpleBoxPos:Vector = new Vector(Math.abs(simpleBoxPos.x),Math.abs(simpleBoxPos.y),Math.abs(simpleBoxPos.z));
+    override public function getNormalAtUntransformed(pos:Vector):Vector {
+	    var simpleBoxPos:Vector = Vector.adder(Vector.mult(Vector.adder(pos, $negV1), $dimsInv), new Vector(-.5, -.5, -.5));
+	    var absSimpleBoxPos:Vector = new Vector(Math.abs(simpleBoxPos.x), Math.abs(simpleBoxPos.y), Math.abs(simpleBoxPos.z));
 
-	    if (absSimpleBoxPos.x>absSimpleBoxPos.y && absSimpleBoxPos.x>absSimpleBoxPos.z)
-	    {
-	    	return new Vector(simpleBoxPos.x,0,0);
+	    if (absSimpleBoxPos.x>absSimpleBoxPos.y && absSimpleBoxPos.x>absSimpleBoxPos.z) {
+	    	return new Vector(simpleBoxPos.x, 0, 0);
 	    }
-	    else if (absSimpleBoxPos.y>absSimpleBoxPos.x && absSimpleBoxPos.y>absSimpleBoxPos.z)
-	    {
-	    	return new Vector(0,simpleBoxPos.y,0);
+	    else if (absSimpleBoxPos.y>absSimpleBoxPos.x && absSimpleBoxPos.y>absSimpleBoxPos.z) {
+	    	return new Vector(0, simpleBoxPos.y, 0);
 	    }
-	    else
-	    {
-	    	return new Vector(0,0,simpleBoxPos.z);
+	    else {
+	    	return new Vector(0, 0, simpleBoxPos.z);
 	    }
 
 	    // commented-out in JS original
@@ -206,55 +195,49 @@ class com.wis.math.geom.polytope.Box extends Obj implements IObj
 	    return Vector.ZZ;
     }
 
-// 6. init ---------------------------------------
+      // 6. init ---------------------------------------
 
     /**
      * @method  init
      * @description  Initializes class instance properties beyond its super's properties.
-     * @usage  <pre>inst.init(v1,v2,isBound);</pre>
+     * @usage  <pre>inst.init(v1, v2, isBound);</pre>
      * @param   v1   (Vector)  -- a direction Vector object.
      * @param   v2   (Vector)  -- a direction Vector object.
      * @param   isBound   (Boolean)  -- if 'true', leaves dimensions as is, else inverses dimensions.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function init(v1:Vector,v2:Vector,isBound:Boolean):Void
-    {
+    private function init(v1:Vector, v2:Vector, isBound:Boolean):void {
         var temp:Number;
 
 	    $v1 = v1;
 	    $v2 = v2;
-	    if ($v1.x>$v2.x)
-	    {
+	    if ($v1.x>$v2.x) {
 	    	temp = $v1.x;
 	    	$v1.x = $v2.x;
 	    	$v2.x = temp;
 	    }
-	    if ($v1.y>$v2.y)
-	    {
+	    if ($v1.y>$v2.y) {
 		    temp = $v1.y;
 		    $v1.y = $v2.y;
 		    $v2.y = temp;
 	    }
-	    if ($v1.z>$v2.z)
-	    {
+	    if ($v1.z>$v2.z) {
 		    temp = $v1.z;
 		    $v1.z = $v2.z;
 		    $v2.z = temp;
 	    }
-	    if (isBound);
-	    else
-	    {
-		    $dimsInv = Vector.adder($v2,Vector.neg($v1)).inv();
+	    if (! isBound) {
+		    $dimsInv = Vector.adder($v2, Vector.neg($v1)).inv();
 		    this.setupDefaultModifiers();
 	    }
     }
 
-// 7. findInts -----------------------------------
+      // 7. findInts -----------------------------------
 
     /**
      * @method  findInts
      * @description  Defines all six intersections of the box.
-     * @usage  <pre>inst.findInts(ints,v1,v2,dim,odim1,odim2,s,d);</pre>
+     * @usage  <pre>inst.findInts(ints, v1, v2, dim, odim1, odim2, s, d);</pre>
      * @param   ints   (Array)  -- a holder for Intersection objects.
      * @param   v1   (Vector)  -- a direction Vector object.
      * @param   v2   (Vector)  -- a direction Vector object.
@@ -263,24 +246,22 @@ class com.wis.math.geom.polytope.Box extends Obj implements IObj
      * @param   odim2   (String)  -- ths string 'z'.
      * @param   s   (Vector)  -- ray start Vector object.
      * @param   d   (Vector)  -- ray direction Vector object.
-     * @return  (Void)
+     * @return  (void)
     **/
-    static function findInts(ints:Array,v1:Vector,v2:Vector,dim:String,odim1:String,odim2:String,s:Vector,d:Vector):Void
-    {
+    public static function findInts(ints:Array, v1:Vector, v2:Vector, dim:String, odim1:String, odim2:String, s:Vector, d:Vector):void {
 	    if (d[dim]==0) return;
 	    var int1:Number = (v1[dim]-s[dim])/d[dim];
 	    var int2:Number = (v2[dim]-s[dim])/d[dim];
-	    var intPoint1:Vector = Vector.adder(s,Vector.scaler(d,int1));
-	    var intPoint2:Vector = Vector.adder(s,Vector.scaler(d,int2));
-	    if (intPoint1[odim1]>=v1[odim1] && intPoint1[odim1]<v2[odim1] && intPoint1[odim2]>=v1[odim2] && intPoint1[odim2]<v2[odim2])
-	    {
+	    var intPoint1:Vector = Vector.adder(s, Vector.scaler(d, int1));
+	    var intPoint2:Vector = Vector.adder(s, Vector.scaler(d, int2));
+	    if (intPoint1[odim1]>=v1[odim1] && intPoint1[odim1]<v2[odim1] && intPoint1[odim2]>=v1[odim2] && intPoint1[odim2]<v2[odim2]) {
 	    	ints[ints.length] = int1;
 	    }
-	    if (intPoint2[odim1]>=v1[odim1] && intPoint2[odim1]<v2[odim1] && intPoint2[odim2]>=v1[odim2] && intPoint2[odim2]<v2[odim2])
-	    {
+	    if (intPoint2[odim1]>=v1[odim1] && intPoint2[odim1]<v2[odim1] && intPoint2[odim2]>=v1[odim2] && intPoint2[odim2]<v2[odim2]) {
 	    	ints[ints.length] = int2;
 	    }
     }
 
-}
+}// class
+}//package
 

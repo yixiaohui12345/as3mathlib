@@ -1,5 +1,6 @@
+package com.wis3.math.alg {
 /**
- * @class       com.wis.math.alg.Decomposition
+ * @class       com.wis3.math.alg.Decomposition
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Decomposition Class.
@@ -10,8 +11,8 @@
  * -----------------------------------------------
  * Latest update: January 3, 2005
  * -----------------------------------------------
- * AS2 revision copyright: © 2004, Richard Wright  [wisolutions2002@shaw.ca]
- * JS  original copyright: © 2002, Lucio Tavernini [http://tavernini.com/newton.shtml]
+ * AS2 revision copyright: ï¿½ 2004, Richard Wright  [wisolutions2002@shaw.ca]
+ * JS  original copyright: ï¿½ 2002, Lucio Tavernini [http://tavernini.com/newton.shtml]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -46,22 +47,21 @@
  *           4.  norm(x)
  *           5.  singular()
  *           6.  factorDirectLU()
- *           7.  solveDirectLU(x,y)
+ *           7.  solveDirectLU(x, y)
  *           8.  factorPivotingLU()
- *           9.  solvePivotingLU(x,y)
+ *           9.  solvePivotingLU(x, y)
  *           10. factorCholesky()
- *           11. solveCholesky(x,y)
- *           12. newton(m,f,p_arr,bound)
+ *           11. solveCholesky(x, y)
+ *           12. newton(m, f, p_arr, bound)
  * -----------------------------------------------
  * Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
  * -----------------------------------------------
 **/
 
-import com.wis.math.num.Format;
+import com.wis3.math.num.Format;
 
-class com.wis.math.alg.Decomposition
-{
+public class Decomposition  {
 	/**
 	 * @property $order (Number)  -- a positive integer for matrix size.
 	 * @property $newtonIterations (Number)  --
@@ -70,38 +70,35 @@ class com.wis.math.alg.Decomposition
 	 * @property $index (Array)  --
 	 * @property $debug (String)  -- trace string.
 	**/
-    var $order:Number;
-    var $newtonIterations:Number;
-    var $newtonMaxIterations:Number;
-    var $element:Array;
-    var $index:Array;
-    var $debug:String;
+    public var $order:Number;
+    public var $newtonIterations:Number;
+    public var $newtonMaxIterations:Number;
+    public var $element:Array;
+    public var $index:Array;
+    public var $debug:String;
 
     // constructor
-    function Decomposition()
-    {
+    public function Decomposition() {
         //trace ("Decomposition Class loaded");
     }
 
-// 1. squareMatrixCreate -------------------------
+      // 1. squareMatrixCreate -------------------------
 
     /**
      * @method  squareMatrixCreate
      * @description  Square matrix creator.
      * @usage  <pre>inst.squareMatrixCreate(order);</pre>
      * @param   order   (Number)  -- a positive integer for matrix size.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function squareMatrixCreate(order:Number):Void
-    {
+    public function squareMatrixCreate(order:Number):void {
         trace ("$$ squareMatrixCreate fired!");
 
         var element:Array = new Array(order);
         var index:Array = new Array(order);
         var i:Number;
 
-        for (i=0;i<order;i++)
-        {
+        for (i=0;i<order;i++) {
             element[i] = new Array(order);
             index[i] = i;
         }
@@ -113,18 +110,17 @@ class com.wis.math.alg.Decomposition
         //this.destroy = destroy;
     }
 
-// 2. symMatrixCreate ----------------------------
+      // 2. symMatrixCreate ----------------------------
 
     /**
      * @method  symMatrixCreate
      * @description ** function description here
      * @usage  <pre>inst.symMatrixCreate(order);</pre>
      * @param   order   (Number)  -- a positive integer for matrix size.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function symMatrixCreate(order:Number):Void
-    {
-        var element = new Array(order);
+    public function symMatrixCreate(order:Number):void {
+        var element:Array = new Array(order);
         var i:Number;
 
         for (i=0;i<order;i++) element[i] = new Array(i+1);
@@ -135,26 +131,29 @@ class com.wis.math.alg.Decomposition
         //this.destroy = destroy;
     }
 
-// 3. destroy ------------------------------------
+      // 3. destroy ------------------------------------
 
     /**
      * @method  destroy
      * @description  Matrix destructor.
      * @usage  <pre>inst.destroy();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function destroy():Void
-    {
+    public function destroy():void {
         trace ("$$ destroy fired!");
 
         var i:Number;
 
-        for (i=0;i<$order;i++) delete $element[i];
-        delete $element;
-        delete $index;
+        for (i=0;i<$order;i++) {
+        	delete $element[i];
+        }
+        // FIXME -- delete causes complaint in AS3
+		// delete $element;
+        // FIXME -- delete causes complaint in AS3
+		// delete $index;
     }
 
-// 4. norm ---------------------------------------
+      // 4. norm ---------------------------------------
 
     /**
      * @method  norm
@@ -163,8 +162,7 @@ class com.wis.math.alg.Decomposition
      * @param   x_arr   (Array)  --
      * @return  (Number)  --
     **/
-    function norm(x_arr:Array):Number
-    {
+    public function norm(x_arr:Array):Number {
         //trace ("$$ norm fired!");
 
         var i:Number;
@@ -175,7 +173,7 @@ class com.wis.math.alg.Decomposition
         return sum;
     }
 
-// 5. singular -----------------------------------
+      // 5. singular -----------------------------------
 
     /**
      * @method  singular
@@ -183,8 +181,7 @@ class com.wis.math.alg.Decomposition
      * @usage  <pre>inst.singular();</pre>
      * @return  (Boolean)
     **/
-    function singular():Boolean
-    {
+    public function singular():Boolean {
         trace ("$$ singular fired!");
 
         $debug += ("\nError: The matrix appears to be singular.\n");
@@ -193,7 +190,7 @@ class com.wis.math.alg.Decomposition
         return true;
     }
 
-// 6. factorDirectLU -----------------------------
+      // 6. factorDirectLU -----------------------------
 
     /**
      * @method  factorDirectLU
@@ -202,66 +199,57 @@ class com.wis.math.alg.Decomposition
      * @usage  <pre>inst.factorDirectLU();</pre>
      * @return  (Boolean)
     **/
-    function factorDirectLU():Boolean
-    {
-        var i:Number,j:Number,k:Number,pivot:Number,multiplier:Number;
+    public function factorDirectLU():Boolean {
+        var i:Number, j:Number, k:Number, pivot:Number, multiplier:Number;
         var n:Number = $order;
 
-        for (k=0;k<n-1;k++)
-        {
+        for (k=0;k<n-1;k++) {
             pivot = $element[k][k];
             if (pivot==0) return singular();
-            for (i=k+1;i<n;i++)
-            {
+            for (i=k+1;i<n;i++) {
                 $element[i][k] = (multiplier=$element[i][k]/pivot);
-                for (j=k+1;j<n;j++)
-                {
+                for (j=k+1;j<n;j++) {
                     $element[i][j] -= multiplier*$element[k][j]
                 }
             }
         }
-        // Test a[n-1,n-1].
+        // Test a[n-1, n-1].
         if ($element[n-1][n-1] == 0) return this.singular();
 
         return false;
     }
 
-// 7. solveDirectLU ------------------------------
+      // 7. solveDirectLU ------------------------------
 
     /**
      * @method  solveDirectLU
      * @description  Solves Ax = y after A has been factored as A = LU.
-     * @usage  <pre>inst.solveDirectLU(x_arr,y_arr);</pre>
+     * @usage  <pre>inst.solveDirectLU(x_arr, y_arr);</pre>
      * @param   x_arr   (Array)  --
      * @param   y_arr   (Array)  --
-     * @return  (Void)
+     * @return  (void)
     **/
-    function solveDirectLU(x_arr:Array,y_arr:Array):Void
-    {
-        var i:Number,j:Number,sum:Number;
+    public function solveDirectLU(x_arr:Array, y_arr:Array):void {
+        var i:Number, j:Number, sum:Number;
         var n:Number = $order;
 
         // Forward Substitution
-        for (i=0;i<n;i++)
-        {
-            for (sum=0,j=0;j<i;j++)
-            {
+        for (i=0;i<n;i++) {
+            for (sum=0, j=0;j<i;j++) {
                 sum += $element[i][j]*x_arr[j];
             }
             x_arr[i] = y_arr[i]-sum;
         }
         // Back Substitution
-        for (i=n-1;i>=0;i--)
-        {
-            for (sum=0,j=i+1;j<n;j++)
-            {
+        for (i=n-1;i>=0;i--) {
+            for (sum=0, j=i+1;j<n;j++) {
                 sum += $element[i][j]*x_arr[j];
             }
             x_arr[i] = (x_arr[i]-sum)/$element[i][i];
         }
     }
 
-// 8. factorPivotingLU ---------------------------
+      // 8. factorPivotingLU ---------------------------
 
     /**
      * @method  factorPivotingLU
@@ -272,33 +260,27 @@ class com.wis.math.alg.Decomposition
      * @usage  <pre>inst.factorPivotingLU();</pre>
      * @return  (Boolean)
     **/
-    function factorPivotingLU():Boolean
-    {
+    public function factorPivotingLU():Boolean {
         trace ("$$ factorPivotingLU fired!");
 
-        var i:Number,ii:Number,j:Number,k:Number,kk:Number,temp:Number;
-        var pivot:Number,multiplier:Number,max:Number,pivotRow:Number;
+        var i:Number, ii:Number, j:Number, k:Number, kk:Number, temp:Number;
+        var pivot:Number, multiplier:Number, max:Number, pivotRow:Number;
         var n:Number = $order;
         var equilibration:Array = new Array();
 
         // Initialize row indices.  Compute equilibration factors.
-        for (i=0;i<n;i++)
-        {
-            for (max=0,j=0;j<n;j++)
-            {
+        for (i=0;i<n;i++) {
+            for (max=0, j=0;j<n;j++) {
                 max = ((temp = Math.abs($element[i][j]))>max) ? temp : max;
             }
             if (max==0) return singular();
             equilibration[i] = 1/max;
         }
         // Factor the matrix using Gauss elimination.
-        for (k=0;k<n-1;k++)
-        {
-            for (max=0,i=k;i<n;i++)
-            {
+        for (k=0;k<n-1;k++) {
+            for (max=0, i=k;i<n;i++) {
                 ii = $index[i];
-                if ((temp = Math.abs($element[ii][k])*equilibration[ii])>max)
-                {
+                if ((temp = Math.abs($element[ii][k])*equilibration[ii])>max) {
                     max = temp;
                     pivotRow = i;
                 }
@@ -310,62 +292,56 @@ class com.wis.math.alg.Decomposition
             pivot = $element[kk][k];
 
             if (pivot==0) return singular();
-            for (i=k+1;i<n;i++)
-            {
+            for (i=k+1;i<n;i++) {
                 ii = $index[i];
                 $element[ii][k] = (multiplier = $element[ii][k]/pivot);
-                for (j=k+1;j<n;j++)
-                {
+                for (j=k+1;j<n;j++) {
                     $element[ii][j] -= multiplier*$element[kk][j];
                 }
             }
         }
 
-        // Test the actual a[n-1,n-1].
+        // Test the actual a[n-1, n-1].
         if ($element[$index[n-1]][n-1]==0) return this.singular();
         //return 0;
         return false;
     }
 
-// 9. solvePivotingLU ----------------------------
+      // 9. solvePivotingLU ----------------------------
 
     /**
      * @method  solvePivotingLU
      * @description  Solves Ax = y after A has been factored as PA = LU,
      *               where P is the row-permutation matrix represented
      *               by the array '$index'.
-     * @usage  <pre>inst.solvePivotingLU(x_arr,y_arr);</pre>
+     * @usage  <pre>inst.solvePivotingLU(x_arr, y_arr);</pre>
      * @param   x_arr   (Array)  --
      * @param   y_arr   (Array)  --
-     * @return  (Void)
+     * @return  (void)
     **/
-    function solvePivotingLU(x_arr:Array,y_arr:Array):Void
-    {
+    public function solvePivotingLU(x_arr:Array, y_arr:Array):void {
         trace ("$$ solvePivotingLU fired!");
 
-        var i:Number,ii:Number,j:Number,sum:Number;
+        var i:Number, ii:Number, j:Number, sum:Number;
         var n:Number = $order;
 
         // Forward substitution
-        for (i=0;i<n;i++)
-        {
+        for (i=0;i<n;i++) {
             ii = $index[i];
-            for (sum=0,j=0;j<i;j++) sum += $element[ii][j]*x_arr[j];
+            for (sum=0, j=0;j<i;j++) sum += $element[ii][j]*x_arr[j];
             x_arr[i] = y_arr[ii]-sum;
         }
         // Back substitution
-        for (i=n-1;i>=0;i--)
-        {
+        for (i=n-1;i>=0;i--) {
             ii = $index[i];
-            for (sum=0,j=i+1;j<n;j++)
-            {
+            for (sum=0, j=i+1;j<n;j++) {
                 sum += $element[ii][j]*x_arr[j];
             }
             x_arr[i] = (x_arr[i]-sum)/$element[ii][i];
         }
     }
 
-// 10. factorCholesky -----------------------------
+      // 10. factorCholesky -----------------------------
 
     /**
      * @method  factorCholesky
@@ -376,21 +352,17 @@ class com.wis.math.alg.Decomposition
      * @usage  <pre>inst.factorCholesky();</pre>
      * @return  (Boolean)
     **/
-    function factorCholesky():Boolean
-    {
-        var i:Number,j:Number,k:Number,sum:Number;
+    public function factorCholesky():Boolean {
+        var i:Number, j:Number, k:Number, sum:Number;
         var n:Number = $order;
         // Allocate the equilibration array.
         var s:Array = new Array(n);
 
         // Factor the matrix.
-        for (i=0;i<n;i++)
-        {
-            for (j=0;j<=i-1;j++)
-            {
+        for (i=0;i<n;i++) {
+            for (j=0;j<=i-1;j++) {
                 s[j] = $element[i][j];
-                for (k=0;k<=j-1;k++)
-                {
+                for (k=0;k<=j-1;k++) {
                     s[j] -= s[k]*$element[j][k];
                 }
                 if ($element[j][j]==0) return singular();
@@ -410,35 +382,30 @@ class com.wis.math.alg.Decomposition
      * @method  solveCholesky
      * @description  Solves the linear system Ax = y after a has been factored
      *               by factorCholesky.
-     * @usage  <pre>inst.solveCholesky(x_arr,y_arr);</pre>
+     * @usage  <pre>inst.solveCholesky(x_arr, y_arr);</pre>
      * @param   x_arr   (Array)  --
      * @param   y_arr   (Array)  --
-     * @return  (Void)
+     * @return  (void)
     **/
-    function solveCholesky(x_arr:Array,y_arr:Array):Void
-    {
-        var i:Number,j:Number;
+    public function solveCholesky(x_arr:Array, y_arr:Array):void {
+        var i:Number, j:Number;
         var n:Number = $order;
 
         // Forward substitution
-        for (i=0;i<n;i++)
-        {
-            for (x_arr[i]=y_arr[i],j=0;j<=i-1;j++)
-            {
+        for (i=0;i<n;i++) {
+            for (x_arr[i]=y_arr[i], j=0;j<=i-1;j++) {
                 x_arr[i] -= $element[i][j]*x_arr[j];
             }
         }
         // Back substitution
-        for (i=n-1;i>=0;i--)
-        {
-            for (x_arr[i]/=$element[i][i],j=i+1;j<n;j++)
-            {
+        for (i=n-1;i>=0;i--) {
+            for (x_arr[i]/=$element[i][i], j=i+1;j<n;j++) {
                 x_arr[i] -= $element[j][i]*x_arr[j];
             }
         }
     }
 
-// 12. newton -------------------------------------
+      // 12. newton -------------------------------------
 
     /**
      * @method  newton
@@ -446,20 +413,19 @@ class com.wis.math.alg.Decomposition
      *               <p>
      *               An attempt to solve f(x) = 0 using Newton's method with damping.
      *               The Jacobian matrix of f is approximated using finite differences.
-     * @usage  <pre>inst.newton(m,f,p_arr,bound);</pre>
+     * @usage  <pre>inst.newton(m, f, p_arr, bound);</pre>
      * @param   m   (Number)  --
      * @param   f   (Function)  -- the function.
      * @param   p_arr   (Array)  --
      * @param   bound   (Number)  --
      * @return  (Array)  -- returns
     **/
-    function newton(m:Number,f:Function,p_arr:Array,bound:Number):Array
-    {
+    public function newton(m:Number, f:Function, p_arr:Array, bound:Number):Array {
         trace ("$$ newton fired!");
 
-        var eps:Number,h:Number,i:Number,j:Number;
-        var n_singular:Number,delta:Number,save:Number;
-        var norm_f_x:Number,norm_f_z:Number,norm_y:Number;
+        var eps:Number, h:Number, i:Number, j:Number;
+        var n_singular:Number, delta:Number, save:Number;
+        var norm_f_x:Number, norm_f_z:Number, norm_y:Number;
         var abort:Boolean = false;
         var failure:Boolean = false;
         //  Allocate memory.
@@ -478,18 +444,15 @@ class com.wis.math.alg.Decomposition
         eps = 4096*Format.dbleEpsilon();
         $newtonIterations = 0;
         trace ("newton 1. x:"+x+", f_x:"+f_x+", norm_f_x:"+norm_f_x+", eps:"+eps);
-        do
-        {
+        do {
             ++$newtonIterations;
             // a = approximate value of -f'(x).
             delta = eps*(1+norm(x));
-            for (j=0;j<m;j++)
-            {
+            for (j=0;j<m;j++) {
                 save = x[j];
                 x[j] += delta;
                 y = f(x);
-                for (i=0;i<m;i++)
-                {
+                for (i=0;i<m;i++) {
                     a.$element[i][j] = (f_x[i]-y[i])/delta;
                     trace ("newton 2. a.$element["+i+"]["+j+"]:"+a.$element[i][j]);
                 }
@@ -497,18 +460,14 @@ class com.wis.math.alg.Decomposition
             }
             //  Try to solve ay = f(x).
             n_singular = 0;
-            do
-            {
+            do {
                 failure = a.factorPivotingLU();
                 trace ("newton 3. failure:"+failure);
-                if (failure)
-                {
+                if (failure) {
                     ++n_singular;
                     //  Perturb the approximate Jacobian matrix a.
-                    for (j=0;j<m;j++)
-                    {
-                        for (i=0;i<m;i++)
-                        {
+                    for (j=0;j<m;j++) {
+                        for (i=0;i<m;i++) {
                             a.$element[i][j] += delta;
                             trace ("newton 4. a.$element["+i+"]["+j+"]:"+a.$element[i][j]);
                         }
@@ -517,18 +476,15 @@ class com.wis.math.alg.Decomposition
                 abort = n_singular>$newtonMaxIterations;
             }
             while (!abort && failure);
-            if (!abort)
-            {
+            if (!abort) {
                 //  Solve the linear system.
-                a.solvePivotingLU(y,f_x);
-                trace ("newton 5. a.solvePivotingLU:"+a.solvePivotingLU(y,f_x));
+                a.solvePivotingLU(y, f_x);
+                trace ("newton 5. a.solvePivotingLU:"+a.solvePivotingLU(y, f_x));
                 //  Perform the one-dimensional search.
                 h = 2;
-                do
-                {
+                do {
                     h = 0.5*h;
-                    for (i=0;i<m;i++)
-                    {
+                    for (i=0;i<m;i++) {
                         z[i] = x[i]+h*y[i];
                         f_z = f(z);
                         norm_f_z = norm(f_z);
@@ -553,5 +509,6 @@ class com.wis.math.alg.Decomposition
         return x;
     }
 
-}
+}// class
+}//package
 

@@ -1,5 +1,6 @@
+package com.wis3.math.geom.quadric {
 /**
- * @class       com.wis.math.geom.quadric.Cylinder
+ * @class       com.wis3.math.geom.quadric.Cylinder
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Cylinder Class.
@@ -11,7 +12,7 @@
  *              'getNormalAtUntransformed' into an abstract method that supports
  *              the interface but doesn't get called. This is a workaround and may
  *              change with testing.
- * @usage       <pre>var inst:Cylinder = new Cylinder(end1,end1,rad,open);</pre>
+ * @usage       <pre>var inst:Cylinder = new Cylinder(end1, end1, rad, open);</pre>
  * @param       end1 (Vector)  -- a position Vector object defining the center of one end of the cylinder.
  * @param       end2 (Vector)  -- a position Vector object defining the center of the other end of the cylinder.
  * @param       rad (Number)  -- a real number for radius of the cylinder barrel.
@@ -19,15 +20,15 @@
  * -----------------------------------------------
  * Latest update: August 2, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis.math.alg.Vector
- *                com.wis.math.geom.polytope.Box
- *                com.wis.math.geom.util.Intersection
- *                com.wis.math.geom.util.Ray
- *                com.wis.types.IObj
- *                com.wis.types.Obj
+ * Dependencies:  com.wis3.math.alg.Vector
+ *                com.wis3.math.geom.polytope.Box
+ *                com.wis3.math.geom.util.Intersection
+ *                com.wis3.math.geom.util.Ray
+ *                com.wis3.types.IObj
+ *                com.wis3.types.Obj
  * -----------------------------------------------
- * AS2 revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
- * JS  original copyright © 2003, John Haggerty  [http://www.slimeland.com/]
+ * AS2 revision copyright ï¿½ 2004, Richard Wright [wisolutions2002@shaw.ca]
+ * JS  original copyright ï¿½ 2003, John Haggerty  [http://www.slimeland.com/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -55,13 +56,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * -----------------------------------------------
  *   Functions:
- *       Cylinder(end1,end2,rad,open)
+ *       Cylinder(end1, end2, rad, open)
  *             1.  copy()
  *             2.  initialize()
  *             3.  findIntersectionsUntransformed(ray)
  *             4.  isPointInsideUntransformed(pos)
  *             5.  getNormalAtUntransformed(pos)
- *             6.  getNormalAt(pos,isect)
+ *             6.  getNormalAt(pos, isect)
  * -----------------------------------------------
  *  Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
@@ -73,15 +74,14 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.alg.Vector;
-import com.wis.math.geom.polytope.Box;
-import com.wis.math.geom.util.Intersection;
-import com.wis.math.geom.util.Ray;
-import com.wis.types.IObj;
-import com.wis.types.Obj;
+import com.wis3.math.alg.Vector;
+import com.wis3.math.geom.polytope.Box;
+import com.wis3.math.geom.util.Intersection;
+import com.wis3.math.geom.util.Ray;
+import com.wis3.types.IObj;
+import com.wis3.types.Obj;
 
-class com.wis.math.geom.quadric.Cylinder extends Obj implements IObj
-{
+public class Cylinder extends Obj implements IObj {
 	/**
 	 * @property $end1 (Vector)  -- a position Vector object defining the center of one end of the cylinder.
 	 * @property $end2 (Vector)  -- a position Vector object defining the center of the other end of the cylinder.
@@ -94,20 +94,18 @@ class com.wis.math.geom.quadric.Cylinder extends Obj implements IObj
 	 * @property $open (Boolean)  -- default is 'false', cylinder ends are closed.
 	 * @property $boundedBy (Box)  -- bounding box object.
 	**/
-    var $end1:Vector;
-    var $end2:Vector;
-    var $negEnd1:Vector;
-    var $negEnd2:Vector;
-    var $normAxis:Vector;
-    var $negNormAxis:Vector;
-    var $rad:Number;
-    var $radSquared:Number;
-    var $open:Boolean;
-    var $boundedBy:Box;
+    public var $end1:Vector;
+    public var $end2:Vector;
+    public var $negEnd1:Vector;
+    public var $negEnd2:Vector;
+    public var $normAxis:Vector;
+    public var $negNormAxis:Vector;
+    public var $rad:Number;
+    public var $radSquared:Number;
+    public var $open:Boolean;
 
     // constructor
-    function Cylinder(end1:Vector,end2:Vector,rad:Number,open:Boolean)
-    {
+    public function Cylinder(end1:Vector, end2:Vector, rad:Number, open:Boolean) {
 	    $end1 = end1;
     	$end2 = end2;
     	$rad = rad;
@@ -115,7 +113,7 @@ class com.wis.math.geom.quadric.Cylinder extends Obj implements IObj
     	this.setupDefaultModifiers();
     }
 
-// 1. copy ---------------------------------------
+      // 1. copy ---------------------------------------
 
     /**
      * @method  copy
@@ -123,12 +121,11 @@ class com.wis.math.geom.quadric.Cylinder extends Obj implements IObj
      * @usage  <pre>inst.copy();</pre>
      * @return  (Obj)  -- returns a new Cylinder object populated with super's properties.
     **/
-    function copy():Obj
-    {
-    	return this.copyModifiers(new Cylinder($end1.copy(),$end2.copy(),$rad,$open));
+    override public function copy():Obj {
+    	return this.copyModifiers(new Cylinder($end1.copy(), $end2.copy(), $rad, $open));
     }
 
-// 2. initialize ---------------------------------
+      // 2. initialize ---------------------------------
 
     /**
      * @method  initialize
@@ -136,46 +133,43 @@ class com.wis.math.geom.quadric.Cylinder extends Obj implements IObj
      *               low-level properties, and defines $radSquared, $negEnd1,
      *               $negEnd2, $normAxis, and $negNormAxis properties.
      * @usage  <pre>inst.initialize();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function initialize():Void
-    {
+    override public function initialize():void {
     	$negEnd1 = Vector.neg($end1);
     	$negEnd2 = Vector.neg($end2);
-    	$normAxis = Vector.normalizer(Vector.adder($end2,$negEnd1));
+    	$normAxis = Vector.normalizer(Vector.adder($end2, $negEnd1));
     	$negNormAxis = Vector.neg($normAxis);
     	$radSquared = $rad*$rad;
 
     	var v1:Vector = $end1.copy();
     	var v2:Vector = $end2.copy();
+    	var temp:Number;
     	var cosines:Vector;
     	var capBound:Vector;
 
-    	if (v1.x>v2.x)
-    	{
-    		var temp:Number = v1.x;
+    	if (v1.x>v2.x) {
+    		temp = v1.x;
     		v1.x = v2.x;
     		v2.x = temp;
     	}
-    	if (v1.y>v2.y)
-    	{
-    		var temp = v1.y;
+    	if (v1.y>v2.y) {
+    		temp = v1.y;
     		v1.y = v2.y;
     		v2.y = temp;
     	}
-    	if (v1.z>v2.z)
-    	{
-    		var temp = v1.z;
+    	if (v1.z>v2.z) {
+    		temp = v1.z;
     		v1.z = v2.z;
     		v2.z = temp;
     	}
-    	cosines = new Vector(Vector.dot(Vector.XX,$normAxis),Vector.dot(Vector.YY,$normAxis),Vector.dot(Vector.ZZ,$normAxis));
-    	capBound = Vector.scaler(new Vector(Math.sqrt(1-cosines.x*cosines.x),Math.sqrt(1-cosines.y*cosines.y),Math.sqrt(1-cosines.z*cosines.z)),$rad);
-    	$boundedBy = new Box(Vector.adder(Vector.neg(capBound),v1),Vector.adder(capBound,v2),true);
+    	cosines = new Vector(Vector.dot(Vector.XX, $normAxis), Vector.dot(Vector.YY, $normAxis), Vector.dot(Vector.ZZ, $normAxis));
+    	capBound = Vector.scaler(new Vector(Math.sqrt(1-cosines.x*cosines.x), Math.sqrt(1-cosines.y*cosines.y), Math.sqrt(1-cosines.z*cosines.z)), $rad);
+    	$boundedBy = new Box(Vector.adder(Vector.neg(capBound), v1), Vector.adder(capBound, v2), true);
     	this.generalLowLevelObjectInitialization();
     }
 
-// 3. findIntersectionsUntransformed -------------
+      // 3. findIntersectionsUntransformed -------------
 
     /**
      * @method  findIntersectionsUntransformed
@@ -185,10 +179,9 @@ class com.wis.math.geom.quadric.Cylinder extends Obj implements IObj
      * @param   ray   (Ray)  -- tracer object that defines its point and direction in 3-space.
      * @return  (Array)  -- returns a list of Intersection objects, or an empty list.
     **/
-    function findIntersectionsUntransformed(ray:Ray):Array
-    {
+    override public function findIntersectionsUntransformed(ray:Ray):Array {
     	var isects:Array  = [];
-    	var rayStartMinusThisEnd1:Vector = Vector.adder(ray.$start,$negEnd1);
+    	var rayStartMinusThisEnd1:Vector = Vector.adder(ray.$start, $negEnd1);
     	var a:Number;
         var b:Number;
         var c:Number;
@@ -200,79 +193,66 @@ class com.wis.math.geom.quadric.Cylinder extends Obj implements IObj
         var v:Vector;
 
     	// caps
-    	if (!$open)
-    	{
-    		a = Vector.dot(ray.$dir,$normAxis);
-    		if (a!=0)
-    		{
-    			b = Vector.dot($normAxis,rayStartMinusThisEnd1);
+    	if (!$open) {
+    		a = Vector.dot(ray.$dir, $normAxis);
+    		if (a!=0) {
+    			b = Vector.dot($normAxis, rayStartMinusThisEnd1);
     			t = -b/a;
-    			if (Vector.adder(Vector.adder(ray.$start,Vector.scaler(ray.$dir,t)),$negEnd1)._lenSq<=$radSquared)
-    			{
-    				isects[0] = new Intersection(t,ray,this);
+    			if (Vector.adder(Vector.adder(ray.$start, Vector.scaler(ray.$dir, t)), $negEnd1)._lenSq<=$radSquared) {
+    				isects[0] = new Intersection(t, ray, this);
     				isects[0].data = 1; // remember that this is on a cap of the cylinder for normal calculation
     			}
 
-    			b = Vector.dot($negNormAxis,Vector.adder(ray.$start,$negEnd2));
+    			b = Vector.dot($negNormAxis, Vector.adder(ray.$start, $negEnd2));
     			t = b/a;
-    			if (Vector.adder(Vector.adder(ray.$start,Vector.scaler(ray.$dir,t)),$negEnd2)._lenSq<=$radSquared)
-    			{
-    				isects[isects.length] = new Intersection(t,ray,this);
+    			if (Vector.adder(Vector.adder(ray.$start, Vector.scaler(ray.$dir, t)), $negEnd2)._lenSq<=$radSquared) {
+    				isects[isects.length] = new Intersection(t, ray, this);
     				isects[isects.length-1].$data = 2;
     			}
     		}
     	}
     	// cylinder
-    	if (isects.length<2)
-    	{
-    		u = Vector.adder(ray.$dir,Vector.scaler($normAxis,-Vector.dot(ray.$dir,$normAxis)));
-    		v = Vector.adder(rayStartMinusThisEnd1,Vector.scaler($normAxis,-Vector.dot(rayStartMinusThisEnd1,$normAxis)));
+    	if (isects.length<2) {
+    		u = Vector.adder(ray.$dir, Vector.scaler($normAxis, -Vector.dot(ray.$dir, $normAxis)));
+    		v = Vector.adder(rayStartMinusThisEnd1, Vector.scaler($normAxis, -Vector.dot(rayStartMinusThisEnd1, $normAxis)));
 
-    		a = Vector.dot(u,u);
+    		a = Vector.dot(u, u);
     		// a=b=c=0 means that the ray is travelling right along the cylinder's side. (not positive c would be zero, but i think so; it would make sense mathematically: infinite solutions.)
-    		if (a!=0)
-    		{
-    			b = 2*Vector.dot(u,v);
-    			c = Vector.dot(v,v)-$radSquared;
+    		if (a!=0) {
+    			b = 2*Vector.dot(u, v);
+    			c = Vector.dot(v, v)-$radSquared;
     			discriminant = b*b-4*a*c;
-    			if (discriminant==0)
-    			{
+    			if (discriminant==0) {
     				t = -b/(2*a);
-    				pos = Vector.adder(ray.$start,Vector.scaler(ray.$dir,t));
-    				if ((Vector.dot($normAxis,Vector.adder(pos,$negEnd1))>0) &&
-    				    (Vector.dot($negNormAxis,Vector.adder(pos,$negEnd2))>0))
-    				{
-    					isects[isects.length] = new Intersection(t,ray,this);
+    				pos = Vector.adder(ray.$start, Vector.scaler(ray.$dir, t));
+    				if ((Vector.dot($normAxis, Vector.adder(pos, $negEnd1))>0) &&
+    				    (Vector.dot($negNormAxis, Vector.adder(pos, $negEnd2))>0)) {
+    					isects[isects.length] = new Intersection(t, ray, this);
     			    }
     			}
-    			else if (discriminant>0)
-    			{
+    			else if (discriminant>0) {
     				var sqrtDiscriminant:Number = Math.sqrt(discriminant);
     				var oneOverTwoA:Number = 1/(2*a);
 
     				t = (-sqrtDiscriminant-b)*oneOverTwoA;
-    				pos = Vector.adder(ray.$start,Vector.scaler(ray.$dir,t));
-    				if ((Vector.dot($normAxis,Vector.adder(pos,$negEnd1))>0) &&
-    				    (Vector.dot($negNormAxis,Vector.adder(pos,$negEnd2))>0))
-    				{
-    					isects[isects.length] = new Intersection(t,ray,this);
+    				pos = Vector.adder(ray.$start, Vector.scaler(ray.$dir, t));
+    				if ((Vector.dot($normAxis, Vector.adder(pos, $negEnd1))>0) &&
+    				    (Vector.dot($negNormAxis, Vector.adder(pos, $negEnd2))>0)) {
+    					isects[isects.length] = new Intersection(t, ray, this);
     				}
-    				if (isects.length<2)
-    				{
+    				if (isects.length<2) {
     					t = (sqrtDiscriminant-b)*oneOverTwoA;
-    					pos = Vector.adder(ray.$start,Vector.scaler(ray.$dir,t));
-    					if ((Vector.dot($normAxis,Vector.adder(pos,$negEnd1))>0) &&
-    					    (Vector.dot($negNormAxis,Vector.adder(pos,$negEnd2))>0))
-    					{
-    						isects[isects.length] = new Intersection(t,ray,this);
+    					pos = Vector.adder(ray.$start, Vector.scaler(ray.$dir, t));
+    					if ((Vector.dot($normAxis, Vector.adder(pos, $negEnd1))>0) &&
+    					    (Vector.dot($negNormAxis, Vector.adder(pos, $negEnd2))>0)) {
+    						isects[isects.length] = new Intersection(t, ray, this);
     					}
     				}
     			}
     		}
     	}
     	// sort
-    	if (isects.length>1 && isects[1].$depth<isects[0].$depth)
-    	{
+    	if (isects.length>1 && isects[1].$depth<isects[0].$depth) {
     		var temp:Intersection = isects[1];
     		isects[1] = isects[0];
     		isects[0] = temp;
@@ -281,7 +261,7 @@ class com.wis.math.geom.quadric.Cylinder extends Obj implements IObj
     	return isects;
     }
 
-// 4. isPointInsideUntransformed -----------------
+      // 4. isPointInsideUntransformed -----------------
 
     /**
      * @method  isPointInsideUntransformed
@@ -290,20 +270,19 @@ class com.wis.math.geom.quadric.Cylinder extends Obj implements IObj
      * @param   pos   (Vector)  -- a position Vector object.
      * @return  (Boolean)
     **/
-    function isPointInsideUntransformed(pos:Vector):Boolean
-    {
+    override public function isPointInsideUntransformed(pos:Vector):Boolean {
     	// test inside of caps (similar to plane test)
-    	if (Vector.dot($normAxis,Vector.adder(pos,$negEnd1))<0) return false;
+    	if (Vector.dot($normAxis, Vector.adder(pos, $negEnd1))<0) return false;
 
-    	if (Vector.dot($negNormAxis,Vector.adder(pos,$negEnd2))<0) return false;
+    	if (Vector.dot($negNormAxis, Vector.adder(pos, $negEnd2))<0) return false;
 
     	// find nearest point to this on the axis and test what the distance to it is
-    	var nearestPointOnAxis = Vector.adder(Vector.scaler($normAxis,Vector.dot(Vector.adder(pos,$negEnd1),$normAxis)),$end1);
+    	var nearestPointOnAxis:Vector = Vector.adder(Vector.scaler($normAxis, Vector.dot(Vector.adder(pos, $negEnd1), $normAxis)), $end1);
 
-    	return (Vector.adder(pos,nearestPointOnAxis.neg())._lenSq<$radSquared);
+    	return ( Vector.adder(pos, Vector.neg(nearestPointOnAxis))._lenSq < $radSquared );
     }
 
-// 5. getNormalAtUntransformed -------------------
+      // 5. getNormalAtUntransformed -------------------
 
     /**
      * @method  getNormalAtUntransformed
@@ -312,36 +291,33 @@ class com.wis.math.geom.quadric.Cylinder extends Obj implements IObj
      * @param   pos   (Vector)  -- a position Vector object.
      * @return  (Vector)  -- returns normal of passed Vector object.
     **/
-    function getNormalAtUntransformed(pos:Vector):Vector
-    {
+    override public function getNormalAtUntransformed(pos:Vector):Vector {
     	return Vector.normalizer(pos);
     }
 
-// 5. getNormalAt -------------------
+      // 5. getNormalAt -------------------
 
     /**
      * @method  getNormalAt
      * @description  Defines the normal to the passed 'pos' Vector object.
-     * @usage  <pre>inst.getNormalAt(pos,isect);</pre>
+     * @usage  <pre>inst.getNormalAt(pos, isect);</pre>
      * @param   pos   (Vector)  -- a position Vector object.
      * @param   isect   (Intersection)  -- an Intersection object.
      * @return  (Vector)  -- returns normal of passed Vector object.
     **/
-    function getNormalAt(pos:Vector,isect:Intersection):Vector
-    {
-    	if (isect.$data)
-    	{
+    override public function getNormalAt(pos:Vector = null, isect:Intersection = null):Vector {
+    	if (isect.$data) {
     		if (isect.$data==1) return $negNormAxis;
 
     		return $normAxis;
     	}
-    	else
-    	{
-    		var nearestPointOnAxis = Vector.adder(Vector.scaler($normAxis,Vector.dot(Vector.adder(pos,$negEnd1),$normAxis)),$end1);
+    	else {
+    		var nearestPointOnAxis:Vector = Vector.adder(Vector.scaler($normAxis, Vector.dot(Vector.adder(pos, $negEnd1), $normAxis)), $end1);
 
-    		return Vector.adder(pos,Vector.neg(nearestPointOnAxis));
+    		return Vector.adder(pos, Vector.neg(nearestPointOnAxis));
     	}
     }
 
-}
+}// class
+}//package
 

@@ -1,5 +1,6 @@
+package com.wis3.math.geom.intersect2D {
 /**
- * @class       com.wis.math.geom.intersect2D.Intersect2DBez3Bez3
+ * @class       com.wis3.math.geom.intersect2D.Intersect2DBez3Bez3
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the Intersect2DBez3Bez3  Class. This
@@ -9,20 +10,20 @@
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis.math.alg.Point
- *                com.wis.math.alg.Polynomial
- *                com.wis.math.alg.Vector
- *                com.wis.math.geom.intersect2D.Intersect2D -- superclass
+ * Dependencies:  com.wis3.math.alg.Point
+ *                com.wis3.math.alg.Polynomial
+ *                com.wis3.math.alg.Vector
+ *                com.wis3.math.geom.intersect2D.Intersect2D -- superclass
  *                -- subclass list:
- *                    - com.wis.math.geom.intersect2D.Intersect2DBez2
- *                    - com.wis.math.geom.intersect2D.Intersect2DBez3
- *                    - com.wis.math.geom.intersect2D.Intersect2DBez3Bez3
- *                    - com.wis.math.geom.intersect2D.Intersect2DCircle
- *                    - com.wis.math.geom.intersect2D.Intersect2DLine
- *                    - com.wis.math.geom.intersect2D.Intersect2DParams
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DBez2
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DBez3
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DBez3Bez3
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DCircle
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DLine
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DParams
  * -----------------------------------------------
- * AS2 revision copyright: © 2003, Richard Wright     [wisolutions2002@shaw.ca]
- * JS  original copyright: © 2000-2002, Kevin Lindsey [http://www.kevlindev.com/]
+ * AS2 revision copyright: ï¿½ 2003, Richard Wright     [wisolutions2002@shaw.ca]
+ * JS  original copyright: ï¿½ 2000-2002, Kevin Lindsey [http://www.kevlindev.com/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -52,7 +53,7 @@
  * Functions:
  *       Intersect2DBez3Bez3()
  *             1. init(status)
- *             2. bez3Bez3(a1,a2,a3,a4,b1,b2,b3,b4)
+ *             2. bez3Bez3(a1, a2, a3, a4, b1, b2, b3, b4)
  * -----------------------------------------------
  * Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
@@ -61,48 +62,40 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.alg.Point;
-import com.wis.math.alg.Polynomial;
-import com.wis.math.alg.Vector;
-import com.wis.math.geom.intersect2D.Intersect2D;
+import com.wis3.math.alg.Point;
+import com.wis3.math.alg.Polynomial;
+import com.wis3.math.alg.Vector;
+import com.wis3.math.geom.intersect2D.Intersect2D;
 
-class com.wis.math.geom.intersect2D.Intersect2DBez3Bez3 extends Intersect2D
-{
-	/**
-	 * @property $status (String)  -- an identifier string.
-	 * @property $points (Array)  -- a holder for vertex Point objects.
-	**/
-    var $status:String;
-    var $points:Array;
+public class Intersect2DBez3Bez3 extends Intersect2D {
 
-    function Intersect2DBez3Bez3(status:String)
-    {
+    public function Intersect2DBez3Bez3(status:String) {
+    	super(status);
         //trace ("Intersect2DBez3Bez3 Class loaded");
         if (arguments.length>0) this.init(status);
     }
 
-// 1. init ---------------------------------------
+      // 1. init ---------------------------------------
 
     /**
      * @method  init
      * @description  Initializes a new class instance.
      * @usage  <pre>inst.init(status);</pre>
      * @param   status   (String)  -- an identifier string.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function init(status:String):Void
-    {
+    private function init(status:String):void {
         $status = status;
         $points = [];
     }
 
-// 2. bez3Bez3 ------------------------------------
+      // 2. bez3Bez3 ------------------------------------
 
     /**
      * @method  bez3Bez3
      * @description  Calculates intersection point(s), if any, between two cubic
      *               Bezier shapes.
-     * @usage  <pre>inst.bez3Bez3(a1,a2,a3,a4,b1,b2,b3,b4);</pre>
+     * @usage  <pre>inst.bez3Bez3(a1, a2, a3, a4, b1, b2, b3, b4);</pre>
      * @param   a1   (Point)  -- start 'a' Point object.
      * @param   a2   (Point)  -- control1 'a' Point object.
      * @param   a3   (Point)  -- control2 'a' Point object.
@@ -113,30 +106,29 @@ class com.wis.math.geom.intersect2D.Intersect2DBez3Bez3 extends Intersect2D
      * @param   b4   (Point)  -- end 'b' Point object.
      * @return  (Intersect2D)  -- returns a new Intersect2D object.
     **/
-    function bez3Bez3(a1:Point,a2:Point,a3:Point,a4:Point,b1:Point,b2:Point,b3:Point,b4:Point):Intersect2D
-    {
+    public function bez3Bez3(a1:Point, a2:Point, a3:Point, a4:Point, b1:Point, b2:Point, b3:Point, b4:Point):Intersect2D {
         trace ("$$$$$$$$$$ bez3Bez3 fired! $$$$$$$$$$");
 
-        var a_1:Point = new Point(a1.x,a1.y);
-        trace ("a_1: "+a_1.x+","+a_1.y);
-        var a_2:Point = new Point(a2.x,a2.y);
-        trace ("a_2: "+a_2.x+","+a_2.y);
-        var a_3:Point = new Point(a3.x,a3.y);
-        trace ("a_3: "+a_3.x+","+a_3.y);
-        var a_4:Point = new Point(a4.x,a4.y);
-        trace ("a_4: "+a_4.x+","+a_4.y);
-        var b_1:Point = new Point(b1.x,b1.y);
-        trace ("b_1: "+b_1.x+","+b_1.y);
-        var b_2:Point = new Point(b2.x,b2.y);
-        trace ("b_2: "+b_2.x+","+b_2.y);
-        var b_3:Point = new Point(b3.x,b3.y);
-        trace ("b_3: "+a_3.x+","+b_3.y);
-        var b_4:Point = new Point(b4.x,b4.y);
-        trace ("b_4: "+b_4.x+","+b_4.y);
+        var a_1:Point = new Point(a1.x, a1.y);
+        trace ("a_1: "+a_1.x+", "+a_1.y);
+        var a_2:Point = new Point(a2.x, a2.y);
+        trace ("a_2: "+a_2.x+", "+a_2.y);
+        var a_3:Point = new Point(a3.x, a3.y);
+        trace ("a_3: "+a_3.x+", "+a_3.y);
+        var a_4:Point = new Point(a4.x, a4.y);
+        trace ("a_4: "+a_4.x+", "+a_4.y);
+        var b_1:Point = new Point(b1.x, b1.y);
+        trace ("b_1: "+b_1.x+", "+b_1.y);
+        var b_2:Point = new Point(b2.x, b2.y);
+        trace ("b_2: "+b_2.x+", "+b_2.y);
+        var b_3:Point = new Point(b3.x, b3.y);
+        trace ("b_3: "+a_3.x+", "+b_3.y);
+        var b_4:Point = new Point(b4.x, b4.y);
+        trace ("b_4: "+b_4.x+", "+b_4.y);
 
-        var a:Point,b:Point,c:Point,d:Point;
-        var c13:Vector,c12:Vector,c11:Vector,c10:Vector;
-        var c23:Vector,c22:Vector,c21:Vector,c20:Vector;
+        var a:Point, b:Point, c:Point, d:Point;
+        var c13:Vector, c12:Vector, c11:Vector, c10:Vector;
+        var c23:Vector, c22:Vector, c21:Vector, c20:Vector;
         var result:Intersect2D = new Intersect2D("No Intersect");
 
         // Calculate the coefficients of cubic polynomial
@@ -144,39 +136,39 @@ class com.wis.math.geom.intersect2D.Intersect2DBez3Bez3 extends Intersect2D
         b = a_2.multiply(3);
         c = a_3.multiply(-3);
         d = a.adds(b.adds(c.adds(a_4)));
-        c13 = new Vector(d.x,d.y);
+        c13 = new Vector(d.x, d.y);
 
         a = a_1.multiply(3);
         b = a_2.multiply(-6);
         c = a_3.multiply(3);
         d = a.adds(b.adds(c));
-        c12 = new Vector(d.x,d.y);
+        c12 = new Vector(d.x, d.y);
 
         a = a_1.multiply(-3);
         b = a_2.multiply(3);
         c = a.adds(b);
-        c11 = new Vector(c.x,c.y);
+        c11 = new Vector(c.x, c.y);
 
-        c10 = new Vector(a_1.x,a_1.y);
+        c10 = new Vector(a_1.x, a_1.y);
 
         a = b_1.multiply(-1);
         b = b_2.multiply(3);
         c = b_3.multiply(-3);
         d = a.adds(b.adds(c.adds(b_4)));
-        c23 = new Vector(d.x,d.y);
+        c23 = new Vector(d.x, d.y);
 
         a = b_1.multiply(3);
         b = b_2.multiply(-6);
         c = b_3.multiply(3);
         d = a.adds(b.adds(c));
-        c22 = new Vector(d.x,d.y);
+        c22 = new Vector(d.x, d.y);
 
         a = b_1.multiply(-3);
         b = b_2.multiply(3);
         c = a.adds(b);
-        c21 = new Vector(c.x,c.y);
+        c21 = new Vector(c.x, c.y);
 
-        c20 = new Vector(b_1.x,b_1.y);
+        c20 = new Vector(b_1.x, b_1.y);
 
         var c10x2:Number = c10.x*c10.x;
         var c10x3:Number = c10.x*c10.x*c10.x;
@@ -396,29 +388,23 @@ class com.wis.math.geom.intersect2D.Intersect2DBez3Bez3 extends Intersect2D
                 3*c20.x*c20y2*c13x2*c13.y - c20x2*c12.x*c12y2*c13.y - 3*c20x2*c20.y*c13.x*c13y2 + c12x2*c20y2*c12.y*c13.x
         );
 
-        var roots:Array = poly.getRootsInInterval(0,1);
-        var i:Number,j:Number,k:Number;
+        var roots:Array = poly.getRootsInInterval(0, 1);
+        var i:Number, j:Number, k:Number;
 
-        for (i=0;i<roots.length;i++)
-        {
+        for (i=0;i<roots.length;i++) {
             var s:Number = roots[i];
-            var xRoots:Array = new Polynomial(c13.x,c12.x,c11.x,c10.x-c20.x-s*c21.x-s*s*c22.x-s*s*s*c23.x).getRoots();
-            var yRoots:Array = new Polynomial(c13.y,c12.y,c11.y,c10.y-c20.y-s*c21.y-s*s*c22.y-s*s*s*c23.y).getRoots();
+            var xRoots:Array = new Polynomial(c13.x, c12.x, c11.x, c10.x-c20.x-s*c21.x-s*s*c22.x-s*s*s*c23.x).getRoots();
+            var yRoots:Array = new Polynomial(c13.y, c12.y, c11.y, c10.y-c20.y-s*c21.y-s*s*c22.y-s*s*s*c23.y).getRoots();
 
-            if (xRoots.length>0 && yRoots.length>0)
-            {
+            if (xRoots.length>0 && yRoots.length>0) {
                 var TOLERANCE:Number = 1e-4;
 
-                for (j=0;j<xRoots.length;j++)
-                {
+                for (j=0;j<xRoots.length;j++) {
                     var xRoot:Number = xRoots[j];
 
-                    if (0<=xRoot && xRoot<=1)
-                    {
-                        for (k=0;k<yRoots.length;k++)
-                        {
-                            if (Math.abs(xRoot-yRoots[k])<TOLERANCE)
-                            {
+                    if (0<=xRoot && xRoot<=1) {
+                        for (k=0;k<yRoots.length;k++) {
+                            if (Math.abs(xRoot-yRoots[k])<TOLERANCE) {
                                 result.$points.push(c23.returnScalar(s*s*s).adds(c22.returnScalar(s*s).adds(c21.returnScalar(s).adds(c20))));
                                 break;
                             }
@@ -433,5 +419,6 @@ class com.wis.math.geom.intersect2D.Intersect2DBez3Bez3 extends Intersect2D
         return result;
     }
 
-}
+}// class
+}//package
 

@@ -1,11 +1,14 @@
+package com.wis3.types {
+	import flash.geom.ColorTransform;
+	
 /**
- * @class       com.wis.types.Col
+ * @class       com.wis3.types.wis3Color
  * @author      Richard Wright
  * @version     1.7
- * @description Implements the behaviours of the Col Class.
+ * @description Implements the behaviours of the wis3Color Class.
  *              <p>
  *              This class isn't very user-friendly, requiring an instance of an mc
- *              with a 'Color' object already applied to it. However, the Col class
+ *              with a 'wis3Color' object already applied to it. However, the wis3Color class
  *              supports the methods of the ColMC class, which is much more
  *              user-friendly. It can be instantiated dynamically with the use of
  *              the static methods of Ted Patrick's MCE class, which should be
@@ -19,24 +22,24 @@
  *              <p>
  *		        I've swayed from using '$' as a class-based variable identifier for
  *              this class due to the increased usage of UI-defined class variables
- *              for this group of classes: Point, Vector, Col, and ColMC classes
+ *              for this group of classes: Point, Vector, wis3Color, and ColMC classes
  *              all reflect this format.
  * @usage       <pre>
- *              // to initialize Col class and target without MCE ColMC class instantiation
- *              var targ:Color = new Color(clip);
- *              var inst:Col = new Col(targ,red,green,blue);
+ *              // to initialize wis3Color class and target without MCE ColMC class instantiation
+ *              var targ:wis3Color = new wis3Color(clip);
+ *              var inst:wis3Color = new wis3Color(targ,red,green,blue); 
  *              </pre>
- * @param       target (Color)  -- color object passed from UI or ColMC class
+ * @param       target (wis3Color)  -- color object passed from UI or ColMC class
  * @param       red (Number)  -- value for red portion of color (0-255)
  * @param       green (Number)  -- value for green portion of color (0-255)
  * @param       blue (Number)  -- value for blue portion of color (0-255)
  * -----------------------------------------------
  * Latest update: August 5, 2004
  * -----------------------------------------------
- * AS2 revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
- * AS1 original copyright © 2003, Robert Penner  [www.robertpenner.com]
- *                        © 2002, Gary Fixler    [amf@garyfixler.com]
- *                        © 2001, Branden Hall   [http://www.waxpraxis.org]
+ * AS2 revision copyright ï¿½ 2004, Richard Wright [wisolutions2002@shaw.ca]
+ * AS1 original copyright ï¿½ 2003, Robert Penner  [www.robertpenner.com]
+ *                        ï¿½ 2002, Gary Fixler    [amf@garyfixler.com]
+ *                        ï¿½ 2001, Branden Hall   [http://www.waxpraxis.org]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -64,7 +67,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * -----------------------------------------------
  *   Functions:
- *       Col(target,red,green,blue):
+ *       wis3Color(target,red,green,blue):
  *           1.  init(red,green,blue)
  *           2.  reset()
  *           3.  invert()
@@ -125,8 +128,7 @@
  * -----------------------------------------------
 **/
 
-class com.wis.types.Col
-{
+public class wis3Color  {
 	/**
 	 * @property r (Number)  -- value for red portion of color (0-255).
 	 * @property g (Number)  -- value for green portion of color (0-255).
@@ -137,28 +139,28 @@ class com.wis.types.Col
 	 * @property rb (Number)  -- the offset for the red component (-255 to 255).
 	 * @property gb (Number)  -- the offset for the green component (-255 to 255).
 	 * @property bb (Number)  -- the offset for the blue component (-255 to 255).
-	 * @property $target (Color)  -- private color object.
+	 * @property $target (wis3Color)  -- private color object.
     **/
-    var r:Number;
-    var g:Number;
-    var b:Number;
-    var ra:Number;
-    var ga:Number;
-    var ba:Number;
-    var rb:Number;
-    var gb:Number;
-    var bb:Number;
-    private var $target:Color;
+    public var r:Number;
+    public var g:Number;
+    public var b:Number;
+    public var ra:Number;
+    public var ga:Number;
+    public var ba:Number;
+    public var rb:Number;
+    public var gb:Number;
+    public var bb:Number;
+    private var $target:ColorTransform;
 
     // constructor
-    function Col(target:Color,red:Number,green:Number,blue:Number)
+    public function wis3Color(target:wis3Color,red:Number,green:Number,blue:Number)
     {
-        //trace ("Col Class fired");
+        //trace ("wis3Color Class fired");
         $target = target;
         if (arguments.length>1) init(red,green,blue);
     }
 
-// 1. init ---------------------------------------
+      // 1. init ---------------------------------------
 
     /**
      * @method  init
@@ -168,9 +170,9 @@ class com.wis.types.Col
      * @param   red   (Number)   -- value for red portion of color (0-255).
      * @param   green   (Number)   -- value for green portion of color (0-255).
      * @param   blue   (Number)   -- value for blue portion of color (0-255).
-     * @return  (Void)
+     * @return  (void)
     **/
-    function init(red:Number,green:Number,blue:Number):Void
+    public function init(red:Number,green:Number,blue:Number):void
     {
         r = red;
 		g = green;
@@ -178,28 +180,28 @@ class com.wis.types.Col
         _rgb2({r:r,g:g,b:b});
     }
 
-// 2. reset --------------------------------------
+      // 2. reset --------------------------------------
 
     /**
      * @method  reset
      * @description  Resets the color object to normal; 100 percent and 0 offset.
      * @usage  <pre>inst.reset()</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function reset():Void
+    public function reset():void
     {
     	$target.setTransform({ra:100,ga:100,ba:100,rb:0,gb:0,bb:0});
     }
 
-// 3. invert -----------------------------------
+      // 3. invert -----------------------------------
 
     /**
      * @method  invert
      * @description  Invert the current color values.
      * @usage  <pre>inst.invert();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function invert():Void
+    public function invert():void
     {
     	var trans:Object = $target.getTransform();
 
@@ -212,7 +214,7 @@ class com.wis.types.Col
     	$target.setTransform(trans);
     }
 
-// 4. resetVal --------------------------------
+      // 4. resetVal --------------------------------
 
     /**
      * @method  resetVal
@@ -222,9 +224,9 @@ class com.wis.types.Col
      * @param   red   (Number)   -- value for red portion of color (0-255).
      * @param   green   (Number)   -- value for green portion of color (0-255).
      * @param   blue   (Number)   -- value for blue portion of color (0-255).
-     * @return  (Void)
+     * @return  (void)
     **/
-    function resetVal(red:Number,green:Number,blue:Number):Void
+    public function resetVal(red:Number,green:Number,blue:Number):void
     {
         r = red;
         g = green;
@@ -232,28 +234,28 @@ class com.wis.types.Col
         _rgb2({r:r,g:g,b:b});
     }
 
-// 5. copy ------------------------------------
+      // 5. copy ------------------------------------
 
     /**
      * @method  copy
      * @description Copies the class instance.
      * @usage  <pre>inst.copy();</pre>
-     * @return  (Col)  -- returns a copy of the class instance.
+     * @return  (wis3Color)  -- returns a copy of the class instance.
     **/
-    function copy():Col
+    public function copy():wis3Color
     {
-        return new Col($target,r,g,b);
+        return new wis3Color($target,r,g,b);
     }
 
-// 6. clip ------------------------------------
+      // 6. clip ------------------------------------
 
     /**
      * @method  clip
      * @description  Clips r, g, and b values to a range (0 - 1).
      * @usage  <pre>inst.clip();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function clip():Void
+    public function clip():void
     {
         var allLight:Number = r+g+b;
         var excessLight:Number = allLight-3;
@@ -272,7 +274,7 @@ class com.wis.types.Col
         if (b<0) b = 0;
     }
 
-// 7. twoChars --------------------------------
+      // 7. twoChars --------------------------------
 
     /**
      * @method  twoChars
@@ -281,7 +283,7 @@ class com.wis.types.Col
      * @param   sNum   (String)  -- hexadecimal string representation.
      * @return  (String)  -- returns a 2 character string, padding single characters with a preceding '0'.
     **/
-    function twoChars(sNum:String):String
+    public function twoChars(sNum:String):String
     {
         sNum = ""+sNum;
         if (sNum.length==1) sNum = "0"+sNum;
@@ -289,7 +291,7 @@ class com.wis.types.Col
         return sNum;
     }
 
-// 8. toString -------------------------------
+      // 8. toString -------------------------------
 
     /**
      * @method  toString
@@ -297,101 +299,101 @@ class com.wis.types.Col
      * @usage  <pre>inst.toString();</pre>
      * @return  (String)  -- returns an html string representation of the color object.
     **/
-    function toString():String
+    public function toString():String
     {
         return _htmlStr();
     }
 
-// 9. difference -----------------------------
+      // 9. difference -----------------------------
 
     /**
      * @method  difference
      * @description  Creates a new class instance for the existing target.
      * @usage  <pre>inst.difference(c2);</pre>
-     * @param   c2   (Col)  -- object to compare with the existing class instance.
-     * @return  (Col)  -- returns a new class instance based on the difference between input and present class instance r, g, and b values.
+     * @param   c2   (wis3Color)  -- object to compare with the existing class instance.
+     * @return  (wis3Color)  -- returns a new class instance based on the difference between input and present class instance r, g, and b values.
     **/
-    function difference(c2:Col):Col
+    public function difference(c2:wis3Color):wis3Color
     {
-        return new Col($target,Math.abs(r-c2.r),Math.abs(g-c2.g),Math.abs(b-c2.b));
+        return new wis3Color($target,Math.abs(r-c2.r),Math.abs(g-c2.g),Math.abs(b-c2.b));
     }
 
-// 10. neg ------------------------------------
+      // 10. neg ------------------------------------
 
     /**
      * @method  neg
      * @description  Creates a new class instance for the existing target.
      * @usage  <pre>inst.neg();</pre>
-     * @return  (Col)  -- returns a new class instance based on the negatives of the existing r, g, and b values.
+     * @return  (wis3Color)  -- returns a new class instance based on the negatives of the existing r, g, and b values.
     **/
-    function neg():Col
+    public function neg():wis3Color
     {
-        return new Col($target,-r,-g,-b);
+        return new wis3Color($target,-r,-g,-b);
     }
 
-// 11. mult -----------------------------------
+      // 11. mult -----------------------------------
 
     /**
      * @method  mult
      * @description  Creates a new class instance for the existing target.
      * @usage  <pre>inst.mult(c2);</pre>
-     * @param   c2   (Col)  -- object to compare with the existing class instance.
-     * @return  (Col)  -- returns a new class instance based on the multiplication of the existing r, g, and b values and the input object.
+     * @param   c2   (wis3Color)  -- object to compare with the existing class instance.
+     * @return  (wis3Color)  -- returns a new class instance based on the multiplication of the existing r, g, and b values and the input object.
     **/
-    function mult(c2:Col):Col
+    public function mult(c2:wis3Color):wis3Color
     {
-        return new Col($target,r*c2.r,g*c2.g,b*c2.b);
+        return new wis3Color($target,r*c2.r,g*c2.g,b*c2.b);
     }
 
-// 12. scalar ---------------------------------
+      // 12. scalar ---------------------------------
 
     /**
      * @method  scalar
      * @description  Creates a new class instance for the existing target.
      * @usage  <pre>inst.scalar(s);</pre>
      * @param   s   (Number)   -- a value to scale class instance properties.
-     * @return  (Col)  -- returns a new class instance based on the multiplication of the existing r, g, and b values by the scalar value.
+     * @return  (wis3Color)  -- returns a new class instance based on the multiplication of the existing r, g, and b values by the scalar value.
     **/
-    function scalar(s:Number):Col
+    public function scalar(s:Number):wis3Color
     {
-        return new Col($target,r*s,g*s,b*s);
+        return new wis3Color($target,r*s,g*s,b*s);
     }
 
-// 13. adds -----------------------------------
+      // 13. adds -----------------------------------
 
     /**
      * @method  adds
      * @description  Creates a new class instance for the existing target.
      * @usage  <pre>inst.adds(c2);</pre>
-     * @param   c2   (Col)  -- object to compare with the existing class instance.
-     * @return  (Col)  -- returns a new class instance based on the addition of the existing r, g, and b values and the input object.
+     * @param   c2   (wis3Color)  -- object to compare with the existing class instance.
+     * @return  (wis3Color)  -- returns a new class instance based on the addition of the existing r, g, and b values and the input object.
     **/
-    function adds(c2:Col):Col
+    public function adds(c2:wis3Color):wis3Color
     {
-        return new Col($target,r+c2.r,g+c2.g,b+c2.b);
+        return new wis3Color($target,r+c2.r,g+c2.g,b+c2.b);
     }
 
-////////////////////////////////
-// Getter/Setters
-////////////////////////////////
+      ////////////////////////////////
+      // Getter/Setters
+      ////////////////////////////////
 
-// 14. set _rgbStr --------------------------------
+      // 14. set _rgbStr --------------------------------
 
     /**
      * @method  set _rgbStr
      * @description  Sets the class instance color using a hexadecimal string.
      * @usage  <pre>inst._rgbStr = hexStr;</pre>
      * @param   hexStr   (String)  -- a string representation of a hexadecimal value.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _rgbStr(hexStr:String):Void
+    public function set _rgbStr(hexStr:String):void
     {
     	// grab the last six characters of the string
     	hexStr = hexStr.substr(-6,6);
     	$target.setRGB(parseInt(hexStr,16));
     }
 
-// 15. get _rgbStr --------------------------------
+      // 15. get _rgbStr --------------------------------
 
     /**
      * @method  get _rgbStr
@@ -399,7 +401,7 @@ class com.wis.types.Col
      * @usage  <pre>inst._rgbStr;</pre>
      * @return  (String)  -- returns a hexadecimal string representation of the class instance color.
     **/
-    function get _rgbStr():String
+    public function get _rgbStr():String
     {
     	var hexStr = $target.getRGB().toString(16);
     	var toFill = 6-hexStr.length;
@@ -409,7 +411,7 @@ class com.wis.types.Col
     	return hexStr.toUpperCase();
     }
 
-// 16. set _rgb2 ----------------------------------
+      // 16. set _rgb2 ----------------------------------
 
     /**
      * @method  set _rgb2
@@ -417,14 +419,14 @@ class com.wis.types.Col
      *               r, g, b between 0 and 255.
      * @usage  <pre>inst._rgb2 = obj;</pre>
      * @param   obj   (Object)  -- an object with r, g, and b properties.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _rgb2(obj:Object):Void
+    public function set _rgb2(obj:Object):void
     {
     	$target.setRGB(obj.r<<16 | obj.g<<8 | obj.b);
     } // Branden Hall - www.figleaf.com
 
-// 17. get _rgb2 ----------------------------------
+      // 17. get _rgb2 ----------------------------------
 
     /**
      * @method  get _rgb2
@@ -432,23 +434,23 @@ class com.wis.types.Col
      * @usage  <pre>inst._rgb2;</pre>
      * @return  (Object)  -- returns an object with r, g, and b properties.
     **/
-    function get _rgb2():Object
+    public function get _rgb2():Object
     {
     	var t = $target.getTransform();
 
     	return {r:t.rb,g:t.gb,b:t.bb};
     }
 
-// 18. set _brightness ----------------------------
+      // 18. set _brightness ----------------------------
 
     /**
      * @method  set _brightness
      * @description  Brighten just like Property Inspector bright (-100 and 100).
      * @usage  <pre>inst._brightness = bright;</pre>
      * @param   bright   (Number)  -- a number between -100 and 100.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _brightness(bright:Number):Void
+    public function set _brightness(bright:Number):void
     {
     	var trans:Object = $target.getTransform();
 
@@ -457,7 +459,7 @@ class com.wis.types.Col
     	$target.setTransform(trans);
     }
 
-// 19. get _brightness ----------------------------
+      // 19. get _brightness ----------------------------
 
     /**
      * @method  get _brightness
@@ -465,23 +467,23 @@ class com.wis.types.Col
      * @usage  <pre>inst._brightness;</pre>
      * @return  (Number)  -- returns the persentage of the brightness setting.
     **/
-    function get _brightness():Number
+    public function get _brightness():Number
     {
     	var trans:Object = $target.getTransform();
 
     	return trans.rb ? 100-trans.ra : trans.ra-100;
     }
 
-// 20. set _brightOffset --------------------------
+      // 20. set _brightOffset --------------------------
 
     /**
      * @method  set _brightOffset
      * @description  Sets offset of the class instance target between -255 and 255.
      * @usage  <pre>inst._brightOffset = offset;</pre>
      * @param   offset   (Number)  -- a number between -255 and 255.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _brightOffset(offset:Number):Void
+    public function set _brightOffset(offset:Number):void
     {
     	var trans:Object = $target.getTransform();
 
@@ -489,7 +491,7 @@ class com.wis.types.Col
     	$target.setTransform(trans);
     }
 
-// 21. get _brightOffset -------------------------
+      // 21. get _brightOffset -------------------------
 
     /**
      * @method  get _brightOffset
@@ -497,12 +499,12 @@ class com.wis.types.Col
      * @usage  <pre>inst._brightOffset;</pre>
      * @return  (Number)  -- returns the target's brightness offset (-255 - 255).
     **/
-    function get _brightOffset():Number
+    public function get _brightOffset():Number
     {
     	return $target.getTransform().rb;
     }
 
-// 22. set _tint ---------------------------------
+      // 22. set _tint ---------------------------------
 
     /**
      * @method  set _tint
@@ -510,9 +512,9 @@ class com.wis.types.Col
      *               r, g, b between 0 and 255; percent between 0 and 100.
      * @usage  <pre>inst._tint = obj;</pre>
      * @param   obj   (Object)  -- an object containing r, g, b, and percent values.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _tint(obj:Object):Void
+    public function set _tint(obj:Object):void
     {
     	var ratio:Number = obj.percent/100;
     	var trans:Object = {rb:obj.r*ratio,gb:obj.g*ratio,bb:obj.b*ratio};
@@ -521,7 +523,7 @@ class com.wis.types.Col
     	$target.setTransform(trans);
     }
 
-// 23. get _tint ---------------------------------
+      // 23. get _tint ---------------------------------
 
     /**
      * @method  get _tint
@@ -529,7 +531,7 @@ class com.wis.types.Col
      * @usage  <pre>inst._tint;</pre>
      * @return  (Object) -- returns a tint object containing r, g, b, and percent values.
     **/
-    function get _tint():Object
+    public function get _tint():Object
     {
     	var trans:Object = $target.getTransform();
     	var tint:Object = {percent:100-trans.ra};
@@ -542,7 +544,7 @@ class com.wis.types.Col
     	return tint;
     }
 
-// 24. set _tint2 --------------------------------
+      // 24. set _tint2 --------------------------------
 
     /**
      * @method  set _tint2
@@ -550,9 +552,9 @@ class com.wis.types.Col
      *               between 0 and 0xFFFFFF; percent between 0 and 100
      * @usage  <pre>inst._tint2 = obj;</pre>
      * @param   obj   (Object)  -- contains rgb and percent values.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _tint2(obj:Object):Void
+    public function set _tint2(obj:Object):void
     {
     	var r:Number = (obj.rgb>>16);
     	var g:Number = (obj.rgb>>8) & 0xFF;
@@ -564,7 +566,7 @@ class com.wis.types.Col
     	$target.setTransform(trans);
     }
 
-// 25. get _tint2 -------------------------------
+      // 25. get _tint2 -------------------------------
 
     /**
      * @method  get _tint2
@@ -573,7 +575,7 @@ class com.wis.types.Col
      * @usage  <pre>inst._tint2;</pre>
      * @return  (Object) -- returns an object containing rgb and percent value.
     **/
-    function get _tint2():Object
+    public function get _tint2():Object
     {
     	var trans:Object = $target.getTransform();
     	var tint:Object = {percent:100-trans.ra};
@@ -584,16 +586,16 @@ class com.wis.types.Col
     	return tint;
     }
 
-// 26. set _tintOffset --------------------------
+      // 26. set _tintOffset --------------------------
 
     /**
      * @method  set _tintOffset
      * @description  Sets r, g, b between -255 and 255.
      * @usage  <pre>inst._tintOffset = obj;</pre>
      * @param   obj   (Object)  -- contains offset r, g, and b values.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _tintOffset(obj:Object):Void
+    public function set _tintOffset(obj:Object):void
     {
     	var trans:Object = $target.getTransform();
 
@@ -603,7 +605,7 @@ class com.wis.types.Col
     	$target.setTransform(trans);
     }
 
-// 27. get _tintOffset --------------------------
+      // 27. get _tintOffset --------------------------
 
     /**
      * @method  get _tintOffset
@@ -611,23 +613,23 @@ class com.wis.types.Col
      * @usage  <pre>inst._tintOffset;</pre>
      * @return  (Object) -- returns an object showing offset r, g, and b values.
     **/
-    function get _tintOffset():Object
+    public function get _tintOffset():Object
     {
     	var t:Object = $target.getTransform();
 
     	return {r:t.rb,g:t.gb,b:t.bb};
     }
 
-// 28. set _negative ---------------------------
+      // 28. set _negative ---------------------------
 
     /**
      * @method  set _negative
      * @description  Produce a negative image of the normal appearance.
      * @usage  <pre>inst._negative = percent;</pre>
      * @param   percent   (Number)  -- percent of the strength of negative transform.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _negative(percent:Number):Void
+    public function set _negative(percent:Number):void
     {
         var t:Object = {};
 
@@ -636,7 +638,7 @@ class com.wis.types.Col
         $target.setTransform(t);
     }
 
-// 29. get _negative ---------------------------
+      // 29. get _negative ---------------------------
 
     /**
      * @method  get _negative
@@ -644,30 +646,30 @@ class com.wis.types.Col
      * @usage  <pre>inst._negative;</pre>
      * @return  (Number)  -- returns negative of color transform, offset(rb) * (100/255).
     **/
-    function get _negative():Number
+    public function get _negative():Number
     {
         return $target.getTransform().rb*(100/255);
     }
 
-// ============== solid color - Col methods ===================
+      // ============== solid color - wis3Color methods ===================
 
-// 30. set _red --------------------------------
+      // 30. set _red --------------------------------
 
     /**
      * @method  set _red
      * @description  Sets the red portion of color object.
      * @usage  <pre>inst._red = amount;</pre>
      * @param   amount   (Number)  -- value of red portion of color object (0 - 255).
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _red(amount:Number):Void
+    public function set _red(amount:Number):void
     {
     	var t:Object = $target.getTransform();
 
     	$target.setRGB (amount<<16 | t.gb<<8 | t.bb);
     }
 
-// 31. get _red --------------------------------
+      // 31. get _red --------------------------------
 
     /**
      * @method  get _red
@@ -675,28 +677,28 @@ class com.wis.types.Col
      * @usage  <pre>inst._red;</pre>
      * @return  (Number) -- returns the red offset value of the color object (-255 - 255).
     **/
-    function get _red():Number
+    public function get _red():Number
     {
     	return $target.getTransform().rb;
     }
 
-// 32. set _green ------------------------------
+      // 32. set _green ------------------------------
 
     /**
      * @method  set _green
      * @description  Sets the green portion of the color object.
      * @usage  <pre>inst._green = amount;</pre>
      * @param   amount   (Number)  -- value of green portion of color object (0 - 255).
-     * @return (Void)
+     * @return (void)
     **/
-    function set _green(amount:Number):Void
+    public function set _green(amount:Number):void
     {
     	var t:Object = $target.getTransform();
 
     	$target.setRGB(t.rb<<16 | amount<<8 | t.bb);
     }
 
-// 33. get _green ------------------------------
+      // 33. get _green ------------------------------
 
     /**
      * @method  get _green
@@ -704,28 +706,28 @@ class com.wis.types.Col
      * @usage  <pre>inst._green;</pre>
      * @return  (Number) -- returns the green offset value of the color object (-255 - 255).
     **/
-    function get _green():Number
+    public function get _green():Number
     {
     	return $target.getTransform().gb;
     }
 
-// 34. set _blue -------------------------------
+      // 34. set _blue -------------------------------
 
     /**
      * @method  set _blue
      * @description  Sets the blue portion of the color object.
      * @usage  <pre>inst._blue = amount;</pre>
      * @param   amount   (Number)  -- value of blue portion of color object (0 - 255).
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _blue(amount:Number):Void
+    public function set _blue(amount:Number):void
     {
     	var t:Object = $target.getTransform();
 
     	$target.setRGB(t.rb<<16 | t.gb<<8 | amount);
     }
 
-// 35. get _blue -------------------------------
+      // 35. get _blue -------------------------------
 
     /**
      * @method  get _blue
@@ -733,21 +735,21 @@ class com.wis.types.Col
      * @usage  <pre>inst._blue;</pre>
      * @return  (Number) -- returns the blue offset value of the color object (-255 - 255).
     **/
-    function get _blue():Number
+    public function get _blue():Number
     {
     	return $target.getTransform().bb;
     }
 
-// 36. set _redPercent -------------------------
+      // 36. set _redPercent -------------------------
 
     /**
      * @method  set _redPercent
      * @description  Sets the red percentage of the color object.
      * @usage  <pre>inst._redPercent = percent;</pre>
      * @param   percent   (Number)  -- a percentage value (0 - 100).
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _redPercent(percent:Number):Void
+    public function set _redPercent(percent:Number):void
     {
     	var trans:Object = $target.getTransform();
 
@@ -755,7 +757,7 @@ class com.wis.types.Col
     	$target.setTransform(trans);
     }
 
-// 37. get _redPercent -------------------------
+      // 37. get _redPercent -------------------------
 
     /**
      * @method  get _redPercent
@@ -763,21 +765,21 @@ class com.wis.types.Col
      * @usage  <pre>inst._redPercent;</pre>
      * @return  (Number) -- returns the red percentage value of the color object (0 - 100).
     **/
-    function get _redPercent():Number
+    public function get _redPercent():Number
     {
     	return $target.getTransform().ra;
     }
 
-// 38. set _greenPercent -----------------------
+      // 38. set _greenPercent -----------------------
 
     /**
      * @method  set _greenPercent
      * @description  Sets the green percentage of the color object.
      * @usage  <pre>inst._greenPercent = percent;</pre>
      * @param   percent   (Number)  -- a percentage value (0 - 100).
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _greenPercent(percent:Number):Void
+    public function set _greenPercent(percent:Number):void
     {
     	var trans:Object = $target.getTransform();
 
@@ -786,7 +788,7 @@ class com.wis.types.Col
     	$target.setTransform(trans);
     }
 
-// 39. get _greenPercent -----------------------
+      // 39. get _greenPercent -----------------------
 
     /**
      * @method  get _greenPercent
@@ -794,21 +796,21 @@ class com.wis.types.Col
      * @usage  <pre>inst._greenPercent;</pre>
      * @return  (Number) -- returns the green percentage value of the color object (0 - 100).
     **/
-    function get _greenPercent():Number
+    public function get _greenPercent():Number
     {
     	return $target.getTransform().ga;
     }
 
-// 40. set _bluePercent ------------------------
+      // 40. set _bluePercent ------------------------
 
     /**
      * @method  set _bluePercent
      * @description  Sets the blue percentage of the color object.
      * @usage  <pre>inst._bluePercent = percent;</pre>
      * @param   percent   (Number)  -- a percentage value (0 - 100).
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _bluePercent(percent:Number):Void
+    public function set _bluePercent(percent:Number):void
     {
     	var trans:Object = $target.getTransform();
 
@@ -816,7 +818,7 @@ class com.wis.types.Col
     	$target.setTransform(trans);
     }
 
-// 41. get _bluePercent ------------------------
+      // 41. get _bluePercent ------------------------
 
     /**
      * @method  get _bluePercent
@@ -824,21 +826,21 @@ class com.wis.types.Col
      * @usage  <pre>inst._bluePercent;</pre>
      * @return  (Number) -- returns the blue percentage value of the color object (0 - 100).
     **/
-    function get _bluePercent():Number
+    public function get _bluePercent():Number
     {
     	return $target.getTransform().ba;
     }
 
-// 42. set _redOffset --------------------------
+      // 42. set _redOffset --------------------------
 
     /**
      * @method  set _redOffset
      * @description  Sets the red offset of the color object.
      * @usage  <pre>inst._redOffset = offset;</pre>
      * @param   offset   (Number)  -- an offset value (-255 - 255).
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _redOffset(offset:Number):Void
+    public function set _redOffset(offset:Number):void
     {
     	var trans:Object = $target.getTransform();
 
@@ -846,7 +848,7 @@ class com.wis.types.Col
     	$target.setTransform(trans);
     }
 
-// 43. get _redOffset --------------------------
+      // 43. get _redOffset --------------------------
 
     /**
      * @method  get _redOffset
@@ -854,21 +856,21 @@ class com.wis.types.Col
      * @usage  <pre>inst._redOffset;</pre>
      * @return  (Number) -- returns the red offset value of the color object (-255 - 255).
     **/
-    function get _redOffset():Number
+    public function get _redOffset():Number
     {
     	return $target.getTransform().rb;
     }
 
-// 44. set _greenOffset ------------------------
+      // 44. set _greenOffset ------------------------
 
     /**
      * @method  set _greenOffset
      * @description  Sets the green offset of the color object.
      * @usage  <pre>inst._greenOffset = offset;</pre>
      * @param   offset   (Number)  -- an offset value (-255 - 255).
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _greenOffset(offset:Number):Void
+    public function set _greenOffset(offset:Number):void
     {
     	var trans:Object = $target.getTransform();
 
@@ -876,7 +878,7 @@ class com.wis.types.Col
     	$target.setTransform(trans);
     }
 
-// 45. get _greenOffset ------------------------
+      // 45. get _greenOffset ------------------------
 
     /**
      * @method  get _greenOffset
@@ -884,21 +886,21 @@ class com.wis.types.Col
      * @usage  <pre>inst._greenOffset;</pre>
      * @return  (Number) -- returns the green offset value of the color object (-255 - 255).
     **/
-    function get _greenOffset():Number
+    public function get _greenOffset():Number
     {
     	return $target.getTransform().gb;
     }
 
-// 46. set _blueOffset -------------------------
+      // 46. set _blueOffset -------------------------
 
     /**
      * @method  set _blueOffset
      * @description  Sets the blue offset of the color object.
      * @usage  <pre>inst._blueOffset = offset;</pre>
      * @param   offset   (Number)  -- an offset value (-255 - 255).
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _blueOffset(offset:Number):Void
+    public function set _blueOffset(offset:Number):void
     {
     	var trans:Object = $target.getTransform();
 
@@ -906,7 +908,7 @@ class com.wis.types.Col
     	$target.setTransform(trans);
     }
 
-// 47. get _blueOffset -------------------------
+      // 47. get _blueOffset -------------------------
 
     /**
      * @method  get _blueOffset
@@ -914,12 +916,12 @@ class com.wis.types.Col
      * @usage  <pre>inst._blueOffset;</pre>
      * @return  (Number) -- returns the blue offset value of the color object (-255 - 255).
     **/
-    function get _blueOffset():Number
+    public function get _blueOffset():Number
     {
     	return $target.getTransform().bb;
     }
 
-// 48. get _htmlStr ---------------------------------
+      // 48. get _htmlStr ---------------------------------
 
     /**
      * @method  get _htmlStr
@@ -927,7 +929,7 @@ class com.wis.types.Col
      * @usage  <pre>inst._htmlStr;</pre>
      * @return  (String)  -- returns the color object value as an html string.
     **/
-    function get _htmlStr():String
+    public function get _htmlStr():String
     {
         var red:Number = Math.round(r);
 		var green:Number  = Math.round(g);
@@ -936,5 +938,6 @@ class com.wis.types.Col
         return '#'+twoChars(red.toString(16).toUpperCase())+twoChars(green.toString(16).toUpperCase())+twoChars(blue.toString(16).toUpperCase());
     }
 
-}
+}// class
+}//package
 

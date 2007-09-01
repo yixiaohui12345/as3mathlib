@@ -1,5 +1,6 @@
+package com.wis3.math.calc {
 /**
- * @interface   com.wis.math.calc.ode.IODE
+ * @interface   com.wis3.math.calc.ode.IODE
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description IODE defines a system of differential equations by providing
@@ -9,8 +10,8 @@
  * -----------------------------------------------
  * Latest update: September 19, 2004
  * -----------------------------------------------
- * AS2  revision copyright: © 2004, Richard Wright     [wisolutions2002@shaw.ca]
- * Java original copyright: © 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
+ * AS2  revision copyright: ï¿½ 2004, Richard Wright     [wisolutions2002@shaw.ca]
+ * Java original copyright: ï¿½ 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -40,17 +41,16 @@
  * Functions:
  *       IODE()
  *           1.  getState()
- *           2.  getRate(state,rate)
+ *           2.  getRate(state, rate)
  * -----------------------------------------------
  * Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
  * -----------------------------------------------
 **/
 
-interface com.wis.math.calc.IODE
-{
+public interface IODE {
 
-// 1. getState -----------------------------------
+	// 1. getState -----------------------------------
 
     /**
      * @method getState
@@ -61,19 +61,20 @@ interface com.wis.math.calc.IODE
      * @usage  <pre>inst.getState();</pre>
      * @return state  (Array)  -- returns the state array.
     **/
-    public function getState():Array;
+    function getState():Array;
 
-// 2. getRate ------------------------------------
+	// 2. getRate ------------------------------------
 
     /**
      * @method getRate
      * @description  Gets the rate of change using the argument's state variables.
      *               This method may be invoked many times with different
      *               intermediate states as an ODESolver is carrying out the solution.
-     * @usage  <pre>inst.getRate(state,rate);</pre>
+     * @usage  <pre>inst.getRate(state, rate);</pre>
      * @param state  (Array)  -- the state array.
      * @param rate  (Array)  -- the rate array.
     **/
-     public function getRate(state:Array,rate:Array):Void;
-}
+     function getRate(state:Array, rate:Array):void;
+}// class
+}//package
 

@@ -1,5 +1,6 @@
+package com.wis3.types {
 /**
- * @class       com.wis.types.Arr
+ * @class       com.wis3.types.Arr
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Arr Class.
@@ -12,10 +13,10 @@
  * -----------------------------------------------
  * Latest update: August 5, 2004
  * -----------------------------------------------
- * AS2 revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
- * AS1 original copyright © 2003, Robert Penner  [www.robertpenner.com]
- *                        © 2002, Gary Fixler    [amf@garyfixler.com]
- *                        © 2001, Branden Hall   [http://www.waxpraxis.org]
+ * AS2 revision copyright ï¿½ 2004, Richard Wright [wisolutions2002@shaw.ca]
+ * AS1 original copyright ï¿½ 2003, Robert Penner  [www.robertpenner.com]
+ *                        ï¿½ 2002, Gary Fixler    [amf@garyfixler.com]
+ *                        ï¿½ 2001, Branden Hall   [http://www.waxpraxis.org]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -60,15 +61,13 @@
  *  ----------------------------------------------
 **/
 
-class com.wis.types.Arr extends Array
-{
+public class Arr extends Array {
 	/**
 	 * @property $arr (Array) -- private -- an array holder for variant class arguments.
     **/
     private var $arr:Array = [];
 
-    function Arr(args)
-    {
+    public function Arr(...args) {
         //trace ("Arr Class loaded");
         var j:Number;
 
@@ -76,7 +75,7 @@ class com.wis.types.Arr extends Array
         for (j=0;j<args.length;j++) $arr.push(args[j]);
     }
 
-// 1. get _len --------------------------------
+      // 1. get _len --------------------------------
 
     /**
      * @method  get _len
@@ -84,12 +83,11 @@ class com.wis.types.Arr extends Array
      * @usage  <pre>inst._len;</pre>
      * @return  (Number)  -- returns the class property $arr length.
     **/
-    function get _len()
-    {
+    public function get _len():uint {
         return $arr.length;
     }
 
-// 2. get _min ----------------------------------------
+      // 2. get _min ----------------------------------------
 
     /**
      * @method  get _min
@@ -97,8 +95,7 @@ class com.wis.types.Arr extends Array
      * @usage  <pre>inst._min;</pre>
      * @return  (Number)  -- returns the minimum element value.
     **/
-    function get _min():Number
-    {
+    public function get _min():Number {
         var min:Number = $arr[0];
         var j:Number;
 
@@ -107,7 +104,7 @@ class com.wis.types.Arr extends Array
         return min;
     }
 
-// 3. get _max ----------------------------------------
+      // 3. get _max ----------------------------------------
 
     /**
      * @method  get _max
@@ -115,8 +112,7 @@ class com.wis.types.Arr extends Array
      * @usage  <pre>inst._max;</pre>
      * @return  (Number)  -- returns the maximum element value.
     **/
-    function get _max():Number
-    {
+    public function get _max():Number {
         var max:Number = $arr[0];
         var j:Number;
 
@@ -125,7 +121,7 @@ class com.wis.types.Arr extends Array
         return max;
     }
 
-// 4. map ----------------------------------------
+      // 4. map ----------------------------------------
 
     /**
      * @method  map
@@ -135,8 +131,7 @@ class com.wis.types.Arr extends Array
      * @param   func   (Function)  -- a function available to the UI scope.
      * @return  (Arr)  -- returns a new class instance whose property $arr contains a list of the results from passing the function.
     **/
-    function map(func:Function):Arr
-    {
+    public function map(func:Function):Arr {
         var result:Arr = new Arr();
         var j:Number;
 
@@ -146,7 +141,7 @@ class com.wis.types.Arr extends Array
     }
 
 
-// 5. filter -------------------------------------
+      // 5. filter -------------------------------------
 
     /**
      * @method  filter
@@ -156,20 +151,18 @@ class com.wis.types.Arr extends Array
      * @param   func   (Function)  -- a function available to the UI scope.
      * @return  (Array)  -- returns an array of identical elements.
     **/
-    function filter(func:Function):Array
-    {
+    public function filter(func:Function):Array {
         var result:Array = [];
         var j:Number;
 
-        for (j=0;j<$arr.length;j++)
-        {
+        for (j=0;j<$arr.length;j++) {
             if (func($arr[j])==true) result.push($arr[j]);
         }
 
         return result;
     }
 
-// 6. reduce -------------------------------------
+      // 6. reduce -------------------------------------
 
     /**
      * @method  reduce
@@ -179,17 +172,16 @@ class com.wis.types.Arr extends Array
      * @param   func   (Function)  -- a function available to the UI scope.
      * @return  (Number)  -- returns a result of passing the argument function to $arr elements, replacing 'result' with the new result for each element.
     **/
-    function reduce(func:Function):Number
-    {
+    public function reduce(func:Function):Number {
         var result:Number = $arr[0];
         var j:Number;
 
-        for (j=1;j<$arr.length;j++) result = func(result,$arr[j]);
+        for (j=1;j<$arr.length;j++) result = func(result, $arr[j]);
 
         return result;
     }
 
-// 7. shuffle ------------------------------------
+      // 7. shuffle ------------------------------------
 
     // exclusive-random
 
@@ -199,13 +191,11 @@ class com.wis.types.Arr extends Array
      * @usage  <pre>inst.shuffle();</pre>
      * @return  (Array)  -- returns a shuffled class property $arr.
     **/
-    function shuffle():Array
-    {
+    public function shuffle():Array {
         var len:Number = $arr.length;
         var j:Number;
 
-        for (j=0;j<len;j++)
-        {
+        for (j=0;j<len;j++) {
             var rand:Number = Math.floor(Math.random()*len);
 
             //swap current index with a random one
@@ -217,7 +207,7 @@ class com.wis.types.Arr extends Array
         return $arr;
     }
 
-// 8. sortNumeric --------------------------------
+      // 8. sortNumeric --------------------------------
 
     /**
      * @method  sortNumeric
@@ -226,17 +216,15 @@ class com.wis.types.Arr extends Array
      * @usage  <pre>inst.sortNumeric();</pre>
      * @return  (Array)  -- returns the class instance $arr sorted min-max.
     **/
-    function sortNumeric():Array
-    {
-        function sortNum(a:Number,b:Number):Number
-        {
+    public function sortNumeric():Array {
+        function sortNum(a:Number, b:Number):Number {
             return a-b;
         }
 
         return $arr.sort(sortNum);
     }
 
-// 9. qSort --------------------------------------
+      // 9. qSort --------------------------------------
 
     /**
      * @method  qSort
@@ -247,8 +235,7 @@ class com.wis.types.Arr extends Array
      * @usage  <pre>inst.qSort();</pre>
      * @return  (Array)  -- returns the class instance $arr sorted min-max.
     **/
-    function qSort():Array
-    {
+    public function qSort():Array {
         var bot:Number;
         var top:Number;
 
@@ -256,34 +243,29 @@ class com.wis.types.Arr extends Array
         else bot = arguments[0];
         if (arguments[1]==null) top = $arr.length-1;
         else top = arguments[1];
-        if (top-bot==1)
-        {
-            if ($arr[top]<$arr[bot])
-            {
+        if (top-bot==1) {
+            if ($arr[top]<$arr[bot]) {
                 var temp:Number = $arr[top];
 
                 $arr[top] = $arr[bot];
                 $arr[bot] = temp;
             }
         }
-        else
-        {
+        else {
             // Set up loop for tail recursion
-            while (bot<top)
-            {
+            while (bot<top) {
                 var j:Number = bot;
                 var k:Number = top;
                 var pivot:Number = $arr[bot];
 
-                while (j<k)
-                {
+                while (j<k) {
                     while ($arr[k]>pivot) --k;
                     $arr[j] = $arr[k];
                     while (j<k && (($arr[j]<pivot) || ($arr[j]==pivot))) ++j;
                     $arr[k] = $arr[j];
                 }
                 $arr[j] = pivot;
-                $arr.qSort(bot,j-1);
+                $arr.qSort(bot, j-1);
                 bot = j+1;
             }
         }
@@ -291,7 +273,7 @@ class com.wis.types.Arr extends Array
         return $arr;
     }
 
-// 10. pairSums -----------------------------------
+      // 10. pairSums -----------------------------------
 
     /**
      * @method  pairSums
@@ -301,23 +283,21 @@ class com.wis.types.Arr extends Array
      * @param   n   (Number)  -- a real number.
      * @return  (Arr)  -- returns a new class instance containing all pair sums.
     **/
-    function pairSums(n:Number):Arr
-    {
+    public function pairSums(n:Number):Arr {
         var l:Array = $arr.slice();
         var k:Arr = new Arr();
         var o1:Number;
         var o2:Number;
 
-        while ((o1=l.length-1)>0)
-        {
-            for (o2=o1;o2-->0;)
-            {
-                if (l[o1]+l[o2]==n) k.push([l[o1],l[o2]]);
+        while ((o1=l.length-1)>0) {
+            for (o2=o1;o2-->0;) {
+                if (l[o1]+l[o2]==n) k.push([l[o1], l[o2]]);
             }
             l.pop();
         }
         return k;
     }
 
-}
+}// class
+}//package
 

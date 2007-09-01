@@ -1,5 +1,6 @@
+package com.wis3.math.geom.quadric {
 /**
- * @class       com.wis.math.geom.quadric.Cone
+ * @class       com.wis3.math.geom.quadric.Cone
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Cone Class.
@@ -11,7 +12,7 @@
  *              'getNormalAtUntransformed' into an abstract method that supports
  *              the interface but doesn't get called. This is a workaround and may
  *              change with testing.
- * @usage       <pre>var inst:Cone = new Cone(end1,rad1,end2,rad2,open);</pre>
+ * @usage       <pre>var inst:Cone = new Cone(end1, rad1, end2, rad2, open);</pre>
  * @param       end1 (Vector)  -- a position Vector object defining the center of one end of the cone.
  * @param       rad1 (Number)  -- a value for radius of one end of the cone.
  * @param       end2 (Vector)  -- a position Vector object defining the center of the other end of the cone.
@@ -20,14 +21,14 @@
  * -----------------------------------------------
  * Latest update: August 2, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis.math.alg.Vector
- *                com.wis.math.geom.util.Intersection
- *                com.wis.math.geom.util.Ray
- *                com.wis.types.IObj
- *                com.wis.types.Obj
+ * Dependencies:  com.wis3.math.alg.Vector
+ *                com.wis3.math.geom.util.Intersection
+ *                com.wis3.math.geom.util.Ray
+ *                com.wis3.types.IObj
+ *                com.wis3.types.Obj
  * -----------------------------------------------
- * AS2 revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
- * JS  original copyright © 2003, John Haggerty  [http://www.slimeland.com/]
+ * AS2 revision copyright ï¿½ 2004, Richard Wright [wisolutions2002@shaw.ca]
+ * JS  original copyright ï¿½ 2003, John Haggerty  [http://www.slimeland.com/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -55,13 +56,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * -----------------------------------------------
  *   Functions:
- *       Cone(end1,rad1,end2,rad2,open)
+ *       Cone(end1, rad1, end2, rad2, open)
  *             1.  copy()
  *             2.  initialize()
  *             3.  findIntersectionsUntransformed(ray)
  *             4.  isPointInsideUntransformed(pos)
  *             5.  getNormalAtUntransformed(pos)
- *             6.  getNormalAt(pos,isect)
+ *             6.  getNormalAt(pos, isect)
  * -----------------------------------------------
  *  Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
@@ -73,15 +74,14 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.alg.Vector;
-import com.wis.math.geom.polytope.Box;
-import com.wis.math.geom.util.Intersection;
-import com.wis.math.geom.util.Ray;
-import com.wis.types.IObj;
-import com.wis.types.Obj;
+import com.wis3.math.alg.Vector;
+import com.wis3.math.geom.polytope.Box;
+import com.wis3.math.geom.util.Intersection;
+import com.wis3.math.geom.util.Ray;
+import com.wis3.types.IObj;
+import com.wis3.types.Obj;
 
-class com.wis.math.geom.quadric.Cone extends Obj implements IObj
-{
+public class Cone extends Obj implements IObj {
 	/**
 	 * @property $rad1 (Number)  -- a value for radius of one end of the cone.
 	 * @property $rad2 (Number)  -- a value for radius of the other end of the cone.
@@ -101,27 +101,25 @@ class com.wis.math.geom.quadric.Cone extends Obj implements IObj
      * @property $open (Boolean)  -- default is 'false', cone ends are closed.
 	 * @property $boundedBy (Box)  -- bounding box object.
 	**/
-    var $rad1:Number;
-    var $rad2:Number;
-    var $rad1Squared:Number;
-    var $rad2Squared:Number;
-    var $radDiffPerUnit:Number;
-    var $end1:Vector;
-    var $end2:Vector;
-    var $negEnd1:Vector;
-    var $negEnd2:Vector;
-    var $normAxis:Vector;
-    var $negNormAxis:Vector;
-    var $cap1BoundV1:Vector;
-    var $cap2BoundV1:Vector;
-    var $cap1BoundV2:Vector;
-    var $cap2BoundV2:Vector;
-    var $open:Boolean;
-    var $boundedBy:Box;
+    public var $rad1:Number;
+    public var $rad2:Number;
+    public var $rad1Squared:Number;
+    public var $rad2Squared:Number;
+    public var $radDiffPerUnit:Number;
+    public var $end1:Vector;
+    public var $end2:Vector;
+    public var $negEnd1:Vector;
+    public var $negEnd2:Vector;
+    public var $normAxis:Vector;
+    public var $negNormAxis:Vector;
+    public var $cap1BoundV1:Vector;
+    public var $cap2BoundV1:Vector;
+    public var $cap1BoundV2:Vector;
+    public var $cap2BoundV2:Vector;
+    public var $open:Boolean;
 
     // constructor
-    function Cone(end1:Vector,rad1:Number,end2:Vector,rad2:Number,open:Boolean)
-    {
+    public function Cone(end1:Vector, rad1:Number, end2:Vector, rad2:Number, open:Boolean) {
     	$end1 = end1;
     	$rad1 = rad1;
     	$end2 = end2;
@@ -130,7 +128,7 @@ class com.wis.math.geom.quadric.Cone extends Obj implements IObj
     	this.setupDefaultModifiers();
     }
 
-// 1. copy ---------------------------------------
+      // 1. copy ---------------------------------------
 
     /**
      * @method  copy
@@ -138,12 +136,11 @@ class com.wis.math.geom.quadric.Cone extends Obj implements IObj
      * @usage  <pre>inst.copy();</pre>
      * @return  (Obj)  -- returns a new Cylinder object populated with super's properties.
     **/
-    function copy():Obj
-    {
-    	return this.copyModifiers(new Cone($end1.copy(),$rad1,$end2.copy(),$rad2,$open));
+    override public function copy():Obj {
+    	return this.copyModifiers(new Cone($end1.copy(), $rad1, $end2.copy(), $rad2, $open));
     }
 
-// 2. initialize  --------------------------------
+      // 2. initialize  --------------------------------
 
     /**
      * @method  initialize
@@ -152,43 +149,42 @@ class com.wis.math.geom.quadric.Cone extends Obj implements IObj
      *               $normAxis, $negNormAxis, $rad1Squared, $rad2Squared, and
      *               $radDiffPerUnit properties.
      * @usage  <pre>inst.initialize();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function initialize():Void
-    {
+    override public function initialize():void {
     	$negEnd1 = Vector.neg($end1);
     	$negEnd2 = Vector.neg($end2);
-    	$normAxis = Vector.normalizer(Vector.adder($end2,$negEnd1));
+    	$normAxis = Vector.normalizer(Vector.adder($end2, $negEnd1));
     	$negNormAxis = Vector.neg($normAxis);
     	$rad1Squared = $rad1*$rad1;
     	$rad2Squared = $rad2*$rad2;
-    	$radDiffPerUnit = ($rad2-$rad1)/Vector.adder($end2,$negEnd1)._len;
+    	$radDiffPerUnit = ($rad2-$rad1)/Vector.adder($end2, $negEnd1)._len;
 
-    	var v1:Vector = new Vector(0,0,0);
-    	var v2:Vector = new Vector(0,0,0);
-       	var cosines:Vector = new Vector(Vector.dot(Vector.XX,$normAxis),Vector.dot(Vector.YY,$normAxis),Vector.dot(Vector.ZZ,$normAxis));
-    	var sines:Vector = new Vector(Math.sqrt(1-cosines.x*cosines.x),Math.sqrt(1-cosines.y*cosines.y),Math.sqrt(1-cosines.z*cosines.z));
+    	var v1:Vector = new Vector(0, 0, 0);
+    	var v2:Vector = new Vector(0, 0, 0);
+       	var cosines:Vector = new Vector(Vector.dot(Vector.XX, $normAxis), Vector.dot(Vector.YY, $normAxis), Vector.dot(Vector.ZZ, $normAxis));
+    	var sines:Vector = new Vector(Math.sqrt(1-cosines.x*cosines.x), Math.sqrt(1-cosines.y*cosines.y), Math.sqrt(1-cosines.z*cosines.z));
 
-    	$cap1BoundV2 = Vector.scaler(sines,$rad1);
-    	$cap2BoundV2 = Vector.scaler(sines,$rad2);
+    	$cap1BoundV2 = Vector.scaler(sines, $rad1);
+    	$cap2BoundV2 = Vector.scaler(sines, $rad2);
     	$cap1BoundV1 = Vector.neg($cap1BoundV2);
     	$cap2BoundV1 = Vector.neg($cap2BoundV2);
-    	$cap1BoundV1 = Vector.adder($cap1BoundV1,$end1);
-    	$cap1BoundV2 = Vector.adder($cap1BoundV2,$end1);
-    	$cap2BoundV1 = Vector.adder($cap2BoundV1,$end2);
-    	$cap2BoundV2 = Vector.adder($cap2BoundV2,$end2);
+    	$cap1BoundV1 = Vector.adder($cap1BoundV1, $end1);
+    	$cap1BoundV2 = Vector.adder($cap1BoundV2, $end1);
+    	$cap2BoundV1 = Vector.adder($cap2BoundV1, $end2);
+    	$cap2BoundV2 = Vector.adder($cap2BoundV2, $end2);
     	if ($cap1BoundV1.x<$cap2BoundV1.x) v1.x = $cap1BoundV1.x; else v1.x = $cap2BoundV1.x;
     	if ($cap1BoundV1.y<$cap2BoundV1.y) v1.y = $cap1BoundV1.y; else v1.y = $cap2BoundV1.y;
     	if ($cap1BoundV1.z<$cap2BoundV1.z) v1.z = $cap1BoundV1.z; else v1.z = $cap2BoundV1.z;
     	if ($cap1BoundV2.x>$cap2BoundV2.x) v2.x = $cap1BoundV2.x; else v2.x = $cap2BoundV2.x;
     	if ($cap1BoundV2.y>$cap2BoundV2.y) v2.y = $cap1BoundV2.y; else v2.y = $cap2BoundV2.y;
     	if ($cap1BoundV2.z>$cap2BoundV2.z) v2.z = $cap1BoundV2.z; else v2.z = $cap2BoundV2.z;
-    	$boundedBy = new Box(v1,v2,true);
+    	$boundedBy = new Box(v1, v2, true);
 
     	this.generalLowLevelObjectInitialization();
     }
 
-// 3. findIntersectionsUntransformed -------------
+      // 3. findIntersectionsUntransformed -------------
 
     /**
      * @method  findIntersectionsUntransformed
@@ -198,97 +194,84 @@ class com.wis.math.geom.quadric.Cone extends Obj implements IObj
      * @param   ray   (Ray)  -- tracer object that defines its point and direction in 3-space.
      * @return  (Array)  -- returns a list of Intersection objects, or an empty list.
     **/
-    function findIntersectionsUntransformed(ray:Ray):Array
-    {
+    override public function findIntersectionsUntransformed(ray:Ray):Array {
     	var isects:Array = [];
-    	var rayStartMinusThisEnd1:Vector = Vector.adder(ray.$start,$negEnd1);
-    	var nearestPointOnAxis:Vector,pos:Vector,u:Vector,v:Vector;
-    	var a:Number,b:Number,c:Number,t:Number;
-    	var dirDotNorm:Number,w:Number,discriminant:Number;
+    	var rayStartMinusThisEnd1:Vector = Vector.adder(ray.$start, $negEnd1);
+    	var nearestPointOnAxis:Vector, pos:Vector, u:Vector, v:Vector;
+    	var a:Number, b:Number, c:Number, t:Number;
+    	var dirDotNorm:Number, w:Number, discriminant:Number;
     	var rayStartMinusEnd1DotNorm:Number;
     	var dirDotNormTimesRadsDiff:Number;
 
     	// caps
-    	if (!$open)
-    	{
-    		a = Vector.dot(ray.$dir,$normAxis);
-    		if (a!=0)
-    		{
-    			b = Vector.dot($normAxis,rayStartMinusThisEnd1);
+    	if (!$open) {
+    		a = Vector.dot(ray.$dir, $normAxis);
+    		if (a!=0) {
+    			b = Vector.dot($normAxis, rayStartMinusThisEnd1);
     			t = -b/a;
-    			if (Vector.adder(Vector.adder(ray.$start,Vector.scaler(ray.$dir,t)),$negEnd1)._lenSq<=$rad1Squared)
-    			{
-    				isects[0] = new Intersection(t,ray,this);
+    			if (Vector.adder(Vector.adder(ray.$start, Vector.scaler(ray.$dir, t)), $negEnd1)._lenSq<=$rad1Squared) {
+    				isects[0] = new Intersection(t, ray, this);
     				isects[0].data = 1; // remember that this is on a cap of the cylinder for normal calculation
     			}
 
-    			b = Vector.dot($negNormAxis,Vector.adder(ray.$start,$negEnd2));
+    			b = Vector.dot($negNormAxis, Vector.adder(ray.$start, $negEnd2));
     			t = b/a;
-    			if (Vector.adder(Vector.adder(ray.$start,Vector.scaler(ray.$dir,t)),$negEnd2)._lenSq<=$rad2Squared)
-    			{
-    				isects[isects.length] = new Intersection(t,ray,this);
+    			if (Vector.adder(Vector.adder(ray.$start, Vector.scaler(ray.$dir, t)), $negEnd2)._lenSq<=$rad2Squared) {
+    				isects[isects.length] = new Intersection(t, ray, this);
     				isects[isects.length-1].$data = 2;
     			}
     		}
     	}
     	// cone
-    	if (isects.length<2)
-    	{
-    		dirDotNorm = Vector.dot(ray.$dir,$normAxis);
-    		rayStartMinusEnd1DotNorm = Vector.dot(rayStartMinusThisEnd1,$normAxis);
+    	if (isects.length<2) {
+    		dirDotNorm = Vector.dot(ray.$dir, $normAxis);
+    		rayStartMinusEnd1DotNorm = Vector.dot(rayStartMinusThisEnd1, $normAxis);
 
-    		u = Vector.adder(ray.$dir,Vector.scaler($normAxis,-dirDotNorm));
-    		v = Vector.adder(rayStartMinusThisEnd1,Vector.scaler($normAxis,-rayStartMinusEnd1DotNorm));
+    		u = Vector.adder(ray.$dir, Vector.scaler($normAxis, -dirDotNorm));
+    		v = Vector.adder(rayStartMinusThisEnd1, Vector.scaler($normAxis, -rayStartMinusEnd1DotNorm));
     		// (w is not a vector)
     		w = rayStartMinusEnd1DotNorm*$radDiffPerUnit+$rad1;
 
     		dirDotNormTimesRadsDiff = dirDotNorm*$radDiffPerUnit;
 
-    		a = Vector.dot(u,u) - dirDotNormTimesRadsDiff*dirDotNormTimesRadsDiff;
+    		a = Vector.dot(u, u) - dirDotNormTimesRadsDiff*dirDotNormTimesRadsDiff;
     		// a=b=c=0 means that the ray is travelling right along the cone's side, I think
-    		if (a!=0)
-    		{
-    			b = 2*(Vector.dot(u,v)-w*dirDotNormTimesRadsDiff);
-    			c = Vector.dot(v,v)-w*w;
+    		if (a!=0) {
+    			b = 2*(Vector.dot(u, v)-w*dirDotNormTimesRadsDiff);
+    			c = Vector.dot(v, v)-w*w;
 
     			discriminant = b*b-4*a*c;
-    			if (discriminant==0)
-    			{
+    			if (discriminant==0) {
     				t = -b/(2*a);
-    				pos = Vector.adder(ray.$start,Vector.scaler(ray.$dir,t));
-    				if ((Vector.dot($normAxis,Vector.adder(pos,$negEnd1))>0) &&
-    				    (Vector.dot($negNormAxis,Vector.adder(pos,$negEnd2))>0)) {
-    					isects[isects.length] = new Intersection(t,ray,this);
+    				pos = Vector.adder(ray.$start, Vector.scaler(ray.$dir, t));
+    				if ((Vector.dot($normAxis, Vector.adder(pos, $negEnd1))>0) &&
+    				    (Vector.dot($negNormAxis, Vector.adder(pos, $negEnd2))>0)) {
+    					isects[isects.length] = new Intersection(t, ray, this);
     				}
     			}
-    			else if (discriminant>0)
-    			{
+    			else if (discriminant>0) {
     				var sqrtDiscriminant:Number = Math.sqrt(discriminant);
     				var oneOverTwoA:Number = 1/(2*a);
 
     				t = (-sqrtDiscriminant-b)*oneOverTwoA;
-    				pos = Vector.adder(ray.$start,Vector.scaler(ray.$dir,t));
-    				if ((Vector.dot($normAxis,Vector.adder(pos,$negEnd1))>0) &&
-    				    (Vector.dot($negNormAxis,Vector.adder(pos,$negEnd2))>0))
-    				{
-    					isects[isects.length] = new Intersection(t,ray,this);
+    				pos = Vector.adder(ray.$start, Vector.scaler(ray.$dir, t));
+    				if ((Vector.dot($normAxis, Vector.adder(pos, $negEnd1))>0) &&
+    				    (Vector.dot($negNormAxis, Vector.adder(pos, $negEnd2))>0)) {
+    					isects[isects.length] = new Intersection(t, ray, this);
     				}
-    				if (isects.length<2)
-    				{
+    				if (isects.length<2) {
     					t = (sqrtDiscriminant-b)*oneOverTwoA;
-    					pos = Vector.adder(ray.$start,Vector.scaler(ray.$dir,t));
-    					if ((Vector.dot($normAxis,Vector.adder(pos,$negEnd1))>0) &&
-    					    (Vector.dot($negNormAxis,Vector.adder(pos,$negEnd2))>0))
-    					{
-    						isects[isects.length] = new Intersection(t,ray,this);
+    					pos = Vector.adder(ray.$start, Vector.scaler(ray.$dir, t));
+    					if ((Vector.dot($normAxis, Vector.adder(pos, $negEnd1))>0) &&
+    					    (Vector.dot($negNormAxis, Vector.adder(pos, $negEnd2))>0)) {
+    						isects[isects.length] = new Intersection(t, ray, this);
     					}
     				}
     			}
     		}
     	}
     	// sort
-    	if (isects.length>1 && isects[1].$depth<isects[0].$depth)
-    	{
+    	if (isects.length>1 && isects[1].$depth<isects[0].$depth) {
     		var temp:Intersection = isects[1];
     		isects[1] = isects[0];
     		isects[0] = temp;
@@ -297,7 +280,7 @@ class com.wis.math.geom.quadric.Cone extends Obj implements IObj
     	return isects;
     }
 
-// 4. isPointInsideUntransformed -----------------
+      // 4. isPointInsideUntransformed -----------------
 
     /**
      * @method  isPointInsideUntransformed
@@ -306,21 +289,20 @@ class com.wis.math.geom.quadric.Cone extends Obj implements IObj
      * @param   pos   (Vector)  -- a position Vector object.
      * @return  (Boolean)
     **/
-    function isPointInsideUntransformed(pos:Vector):Boolean
-    {
+    override public function isPointInsideUntransformed(pos:Vector):Boolean {
     	// test inside of caps (similar to plane test)
-    	if (Vector.dot($normAxis,Vector.adder(pos,$negEnd1))<0) return false;
-    	if (Vector.dot($negNormAxis,Vector.adder(pos,$negEnd2))<0) return false;
+    	if (Vector.dot($normAxis, Vector.adder(pos, $negEnd1))<0) return false;
+    	if (Vector.dot($negNormAxis, Vector.adder(pos, $negEnd2))<0) return false;
 
     	// find nearest point to this on the axis and test what the distance to it is
-    	var distToEnd1:Number = Vector.dot(Vector.adder(pos,$negEnd1),$normAxis);
-    	var nearestPointOnAxis:Vector = Vector.adder(Vector.scaler($normAxis,distToEnd1),$end1);
+    	var distToEnd1:Number = Vector.dot(Vector.adder(pos, $negEnd1), $normAxis);
+    	var nearestPointOnAxis:Vector = Vector.adder(Vector.scaler($normAxis, distToEnd1), $end1);
     	var radHere:Number = (distToEnd1*$radDiffPerUnit+$rad1Squared);
 
-    	return (Vector.adder(pos,Vector.neg(nearestPointOnAxis))._lenSq<radHere*radHere);
+    	return (Vector.adder(pos, Vector.neg(nearestPointOnAxis))._lenSq<radHere*radHere);
     }
 
-// 5. getNormalAtUntransformed -------------------
+      // 5. getNormalAtUntransformed -------------------
 
     /**
      * @method  getNormalAtUntransformed
@@ -329,36 +311,33 @@ class com.wis.math.geom.quadric.Cone extends Obj implements IObj
      * @param   pos   (Vector)  -- a position Vector object.
      * @return  (Vector)  -- returns normal of passed Vector object.
     **/
-    function getNormalAtUntransformed(pos:Vector):Vector
-    {
+    override public function getNormalAtUntransformed(pos:Vector):Vector {
     	return Vector.normalizer(pos);
     }
 
-// 6. getNormalAt -------------------
+      // 6. getNormalAt -------------------
 
     /**
      * @method  getNormalAt
      * @description  Defines the normal to the passed 'pos' Vector object.
-     * @usage  <pre>inst.getNormalAt(pos,isect);</pre>
+     * @usage  <pre>inst.getNormalAt(pos, isect);</pre>
      * @param   pos   (Vector)  -- a position Vector object.
      * @param   isect   (Intersection)  -- an Intersection object.
      * @return  (Vector)  -- returns normal of passed Vector object.
     **/
-    function getNormalAt(pos:Vector,isect:Intersection):Vector
-    {
-    	if (isect.$data)
-    	{
+    override public function getNormalAt(pos:Vector = null, isect:Intersection = null):Vector {
+    	if (isect.$data) {
     		if (isect.$data==1) return $negNormAxis;
 
     		return $normAxis;
     	}
-    	else
-    	{
-    		var nearestPointOnAxis:Vector = Vector.adder(Vector.scaler($normAxis,Vector.dot(Vector.adder(pos,$negEnd1),$normAxis)),$end1);
-    		var simpleNorm:Vector = Vector.adder(pos,Vector.neg(nearestPointOnAxis));
+    	else {
+    		var nearestPointOnAxis:Vector = Vector.adder(Vector.scaler($normAxis, Vector.dot(Vector.adder(pos, $negEnd1), $normAxis)), $end1);
+    		var simpleNorm:Vector = Vector.adder(pos, Vector.neg(nearestPointOnAxis));
 
-    		return Vector.adder(simpleNorm,Vector.scaler($normAxis,-$radDiffPerUnit*simpleNorm._len));
+    		return Vector.adder(simpleNorm, Vector.scaler($normAxis, -$radDiffPerUnit*simpleNorm._len));
     	}
     }
-}
+}// class
+}//package
 

@@ -1,5 +1,6 @@
+package com.wis3.math.calc.solvers {
 /**
- * @class       com.wis.math.calc.solvers.RK4
+ * @class       com.wis3.math.calc.solvers.RK4
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description A fourth order Runge-Kutta IODE solver. Constructs the RK4
@@ -9,8 +10,8 @@
  * -----------------------------------------------
  * Latest update: January 11, 2005
  * -----------------------------------------------
- * AS2  revision copyright: © 2005, Richard Wright     [wisolutions2002@shaw.ca]
- * Java original copyright: © 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
+ * AS2  revision copyright: ï¿½ 2005, Richard Wright     [wisolutions2002@shaw.ca]
+ * Java original copyright: ï¿½ 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -56,10 +57,9 @@
  * for the book Simulations in Physics.
  * Copyright (c) 2003  H. Gould, J. Tobochnik, and W. Christian.
  */
-import com.wis.math.calc.*;
+import com.wis3.math.calc.*;
 
-class com.wis.math.calc.solvers.RK4 implements com.wis.math.calc.IODESolver
-{
+public class RK4 implements com.wis3.math.calc.IODESolver {
 	/**
 	 * @property $stepSize  (Number)  -- parameter increment such as delta time.
 	 * @property $numEqn  (Number)  -- number of equations.
@@ -83,13 +83,12 @@ class com.wis.math.calc.solvers.RK4 implements com.wis.math.calc.IODESolver
     private var $k3:Array;
     private var $ode:IODE;
 
-    public function RK4(_ode:IODE)
-    {
+    public function RK4(_ode:IODE) {
         $ode = _ode;
         initialize($stepSize);
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  initialize
@@ -99,16 +98,14 @@ class com.wis.math.calc.solvers.RK4 implements com.wis.math.calc.IODESolver
      *                getState().length on the IODE.
      * @usage  <pre>inst.initialize(_stepSize)</pre>
      * @param   _stepSize  (Number) -- step integer.
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function initialize(_stepSize:Number):Void
-    {
+    public function initialize(_stepSize:Number):void {
         $stepSize = _stepSize;
         var state:Array = $ode.getState();
         // if state vector not defined
         if(state==null) return;
-        if($numEqn != state.length)
-        {
+        if($numEqn != state.length) {
             $numEqn = state.length;
             $rate1  = new Array($numEqn);
             $rate2  = new Array($numEqn);
@@ -120,7 +117,7 @@ class com.wis.math.calc.solvers.RK4 implements com.wis.math.calc.IODESolver
         }
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  step
@@ -132,26 +129,26 @@ class com.wis.math.calc.solvers.RK4 implements com.wis.math.calc.IODESolver
      * @usage  <pre>inst.step()</pre>
      * @return  (Number)  -- returns step size.
     **/
-    public function step():Number
-    {
+    public function step():Number {
+    	var i:uint;
         var state:Array = $ode.getState();
         if (state.length!=$numEqn) initialize($stepSize);
-        $ode.getRate(state,$rate1);
-        for (var i:Number=0;i<$numEqn;i++)
+        $ode.getRate(state, $rate1);
+        for (i=0;i<$numEqn;i++)
             $k1[i] = state[i]+$stepSize*$rate1[i]/2;
-        $ode.getRate($k1,$rate2);
-        for (var i:Number=0;i<$numEqn;i++)
+        $ode.getRate($k1, $rate2);
+        for (i=0;i<$numEqn;i++)
             $k2[i] = state[i]+$stepSize*$rate2[i]/2;
-        $ode.getRate($k2,$rate3);
-        for (var i:Number=0;i<$numEqn;i++)
+        $ode.getRate($k2, $rate3);
+        for (i=0;i<$numEqn;i++)
             $k3[i] = state[i]+$stepSize*$rate3[i];
-        $ode.getRate($k3,$rate4);
-        for (var i:Number=0;i<$numEqn;i++)
+        $ode.getRate($k3, $rate4);
+        for (i=0;i<$numEqn;i++)
             state[i] = state[i]+$stepSize*($rate1[i]+2*$rate2[i]+2*$rate3[i]+$rate4[i])/6.0;
         return $stepSize;
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  setStepSize
@@ -159,14 +156,13 @@ class com.wis.math.calc.solvers.RK4 implements com.wis.math.calc.IODESolver
      *                algorithm.
      * @usage  <pre>inst.setStepSize(_stepSize)</pre>
      * @param   _stepSize  (Number) -- step integer.
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function setStepSize(_stepSize:Number):Void
-    {
+    public function setStepSize(_stepSize:Number):void {
         $stepSize = _stepSize;
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  getStepSize
@@ -174,23 +170,22 @@ class com.wis.math.calc.solvers.RK4 implements com.wis.math.calc.IODESolver
      * @usage  <pre>inst.getStepSize()</pre>
      * @return  (Number)  -- returns step size.
     **/
-    public function getStepSize():Number
-    {
+    public function getStepSize():Number {
         return $stepSize;
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  setTolerance
      * @description   Abstract interface method.
      * @usage  <pre>not used.</pre>
      * @param   _tol  (Number) -- .
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function setTolerance(_tol:Number):Void {}
+    public function setTolerance(_tol:Number):void {}
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  getTolerance
@@ -199,4 +194,5 @@ class com.wis.math.calc.solvers.RK4 implements com.wis.math.calc.IODESolver
      * @return  (Number)
     **/
     public function getTolerance():Number {return 1.0e-9;}
-}
+}// class
+}//package

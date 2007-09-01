@@ -1,5 +1,6 @@
+package com.wis3.types.lists {
 /**
- * @class       com.wis.types.lists.DoubleLink
+ * @class       com.wis3.types.lists.DoubleLink
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the DoubleLink Class.
@@ -11,8 +12,8 @@
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * AS2  revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
- * C    original copyright © 1996-1999 Carl J. Nobile - original C API
+ * AS2  revision copyright ï¿½ 2004, Richard Wright [wisolutions2002@shaw.ca]
+ * C    original copyright ï¿½ 1996-1999 Carl J. Nobile - original C API
  *               Created: December 22, 1996
  *               Updated: 06/14/99
  *               http://www.tetrasys.homelinux.org/home/Linklist/ll-1.1.0/Linklist.html
@@ -50,7 +51,7 @@
  *            4.  isListEmpty()
  *            5.  isListFull()
  *            6.  getNumberOfRecords()
- *            7.  setSearchModes(origin,dir)
+ *            7.  setSearchModes(origin, dir)
  *            8.  getSearchModes(ssp)
  *            9.  getCurrentIndex()
  *            10. currentPointerToHead()
@@ -59,28 +60,27 @@
  *            13. decrementCurrentPointer()
  *            14. storeCurrentPointer()
  *            15. restoreCurrentPointer()
- *            16. addRecord(info,pFun(info1,info2))
- *            17. insertRecord(info,dir)
+ *            16. addRecord(info, pFun(info1, info2))
+ *            17. insertRecord(info, dir)
  *            18. swapRecord(dir)
  *            19. updateCurrentRecord(record)
  *            20. deleteCurrentRecord()
  *            21. deleteEntireList()
- *            22. findRecord(record,match,pFun(info1,info2))
- *            23. findNthRecord(record,skip)
+ *            22. findRecord(record, match, pFun(info1, info2))
+ *            23. findNthRecord(record, skip)
  *            24. getCurrentRecord(record)
  *            25. getPriorRecord(record)
  *            26. getNextRecord(record)
  *            27. toString()
  *            28. saveList(path)
- *            29. loadList(path,pFun(info1,info2))
+ *            29. loadList(path, pFun(info1, info2))
  *  ----------------------------------------------
  *  Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
  *  ----------------------------------------------
 **/
 
-class com.wis.types.lists.DoubleLink
-{
+public class DoubleLink  {
 	/**
 	 * @property oReturn (Object)  -- holder for return message pointers.
 	 * @property oSrchOrigin (Object)  -- holder for origin of search pointers.
@@ -109,8 +109,7 @@ class com.wis.types.lists.DoubleLink
 
 	// Enumeration Objects:
 
-    var oReturn:Object =
-    {
+    public var oReturn:Object = {
 	    DLL_NORMAL:0,                 // normal operation
 	    DLL_MEM_ERROR:1,              // malloc error
 	    DLL_ZERO_INFO:2,              // sizeof(info) is zero
@@ -124,8 +123,7 @@ class com.wis.types.lists.DoubleLink
 	};
 
 
-    var oSrchOrigin:Object =
-    {
+    public var oSrchOrigin:Object = {
 	    DLL_ORIGIN_DEFAULT:0,         // Use current origin setting
 	    DLL_HEAD:1,                   // Set origin to head pointer
 	    DLL_CURRENT:2,                // Set origin to current pointer
@@ -134,8 +132,7 @@ class com.wis.types.lists.DoubleLink
 	    DLL_BELOW:5
 	};
 
-	var oSrchDir:Object =
-	{
+	public var oSrchDir:Object = {
 	    DLL_DIRECTION_DEFAULT:0,      // Use current direction setting
 	    DLL_DOWN:1,                   // Set direction to down
 	    DLL_UP:2                      // Set direction to up
@@ -143,45 +140,44 @@ class com.wis.types.lists.DoubleLink
 
     // Class variables:
 
-    var list:Object = {};
-    var node:Object = {};
-    var info:Object = {};
+    public var list:Object = {};
+    public var node:Object = {};
+    public var info:Object = {};
 
     // list:
-    var head:Object;                  // pointer to head record
-    var tail:Object;                  // pointer to tail record
-    var current:Object;               // pointer to current record
-    var saved:Object;                 // pointer to stored record
-    var infoSize:Number;              // size of record incident
-    var listSize:Number;              // number of records in list
-    var currentIndex:Number;          // index value of current record
-    var saveIndex:Number;             // index value of stored record
-    var modified:Boolean;             // modified flag (TRUE or FALSE)
-    var searchOrigin:Object;          // location a search originates from
-    var searchDir:Object;             // direction the search proceeds from
+    public var head:Object;                  // pointer to head record
+    public var tail:Object;                  // pointer to tail record
+    public var current:Object;               // pointer to current record
+    public var saved:Object;                 // pointer to stored record
+    public var infoSize:Number;              // size of record incident
+    public var listSize:Number;              // number of records in list
+    public var currentIndex:Number;          // index value of current record
+    public var saveIndex:Number;             // index value of stored record
+    public var modified:Boolean;             // modified flag (TRUE or FALSE)
+    public var searchOrigin:Object;          // location a search originates from
+    public var searchDir:Object;             // direction the search proceeds from
 
     // node: - unused presently
-    var nodeInfo:Object;              // pointer to record data
-	var nodeNext:Object;              // pointer to next node
-	var nodePrior:Object;             // pointer to prior node
+    public var nodeInfo:Object;              // pointer to record data
+	public var nodeNext:Object;              // pointer to next node
+	public var nodePrior:Object;             // pointer to prior node
 
 	// info: - unused presently
-	var infoData:Object;              // Your data goes here
+	public var infoData:Object;              // Your data goes here
 
 	// searchMode: - unused presently
-	var searchModeOrigin:Object;      // Search from head, tail, or current
-	var searchModeDir:Object;         // Search up or down
+	public var searchModeOrigin:Object;      // Search from head, tail, or current
+	public var searchModeDir:Object;         // Search up or down
 
-    function DoubleLink()
-    {
+    public function DoubleLink() {
         //trace ("DoubleLink Class loaded");
     }
 
-////////////////////////////////////
-// Initialization Functions
-////////////////////////////////////
+      ////////////////////////////////////
+      // Initialization Functions
+      ////////////////////////////////////
 
-// 1. createList ---------------------------------
+      // 1. createList ---------------------------------
 
     /**
      * @method  createList
@@ -190,32 +186,29 @@ class com.wis.types.lists.DoubleLink
      * @param   newList   (Object)  -- pointer to a name of a structure to create.
      * @return  (Object)  -- returns pointer to created structure - null if unsuccessful.
     **/
-    function createList(newList:Object):Object
-    {
+    public function createList(newList:Object):Object {
         list = newList;
 	    if (list==null) return null;
 
 	    return list;
 	}
 
-// 2. destroyList --------------------------------
+      // 2. destroyList --------------------------------
 
     /**
      * @method  destroyList
      * @description  Destroys info, node, and list structures.
      * @usage  <pre>inst.destroyList();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function destroyList():Void
-    {
+    public function destroyList():void {
 	    if(this==null) return;
 
 	    deleteEntireList();              // *** TODO
 	    delete this;
-	    this = null;
 	}
 
-// 3. initializeList -----------------------------
+      // 3. initializeList -----------------------------
 
     /**
      * @method  initializeList
@@ -229,8 +222,7 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NULL_LIST -- info is null
      *                    </pre></blockquote>
     **/
-    function initializeList(infoSize:Number):Object
-    {
+    public function initializeList(infoSize:Number):Object {
 	    if (infoSize==0) return oReturn.DLL_ZERO_INFO;
 	    if (list==null) return oReturn.DLL_NULL_LIST;
 
@@ -249,11 +241,11 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NORMAL;
     }
 
-////////////////////////////////////
-// Status and State Functions
-////////////////////////////////////
+      ////////////////////////////////////
+      // Status and State Functions
+      ////////////////////////////////////
 
-// 4. isListEmpty --------------------------------
+      // 4. isListEmpty --------------------------------
 
     /**
      * @method  isListEmpty
@@ -265,14 +257,13 @@ class com.wis.types.lists.DoubleLink
      *                     false -- List has items in it
      *                     </pre></blockquote>
     **/
-    function isListEmpty():Boolean
-    {
+    public function isListEmpty():Boolean {
 	    if (head==null || tail==null) return true;
 
 	    return false;
 	}
 
-// 5. isListFull ---------------------------------
+      // 5. isListFull ---------------------------------
 
     /**
      * @method  isListFull
@@ -284,26 +275,27 @@ class com.wis.types.lists.DoubleLink
      *                     false -- List is empty or partially full
      *                     </pre></blockquote>
     **/
-    function isListFull():Boolean
-    {
+    public function isListFull():Boolean {
 	    var newN:Object = node;
 	    var newI:Object = info;
 
 	    if (newN==null) return true;
-	    if (newI==null)
-	    {
-		    delete newN;
+	    if (newI==null) {
+	    	// FIXME -- delete causes complaint in AS3
+		    // delete newN;
 
 		    return true;
 		}
 
-	    delete newN;
-	    delete newI;
+	    // FIXME -- delete causes complaint in AS3
+	    // delete newN;
+	    // FIXME -- delete causes complaint in AS3
+	   // delete newI;
 
 	    return false;
 	}
 
-// 6. getNumberOfRecords -------------------------
+      // 6. getNumberOfRecords -------------------------
 
     /**
      * @method  getNumberOfRecords
@@ -311,18 +303,17 @@ class com.wis.types.lists.DoubleLink
      * @usage  <pre>inst.getNumberOfRecords();</pre>
      * @return  (Number)  -- returns number of records.
     **/
-    function getNumberOfRecords():Number
-    {
+    public function getNumberOfRecords():Number {
 	    return listSize;
 	}
 
-// 7. setSearchModes -----------------------------
+      // 7. setSearchModes -----------------------------
 
     /**
      * @method  setSearchModes
      * @description  Sets the pointer used to start a search origin
      *               and the direction indicator.
-     * @usage  <pre>inst.setSearchModes(origin,dir);</pre>
+     * @usage  <pre>inst.setSearchModes(origin, dir);</pre>
      * @param   origin   (Object)  -- indicates the start search pointer to use.
      * @param   dir   (Object)  -- indicates the direction to search in.
      * @return  (Object)  -- returns:
@@ -331,10 +322,8 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NOT_MODIFIED -- Values were not assigned--invalid type (defaults are still in place)
      *                    </pre></blockquote>
     **/
-    function setSearchModes(origin:Object,dir:Object):Object
-    {
-	    switch (origin)
-	    {
+    public function setSearchModes(origin:Object, dir:Object):Object {
+	    switch (origin) {
 		    case oSrchOrigin.DLL_HEAD:
 		    case oSrchOrigin.DLL_CURRENT:
 		    case oSrchOrigin.DLL_TAIL:
@@ -345,8 +334,7 @@ class com.wis.types.lists.DoubleLink
 			    return oReturn.DLL_NOT_MODIFIED;
 		}
 
-	    switch (dir)
-	    {
+	    switch (dir) {
 		    case oSrchDir.DLL_DOWN:
 		    case oSrchDir.DLL_UP:
 		    case oSrchDir.DLL_DIRECTION_DEFAULT:
@@ -362,7 +350,7 @@ class com.wis.types.lists.DoubleLink
 	    return (oReturn.DLL_NORMAL);
 	}
 
-// 8. getSearchModes -----------------------------
+      // 8. getSearchModes -----------------------------
 
     /**
      * @method  getSearchModes
@@ -371,15 +359,14 @@ class com.wis.types.lists.DoubleLink
      * @param   ssp   (DoubleLink)  -- save structure pointer.
      * @return  (DoubleLink)  -- returns a pointer to type DLL_SearchModes.
     **/
-    function getSearchModes(ssp:DoubleLink):DoubleLink
-    {
+    public function getSearchModes(ssp:DoubleLink):DoubleLink {
 	    ssp.searchOrigin = list.searchOrigin;
 	    ssp.searchDir = list.searchDir;
 
 	    return ssp;
 	}
 
-// 9. getCurrentIndex ----------------------------
+      // 9. getCurrentIndex ----------------------------
 
     /**
      * @method  getCurrentIndex
@@ -388,16 +375,15 @@ class com.wis.types.lists.DoubleLink
      * @usage  <pre>inst.getCurrentIndex();</pre>
      * @return  (Number)  --  returns current record's index.
     **/
-    function getCurrentIndex():Number
-    {
+    public function getCurrentIndex():Number {
 	    return currentIndex;
 	}
 
-////////////////////////////////////
-// Pointer Manipulation Functions
-////////////////////////////////////
+      ////////////////////////////////////
+      // Pointer Manipulation Functions
+      ////////////////////////////////////
 
-// 10. currentPointerToHead ----------------------
+      // 10. currentPointerToHead ----------------------
 
     /**
      * @method  currentPointerToHead
@@ -409,8 +395,7 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NULL_LIST -- Empty list
      *                    </pre></blockquote>
     **/
-    function currentPointerToHead():Object
-    {
+    public function currentPointerToHead():Object {
 	    if (head==null) return oReturn.DLL_NULL_LIST;
 
 	    current = head;
@@ -419,7 +404,7 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NORMAL;
 	}
 
-// 11. currentPointerToTail ----------------------
+      // 11. currentPointerToTail ----------------------
 
     /**
      * @method  currentPointerToTail
@@ -431,8 +416,7 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NULL_LIST -- Empty list
      *                    </pre></blockquote>
     **/
-    function currentPointerToTail():Object
-    {
+    public function currentPointerToTail():Object {
 	    if (tail==null) return oReturn.DLL_NULL_LIST;
 
 	    current = tail;
@@ -441,7 +425,7 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NORMAL;
 	}
 
-// 12. incrementCurrentPointer -------------------
+      // 12. incrementCurrentPointer -------------------
 
     /**
      * @method  incrementCurrentPointer
@@ -454,8 +438,7 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NOT_FOUND -- Record not found
      *                    </pre></blockquote>
     **/
-    function incrementCurrentPointer():Object
-    {
+    public function incrementCurrentPointer():Object {
 	    if (current==null) return oReturn.DLL_NULL_LIST;
 
 	    if (current.next==null) return oReturn.DLL_NOT_FOUND;
@@ -466,7 +449,7 @@ class com.wis.types.lists.DoubleLink
 	    return (oReturn.DLL_NORMAL);
 	}
 
-// 13. decrementCurrentPointer -------------------
+      // 13. decrementCurrentPointer -------------------
 
     /**
      * @method  decrementCurrentPointer
@@ -479,8 +462,7 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NOT_FOUND -- Record not found
      *                    </pre></blockquote>
     **/
-    function decrementCurrentPointer():Object
-    {
+    public function decrementCurrentPointer():Object {
 	    if (current==null) return oReturn.DLL_NULL_LIST;
 
 	    if (current.prior==null) return oReturn.DLL_NOT_FOUND;
@@ -491,7 +473,7 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NORMAL;
 	}
 
-// 14. storeCurrentPointer -----------------------
+      // 14. storeCurrentPointer -----------------------
 
     /**
      * @method  storeCurrentPointer
@@ -503,8 +485,7 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NOT_FOUND -- Record not found
      *                    </pre></blockquote>
     **/
-    function storeCurrentPointer():Object
-    {
+    public function storeCurrentPointer():Object {
 	    if (current==null) return oReturn.DLL_NOT_FOUND;
 
 	    saved = current;
@@ -513,7 +494,7 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NORMAL;
 	}
 
-// 15. restoreCurrentPointer ---------------------
+      // 15. restoreCurrentPointer ---------------------
 
     /**
      * @method  restoreCurrentPointer
@@ -525,8 +506,7 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NOT_FOUND -- Record not found
      *                    </pre></blockquote>
     **/
-    function restoreCurrentPointer():Object
-    {
+    public function restoreCurrentPointer():Object {
 	    if (saved==null) return oReturn.DLL_NOT_FOUND;
 
 	    current = saved;
@@ -536,16 +516,16 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NORMAL;
 	}
 
-////////////////////////////////////
-// List Update Functions
-////////////////////////////////////
+      ////////////////////////////////////
+      // List Update Functions
+      ////////////////////////////////////
 
-// 16. addRecord ---------------------------------
+      // 16. addRecord ---------------------------------
 
     /**
      * @method  addRecord
      * @description  Creates a new node in list with or without sorting.
-     * @usage  <pre>inst.addRecord(info,pFun);</pre>
+     * @usage  <pre>inst.addRecord(info, pFun);</pre>
      * @param   info   (Object)  -- record to add.
      * @param   pFun   (Function)  -- pointer to search function.
      * @return  (Object)  -- returns:
@@ -554,9 +534,8 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_MEM_ERROR -- Memory allocation failed
      *                    </pre></blockquote>
     **/
-    function addRecord(info:Object,pFun:Function):Object
-    {
-	    var newN:Object,old:Object,step:Object,newI:Object;
+    public function addRecord(info:Object, pFun:Function):Object {
+	    var newN:Object, old:Object, step:Object, newI:Object;
 
 	    node.newN = {};
 		node.old = {};
@@ -567,8 +546,7 @@ class com.wis.types.lists.DoubleLink
         if (node.newN==null) return oReturn.DLL_MEM_ERROR;
 
 	    // Allocate space for new info
-        if (info.newI==null)
-        {
+        if (info.newI==null) {
 		    delete node.newN;
 
 		    return oReturn.DLL_MEM_ERROR;
@@ -578,8 +556,7 @@ class com.wis.types.lists.DoubleLink
 	    info.newI = info;
 
 	    // If head is null, assume empty list and this is the 1st record.
-	    if (head==null)
-	    {
+	    if (head==null) {
 		    node.newN.info = info.newI;
 		    node.newN.next = null;
 		    node.newN.prior = null;
@@ -593,21 +570,18 @@ class com.wis.types.lists.DoubleLink
 		    return oReturn.DLL_NORMAL;
 		}
 
-	    if (pFun!=null)
-	    {		 // If null doesn't do sort
+	    if (pFun!=null) {		 // If null doesn't do sort
 		    node.step = head;
 		    node.old = tail;
 
-		    while (node.step!=null)
-		    {                                  // Loop through records until a match is found
-			    if ((pFun(node.step.info,info.newI))>=0) break;
+		    while (node.step!=null) {                                  // Loop through records until a match is found
+			    if ((pFun(node.step.info, info.newI))>=0) break;
 			    currentIndex++;
 			    node.old = node.step;
 			    node.step = node.step.next;
 			}
 		}
-		else
-		{
+		else {
 		    node.step = null;
 		    node.old = tail;
 		}
@@ -616,8 +590,7 @@ class com.wis.types.lists.DoubleLink
   	     // The order of the 'if' statements below is critical and
   	     // cannot be changed or a no sort (null) situation will fail.
   	     //
-	    if (node.step==null)
-	    {				                        // New last record
+	    if (node.step==null) {				                        // New last record
 		    node.newN.info = info.newI;
 		    node.old.next = node.newN;
 		    node.newN.next = null;
@@ -625,10 +598,8 @@ class com.wis.types.lists.DoubleLink
 		    tail = node.newN;
 		    current = node.newN;
 		}
-		else
-		{
-		    if (node.step.prior==null)
-		    {	                                // New first record
+		else {
+		    if (node.step.prior==null) {	                                // New first record
 			    node.newN.info = info.newI;
 			    node.newN.prior = null;
 			    node.newN.next = node.step;
@@ -636,8 +607,7 @@ class com.wis.types.lists.DoubleLink
 			    head = node.newN;
 			    current = node.newN;
 		    }
-		    else
-		    {				                   // New middle record
+		    else {				                   // New middle record
 			    node.newN.info = info.newI;
 			    node.step.prior.next = node.newN;
 			    node.newN.next = node.step;
@@ -654,13 +624,13 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NORMAL;
 	}
 
-// 17. insertRecord ------------------------------
+      // 17. insertRecord ------------------------------
 
     /**
      * @method  insertRecord
      * @description  Creates a new node in list above or below current
      *               record. The new record will be current after completion.
-     * @usage  <pre>inst.insertRecord(info,dir);</pre>
+     * @usage  <pre>inst.insertRecord(info, dir);</pre>
      * @param   info   (Object)  -- pointer to info record.
      * @param   dir   (Object)  -- pointer to dir record.
      * @return  (Object)  -- returns:
@@ -670,9 +640,8 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NOT_MODIFIED -- Insert direction is invalid (not DLL_ABOVE or DLL_BELOW)
      *                    </pre></blockquote>
     **/
-    function insertRecord(info:Object,dir:Object):Object
-    {
-	    var newN:Object,newI:Object;
+    public function insertRecord(info:Object, dir:Object):Object {
+	    var newN:Object, newI:Object;
 
 	    node.newN = {};
 	    info.newI = {};
@@ -681,8 +650,7 @@ class com.wis.types.lists.DoubleLink
         if (node.newN==null) return oReturn.DLL_MEM_ERROR;
 
 	    // Allocate space for new info
-	    if (info.newI==null)
-	    {
+	    if (info.newI==null) {
 		    delete node.newN;
 
 		    return oReturn.DLL_MEM_ERROR;
@@ -692,8 +660,7 @@ class com.wis.types.lists.DoubleLink
 	    info.newI = info;
 
 	    // If head is null, assume empty list and this is the 1st record.
-	    if (head==null)
-	    {
+	    if (head==null) {
 		    node.newN.info = info.newI;
 		    node.newN.next = null;
 		    node.newN.prior = null;
@@ -708,8 +675,7 @@ class com.wis.types.lists.DoubleLink
 		}
 
 	    // Decide what to do according to dir
-	    switch (dir)
-	    {
+	    switch (dir) {
 		    case oSrchOrigin.DLL_ABOVE:
 			    node.newN.info = info.newI;
 			    node.newN.next = current;
@@ -755,7 +721,7 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NORMAL;
 	}
 
-// 18. swapRecord --------------------------------
+      // 18. swapRecord --------------------------------
 
     /**
      * @method  swapRecord
@@ -771,9 +737,8 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NOT_FOUND    -- Current record is already at end of list indicated by dir
      *                    </pre></blockquote>
     **/
-    function swapRecord(dir:Object):Object
-    {
-	    var swap:Object,newPrior:Object,newNext:Object;
+    public function swapRecord(dir:Object):Object {
+	    var swap:Object, newPrior:Object, newNext:Object;
 
 	    node.swap = {};
 		node.newPrior = {};
@@ -783,8 +748,7 @@ class com.wis.types.lists.DoubleLink
 	    if (current==null) return oReturn.DLL_NULL_LIST;
 
 	    // Decide what to do according to dir
-	    switch (dir)
-	    {
+	    switch (dir) {
 		    case oSrchOrigin.DLL_ABOVE:
 			    node.swap = current;
 
@@ -860,7 +824,7 @@ class com.wis.types.lists.DoubleLink
 	    return (oReturn.DLL_NORMAL);
 	}
 
-// 19. updateCurrentRecord -----------------------
+      // 19. updateCurrentRecord -----------------------
 
     /**
      * @method  updateCurrentRecord
@@ -873,15 +837,14 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NULL_LIST -- Empty list
      *                    </pre></blockquote>
     **/
-    function updateCurrentRecord(record:Object):Object
-    {
+    public function updateCurrentRecord(record:Object):Object {
 	    if (current==null) return oReturn.DLL_NULL_LIST;
 	    current.info = record;
 
 	    return oReturn.DLL_NORMAL;
 	}
 
-// 20. deleteCurrentRecord -----------------------
+      // 20. deleteCurrentRecord -----------------------
 
     /**
      * @method  deleteCurrentRecord
@@ -893,9 +856,8 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NULL_LIST -- List is empty
      *                    </pre></blockquote>
     **/
-    function deleteCurrentRecord():Object
-    {
-	    var oldI:Object,oldN:Object;
+    public function deleteCurrentRecord():Object {
+	    var oldI:Object, oldN:Object;
 
 	    info.oldI = {};
 	    node.oldN = {};
@@ -905,25 +867,21 @@ class com.wis.types.lists.DoubleLink
 	    info.oldI = current.info;
 	    node.oldN = current;
 
-	    if (current==head)
-	    {		                            // current is first record
+	    if (current==head) {		                            // current is first record
 
 		    // A single record in a list can't do this .. next.prior
 		    if (current.next!=null) current.next.prior = null;
 		    head = current.next;
 		    current = head;
 		}
-		else
-		{
-		    if (current==tail)
-		    {	                           // current is last record
+		else {
+		    if (current==tail) {	                           // current is last record
 			    current.prior.next = null;
 			    tail = current.prior;
 			    current = tail;
 			    currentIndex--;
 			}
-			else
-			{							   // current is a middle record
+			else {							   // current is a middle record
 			    current.prior.next = current.next;
 			    current.next.prior = current.prior;
 			    current = current.next;
@@ -938,7 +896,7 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NORMAL;
 	}
 
-// 21. deleteEntireList --------------------------
+      // 21. deleteEntireList --------------------------
 
     /**
      * @method  deleteEntireList
@@ -950,15 +908,13 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NULL_LIST -- List is empty
      *                    </pre></blockquote>
     **/
-    function deleteEntireList():Object
-    {
-	    var oldI:Object,oldN:Object;
+    public function deleteEntireList():Object {
+	    var oldI:Object, oldN:Object;
 
 	    info.oldI = {};
 	    node.oldN = {};
 	    if (head==null) return oReturn.DLL_NULL_LIST;
-	    do
-	    {
+	    do {
 		    info.oldI = head.info;
 		    node.oldN = head;
 		    head = head.next;
@@ -979,16 +935,16 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NORMAL;
 	}
 
-////////////////////////////////////
-// Search Functions
-////////////////////////////////////
+      ////////////////////////////////////
+      // Search Functions
+      ////////////////////////////////////
 
-// 22. findRecord --------------------------------
+      // 22. findRecord --------------------------------
 
 	/**
 	 * @method  findRecord
 	 * @description  Find a record in list with search criteria.
-	 * @usage  <pre>inst.findRecord(record,match,pFun);</pre>
+	 * @usage  <pre>inst.findRecord(record, match, pFun);</pre>
 	 * @param   record   (Object)  -- pointer to an info structure in list.
 	 * @param   match   (Object)  -- pointer to an info structure to match to list.
 	 * @param   pFun   (Function)  -- pointer to search function.
@@ -1000,10 +956,9 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NULL_FUNCTION -- pFun is null
      *                    </pre></blockquote>
 	**/
-	function findRecord(record:Object,match:Object,pFun:Function):Object
-	{
+	public function findRecord(record:Object, match:Object, pFun:Function):Object {
 	    var save:Number;
-	    var step:Object,dir:Object;
+	    var step:Object, dir:Object;
 
 	    node.step = {};
 	    oSrchDir.dir = {};
@@ -1013,8 +968,7 @@ class com.wis.types.lists.DoubleLink
 
 	    save = currentIndex;
 
-	    switch (searchOrigin)
-	    {
+	    switch (searchOrigin) {
 		    case oSrchOrigin.DLL_CURRENT:
 			    node.step = list.current;
 			    oSrchDir.dir = searchDir;
@@ -1034,10 +988,8 @@ class com.wis.types.lists.DoubleLink
 
 	    if (step==null) return oReturn.DLL_NULL_LIST;
 
-	    while (step!=null)
-	    {
-		    if ((pFun(step.info,match))==0)
-		    {
+	    while (step!=null) {
+		    if ((pFun(step.info, match))==0) {
 			    info.record = node.step.info;                   // *** TODO ?
 			    current = node.step;
 
@@ -1052,7 +1004,7 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NOT_FOUND;
 	}
 
-// 23. findNthRecord -----------------------------
+      // 23. findNthRecord -----------------------------
 
     /**
      * @method  findNthRecord
@@ -1063,7 +1015,7 @@ class com.wis.types.lists.DoubleLink
      *               system, in other words the current record is 0 (zero) so a
      *               skip value of 5 would return the 6th not the 5th record.
      *               Just think of 0-based array indexing.
-     * @usage  <pre>inst.findNthRecord(record,skip);</pre>
+     * @usage  <pre>inst.findNthRecord(record, skip);</pre>
      * @param   record   (Object)  -- record to hold return data.
      * @param   skip   (Number)  -- number of records to skip.
      * @return  (Object)  -- returns:
@@ -1073,11 +1025,10 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NOT_FOUND -- Index value is too large or wrong dir value (current record index remains unchanged)
      *                    </pre></blockquote>
     **/
-    function findNthRecord(record:Object,skip:Number):Object
-    {
+    public function findNthRecord(record:Object, skip:Number):Object {
 	    var save:Number;
 	    var nCnt:Number;
-	    var step:Object,dir:Object;
+	    var step:Object, dir:Object;
 
 	    node.step = {};
 	    oSrchDir.dir = {};
@@ -1085,8 +1036,7 @@ class com.wis.types.lists.DoubleLink
 	    save = currentIndex;
 	    info.record = record;
 
-	    switch (searchOrigin)
-	    {
+	    switch (searchOrigin) {
 		    case oSrchOrigin.DLL_CURRENT:
 			    node.step = current;
 			    oSrchDir.dir = searchDir;
@@ -1108,14 +1058,12 @@ class com.wis.types.lists.DoubleLink
 
 	    if (skip<=0 || ((oSrchDir.dir==oSrchDir.DLL_DOWN)
 	                     ? (listSize<(currentIndex+skip))
-	                     : (currentIndex<=skip)))
-		{
+	                     : (currentIndex<=skip))) {
 		    currentIndex = save;
 
 		    return oReturn.DLL_NOT_FOUND;
 		}
-	    switch (oSrchDir.dir)
-	    {
+	    switch (oSrchDir.dir) {
 		    case oSrchDir.DLL_DOWN:
 			    for (nCnt=0;nCnt<skip && node.step.next!=null;nCnt++) node.step = node.step.next;
 			    break;
@@ -1132,7 +1080,7 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NORMAL;
 	}
 
-// 24. getCurrentRecord --------------------------
+      // 24. getCurrentRecord --------------------------
 
     /**
      * @method  getCurrentRecord
@@ -1145,8 +1093,7 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NULL_LIST -- List is empty
      *                    </pre></blockquote>
     **/
-    function getCurrentRecord(record:Object):Object
-    {
+    public function getCurrentRecord(record:Object):Object {
         info.record = record;
 
 	    if (current==null) return oReturn.DLL_NULL_LIST;
@@ -1155,7 +1102,7 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NORMAL;
 	}
 
-// 25. getPriorRecord ----------------------------
+      // 25. getPriorRecord ----------------------------
 
     /**
      * @method  getPriorRecord
@@ -1169,8 +1116,7 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NOT_FOUND -- Beginning of list
      *                    </pre></blockquote>
     **/
-    function getPriorRecord(record:Object):Object
-    {
+    public function getPriorRecord(record:Object):Object {
         info.record = record;
 	    if (current==null) return oReturn.DLL_NULL_LIST;
 	    if (current.prior==null) return oReturn.DLL_NOT_FOUND;
@@ -1181,7 +1127,7 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NORMAL;
 	}
 
-// 26. getNextRecord -----------------------------
+      // 26. getNextRecord -----------------------------
 
     /**
      * @method  getNextRecord
@@ -1195,8 +1141,7 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NOT_FOUND -- End of list
      *                    </pre></blockquote>
     **/
-    function getNextRecord(record:Object):Object
-    {
+    public function getNextRecord(record:Object):Object {
         info.record = record;
 	    if (current==null) return oReturn.DLL_NULL_LIST;
 	    if (current.next==null) return oReturn.DLL_NOT_FOUND;
@@ -1207,7 +1152,7 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NORMAL;
 	}
 
-// 27. toString ----------------------------------
+      // 27. toString ----------------------------------
 
     /**
      * @method  toString
@@ -1215,8 +1160,7 @@ class com.wis.types.lists.DoubleLink
      * @usage  <pre>inst.toString();</pre>
      * @return  (String)  -- a string consisting of a list of class properties.
     **/
-    function toString():String
-    {
+    public function toString():String {
         var str:String;
 
         str = "    head: "+head+"\n"+
@@ -1235,11 +1179,11 @@ class com.wis.types.lists.DoubleLink
 	 }
 
 
-////////////////////////////////////
-// Input/Output Functions - not used - unsupported functions
-////////////////////////////////////
+      ////////////////////////////////////
+      // Input/Output Functions - not used - unsupported functions
+      ////////////////////////////////////
 
-// 28. saveList ----------------------------------
+      // 28. saveList ----------------------------------
 
     /**
      * @method  saveList
@@ -1255,20 +1199,17 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_NOT_MODIFIED -- Unmodified list no save was done
      *                    </pre></blockquote>
     **/
-    /*function saveList(path:Object):Object
-    {
-	    var step:Object,fp:Object;
+    /*function saveList(path:Object):Object {
+	    var step:Object, fp:Object;
 
 	    node.step = {};
 	    FILE.fp = {};
 	    if (head==null) return oReturn.DLL_NULL_LIST;
 	    if (modified==false) return oReturn.DLL_NOT_MODIFIED;
-	    if((FILE.fp=fopen(path,"wb"))==null) return oReturn.DLL_OPEN_ERROR; // *** TODO
+	    if((FILE.fp=fopen(path, "wb"))==null) return oReturn.DLL_OPEN_ERROR; // *** TODO
 	    node.step = head;
-	    while (node.step!=null)
-	    {
-		    if (fwrite(step.info,1,list.infoSize,FILE.fp)!=infoSize)
-		    {                                                            // *** TODO
+	    while (node.step!=null) {
+		    if (fwrite(step.info, 1, list.infoSize, FILE.fp)!=infoSize) {                                                            // *** TODO
 			    fclose(FILE.fp);                                         // *** TODO
 
 			    return oReturn.DLL_WRITE_ERROR;
@@ -1283,12 +1224,12 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.DLL_NORMAL;
 	}*/
 
-// 29. loadList ----------------------------------
+      // 29. loadList ----------------------------------
 
     /**
      * @method  loadList
      * @description  Load list to disk.
-     * @usage  <pre>inst.loadList(path,pFun);</pre>
+     * @usage  <pre>inst.loadList(path, pFun);</pre>
      * @param   path   (Object)  -- pointer to path and filename.
      * @param   pFun   (Object)  -- pointer to search function.
      * @return  (Object)  -- returns:
@@ -1299,27 +1240,24 @@ class com.wis.types.lists.DoubleLink
      *                    oReturn.DLL_READ_ERROR -- File read error
      *                    </pre></blockquote>
     **/
-    /*function loadList(path:Object,pFun:Object):Object
-    {
-	    var set:Object,fp:Object,ExitCode:Object;
+    /*function loadList(path:Object, pFun:Object):Object {
+	    var set:Object, fp:Object, ExitCode:Object;
 
 	    info.set = {};
 		FILE.fp = {};
 	    oReturn.ExitCode = {};
-	    if ((FILE.fp=fopen(path,"rb"))==null) return oReturn.DLL_OPEN_ERROR;  // *** TODO
+	    if ((FILE.fp=fopen(path, "rb"))==null) return oReturn.DLL_OPEN_ERROR;  // *** TODO
 	    this.deleteEntireList();
 	    head = tail = null;
 	    //if ((info.set=(info *)malloc(list.infoSize))==null) return oReturn.DLL_MEM_ERROR; // *** TODO
         if (info.set==null) return oReturn.DLL_MEM_ERROR;
-	    for(;;)
-	    {
-		    if (fread(set,1,infoSize,FILE.fp)!=infoSize)
-		    {           // *** TODO
+	    for(;;) {
+		    if (fread(set, 1, infoSize, FILE.fp)!=infoSize) {           // *** TODO
 			    if (feof(FILE.fp)) oReturn.ExitCode = oReturn.DLL_NORMAL;            // *** TODO
 			    else oReturn.ExitCode = oReturn.DLL_READ_ERROR;
 			    break;
 			}
-		    if ((oReturn.ExitCode=addRecord(info.set,pFun))==oReturn.DLL_MEM_ERROR) break;
+		    if ((oReturn.ExitCode=addRecord(info.set, pFun))==oReturn.DLL_MEM_ERROR) break;
 		}
 	    if (!pFun) modified = false;
 	    delete info.set;
@@ -1328,5 +1266,6 @@ class com.wis.types.lists.DoubleLink
 	    return oReturn.ExitCode;
 	}*/
 
-}
+}// class
+}//package
 

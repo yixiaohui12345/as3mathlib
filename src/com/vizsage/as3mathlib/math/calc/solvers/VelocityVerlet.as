@@ -1,5 +1,9 @@
+package com.wis3.math.calc.solvers {
+	import com.wis3.math.calc.IODESolver;
+	import com.wis3.math.calc.IODE;
+	
 /**
- * @class       com.wis.math.calc.solvers.VelocityVerlet
+ * @class       com.wis3.math.calc.solvers.VelocityVerlet
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description VelocityVerlet:  A velocity Verlet method IODE solver. The velocity
@@ -10,7 +14,7 @@
  *              at the new position, and then the velocity is updated.
  *
  *              <pre> x(n+1) = x(n) + v(n)* dt + a(n)*dt*dt/2
- *              a_est=F(x(n+1),v(n),t)/m
+ *              a_est=F(x(n+1), v(n), t)/m
  *              v(n+1) = v(n) + (a(n)+a_est)*dt/2</pre>
  *
  *              CAUTION! The IODE interface produces an inefficient implementation
@@ -29,8 +33,8 @@
  * -----------------------------------------------
  * Latest update: January 11, 2005
  * -----------------------------------------------
- * AS2  revision copyright: © 2005, Richard Wright     [wisolutions2002@shaw.ca]
- * Java original copyright: © 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
+ * AS2  revision copyright: ï¿½ 2005, Richard Wright     [wisolutions2002@shaw.ca]
+ * Java original copyright: ï¿½ 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -71,10 +75,8 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.calc.*;
 
-class com.wis.math.calc.solvers.VelocityVerlet implements com.wis.math.calc.IODESolver
-{
+public class VelocityVerlet implements com.wis3.math.calc.IODESolver {
 	/**
 	 * @property $stepSize  (Number)  -- parameter increment such as delta time.
 	 * @property $numEqn  (Number)  -- number of equations.
@@ -88,13 +90,12 @@ class com.wis.math.calc.solvers.VelocityVerlet implements com.wis.math.calc.IODE
     private var $rate2:Array;  // rate with new positions
     private var $ode:IODE;
 
-    public function VelocityVerlet(_ode:IODE)
-    {
+    public function VelocityVerlet(_ode:IODE) {
         $ode = _ode;
         initialize($stepSize);
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  initialize
@@ -103,10 +104,9 @@ class com.wis.math.calc.solvers.VelocityVerlet implements com.wis.math.calc.IODE
      *                by invoking getState().length on the IODE.
      * @usage  <pre>inst.initialize(_stepSize);</pre>
      * @param   _stepSize  (Number) -- step integer.
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function initialize(_stepSize:Number):Void
-    {
+    public function initialize(_stepSize:Number):void {
         $stepSize = _stepSize;
         var state:Array = $ode.getState();
         // state vector not defined.
@@ -116,7 +116,7 @@ class com.wis.math.calc.solvers.VelocityVerlet implements com.wis.math.calc.IODE
         $rate2 = new Array($numEqn);
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  step
@@ -128,25 +128,30 @@ class com.wis.math.calc.solvers.VelocityVerlet implements com.wis.math.calc.IODE
      * @usage  <pre>inst.step();</pre>
      * @return  (Number)  -- returns step size.
     **/
-    public function step():Number
-    {
+    public function step():Number {
+    	var i:uint;
         // state[]: x1, d x1/dt, x2, d x2/dt .... xN, d xN/dt, t
         var state:Array = $ode.getState();
         if (state.length!=$numEqn) initialize($stepSize);
-        $ode.getRate(state,$rate1);  // get the initial rate
-        var dt2:Number = $stepSize*$stepSize;  // the step size squared
+        $ode.getRate(state, $rate1);  			// get the initial rate
+        var dt2:Number = $stepSize*$stepSize;  	// the step size squared
+        
         // increment the positions using the velocity and acceleration
-        for (var i:Number=0;i<$numEqn-1;i+=2)
+        for (i=0;i<$numEqn-1;i+=2) {
             state[i] = state[i]+$stepSize*$rate1[i]+dt2*$rate1[i+1]/2;
-        $ode.getRate(state,$rate2);  // get rate using the new positions
-        for (var i:Number=1;i<$numEqn-1;i+=2)
+        }
+        
+        $ode.getRate(state, $rate2);  			// get rate using the new positions
+        for (i=1;i<$numEqn-1;i+=2) {
             // increment the velocities with the average rate
             state[i] = state[i]+$stepSize*($rate1[i]+$rate2[i])/2.0;
+        }
+        
         state[$numEqn-1] += $rate1[$numEqn-1]*$stepSize;  // increment the independent parameter
         return $stepSize;
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  setStepSize
@@ -154,14 +159,13 @@ class com.wis.math.calc.solvers.VelocityVerlet implements com.wis.math.calc.IODE
      *                algorithm.
      * @usage  <pre>inst.setStepSize(_stepSize);</pre>
      * @param   _stepSize  (Number) -- step integer.
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function setStepSize(_stepSize:Number):Void
-    {
+    public function setStepSize(_stepSize:Number):void {
         $stepSize = _stepSize;
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  getStepSize
@@ -169,23 +173,22 @@ class com.wis.math.calc.solvers.VelocityVerlet implements com.wis.math.calc.IODE
      * @usage  <pre>inst.getStepSize();</pre>
      * @return  (Number)  -- returns step size.
     **/
-    public function getStepSize():Number
-    {
+    public function getStepSize():Number {
         return $stepSize;
     }
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  setTolerance
      * @description   Abstract interface method.
      * @usage  <pre>not used.</pre>
      * @param   _tol  (Number) -- .
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function setTolerance(_tol:Number):Void {}
+    public function setTolerance(_tol:Number):void {}
 
-// ---------------------------------------------
+      // ---------------------------------------------
 
     /**
      * @method  getTolerance
@@ -194,5 +197,6 @@ class com.wis.math.calc.solvers.VelocityVerlet implements com.wis.math.calc.IODE
      * @return  (Number)
     **/
     public function getTolerance():Number {return 1.0e-9;}
-}
+}// class
+}//package
 

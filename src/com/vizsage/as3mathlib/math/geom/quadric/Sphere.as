@@ -1,26 +1,27 @@
+package com.wis3.math.geom.quadric {
 /**
- * @class       com.wis.math.geom.quadric.Sphere
+ * @class       com.wis3.math.geom.quadric.Sphere
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Sphere Class.
  *              <p>
  *		        Provides methods for the IObj interface based on JS RayTracer2 by
  *              John Haggerty.
- * @usage       <pre>var inst:Sphere= new Sphere(pos,rad);</pre>
+ * @usage       <pre>var inst:Sphere= new Sphere(pos, rad);</pre>
  * @param       pos (Vector)  -- a position Vector object.
  * @param       rad (Number)  -- a real number for radius value.
  * -----------------------------------------------
  * Latest update: August 2, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis.math.alg.Vector
- *                com.wis.math.geom.polytope.Box
- *                com.wis.math.geom.util.Intersection
- *                com.wis.math.geom.util.Ray
- *                com.wis.types.IObj
- *                com.wis.types.Obj
+ * Dependencies:  com.wis3.math.alg.Vector
+ *                com.wis3.math.geom.polytope.Box
+ *                com.wis3.math.geom.util.Intersection
+ *                com.wis3.math.geom.util.Ray
+ *                com.wis3.types.IObj
+ *                com.wis3.types.Obj
  * -----------------------------------------------
- * AS2 revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
- * JS  original copyright © 2003, John Haggerty  [http://www.slimeland.com/]
+ * AS2 revision copyright ï¿½ 2004, Richard Wright [wisolutions2002@shaw.ca]
+ * JS  original copyright ï¿½ 2003, John Haggerty  [http://www.slimeland.com/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -48,7 +49,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * -----------------------------------------------
  *   Functions:
- *       Sphere(pos,rad)
+ *       Sphere(pos, rad)
  *             1.  copy()
  *             2.  initialize()
  *             3.  findIntersectionsUntransformed(ray)
@@ -65,35 +66,33 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.alg.Vector;
-import com.wis.math.geom.polytope.Box;
-import com.wis.math.geom.util.Intersection;
-import com.wis.math.geom.util.Ray;
-import com.wis.types.IObj;
-import com.wis.types.Obj;
+import com.wis3.math.alg.Vector;
+import com.wis3.math.geom.polytope.Box;
+import com.wis3.math.geom.util.Intersection;
+import com.wis3.math.geom.util.Ray;
+import com.wis3.types.IObj;
+import com.wis3.types.Obj;
 
-class com.wis.math.geom.quadric.Sphere extends Obj implements IObj
-{
+public class Sphere extends Obj implements IObj {
 	/**
 	 * @property $pos (Vector)  -- a position Vector object.
 	 * @property $negPos (Vector)  -- a position Vector object.
 	 * @property $rad (Number)  -- a real number for radius value.
 	 * @property $radSquared (Number)  -- a real number for square of radius value.
 	**/
-    var $pos:Vector;
-    var $negPos:Vector;
-    var $rad:Number;
-    var $radSquared:Number;
+    public var $pos:Vector;
+    public var $negPos:Vector;
+    public var $rad:Number;
+    public var $radSquared:Number;
 
     // constructor
-    function Sphere(pos:Vector,rad:Number)
-    {
+    public function Sphere(pos:Vector, rad:Number) {
     	$pos = pos;
     	$rad = rad;
     	this.setupDefaultModifiers();
     }
 
-// 1. copy ---------------------------------------
+      // 1. copy ---------------------------------------
 
     /**
      * @method  copy
@@ -101,29 +100,27 @@ class com.wis.math.geom.quadric.Sphere extends Obj implements IObj
      * @usage  <pre>inst.copy();</pre>
      * @return  (Obj)  -- returns a new Sphere object populated with super's properties.
     **/
-    function copy():Obj
-    {
-    	return this.copyModifiers(new Sphere($pos.copy(),$rad));
+    override public function copy():Obj {
+    	return this.copyModifiers(new Sphere($pos.copy(), $rad));
     }
 
-// 2. initialize ---------------------------------
+      // 2. initialize ---------------------------------
 
     /**
      * @method  initialize
      * @description  Initializes this instance's bounding box and its super's low-level properties,
      *               and defines $radSquared and $negPos properties.
      * @usage  <pre>inst.initialize();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function initialize():Void
-    {
-    	this.$boundedBy = new Box(Vector.adder(new Vector(-$rad,-$rad,-$rad),$pos),Vector.adder(new Vector($rad,$rad,$rad),$pos),true);
+    override public function initialize():void {
+    	this.$boundedBy = new Box(Vector.adder(new Vector(-$rad, -$rad, -$rad), $pos), Vector.adder(new Vector($rad, $rad, $rad), $pos), true);
     	$radSquared = $rad*$rad;
     	$negPos = Vector.neg($pos);
     	this.generalLowLevelObjectInitialization();
     }
 
-// 3. findIntersectionsUntransformed -------------
+      // 3. findIntersectionsUntransformed -------------
 
     /**
      * @method  findIntersectionsUntransformed
@@ -132,24 +129,23 @@ class com.wis.math.geom.quadric.Sphere extends Obj implements IObj
      * @param   ray   (Ray)  -- tracer object that defines its point and direction in 3-space.
      * @return  (Array)  -- returns a list of Intersection objects, or an empty list.
     **/
-    function findIntersectionsUntransformed(ray:Ray):Array
-    {
-    	var startMinusThisPos:Vector = Vector.adder(ray.$start,$negPos);
-    	var a:Number = Vector.dot(ray.$dir,ray.$dir);
-    	var b:Number = 2*Vector.dot(startMinusThisPos,ray.$dir);
-    	var c:Number = Vector.dot(startMinusThisPos,startMinusThisPos)-$radSquared;
+    override public function findIntersectionsUntransformed(ray:Ray):Array {
+    	var startMinusThisPos:Vector = Vector.adder(ray.$start, $negPos);
+    	var a:Number = Vector.dot(ray.$dir, ray.$dir);
+    	var b:Number = 2*Vector.dot(startMinusThisPos, ray.$dir);
+    	var c:Number = Vector.dot(startMinusThisPos, startMinusThisPos)-$radSquared;
     	var discriminant:Number = b*b-4*a*c;
 
     	if (discriminant<0) return [];
-    	if (discriminant==0) return [new Intersection(-b/(2*a),ray,this)];
+    	if (discriminant==0) return [new Intersection(-b/(2*a), ray, this)];
 
     	var sqrtDiscriminant:Number = Math.sqrt(discriminant);
     	var oneOverTwoA:Number = 1/(2*a);
 
-    	return [new Intersection((-b-sqrtDiscriminant)*oneOverTwoA,ray,this),new Intersection((sqrtDiscriminant-b)*oneOverTwoA,ray,this)];
+    	return [new Intersection((-b-sqrtDiscriminant)*oneOverTwoA, ray, this), new Intersection((sqrtDiscriminant-b)*oneOverTwoA, ray, this)];
     };
 
-// 4. isPointInsideUntransformed -----------------
+      // 4. isPointInsideUntransformed -----------------
 
     /**
      * @method  isPointInsideUntransformed
@@ -158,14 +154,13 @@ class com.wis.math.geom.quadric.Sphere extends Obj implements IObj
      * @param   pos   (Vector)  -- a position Vector object.
      * @return  (Boolean)
     **/
-    function isPointInsideUntransformed(pos:Vector):Boolean
-    {
-    	var a:Vector = Vector.adder(pos,$negPos);
+    override public function isPointInsideUntransformed(pos:Vector):Boolean {
+    	var a:Vector = Vector.adder(pos, $negPos);
 
     	return (a._lenSq<=$radSquared);
     }
 
-// 5. getNormalAtUntransformed -------------------
+      // 5. getNormalAtUntransformed -------------------
 
     /**
      * @method  getNormalAtUntransformed
@@ -174,10 +169,10 @@ class com.wis.math.geom.quadric.Sphere extends Obj implements IObj
      * @param   pos   (Vector)  -- a position Vector object.
      * @return  (Vector)  -- returns normal of untransformed vector.
     **/
-    function getNormalAtUntransformed(pos:Vector):Vector
-    {
-    	return Vector.adder(pos,$negPos);
+    override public function getNormalAtUntransformed(pos:Vector):Vector {
+    	return Vector.adder(pos, $negPos);
     }
 
-}
+}// class
+}//package
 

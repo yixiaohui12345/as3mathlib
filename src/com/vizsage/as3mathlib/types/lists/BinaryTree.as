@@ -1,5 +1,6 @@
+package com.wis3.types.lists {
 /**
- * @class       com.wis.types.lists.BinaryTree
+ * @class       com.wis3.types.lists.BinaryTree
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the BinaryTree Class.
@@ -11,12 +12,12 @@
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * Dependency:  com.wis.types.lists.Node
+ * Dependency:  com.wis3.types.lists.Node
  * -----------------------------------------------
  * Reference:   http://cslibrary.stanford.edu/110/BinaryTrees.html
  * -----------------------------------------------
- * AS2  revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
- * Java original copyright © 2003, Nick Parlante  [nick.parlante@cs.stanford.edu]
+ * AS2  revision copyright ï¿½ 2004, Richard Wright [wisolutions2002@shaw.ca]
+ * Java original copyright ï¿½ 2003, Nick Parlante  [nick.parlante@cs.stanford.edu]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -46,9 +47,9 @@
  *   Functions:
  *       BinaryTree()
  *           1.  lookup(data)
- *           2.  lookupRecurs(node,data)
+ *           2.  lookupRecurs(node, data)
  *           3.  insert(data)
- *           4.  insertRecurs(node,data)
+ *           4.  insertRecurs(node, data)
  *           5.  size()
  *           6.  sizeRecurs(node)
  *           7.  maxDepth()
@@ -62,45 +63,43 @@
  *           15. printPostOrder()
  *           16. printPostOrderRecurs(node)
  *           17. hasPathSum(sum)
- *           18. hasPathSumRecurs(node,sum)
+ *           18. hasPathSumRecurs(node, sum)
  *           19. printPaths()
- *           20. printPathsRecurs(node,path,pathLen)
- *           21. printArray(ints,len)
+ *           20. printPathsRecurs(node, path, pathLen)
+ *           21. printArray(ints, len)
  *           22. mirror()
  *           23. mirrorRecurs(node)
  *           24. doubleTree()
  *           25. doubleTreeRecurs(node)
  *           26. sameTree(other)
- *           27. sameTreeRecurs(a,b)
+ *           27. sameTreeRecurs(a, b)
  *           28. countTreesRecurs(numKeys)
  *           29. isBST()
  *           30. isBSTRecurs(node)
  *           31. isBST2()
- *           32. isBST2Recurs(node,min,max)
+ *           32. isBST2Recurs(node, min, max)
  *  ----------------------------------------------
  *  Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
  *  ----------------------------------------------
 **/
 
-import com.wis.types.lists.Node;
+import com.wis3.types.lists.Node;
 
-class com.wis.types.lists.BinaryTree
-{
+public class BinaryTree  {
 	/**
 	 * @property $root (Node) -- will be null for an empty tree.
 	 * @property $debug (String)  -- debug mode results.
 	**/
-    var $root:Node;
-    var $debug:String = "Debug\n";
+    public var $root:Node;
+    public var $debug:String = "Debug\n";
 
     // constructor
-    function BinaryTree()
-    {
+    public function BinaryTree() {
         $root = null;
     }
 
-// 1. lookup -------------------------------------
+      // 1. lookup -------------------------------------
 
     /**
      * @method  lookup
@@ -109,71 +108,65 @@ class com.wis.types.lists.BinaryTree
      * @param   data   (Number)  -- a real number.
      * @return  (Boolean)  -- returns true if the given target is in the binary tree.
     **/
-    public function lookup(data:Number):Boolean
-    {
-        return (lookupRecurs($root,data));
+    public function lookup(data:Number):Boolean {
+        return (lookupRecurs($root, data));
     }
 
-// 2. lookupRecurs -------------------------------
+      // 2. lookupRecurs -------------------------------
 
     /**
      * @method  lookupRecurs
      * @description  Recursive lookup  -- given a node, recur down searching
      *               for the given data.
-     * @usage  <pre>inst.lookupRecurs(node,data);</pre>
+     * @usage  <pre>inst.lookupRecurs(node, data);</pre>
      * @param   node   (Node)  -- a Node instance ($root).
      * @param   data   (Number)  -- a real number.
      * @return  (Boolean)
     **/
-    private function lookupRecurs(node:Node,data:Number):Boolean
-    {
+    private function lookupRecurs(node:Node, data:Number):Boolean {
         if (node==null) return false;
         if (data==node.$data) return true;
-        else if (data<node.$data) return(lookupRecurs(node.$left,data));
-        else return lookupRecurs(node.$right,data);
+        else if (data<node.$data) return(lookupRecurs(node.$left, data));
+        else return lookupRecurs(node.$right, data);
     }
 
-// 3. insert  ------------------------------------
+      // 3. insert  ------------------------------------
 
     /**
      * @method  insert
      * @description  Public -- inserts the given data into the binary tree.
      * @usage  <pre>inst.insert(data);</pre>
      * @param   data   (Number)  -- a real number.
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function insert(data:Number):Void
-    {
-        $root = insertRecurs($root,data);
+    public function insert(data:Number):void {
+        $root = insertRecurs($root, data);
     }
 
-// 4. insertRecurs -------------------------------
+      // 4. insertRecurs -------------------------------
 
     /**
      * @method  insertRecurs
      * @description  Recursive insert -- given a node pointer, recur down and
      *               insert the given data into the tree.
-     * @usage  <pre>inst.insertRecurs(node,data);</pre>
+     * @usage  <pre>inst.insertRecurs(node, data);</pre>
      * @param   node   (Node)  -- a Node instance ($root).
      * @param   data   (Number)  -- a real number.
      * @return  (Node)  -- returns the new node pointer (the standard way to communicate a changed pointer back to the caller).
     **/
-    private function insertRecurs(node:Node,data:Number):Node
-    {
-        if (node==null)
-        {
+    private function insertRecurs(node:Node, data:Number):Node {
+        if (node==null) {
             node = new Node(data);
         }
-        else
-        {
-            if (data<=node.$data) node.$left = insertRecurs(node.$left,data);
-            else node.$right = insertRecurs(node.$right,data);
+        else {
+            if (data<=node.$data) node.$left = insertRecurs(node.$left, data);
+            else node.$right = insertRecurs(node.$right, data);
         }
 
         return node; // in any case, return the new pointer to the caller
     }
 
-// 5. size ---------------------------------------
+      // 5. size ---------------------------------------
 
     /**
      * @method  size
@@ -182,12 +175,11 @@ class com.wis.types.lists.BinaryTree
      * @usage  <pre>inst.size();</pre>
      * @return  (Number)  -- returns the number of nodes in the tree.
     **/
-    public function size():Number
-    {
+    public function size():Number {
         return sizeRecurs($root);
     }
 
-// 6. sizeRecurs ---------------------------------
+      // 6. sizeRecurs ---------------------------------
 
     /**
      * @method  sizeRecurs
@@ -196,13 +188,12 @@ class com.wis.types.lists.BinaryTree
      * @param   node   (Node)  -- a Node instance ($root).
      * @return  (Number)  -- returns the number of nodes in the tree.
     **/
-    private function sizeRecurs(node:Node):Number
-    {
+    private function sizeRecurs(node:Node):Number {
         if (node==null) return(0);
         else return (sizeRecurs(node.$left)+1+sizeRecurs(node.$right));
     }
 
-// 7. maxDepth  ----------------------------------
+      // 7. maxDepth  ----------------------------------
 
     /**
      * @method  maxDepth
@@ -211,12 +202,11 @@ class com.wis.types.lists.BinaryTree
      * @usage  <pre>inst.maxDepth();</pre>
      * @return  (Number)  -- returns the max $root-to-leaf depth of the tree.
     **/
-    public function maxDepth():Number
-    {
+    public function maxDepth():Number {
         return maxDepthRecurs($root);
     }
 
-// 8. maxDepthRecurs -----------------------------
+      // 8. maxDepthRecurs -----------------------------
 
      //Recursive helper function
 
@@ -227,23 +217,20 @@ class com.wis.types.lists.BinaryTree
      * @param   node   (Node)  -- a Node instance ($root).
      * @return  (Number)  -- returns the max $root-to-leaf depth of the tree.
     **/
-    private function maxDepthRecurs(node:Node):Number
-    {
-        if (node==null)
-        {
+    private function maxDepthRecurs(node:Node):Number {
+        if (node==null) {
             return 0;
         }
-        else
-        {
+        else {
             var lDepth:Number = maxDepthRecurs(node.$left);
             var rDepth:Number = maxDepthRecurs(node.$right);
 
             // use the larger + 1
-            return (Math.max(lDepth,rDepth)+1);
+            return (Math.max(lDepth, rDepth)+1);
         }
     }
 
-// 9. minValue -----------------------------------
+      // 9. minValue -----------------------------------
 
      //Returns the min value in a non-empty binary search tree.
      //Uses a helper method that iterates to the left to find
@@ -256,12 +243,11 @@ class com.wis.types.lists.BinaryTree
      * @usage  <pre>inst.minValue();</pre>
      * @return  (Number)  -- returns the min value in a non-empty binary search tree.
     **/
-    public function minValue():Number
-    {
+    public function minValue():Number {
         return minValueIter($root);
     }
 
-// 10. minValueIter ------------------------------
+      // 10. minValueIter ------------------------------
 
     /**
      * @method  minValueIter
@@ -270,8 +256,7 @@ class com.wis.types.lists.BinaryTree
      * @param   node   (Node)  -- a Node instance ($root).
      * @return  (Number)  -- returns the min value in a non-empty binary search tree.
     **/
-    private function minValueIter(node:Node):Number
-    {
+    private function minValueIter(node:Node):Number {
         var current:Node = node;
 
         while (current.$left!=null) current = current.$left;
@@ -279,7 +264,7 @@ class com.wis.types.lists.BinaryTree
         return current.$data;
     }
 
-// 11. maxValue ----------------------------------
+      // 11. maxValue ----------------------------------
 
 	/**
 	 * @method  maxValue
@@ -288,12 +273,11 @@ class com.wis.types.lists.BinaryTree
 	 * @usage  <pre>inst.maxValue();</pre>
 	 * @return  (Number)  -- returns the max value in a non-empty binary search tree.
 	**/
-	public function maxValue():Number
-	{
+	public function maxValue():Number {
 	    return maxValueIter($root);
 	}
 
-// 12. maxValueIter -------------------------------
+      // 12. maxValueIter -------------------------------
 
 	/**
 	 * @method  maxValueIter
@@ -303,40 +287,35 @@ class com.wis.types.lists.BinaryTree
 	 * @param   node   (Node)  -- a Node instance ($root).
 	 * @return  (Number)  -- returns the max value in a non-empty binary search tree.
 	**/
-	private function maxValueIter(node:Node):Number
-	{
+	private function maxValueIter(node:Node):Number {
 	    var current:Node = node;
-
-	    while (current.$right!=null) current = current.$right;
-
+	    while  (current.$right!=null) { current = current.$right; }
 	    return current.$data;
     }
 
-// 13. printTree ----------------------------------
+      // 13. printTree ----------------------------------
 
     /**
      * @method  printTree
      * @description  Public -- prints the node values in the 'inorder' order.
      * @usage  <pre>inst.printTree();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function printTree():Void
-    {
+    public function printTree():void {
         $debug += "\n## printTree\n\n";
         printTreeRecurs($root);
     }
 
-// 14. printTreeRecurs ----------------------------
+      // 14. printTreeRecurs ----------------------------
 
     /**
      * @method  printTreeRecurs
      * @description  Recursive helper to do the tree traversal.
      * @usage  <pre>inst.printTreeRecurs(node);</pre>
      * @param   node   (Node)  -- a Node instance ($root).
-     * @return  (Void)
+     * @return  (void)
     **/
-    private function printTreeRecurs(node:Node):Void
-    {
+    private function printTreeRecurs(node:Node):void {
         $debug += "printTreeRecurs\n";
         if (node==null) return;
 
@@ -348,31 +327,29 @@ class com.wis.types.lists.BinaryTree
         printTreeRecurs(node.$right);
     }
 
-// 15. printPostOrder -----------------------------
+      // 15. printPostOrder -----------------------------
 
     /**
      * @method  printPostOrder
      * @description  Public -- prints the node values in the 'postOrder' order.
      * @usage  <pre>inst.printPostOrder();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function printPostOrder():Void
-    {
+    public function printPostOrder():void {
         $debug += "\n## printPostOrder\n\n";
         printPostOrderRecurs($root);
     }
 
-// 16. printPostOrderRecurs -----------------------
+      // 16. printPostOrderRecurs -----------------------
 
     /**
      * @method  printPostOrderRecurs
      * @description  Recursive helper to do the tree traversal.
      * @usage  <pre>inst.printPostOrderRecurs(node);</pre>
      * @param   node   (Node)  -- a Node instance ($root).
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function printPostOrderRecurs(node:Node):Void
-    {
+    public function printPostOrderRecurs(node:Node):void {
         $debug += "printPostOrderRecurs\n";
         if (node==null) return;
 
@@ -386,7 +363,7 @@ class com.wis.types.lists.BinaryTree
         $debug += "printPostOrderRecurs.node.$data: "+node.$data+"\n";
     }
 
-// 17. hasPathSum ---------------------------------
+      // 17. hasPathSum ---------------------------------
 
     /**
      * @method  hasPathSum
@@ -400,65 +377,60 @@ class com.wis.types.lists.BinaryTree
      * @param   sum   (Number)  -- a real number.
      * @return  (Boolean)  -- returns true if there is a path from the $root down to a leaf.
     **/
-    public function hasPathSum(sum:Number):Boolean
-    {
-        return hasPathSumRecurs($root,sum);
+    public function hasPathSum(sum:Number):Boolean {
+        return hasPathSumRecurs($root, sum);
     }
 
-// 18. hasPathSumRecurs ---------------------------
+      // 18. hasPathSumRecurs ---------------------------
 
     /**
      * @method  hasPathSumRecurs
      * @description  Recursive helper that sums the path data.
-     * @usage  <pre>inst.hasPathSumRecurs(node,sum);</pre>
+     * @usage  <pre>inst.hasPathSumRecurs(node, sum);</pre>
      * @param   node   (Node)  -- a Node instance ($root).
      * @param   sum   (Number)  -- a real number.
      * @return  (Boolean)
     **/
-    function hasPathSumRecurs(node:Node,sum:Number):Boolean
-    {
+    public function hasPathSumRecurs(node:Node, sum:Number):Boolean {
         // return true if we run out of tree and sum==0
         if (node==null) return (sum==0);
-        else
-        {
+        else {
             // otherwise check both subtrees
             var subSum:Number = sum-node.$data;
 
-            return (hasPathSumRecurs(node.$left,subSum) || hasPathSumRecurs(node.$right,subSum));
+            return (hasPathSumRecurs(node.$left, subSum) || hasPathSumRecurs(node.$right, subSum));
         }
     }
 
-// 19. printPaths ---------------------------------
+      // 19. printPaths ---------------------------------
 
     /**
      * @method  printPaths
      * @description  Public -- given a binary tree, prints out all of its
      *               $root-to-leaf paths, one per line.
      * @usage  <pre>inst.printPaths();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function printPaths():Void
-    {
+    public function printPaths():void {
         $debug += "\n## printPaths\n\n";
         var path:Array = new Array(1000);
-        printPathsRecurs($root,path,0);
+        printPathsRecurs($root, path, 0);
     }
 
-// 20. printPathsRecurs ---------------------------
+      // 20. printPathsRecurs ---------------------------
 
     /**
      * @method  printPathsRecurs
      * @description  Recursive helper -- given a node, and an array containing
      *               the path from the $root node up to but not including this
      *               node, prints out all the $root-leaf paths.
-     * @usage  <pre>inst.printPathsRecurs(node,path,pathLen);</pre>
+     * @usage  <pre>inst.printPathsRecurs(node, path, pathLen);</pre>
      * @param   node   (Node)  -- a Node instance ($root).
      * @param   path   (Array)  -- an empty array to hold pushed data.
      * @param   pathLen   (Number)  -- a positive integer.
-     * @return  (Void)
+     * @return  (void)
     **/
-    private function printPathsRecurs(node:Node,path:Array,pathLen:Number):Void
-    {
+    private function printPathsRecurs(node:Node, path:Array, pathLen:Number):void {
         $debug += "printPathsRecurs\n";
 
         if (node==null) return;
@@ -468,38 +440,35 @@ class com.wis.types.lists.BinaryTree
         pathLen++;
 
         // it's a leaf, so print the path that led to here
-        if (node.$left==null && node.$right==null)
-        {
-            printArray(path,pathLen);
+        if (node.$left==null && node.$right==null) {
+            printArray(path, pathLen);
         }
-        else
-        {
+        else {
             // otherwise try both subtrees
             $debug += "printPathsRecurs.node.$left\n";
-            printPathsRecurs(node.$left,path,pathLen);
+            printPathsRecurs(node.$left, path, pathLen);
             $debug += "printPathsRecurs.node.$right\n";
-            printPathsRecurs(node.$right,path,pathLen);
+            printPathsRecurs(node.$right, path, pathLen);
         }
     }
 
-// 21. printArray ---------------------------------
+      // 21. printArray ---------------------------------
 
     /**
      * @method  printArray
      * @description  Public -- utility that prints ints from an array on one line.
-     * @usage  <pre>inst.printArray(ints,len);</pre>
+     * @usage  <pre>inst.printArray(ints, len);</pre>
      * @param   ints   (Array)  -- a holder for path elements.
      * @param   len   (Number)  -- a positive integer.
-     * @return  (Void)
+     * @return  (void)
     **/
-    private function printArray(ints:Array,len:Number):Void
-    {
+    private function printArray(ints:Array, len:Number):void {
         $debug += "printArray\n";
         var i:Number;
         for (i=0;i<len;i++) $debug += "ints["+i+"]: "+ints[i]+"\n";
     }
 
-// 22. mirror  -------------------------------------
+      // 22. mirror  -------------------------------------
 
     /**
      * @method  mirror
@@ -520,15 +489,14 @@ class com.wis.types.lists.BinaryTree
      *               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3   1
      *               </pre></blockquote>
      * @usage  <pre>inst.mirror();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function mirror():Void
-    {
+    public function mirror():void {
         $debug += "\n## mirror\n\n";
         mirrorRecurs($root);
     }
 
-// 23. mirrorRecurs --------------------------------
+      // 23. mirrorRecurs --------------------------------
 
     /**
      * @method  mirrorRecurs
@@ -536,13 +504,11 @@ class com.wis.types.lists.BinaryTree
      *               the left/right pointers.
      * @usage  <pre>inst.mirrorRecurs(node);</pre>
      * @param   node   (Node)  -- a Node instance ($root).
-     * @return  (Void)
+     * @return  (void)
     **/
-    private function mirrorRecurs(node:Node):Void
-    {
+    private function mirrorRecurs(node:Node):void {
         $debug += "mirrorRecurs\n";
-        if (node!=null)
-        {
+        if (node!=null) {
             // do the sub-trees
             $debug += "mirrorRecurs.node.$left\n";
             mirrorRecurs(node.$left);
@@ -556,7 +522,7 @@ class com.wis.types.lists.BinaryTree
         }
     }
 
-// 24. doubleTree  ---------------------------------
+      // 24. doubleTree  ---------------------------------
 
     /**
      * @method  doubleTree
@@ -578,15 +544,14 @@ class com.wis.types.lists.BinaryTree
      *               1
      *               </pre></blockquote>
      * @usage  <pre>inst.doubleTree();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function doubleTree():Void
-    {
+    public function doubleTree():void {
         $debug += "\n## doubleTree\n\n";
         doubleTreeRecurs($root);
     }
 
-// 25. doubleTreeRecurs ----------------------------
+      // 25. doubleTreeRecurs ----------------------------
 
     /**
      * @method  doubleTreeRecurs
@@ -594,10 +559,9 @@ class com.wis.types.lists.BinaryTree
      *               the duplicates.
      * @usage  <pre>inst.doubleTreeRecurs(node);</pre>
      * @param   node   (Node)  -- a Node instance ($root).
-     * @return  (Void)
+     * @return  (void)
     **/
-    private function doubleTreeRecurs(node:Node):Void
-    {
+    private function doubleTreeRecurs(node:Node):void {
         $debug += "doubleTreeRecurs\n";
 
         var oldLeft:Node;
@@ -616,7 +580,7 @@ class com.wis.types.lists.BinaryTree
         node.$left.$left = oldLeft;
     }
 
-// 26. sameTree ------------------------------------
+      // 26. sameTree ------------------------------------
 
     /**
      * @method  sameTree
@@ -626,35 +590,31 @@ class com.wis.types.lists.BinaryTree
      * @param   other   (BinaryTree)  -- passed tree for comparison.
      * @return  (Boolean)
     **/
-    public function sameTree(other:BinaryTree):Boolean
-    {
-        return (sameTreeRecurs($root,other.$root));
+    public function sameTree(other:BinaryTree):Boolean {
+        return (sameTreeRecurs($root, other.$root));
     }
 
-// 27. sameTreeRecurs ------------------------------
+      // 27. sameTreeRecurs ------------------------------
 
     /**
      * @method  sameTreeRecurs
      * @description  Recursive helper -- recurs down two trees in parallel,
      *               checking to see if they are identical.
-     * @usage  <pre>inst.sameTreeRecurs(a,b);</pre>
+     * @usage  <pre>inst.sameTreeRecurs(a, b);</pre>
      * @param   a   (Node)  -- a Node instance ($root).
      * @param   b   (Node)  -- a passed Node instance ($root).
      * @return  (Boolean)
     **/
-    function sameTreeRecurs(a:Node,b:Node):Boolean
-    {
+    public function sameTreeRecurs(a:Node, b:Node):Boolean {
         // 1. both empty -> true
         if (a==null && b==null) return true;
 
         // 2. both non-empty -> compare them
-        else if (a!=null && b!=null)
-        {
-            return
-            (
-                a.$data==b.$data &&
-                sameTreeRecurs(a.$left,b.$left) &&
-                sameTreeRecurs(a.$right,b.$right)
+        else if (a!=null && b!=null) {
+            return (
+                a.$data == b.$data &&
+                sameTreeRecurs(a.$left, b.$left) &&
+                sameTreeRecurs(a.$right, b.$right)
             );
         }
 
@@ -662,7 +622,7 @@ class com.wis.types.lists.BinaryTree
         else return false;
     }
 
-// 28. countTreesRecurs ----------------------------
+      // 28. countTreesRecurs ----------------------------
 
     /**
      * @method  countTreesRecurs
@@ -676,11 +636,9 @@ class com.wis.types.lists.BinaryTree
      * @param   numKeys   (Number)  -- a positive integer.
      * @return  (Number)  -- returns the number of possible trees with this $root == left*right.
     **/
-    public static function countTreesRecurs(numKeys:Number):Number
-    {
+    public static function countTreesRecurs(numKeys:Number):Number {
         if (numKeys<=1) return 1;
-        else
-        {
+        else {
             // there will be one value at the $root, with whatever remains
             // on the left and right each forming their own subtrees.
             // Iterate through all the values that could be the $root...
@@ -689,8 +647,7 @@ class com.wis.types.lists.BinaryTree
             var right:Number;
             var rootNum:Number;
 
-            for (rootNum=1;rootNum<=numKeys;rootNum++)
-            {
+            for (rootNum=1;rootNum<=numKeys;rootNum++) {
                 left = countTreesRecurs(rootNum-1);
                 right = countTreesRecurs(numKeys-rootNum);
 
@@ -702,7 +659,7 @@ class com.wis.types.lists.BinaryTree
         }
     }
 
-// 29. isBST  --------------------------------------
+      // 29. isBST  --------------------------------------
 
     /**
      * @method  isBST
@@ -711,12 +668,11 @@ class com.wis.types.lists.BinaryTree
      * @usage  <pre>inst.isBST();</pre>
      * @return  (Boolean)
     **/
-    public function isBST():Boolean
-    {
+    public function isBST():Boolean {
         return isBSTRecurs($root);
     }
 
-// 30. isBSTRecurs ---------------------------------
+      // 30. isBSTRecurs ---------------------------------
 
     /**
      * @method  isBSTRecurs
@@ -726,20 +682,19 @@ class com.wis.types.lists.BinaryTree
      * @param   node   (Node)  -- a Node instance ($root).
      * @return  (Boolean)
     **/
-    private function isBSTRecurs(node:Node):Boolean
-    {
+    private function isBSTRecurs(node:Node):Boolean {
         if (node==null) return true;
 
         // do the subtrees contain values that do not
         // agree with the node?
-        if (node.$left!=null && this.maxValue(node.$left)>node.$data) return false;
-        if (node.$right!=null && this.minValue(node.$right)<=node.$data) return false;
+        if (node.$left  != null 	&& (node.$left  as BinaryTree).maxValue() >  node.$data) return false;
+        if (node.$right != null 	&& (node.$right as BinaryTree).minValue() <= node.$data) return false;
 
         // check that the subtrees themselves are ok
         return (isBSTRecurs(node.$left) && isBSTRecurs(node.$right));
     }
 
-// 31. isBST2 --------------------------------------
+      // 31. isBST2 --------------------------------------
 
     /**
      * @method  isBST2
@@ -748,12 +703,11 @@ class com.wis.types.lists.BinaryTree
      * @usage  <pre>inst.isBST2();</pre>
      * @return  (Boolean)
     **/
-    public function isBST2():Boolean
-    {
-        return (isBST2Recurs($root,Number.MIN_VALUE,Number.MAX_VALUE));
+    public function isBST2():Boolean {
+        return (isBST2Recurs($root, Number.MIN_VALUE, Number.MAX_VALUE));
     }
 
-// 32. isBST2Recurs  ------------------------------
+      // 32. isBST2Recurs  ------------------------------
 
     /**
      * @method  isBST2Recurs
@@ -761,42 +715,39 @@ class com.wis.types.lists.BinaryTree
      *               recurs down the tree to verify that it is a BST, and that all
      *               its nodes are within the min..max range. Works in O(n) time --
      *               visits each node only once.
-     * @usage  <pre>inst.isBST2Recurs(node,min,max);</pre>
+     * @usage  <pre>inst.isBST2Recurs(node, min, max);</pre>
      * @param   node   (Node)  -- a Node instance ($root).
      * @param   min   (Number)  -- Number.MIN_VALUE.
      * @param   max   (Number)  -- Number.MAX_VALUE.
      * @return  (Boolean)
     **/
-    private function isBST2Recurs(node:Node,min:Number,max:Number):Boolean
-    {
+    private function isBST2Recurs(node:Node, min:Number, max:Number):Boolean {
         if (node==null) return(true);
-        else
-        {
+        else {
             // left should be in range  min...node.data
-            var leftOk:Boolean = isBST2Recurs(node.$left,min,node.$data);
+            var leftOk:Boolean = isBST2Recurs(node.$left, min, node.$data);
 
             // if the left is not ok, bail out
             if (!leftOk) return false;
 
             // right should be in range node.data+1..max
-            var rightOk:Boolean = isBST2Recurs(node.$right,node.$data+1,max);
+            var rightOk:Boolean = isBST2Recurs(node.$right, node.$data+1, max);
 
             return rightOk;
         }
     }
 
-// Test
+      // Test
 
-// build123a -----------------------------------------
+      // build123a -----------------------------------------
 
     /**
      * @method  build123a
      * @description  Public -- tester using three pointer variables.
      * @usage  <pre>inst.build123a();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function build123a():Void
-    {
+    public function build123a():void {
         $root = new Node(2);
 
         var lChild:Node = new Node(1);
@@ -806,37 +757,36 @@ class com.wis.types.lists.BinaryTree
         $root.$right= rChild;
     }
 
-// build123b -----------------------------------------
+      // build123b -----------------------------------------
 
     /**
      * @method  build123b
      * @description  Public -- tester using one pointer variable.
      * @usage  <pre>inst.build123b();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function build123b():Void
-    {
+    public function build123b():void {
         $root = new Node(2);
         $root.$left = new Node(1);
         $root.$right = new Node(3);
     }
 
-// build123c -----------------------------------------
+      // build123c -----------------------------------------
 
     /**
      * @method  build123c
      * @description  Public -- tester calls insert() three times. Note that
      *               the '2' must be inserted first.
      * @usage  <pre>inst.build123c();</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function build123c():Void
-    {
+    public function build123c():void {
         $root = null;
-        $root = insertRecurs($root,2);
-        $root = insertRecurs($root,1);
-        $root = insertRecurs($root,3);
+        $root = insertRecurs($root, 2);
+        $root = insertRecurs($root, 1);
+        $root = insertRecurs($root, 3);
     }
 
-}
+}// class
+}//package
 

@@ -1,18 +1,19 @@
+package com.wis3.types.lists {
 /**
- * @class       com.wis.types.lists.Dictionary
+ * @class       com.wis3.types.lists.Dictionary
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the Dictionary Class.
  *              <p>
  *		        Provides methods for creatung a lookup dictionary, similar
  *              in concept to an associative array.
- * @usage       <pre>var inst:Dictionary = new Dictionary(keyList,dataList)</pre>
+ * @usage       <pre>var inst:Dictionary = new Dictionary(keyList, dataList)</pre>
  * @param       keyList (Array)  -- a list of categories.
  * @param       dataList (Array)  -- a list of category data.
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * AS2 copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
+ * AS2 copyright ï¿½ 2004, Richard Wright [wisolutions2002@shaw.ca]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -41,8 +42,8 @@
  * -----------------------------------------------
  *   Functions:
  *       Dictionary(arguments)
- *           1.  init(keyList,dataList)
- *           2.  addKey(key,data)
+ *           1.  init(keyList, dataList)
+ *           2.  addKey(key, data)
  *           3.  deleteKey(key)
  *           4.  getKeyData(key)
  *           5.  getKeyString(key)
@@ -54,65 +55,63 @@
  *  ----------------------------------------------
 **/
 
-class com.wis.types.lists.Dictionary extends Object
-{
+public class Dictionary extends Object {
 	/**
 	 * @property none  -- no class properties.
 	**/
 
-    function Dictionary(keyList:Array,dataList:Array)
-    {
+    public function Dictionary(keyList:Array = null, dataList:Array = null) {
+    	keyList  = (keyList == null)  ? (new Array()) : (keyList);
+    	dataList = (dataList == null) ? (new Array()) : (dataList);
+    	
         //trace ("Dictionary Class loaded");
-        if (arguments) this.init(keyList,dataList);
+        if (arguments) this.init(keyList, dataList);
     }
 
-// 1. init ---------------------------------------
+      // 1. init ---------------------------------------
 
     /**
      * @method  init
      * @description  Initializes this instance and populates it with input.
-     * @usage  <pre>inst.init(keyList,dataList);</pre>
+     * @usage  <pre>inst.init(keyList, dataList);</pre>
      * @param   keyList   (Array)  -- a list of categories.
      * @param   dataList   (Array)  -- a list of category data.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function init(keyList:Array,dataList:Array):Void
-    {
+    private function init(keyList:Array, dataList:Array):void {
         var j:Number;
 
-        for (j=0;j<keyList.length;j++) this[keyList[j]] = dataList[j];
+        for (j=0; j<keyList.length; j++) this[keyList[j]] = dataList[j];
     }
 
-// 2. addKey -------------------------------------
+      // 2. addKey -------------------------------------
 
     /**
      * @method  addKey
      * @description  Adds a category and its data to this instance.
-     * @usage  <pre>inst.addKey(key,data);</pre>
+     * @usage  <pre>inst.addKey(key, data);</pre>
      * @param   key   (String)  -- a new category.
      * @param   data   (Object)  -- new category data.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function addKey(key:String,data:Object):Void
-    {
+    public function addKey(key:String, data:Object):void {
         this[key] = data;
     }
 
-// 3. deleteKey ----------------------------------
+      // 3. deleteKey ----------------------------------
 
     /**
      * @method  deleteKey
      * @description  Deletes a category from this instance.
      * @usage  <pre>inst.deleteKey(key);</pre>
      * @param   key   (String)  -- a category for deletion.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function deleteKey(key:String):Void
-    {
+    public function deleteKey(key:String):void {
         delete this[key];
     }
 
-// 4. getKeyData ---------------------------------
+      // 4. getKeyData ---------------------------------
 
     /**
      * @method  getKeyData
@@ -121,12 +120,11 @@ class com.wis.types.lists.Dictionary extends Object
      * @param   key   (String)  -- a category that holds data for return.
      * @return  (Object)  --
     **/
-    function getKeyData(key:String):Object
-    {
+    public function getKeyData(key:String):Object {
         return this[key];
     }
 
-// 5. getKeyString -------------------------------
+      // 5. getKeyString -------------------------------
 
     /**
      * @method  getKeyString
@@ -135,12 +133,11 @@ class com.wis.types.lists.Dictionary extends Object
      * @param   key   (String)  -- a category for lookup.
      * @return  (String)  -- returns a string representation of a category and its data.
     **/
-    function getKeyString(key:String):String
-    {
+    public function getKeyString(key:String):String {
         return key+":"+this[key];
     }
 
-// 6. toString -----------------------------------
+      // 6. toString -----------------------------------
 
     /**
      * @method  toString
@@ -149,19 +146,20 @@ class com.wis.types.lists.Dictionary extends Object
      * @usage  <pre>inst.toString();</pre>
      * @return  (String)  -- returns a string representation of the entire dictionary.
     **/
-    function toString():String
-    {
+    public function toString():String {
         var arr:Array = [];
         var j:Number;
         var str:String = "";
 
-        for (var arg in this) arr.unshift(arg,this[arg]);
-        for (j=0;j<arr.length;j+=2) str += arr[j]+":"+arr[j+1]+",";
+        for (var arg:Object in this) arr.unshift(arg, this[arg]);
+        for (j=0;j<arr.length;j+=2) {
+        	str += arr[j] + ":" + arr[j+1] + ", ";
+        }
 
-        return str.substr(0,-1);
+        return str.substr(0, -1);
     }
 
-// 7. copyRecurs ---------------------------------
+      // 7. copyRecurs ---------------------------------
 
 	// I had to exclude the copying of functions, because it causes infinite
     // recursion. I haven't investigated this too much yet, but this code may serve
@@ -175,13 +173,11 @@ class com.wis.types.lists.Dictionary extends Object
      * @usage  <pre>var myCopiedObj = inst.copyRecurs();</pre>
      * @return  (Dictionary)  -- returns a copy of this instance as a new Dictionary.
     **/
-    function copyRecurs():Dictionary
-    {
+    public function copyRecurs():Dictionary {
 	    //var temp:Object = {};
 	    var temp:Dictionary = new Dictionary();
 
-	    for (var p in this)
-	    {
+	    for (var p:Object in this) {
 	        var pType:String = typeof this[p];
 	        trace (p+":"+pType);
 	        var pTypeIsPrimitive:Boolean =
@@ -192,17 +188,15 @@ class com.wis.types.lists.Dictionary extends Object
 	            pType=="boolean"
 	        );
 	        trace ("pTypeIsPrimitive:"+pTypeIsPrimitive);
-	        if (pTypeIsPrimitive)
-	        {
+	        if (pTypeIsPrimitive) {
 	            //temp[p] = this[p];
-	            temp.addKey(p,this[p]);
+	            temp.addKey(p.toString(), this[p]);
 	        }
-	        else
-	        {
+	        else {
 	            //if (pType!="function") temp[p] = this[p].copyRecurs();
 	            //else temp[p] = this[p].toString();
-	            if (pType!="function") this.init(temp[p],this[p].copyRecurs());
-	            else this.init(temp[p],this[p].getKeyString());
+	            if (pType!="function") this.init(temp[p], this[p].copyRecurs());
+	            else this.init(temp[p], this[p].getKeyString());
 	        }
 	   }
 	   trace ("temp:"+temp.toString());
@@ -210,5 +204,6 @@ class com.wis.types.lists.Dictionary extends Object
 	   return temp;
 	}
 
-}
+}// class
+}//package
 

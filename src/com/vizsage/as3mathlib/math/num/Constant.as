@@ -1,5 +1,6 @@
-﻿/**
- * @class       com.wis.math.num.Constant
+﻿package com.wis3.math.num {
+/**
+ * @class       com.wis3.math.num.Constant
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the static properties of the Constant Class.
@@ -52,8 +53,7 @@
  * -----------------------------------------------
 **/
 
-class com.wis.math.num.Constant
-{
+public class Constant  {
 	/**
 	 * @property DEG2RAD (Number)  -- static -- changes degrees to radians ... Math.PI/180.
 	 * @property RAD2DEG (Number)  -- static -- changes radians to degrees ... 180/Math.PI.
@@ -62,25 +62,26 @@ class com.wis.math.num.Constant
 	**/
 
     // 1. change degrees to radians ... Math.PI/180
-    static var DEG2RAD:Number = 0.0174532925199433;
+    public static var DEG2RAD:Number = 0.0174532925199433;
 
-// ------------------------------------------------------------
+      // ------------------------------------------------------------
 
     // 2. change radians to degrees ... 180/Math.PI
-    static var RAD2DEG:Number = 57.2957795130823;
+    public static var RAD2DEG:Number = 57.2957795130823;
 
-// ------------------------------------------------------------
+      // ------------------------------------------------------------
 
     // 3. the golden mean (phi) ... (1+Math.sqrt(5))/2
-    static var PHI:Number = 1.61803398874989;
+    public static var PHI:Number = 1.61803398874989;
 
-// ------------------------------------------------------------
+      // ------------------------------------------------------------
 
     // 4. Euler-Mascheroni constant (lambda or C)
     //        (    n              )
     //   lim  ( sigma 1/k - ln(n) )
     //  n->oo (   k=1             )
-    static var LAMBDA:Number = 0.57721566490143;
+    public static var LAMBDA:Number = 0.57721566490143;
 
-}
+}// class
+}//package
 

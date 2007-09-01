@@ -1,5 +1,6 @@
+package com.wis3.math.calc {
 /**
- * @interface   com.wis.math.calc.ode.IODESolver
+ * @interface   com.wis3.math.calc.IODESolver
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description IODESolver interface defines a minimal differential equation solver.
@@ -8,8 +9,8 @@
  * -----------------------------------------------
  * Latest update: September 19, 2004
  * -----------------------------------------------
- * AS2  revision copyright: © 2004, Richard Wright     [wisolutions2002@shaw.ca]
- * Java original copyright: © 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
+ * AS2  revision copyright: ï¿½ 2004, Richard Wright     [wisolutions2002@shaw.ca]
+ * Java original copyright: ï¿½ 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -50,10 +51,9 @@
  * -----------------------------------------------
 **/
 
-interface com.wis.math.calc.IODESolver
-{
+public interface IODESolver  {
 
-// 1. initialize ---------------------------------
+      // 1. initialize ---------------------------------
 
     /**
      * @method  initialize
@@ -63,11 +63,11 @@ interface com.wis.math.calc.IODESolver
      *               determined by invoking getState().length on the ODE.
      * @usage  <pre>inst.initialize(_stepSize);</pre>
      * @param _stepSize  (Number)  -- the step size.
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function initialize(_stepSize:Number):Void;
+    function initialize(_stepSize:Number):void;
 
-// 2. step ---------------------------------------
+      // 2. step ---------------------------------------
 
     /**
      * @method  step
@@ -79,9 +79,9 @@ interface com.wis.math.calc.IODESolver
      * @usage  <pre>inst.step();</pre>
      * @return(Number)  -- returns the step size.
     **/
-    public function step():Number;
+    function step():Number;
 
-// 3. setStepSize --------------------------------
+      // 3. setStepSize --------------------------------
 
     /**
      * @method  setStepSize
@@ -90,11 +90,11 @@ interface com.wis.math.calc.IODESolver
      *               as RK4/5.
      * @usage  <pre>inst.setStepSize(_stepSize);</pre>
      * @param  _stepSize  (Number)  -- the step size.
-     * @return  (Void)
+     * @return  (void)
     **/
-    public function setStepSize(_stepSize:Number):Void;
+    function setStepSize(_stepSize:Number):void;
 
-// 4. getStepSize --------------------------------
+      // 4. getStepSize --------------------------------
 
     /**
      * @method  getStepSize
@@ -102,23 +102,24 @@ interface com.wis.math.calc.IODESolver
      * @usage  <pre>inst.getStepSize(();</pre>
      * @return  (Number)  -- returns the step size.
     **/
-    public function getStepSize():Number;
+    function getStepSize():Number;
 
-// 5. setTolerance -------------------------------
+      // 5. setTolerance -------------------------------
 
     /**
      * @description  Sets the tolerance of the adaptive ODE solver.
      * @param  _tol  (Number)  -- the tolerance.
     **/
-    public function setTolerance(_tol:Number):Void;
+    function setTolerance(_tol:Number):void;
 
-// 6. getTolerance -------------------------------
+      // 6. getTolerance -------------------------------
 
     /**
      * @description  Gets the tolerance of the adaptive ODE sovler.
      * @return  (Number)  -- returns the relative tolerance.
     **/
-    public function getTolerance():Number;
+    function getTolerance():Number;
 
-}
+}// class
+}//package
 

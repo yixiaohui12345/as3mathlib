@@ -1,5 +1,6 @@
-﻿/**
- * @class       com.wis.math.num.Format
+﻿package com.wis3.math.num {
+/**
+ * @class       com.wis3.math.num.Format
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the static behaviours of the Format Class.
@@ -39,38 +40,36 @@
  * Functions:
  *       Format()
  *           1.  sign(n)
- *           2.  placesRound(a,b)
- *           3.  randomBetween(a,b)
+ *           2.  placesRound(a, b)
+ *           3.  randomBetween(a, b)
  *           4.  product(arr)
  *           5.  sum(arr)
  *           6.  fp(n)
- *           7.  maxSort(arr,bList)
- *           8.  minSort(arr,bList)
+ *           7.  maxSort(arr, bList)
+ *           8.  minSort(arr, bList)
  *           9.  isEven(n)
  *           10. isOdd(n)
  *           11. dbleEpsilon()
  *           12. round2(num)
- *           13. formatDecimals(num,digits)
- *           14. toScientific(num,sigDigs)
- *           15. numCurrency(input,dig,bEuro,bCurr,curr)
+ *           13. formatDecimals(num, digits)
+ *           14. toScientific(num, sigDigs)
+ *           15. numCurrency(input, dig, bEuro, bCurr, curr)
  * -----------------------------------------------
  *  Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
  * -----------------------------------------------
 **/
 
-class com.wis.math.num.Format
-{
+public class Format  {
 	/**
 	 * @property none -- no class properties.
 	**/
 
-    function Format()
-    {
+    public function Format() {
         //trace ("Format Class loaded");
     }
 
-// 1. sign ---------------------------------------
+      // 1. sign ---------------------------------------
 
     /**
      * @method  sign
@@ -79,45 +78,42 @@ class com.wis.math.num.Format
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the sign of the number.
     **/
-    static function sign(n:Number):Number
-    {
+    public static function sign(n:Number):Number {
         return n==0 ? 0 : (n>0 ? 1 : -1);
     }
 
-// 2. placesRound --------------------------------
+      // 2. placesRound --------------------------------
 
     /**
      * @method  placesRound
      * @description  Rounds 'a' to 'b' number of decimal places.
-     * @usage  <pre>Format.placesRound(a,b);</pre>
+     * @usage  <pre>Format.placesRound(a, b);</pre>
      * @param   a   (Number)  -- a real number.
      * @param   b   (Number)  -- a positive integer.
      * @return  (Number)  -- returns a number rounded to 'b' decimal places.
     **/
-    static function placesRound(a:Number,b:Number):Number
-    {
-        return (Math.round(a*Math.pow(10,b))/Math.pow(10,b));
+    public static function placesRound(a:Number, b:Number):Number {
+        return (Math.round(a*Math.pow(10, b))/Math.pow(10, b));
     }
 
-// 3. randomBetween ------------------------------
+      // 3. randomBetween ------------------------------
 
     /**
      * @method  randomBetween
      * @description  Defines a random number between 'a' and 'b'.
-     * @usage  <pre>Format.randomBetween(a,b);</pre>
+     * @usage  <pre>Format.randomBetween(a, b);</pre>
      * @param   a   (Number)  -- a real number.
      * @param   b   (Number)  -- a real number.
      * @return  (Number)  -- returns a random number between 'a' and 'b'.
     **/
-    static function randomBetween(a:Number,b:Number):Number
-    {
-        var greater:Number = Math.max(a,b);
-        var smaller:Number = Math.min(a,b);
+    public static function randomBetween(a:Number, b:Number):Number {
+        var greater:Number = Math.max(a, b);
+        var smaller:Number = Math.min(a, b);
 
         return (Math.random()*(greater-smaller)+smaller);
     }
 
-// 4. product ------------------------------------
+      // 4. product ------------------------------------
 
     /**
      * @method  product
@@ -126,8 +122,7 @@ class com.wis.math.num.Format
      * @param   arr   (Array)  -- a list of real numbers.
      * @return  (Number)  -- returns the product of 'arr' elements.
     **/
-    static function product(arr:Array):Number
-    {
+    public static function product(arr:Array):Number {
         var k:Number = 1;
         var h:Number;
 
@@ -136,7 +131,7 @@ class com.wis.math.num.Format
         return k;
     }
 
-// 5. sum ----------------------------------------
+      // 5. sum ----------------------------------------
 
     /**
      * @method  sum
@@ -145,8 +140,7 @@ class com.wis.math.num.Format
      * @param   arr   (Array)  -- a list of real numbers.
      * @return  (Number)  -- returns the sum of 'arr' elements.
     **/
-    static function sum(arr:Array):Number
-    {
+    public static function sum(arr:Array):Number {
         var k:Number = 0;
         var h:Number;
 
@@ -155,7 +149,7 @@ class com.wis.math.num.Format
         return k;
     }
 
-// 6. fp -----------------------------------------
+      // 6. fp -----------------------------------------
 
     /**
      * @method  fp
@@ -164,50 +158,47 @@ class com.wis.math.num.Format
      * @param   n   (Number)  -- a real number.
      * @return  (Number)  -- returns the decimal portion of a floating point number.
     **/
-    static function fp(n:Number):Number
-    {
+    public static function fp(n:Number):Number {
         return n-Math.floor(n);
     }
 
-// 7. maxSort ------------------------------------
+      // 7. maxSort ------------------------------------
 
     /**
      * @method  maxSort
      * @description  Definess max of 'arr', or max2min order of 'arr' if 'bList'
      *               is passed.
-     * @usage  <pre>Format.maxSort(arr,bList);</pre>
+     * @usage  <pre>Format.maxSort(arr, bList);</pre>
      * @param   arr   (Array)  -- a list of real numbers.
      * @param   bList   (Boolean)  -- optional Boolean to define return.
      * @return  (Array)  -- returns max of 'arr', or max2min order of 'arr' if 'bList' is passed.
     **/
-    static function maxSort(arr:Array,bList:Boolean):Array
-    {
-        var b:Number,c:Number;
+    public static function maxSort(arr:Array, bList:Boolean):Array {
+        var b:Number, c:Number;
 
-        if (bList) return arr.sort(function(b,c) {return c-b});
-        else return arr.sort(function(b,c) {return c-b})[0];
+        if (bList) 	return arr.sort(function(b:Number, c:Number):Number{return c-b});
+        else 		return arr.sort(function(b:Number, c:Number):Number{return c-b})[0];
     }
 
-// 8. minSort ------------------------------------
+      // 8. minSort ------------------------------------
 
     /**
      * @method  minSort
      * @description  Defines min of 'arr', or min2max order of 'arr' if 'bList'
      *               is passed.
-     * @usage  <pre>Format.minSort(arr,bList);</pre>
+     * @usage  <pre>Format.minSort(arr, bList);</pre>
      * @param   arr   (Array)  -- a list of real numbers.
      * @param   bList   (Boolean)  -- optional Boolean to define return.
      * @return  (Array)  -- returns min of 'arr', or min2max order of 'arr' if 'bList' is passed.
     **/
-    static function minSort(arr:Array,bList:Boolean):Array
-    {
-        var b:Number,c:Number;
+    public static function minSort(arr:Array, bList:Boolean):Array {
+        var b:Number, c:Number;
 
-        if (bList) return arr.sort(function(b,c) {return b-c});
-        else return arr.sort(function(b,c) {return b-c})[0];
+        if (bList) 	return arr.sort(function(b:Number, c:Number):Number{return b-c});
+        else 		return arr.sort(function(b:Number, c:Number):Number{return b-c})[0];
     }
 
-// 9. isEven -------------------------------------
+      // 9. isEven -------------------------------------
 
     /**
      * @method  isEven
@@ -216,12 +207,11 @@ class com.wis.math.num.Format
      * @param   n   (Number)  -- a positive or negative integer.
      * @return  (Boolean)
     **/
-    static function isEven(n:Number):Boolean
-    {
+    public static function isEven(n:Number):Boolean {
         return (n%2==0);
     }
 
-// 10. isOdd -------------------------------------
+      // 10. isOdd -------------------------------------
 
     /**
      * @method  isOdd
@@ -230,12 +220,11 @@ class com.wis.math.num.Format
      * @param   n   (Number)  -- a positive or negative integer.
      * @return  (Boolean)
     **/
-    static function isOdd(n:Number):Boolean
-    {
+    public static function isOdd(n:Number):Boolean {
         return (n%2) ? true : false;
     }
 
-// 11. dbleEpsilon -------------------------------
+      // 11. dbleEpsilon -------------------------------
 
     /**
      * @method  dbleEpsilon
@@ -243,13 +232,11 @@ class com.wis.math.num.Format
      * @usage  <pre>Format.dbleEpsilon();</pre>
      * @return  (Number)  -- returns machine precision.
     **/
-    static function dbleEpsilon():Number
-    {
+    public static function dbleEpsilon():Number {
         var temp1:Number = 1.0;
-        var temp2:Number,mchEps:Number;
+        var temp2:Number, mchEps:Number;
 
-        do
-        {
+        do {
             mchEps = temp1;
             temp1 /= 2;
             temp2 = 1.0+temp1;
@@ -259,7 +246,7 @@ class com.wis.math.num.Format
         return mchEps;
     }
 
-// 12. round2 ------------------------------------
+      // 12. round2 ------------------------------------
 
     /**
      * @method  round2
@@ -269,10 +256,8 @@ class com.wis.math.num.Format
      * @param   num   (Number)  -- a real number.
      * @return  (Number)  -- returns correctly rounded positive or negative numbers.
     **/
-    static function round2(num:Number):Number
-    {
-        if (num<0)
-        {
+    public static function round2(num:Number):Number {
+        if (num<0) {
             var isNegative:Boolean = true;
 
             num *= -1;
@@ -281,29 +266,27 @@ class com.wis.math.num.Format
         return isNegative ? -Math.round(num) : Math.round(num);
     } // Robert Penner - May 2001
 
-// 13. formatDecimals ----------------------------
+      // 13. formatDecimals ----------------------------
 
     /**
      * @method  formatDecimals
      * @description  Formats a number into specified number of decimal places and 0 pad right.
-     * @usage  <pre>Format.formatDecimals(num,digits);</pre>
+     * @usage  <pre>Format.formatDecimals(num, digits);</pre>
      * @param   num   (Number)  -- a real number.
      * @param   digits   (Number)  -- a positive integer.
      * @return  (String)  -- returns a string representation of a number into specified number of decimal places.
     **/
-    static function formatDecimals(num:Number,digits:Number):String
-    {
+    public static function formatDecimals(num:Number, digits:Number):String {
         //if no decimal places needed, we're done
         if (digits<=0) return String(Math.round(num));
 
         //round the number to specified decimal places
         //e.g. 12.3456 to 3 digits (12.346) -> mult. by 1000, round, div. by 1000
-        var tenToPower:Number = Math.pow(10,digits);
+        var tenToPower:Number = Math.pow(10, digits);
         var cropped:String = String(Math.round(num*tenToPower)/tenToPower);
 
         //add decimal point if missing
-        if (cropped.indexOf(".")==-1)
-        {
+        if (cropped.indexOf(".")==-1) {
             cropped += ".0";  //e.g. 5 -> 5.0 (at least one zero is needed)
         }
 
@@ -318,20 +301,19 @@ class com.wis.math.num.Format
         return cropped;
     } // Robert Penner - May 2001
 
-// 14. toScientific ------------------------------
+      // 14. toScientific ------------------------------
 
     /**
      * @method  toScientific
      * @description  Convert any number to scientific notation with specified
      *               significant digits. (e.g.) .012345 -> 1.2345e-2 -- but 6.34e0
      *               is displayed "6.34" -- requires 'formatDecimals' method.
-     * @usage  <pre>Format.toScientific(num,sigDigs);</pre>
+     * @usage  <pre>Format.toScientific(num, sigDigs);</pre>
      * @param   num   (Number)  -- a real number.
      * @param   sigDigs   (Number)  -- a positive integer.
      * @return  (String)  -- returns a string representation of scientific notation with specified significant digits.
     **/
-    static function toScientific(num:Number,sigDigs:Number):String
-    {
+    public static function toScientific(num:Number, sigDigs:Number):String {
         //find exponent using logarithm
         //e.g. log10(150) = 2.18 -- round down to 2 using floor()
         var exponent:Number = Math.floor(Math.log(Math.abs(num))/Math.LN10);
@@ -339,22 +321,21 @@ class com.wis.math.num.Format
         if (num==0) exponent = 0; //handle glitch if the number is zero
 
         //find mantissa (e.g. "3.47" is mantissa of 3470; need to divide by 1000)
-        var tenToPower:Number = Math.pow(10,exponent);
+        var tenToPower:Number = Math.pow(10, exponent);
         var mantissa:Number = num/tenToPower;
 
         //force significant digits in mantissa
         //e.g. 3 sig digs: 5 -> 5.00, 7.1 -> 7.10, 4.2791 -> 4.28
-        var mant:String = Format.formatDecimals(mantissa,sigDigs-1); //use custom f\\unction
+        var mant:String = Format.formatDecimals(mantissa, sigDigs-1); //use custom f\\unction
 
         // it is possible that by rounding in the step above, we've increased
         // the number to XX.XXX, e.g. 9.999999 went to 10.00
         // so we need to check for this condition
         var mantNum:Number = Number(mant);
 
-        if (mantNum>=10 || mantNum<=-10)
-        {
+        if (mantNum>=10 || mantNum<=-10) {
             mantNum /= 10;
-            mant = Format.formatDecimals(mantNum,sigDigs-1);
+            mant = Format.formatDecimals(mantNum, sigDigs-1);
             exponent++;
         }
 
@@ -366,7 +347,7 @@ class com.wis.math.num.Format
         return (output);
     } // Robert Penner - May 2001
 
-// 15. numCurrency -------------------------------
+      // 15. numCurrency -------------------------------
 
 
     // 15. numCurrency
@@ -375,7 +356,7 @@ class com.wis.math.num.Format
      * @description  Unfinished method that introduces European formatting. I
      *               have included 'numCurrency2' that doesn't handle European
      *               formatting -- both versions are causing errors presently.
-     * @usage  <pre>Format.numCurrency(input,dig,bEuro,bCurr,sCurr);</pre>
+     * @usage  <pre>Format.numCurrency(input, dig, bEuro, bCurr, sCurr);</pre>
      * @param   input   (String)  -- allows for direct textfield input.
      * @param   dig   (Number)  -- a positive integer.
      * @param   bEuro   (Boolean)  -- if true, reverses delimit_arr.
@@ -383,63 +364,54 @@ class com.wis.math.num.Format
      * @param   sCurr   (String)  -- country currency symbol.
      * @return  (String)  -- returns a string representation of the formatted currency.
     **/
-    static function numCurrency(input:String,dig:Number,bEuro:Boolean,bCurr:Boolean,sCurr:String):String
-    {
-	    var delimit_arr:Array = [".",","];
+    public static function numCurrency(input:String, dig:Number, bEuro:Boolean, bCurr:Boolean, sCurr:String):String {
+	    var delimit_arr:Array = [".", ", "];
 	    if (bEuro) delimit_arr.reverse();
 	    var temp_arr:Array = input.split(delimit_arr[0]);
 	    var num:String = temp_arr[0];
-	    if (num.charAt(0)=="-")
-	    {
+	    if (num.charAt(0)=="-") {
 	        var bNeg:Boolean = true;
 	        num = num.slice(1);
 	    }
 	    var mod:Number = num.length%3;
-	    var treble:String = num.slice(0,mod);
+	    var treble:String = num.slice(0, mod);
 	    var j:Number;
 	    var output:String;
-
-	    for (j=mod;j<=num.length-3;j+=3)
-	    {
+		var round:String;
+		var float:Number;
+		
+	    for (j=mod;j<=num.length-3;j+=3) {
 	        if (j!=0) treble += delimit_arr[1];
-	        treble += num.slice(j,j+3);
+	        treble += num.slice(j, j+3);
 	    }
 	    if (bNeg) treble = "-"+treble;
-	    if (temp_arr[1])
-	    {
+	    if (temp_arr[1]) {
 	        var frac:String = temp_arr[1];
-	        if (bCurr)
-	        {
-	            if (frac.length==1)
-	            {
+	        if (bCurr) {
+	            if (frac.length==1) {
 	                frac += "0";
 	            }
-	            else if (frac.length>2)
-	            {
-	                var round:String = frac.charAt(2);
-	                frac = frac.slice(0,2);
-	                var float:Number = parseInt(round);
-	                if (float>=5)
-	                {
+	            else if (frac.length>2) {
+	                round = frac.charAt(2);
+	                frac = frac.slice(0, 2);
+	                float = parseInt(round);
+	                if (float>=5) {
 	                    frac = frac.charAt(0)+(parseInt(frac.charAt(1))+1);
 	                }
 	            }
 	            output = sCurr+" "+treble+delimit_arr[0]+frac;
 	        }
-	        else
-	        {
-	            if (frac.length>=dig)
-	            {
-	                var round:String = frac.charAt(dig);
-	                frac = frac.slice(0,dig);
-				    var float:Number = parseInt(round);
-				    if (float>=5) frac = Number(frac)+1;
+	        else {
+	            if (frac.length>=dig) {
+	                round = frac.charAt(dig);
+	                frac  = frac.slice(0, dig);
+				    float = parseInt(round);
+				    if (float>=5) frac = frac.valueOf() + 1;
 	            }
 	            output = treble+delimit_arr[0]+frac;
 	        }
 	    }
-	    else
-	    {
+	    else {
 	        if (bCurr) output = sCurr+" "+treble+delimit_arr[0]+"00";
 	        else output = treble;
 	    }
@@ -448,86 +420,76 @@ class com.wis.math.num.Format
     }
 
 
-// 15a. numCurrency2 -----------------------------
+      // 15a. numCurrency2 -----------------------------
 
 	/**
 	 * @method  numCurrency2
 	 * @description  Working version for currency display that doesn't handle
 	 *               European formatting.
-	 * @usage  <pre>Format.numCurrency(input,dig,curr);</pre>
+	 * @usage  <pre>Format.numCurrency(input, dig, curr);</pre>
 	 * @param   input   (String)  -- allows for direct textfield input.
 	 * @param   dig   (Number)  -- a positive integer.
-	 * @param   curr   (Array)  -- ["XYZ","Country Name",exchangeRateNum,decSeparatorNum(0-3),trebSeparatorNum(0-3)]
+	 * @param   curr   (Array)  -- ["XYZ", "Country Name", exchangeRateNum, decSeparatorNum(0-3), trebSeparatorNum(0-3)]
 	 * @return  (String)  -- returns a string representation of the formatted currency.
 	**/
-	static function numCurrency2(input:String,dig:Number,curr:Array):String
-	{
-	    var delimit_arr:Array = [",","."," ","'"];
+	public static function numCurrency2(input:String, dig:Number, curr:Array):String {
+	    var delimit_arr:Array = [", ", ".", " ", "'"];
 	    var temp:Array;
 
-	    if (dig!=null)
-	    {
-	        temp = delimit_arr.splice(curr[3],1);
+	    if (! isNaN(dig)) {
+	        temp = delimit_arr.splice(curr[3], 1);
 	        delimit_arr.unshift(temp);
 	    }
-	    else if (curr)
-	    {
-	        temp = delimit_arr.splice(curr[4],1);
+	    else if (curr) {
+	        temp = delimit_arr.splice(curr[4], 1);
 	        delimit_arr.unshift(temp);
 	    }
 
 	    var temp_arr:Array = input.split(delimit_arr[0]);
 	    var num:String = temp_arr[0];
 
-	    if (num.charAt(0)=="-")
-	    {
+	    if (num.charAt(0)=="-") {
 	        var bNeg:Boolean = true;
 	        num = num.slice(1);
 	    }
 
 	    var mod:Number = num.length%3;
-	    var treble:String = num.slice(0,mod);
+	    var treble:String = num.slice(0, mod);
 	    var j:Number;
 	    var output:String;
+		var round:String;
+		var float:Number;
 
-	    for (j=mod;j<=num.length-3;j+=3)
-	    {
+	    for (j=mod;j<=num.length-3;j+=3) {
 	        if (j!=0) treble += delimit_arr[1];
-	        treble += num.slice(j,j+3);
+	        treble += num.slice(j, j+3);
 	    }
 	    if (bNeg) treble = "-"+treble;
-	    if (temp_arr[1])
-	    {
+	    if (temp_arr[1]) {
 	        var frac:String = temp_arr[1];
-	        if (curr)
-	        {
-	            if (frac.length==1)
-	            {
+	        if (curr) {
+	            if (frac.length==1) {
 	                frac += "0";
 	            }
-	            else if (frac.length>2)
-	            {
-	                var round:String = frac.charAt(2);
-	                frac = frac.slice(0,2);
-	                var float:Number = parseInt(round);
+	            else if (frac.length>2) {
+	                round 	= frac.charAt(2);
+	                frac 	= frac.slice(0, 2);
+	                float 	= parseInt(round);
 	                if (float>=5) frac = frac.charAt(0)+(parseInt(frac.charAt(1))+1);
 	            }
 	            output = curr[0]+" "+treble+delimit_arr[0]+frac;
 	        }
-	        else
-	        {
-	            if (frac.length>=dig)
-	            {
-	                var round:String = frac.charAt(dig);
-	                frac = frac.slice(0,dig);
-				    var float:Number = parseInt(round);
-				    if (float>=5) frac = Number(frac)+1;
+	        else {
+	            if (frac.length>=dig) {
+	                round 	= frac.charAt(dig);
+	                frac 	= frac.slice(0, dig);
+				    float 	= parseInt(round);
+				    if (float>=5) frac = frac.valueOf() + 1;
 	            }
 	            output = treble+delimit_arr[0]+frac;
 	        }
 	    }
-	    else
-	    {
+	    else {
 	        if (curr) output = curr[0]+" "+treble+delimit_arr[0]+"00";
 	        else output = treble;
 	    }
@@ -535,5 +497,6 @@ class com.wis.math.num.Format
 		return output;
     }
 
-}
+}// class
+}//package
 

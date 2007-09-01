@@ -1,22 +1,23 @@
-﻿/**
- * @class       com.wis.math.geom.util.LightSource
+﻿package com.wis3.math.geom.util {
+/**
+ * @class       com.wis3.math.geom.util.LightSource
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the LightSource Class.
  *              <p>
  *		        Provides utlity methods for the IObj interface based on JS
  *              RayTracer2 by John Haggerty.
- * @usage       <pre>var inst:LightSource = new LightSource(ray,color);</pre>
+ * @usage       <pre>var inst:LightSource = new LightSource(ray, color);</pre>
  * @param       ray (Vector)  -- a position Vector object.
- * @param       color (Col)  -- a Col object.
+ * @param       color (wis3Color)  -- a wis3Color object.
  * -----------------------------------------------
  * Latest update: August 5, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis.math.alg.Vector
- *                com.wis.math.geom.util.Intersection
- *                com.wis.math.geom.util.Ray
- *                com.wis.math.geom.util.Transformation
- *                com.wis.types.Col
+ * Dependencies:  com.wis3.math.alg.Vector
+ *                com.wis3.math.geom.util.Intersection
+ *                com.wis3.math.geom.util.Ray
+ *                com.wis3.math.geom.util.Transformation
+ *                com.wis3.types.wis3Color
  * -----------------------------------------------
  * AS2 revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
  * JS  original copyright © 2003, John Haggerty  [http://www.slimeland.com/]
@@ -47,12 +48,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * -----------------------------------------------
  * Functions:
- *       LightSource(pos,color)
+ *       LightSource(pos, color)
  *             1.  transform(trans)
  *             2.  copy()
- *             3.  getLightColorAt(objs,pos)
+ *             3.  getLightColorAt(objs, pos)
  *             4.  sCurve(x) - static
- *             5.  samplePoint(objs,point,pos)
+ *             5.  samplePoint(objs, point, pos)
  * -----------------------------------------------
  *  Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
@@ -63,21 +64,22 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.alg.Vector;
-import com.wis.math.geom.util.Intersection;
-import com.wis.math.geom.util.Ray;
-import com.wis.math.geom.util.Transformation;
-import com.wis.types.Col;
+import com.wis3.math.alg.Vector;
+import com.wis3.math.geom.util.Intersection;
+import com.wis3.math.geom.util.Ray;
+import com.wis3.math.geom.util.Transformation;
+import com.wis3.types.wis3Color;
+import flash.geom.ColorTransform;
+import mx.rpc.mxml.Concurrency;
 
-class com.wis.math.geom.util.LightSource
-{
+public class LightSource  {
 	/**
 	 * @property $pos (Vector)  -- a position Vector object.
 	 * @property $v1 (Vector)  -- a direction Vector object used to define area light.
 	 * @property $v2 (Vector)  -- a direction Vector object used to define area light.
 	 * @property $dir (Vector)  -- a direction Vector object used to define spot light.
-	 * @property $color (Col)  -- a Col object.
-	 * @property $tColor (Color)  -- a target Color object.
+	 * @property $color (wis3Color)  -- a wis3Color object.
+	 * @property $tColor (wis3Color)  -- a target wis3Color object.
 	 * @property $sampleV1 (Boolean)  -- default is 'false', used to flag area light method steps.
 	 * @property $sampleV2(Boolean)  -- default is 'false', used to flag area light method steps.
 	 * @property $spotLight (Boolean)  -- default is 'false', used to flag spot light method steps.
@@ -91,27 +93,26 @@ class com.wis.math.geom.util.LightSource
 	 * @property $trans (Transformation)  -- a Transformation object.
 	 * @property $objStack (Array)  -- a list of shape objects.
 	**/
-    var $pos:Vector;
-    var $v1:Vector;
-    var $v2:Vector;
-    var $dir:Vector;
-    var $color:Col;
-    var $tColor:Color;
-    var $sampleV1:Boolean;
-    var $sampleV2:Boolean;
-    var $spotLight:Boolean;
-    var $minSampleDepth:Number;
-    var $maxSampleDepth:Number;
-    var $innerAngleCos:Number;
-    var $outerAngleCos:Number;
-    var $outerAngle:Number;
-    var $angleDiff:Number;
-    var $jitterAmnt:Number;
-    var $trans:Transformation;
+    public var $pos:Vector;
+    public var $v1:Vector;
+    public var $v2:Vector;
+    public var $dir:Vector;
+    public var $color:ColorTransform;
+    public var $tColor:wis3Color;
+    public var $sampleV1:Boolean;
+    public var $sampleV2:Boolean;
+    public var $spotLight:Boolean;
+    public var $minSampleDepth:Number;
+    public var $maxSampleDepth:Number;
+    public var $innerAngleCos:Number;
+    public var $outerAngleCos:Number;
+    public var $outerAngle:Number;
+    public var $angleDiff:Number;
+    public var $jitterAmnt:Number;
+    public var $trans:Transformation;
 
     // constructor
-    function LightSource(pos:Vector,color:Col)
-    {
+    public function LightSource(pos:Vector, color:ColorTransform) {
     	$pos = pos;
     	$color = color;
 
@@ -129,24 +130,23 @@ class com.wis.math.geom.util.LightSource
     	$angleDiff = 0;
     }
 
-// 1. transform ------------------------------------------------------------
+      // 1. transform ------------------------------------------------------------
 
     /**
      * @method  transform
      * @description   Transforms this instance's Vector objects.
      * @usage  <pre>inst.transform(trans);</pre>
      * @param   trans   (Transformation)  -- a Transformation object.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function transform(trans:Transformation):Void
-    {
-    	$pos.transform(trans,true);
-    	if ($sampleV1) $v1.transform(trans,true);
-    	if ($sampleV2) $v2.transform(trans,true);
-    	if ($spotLight) $dir.transform(trans,true);
+    public function transform(trans:Transformation):void {
+    	$pos.transform(trans, true);
+    	if ($sampleV1) $v1.transform(trans, true);
+    	if ($sampleV2) $v2.transform(trans, true);
+    	if ($spotLight) $dir.transform(trans, true);
     };
 
-// 2. copy ------------------------------------------------------------
+      // 2. copy ------------------------------------------------------------
 
     /**
      * @method  copy
@@ -154,39 +154,40 @@ class com.wis.math.geom.util.LightSource
      * @usage  <pre>inst.copy();</pre>
      * @return  (LightSource)  -- returns a new LightSource object, a copy of this instance's properties.
     **/
-    function copy():LightSource
-    {
-    	return new LightSource($pos.copy(),$color.copy());
+    public function copy():LightSource {
+    	var newColor:ColorTransform = new ColorTransform();
+    	newColor.concat($color);
+    	return new LightSource($pos.copy(), newColor);
     };
 
-// 3. getLightColorAt ------------------------------------------------------------
+      // 3. getLightColorAt ------------------------------------------------------------
 
     /**
      * @method  getLightColorAt
-     * @description  Called by super's 'getColorAt' method to define a new Col object.
-     * @usage  <pre>inst.getLightColorAt(objs,pos);</pre>
+     * @description  Called by super's 'getColorAt' method to define a new wis3Color object.
+     * @usage  <pre>inst.getLightColorAt(objs, pos);</pre>
      * @param   objs   (Array)  -- a list of shape objects.
      * @param   pos   (Vector)  -- a position Vector object.
-     * @return  (Col)  -- returns a new Col object.
+     * @return  (wis3Color)  -- returns a new wis3Color object.
     **/
-    function getLightColorAt(objs:Array,pos:Vector):Col
-    {
-    	var toReturn:Col;
+    public function getLightColorAt(objs:Array, pos:Vector):ColorTransform {
+    	throw new Error("AS2-AS3 Transition Error: Color changed to ColorTransform and we haven't fixed it yet");
+    	/*
+    	var toReturn:wis3Color;
     	var cosineAngle:Number;
-    	$tColor = new Color(this);
+    	$tColor = new wis3Color(this);
 
-    	if ($spotLight) cosineAngle = Vector.dot(Vector.normalizer(Vector.adder(pos,Vector.neg($pos))),$dir);
-    	if ($spotLight && cosineAngle<$outerAngleCos) return new Col($tColor,0,0,0);
-    	if ($sampleV1 || $sampleV2)
-    	{
-    		toReturn = new Col($tColor,0,0,0);
+    	if ($spotLight) cosineAngle = Vector.dot(Vector.normalizer(Vector.adder(pos, Vector.neg($pos))), $dir);
+    	if ($spotLight && cosineAngle<$outerAngleCos) return new wis3Color($tColor, 0, 0, 0);
+    	if ($sampleV1 || $sampleV2) {
+    		toReturn = new wis3Color($tColor, 0, 0, 0);
 
     		var numPointsSampled:Number = 0;
     		var foundBlockedPath:Boolean = false;
     		var foundUnblockedPath:Boolean = false;
     		var foundPartiallyBlockedPath:Boolean = false;
-    		var thisSample:Col;
-    		var maxDepthNumCellsMinusOne:Number = Math.pow(2,$maxSampleDepth),cellSize = 1/(maxDepthNumCellsMinusOne+1),xOffsetAmnt = .5,yOffsetAmnt = .5,cellSkip;
+    		var thisSample:wis3Color;
+    		var maxDepthNumCellsMinusOne:Number = Math.pow(2, $maxSampleDepth), cellSize = 1/(maxDepthNumCellsMinusOne+1), xOffsetAmnt = .5, yOffsetAmnt = .5, cellSkip;
 
     		if (!$sampleV1) xOffsetAmnt = 0;
     		if (!$sampleV2) xOffsetAmnt = 0;
@@ -196,38 +197,33 @@ class com.wis.math.geom.util.LightSource
     		var depth:Number;
     		var y:Number;
 
-    		for (depth=0;depth<=$maxSampleDepth;depth++)
-    		{
-    			if ($sampleV1) stepXRes = Math.pow(2,depth)+1;
-    			if ($sampleV2) stepYRes = Math.pow(2,depth)+1;
-    			cellSkip = maxDepthNumCellsMinusOne/Math.pow(2,depth);
+    		for (depth=0;depth<=$maxSampleDepth;depth++) {
+    			if ($sampleV1) stepXRes = Math.pow(2, depth)+1;
+    			if ($sampleV2) stepYRes = Math.pow(2, depth)+1;
+    			cellSkip = maxDepthNumCellsMinusOne/Math.pow(2, depth);
     			if (depth>$minSampleDepth && (!foundPartiallyBlockedPath && (foundBlockedPath!=foundUnblockedPath))) break;
-    			for (y=0;y<stepYRes;y++)
-    			{
+    			for (y=0;y<stepYRes;y++) {
     				var x:Number = 0;
     				var xStep:Number = 1;
 
-    				if (y%2==0 && depth!=0)
-    				{
+    				if (y%2==0 && depth!=0) {
     					x = 1;
     					xStep = 2;
     				}
-    				for (;x<stepXRes;x+=xStep)
-    				{
-    					if ($jitterAmnt!=0)
-    					{
+    				for (;x<stepXRes;x+=xStep) {
+    					if ($jitterAmnt!=0) {
     						if ($sampleV1) xOffsetAmnt = .5+(Math.random()-.5)*$jitterAmnt;
     						if ($sampleV2) yOffsetAmnt = .5+(Math.random()-.5)*$jitterAmnt;
     					}
-    					thisSample = samplePoint(objs,Vector.adder
+    					thisSample = samplePoint(objs, Vector.adder
     					(
     						Vector.adder
     						(
     							$pos,
-    							Vector.scaler($v1,((x*cellSkip+xOffsetAmnt)*cellSize)*2-1)
+    							Vector.scaler($v1, ((x*cellSkip+xOffsetAmnt)*cellSize)*2-1)
     						),
-    						Vector.scaler($v2,((y*cellSkip+yOffsetAmnt)*cellSize)*2-1)
-    					    ),pos
+    						Vector.scaler($v2, ((y*cellSkip+yOffsetAmnt)*cellSize)*2-1)
+    					    ), pos
     					);
     					if (thisSample==$color) foundUnblockedPath = true;
     					else if (thisSample.r==0 && thisSample.g==0 && thisSample.b==0) foundBlockedPath = true;
@@ -239,18 +235,19 @@ class com.wis.math.geom.util.LightSource
     		}
     		toReturn = toReturn.scalar(1/numPointsSampled);
     	}
-    	else toReturn = samplePoint(objs,$pos,pos);
-    	if ($spotLight && cosineAngle<$innerAngleCos)
-    	{
+    	else toReturn = samplePoint(objs, $pos, pos);
+    	if ($spotLight && cosineAngle<$innerAngleCos) {
     		var theAngle:Number = Math.acos(cosineAngle);
 
     		toReturn = toReturn.scalar(LightSource.sCurve(($outerAngle-theAngle)/$angleDiff));
     	}
 
     	return toReturn;
+    	*/
+    	return null;
     }
 
-// 4. sCurve ------------------------------------------------------------
+      // 4. sCurve ------------------------------------------------------------
 
     /**
      * @method  sCurve
@@ -259,38 +256,40 @@ class com.wis.math.geom.util.LightSource
      * @param   x   (Number)  -- a real number.
      * @return  (Number)  -- a real number, a derivative for a 3rd degree polynomial graph.
     **/
-    static function sCurve(x:Number):Number
-    {
+    public static function sCurve(x:Number):Number {
         return x*x*(3-2*x);
     }
 
-// 5. samplePoint ------------------------------------------------------------
+      // 5. samplePoint ------------------------------------------------------------
 
     // - needs to be rewritten if transparency is ever supported;
 
     /**
      * @method  samplePoint
      * @description  Checks for any intersection at all between 'point' and 'pos' Vector objects.
-     * @usage  <pre>inst.samplePoint(objs,point,pos);</pre>
+     * @usage  <pre>inst.samplePoint(objs, point, pos);</pre>
      * @param   objs   (Array)  -- a list of shape objects.
      * @param   point   (Vector)  -- a position Vector object.
      * @param   pos   (Vector)  -- a position Vector object.
-     * @return  (Col)  -- returns a new Col object.
+     * @return  (wis3Color)  -- returns a new wis3Color object.
     **/
-    function samplePoint(objs:Array,point:Vector,pos:Vector):Col
-    {
-    	var distV:Vector = Vector.adder(point,Vector.neg(pos));
-    	var shadowRay:Ray = new Ray(pos,distV);
-    	$tColor = new Color(this);
+    public function samplePoint(objs:Array, point:Vector, pos:Vector):ColorTransform {
+    	throw new Error("AS2-AS3 Transition Error: Color changed to ColorTransform and we haven't fixed it yet"); return null; 
+    	/*
+    	var distV:Vector = Vector.adder(point, Vector.neg(pos));
+    	var shadowRay:Ray = new Ray(pos, distV);
+    	$tColor = new wis3Color(this);
 
     	shadowRay.$isShadowTest = true;
 
         var dist:Number = distV._len;
-       	var shadowIsect:Intersection = shadowRay.tracer(objs,dist);
+       	var shadowIsect:Intersection = shadowRay.tracer(objs, dist);
 
-    	if (shadowIsect.$depth!=-1 && shadowIsect.$depth<=dist) return new Col($tColor,0,0,0);
+    	if (shadowIsect.$depth!=-1 && shadowIsect.$depth<=dist) return new wis3Color($tColor, 0, 0, 0);
     	else return $color;
+    	*/
     }
 
-}
+}// class
+}//package
 

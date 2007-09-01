@@ -1,26 +1,27 @@
+package com.wis3.math.geom.intersect2D {
 /**
- * @class       com.wis.math.geom.intersect2D.Intersect2DParams
+ * @class       com.wis3.math.geom.intersect2D.Intersect2DParams
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the behaviours of the Intersect2DParams Class.
  *              This is an Intersect2D utility class.
- * @usage       <pre>var inst:Intersect2DParams = new Intersect2DParams(name,params);</pre>
+ * @usage       <pre>var inst:Intersect2DParams = new Intersect2DParams(name, params);</pre>
  * @param  name (String)  -- a string fo shape type.
  * @param  params (Array)  -- a holder for shape type parameters.
  * -----------------------------------------------
  * Latest update: August 5, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis.math.geom.intersect2D.Intersect2D -- superclass
+ * Dependencies:  com.wis3.math.geom.intersect2D.Intersect2D -- superclass
  *                -- subclass list:
- *                    - com.wis.math.geom.intersect2D.Intersect2DBez2
- *                    - com.wis.math.geom.intersect2D.Intersect2DBez3
- *                    - com.wis.math.geom.intersect2D.Intersect2DBez3Bez3
- *                    - com.wis.math.geom.intersect2D.Intersect2DCircle
- *                    - com.wis.math.geom.intersect2D.Intersect2DLine
- *                    - com.wis.math.geom.intersect2D.Intersect2DParams
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DBez2
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DBez3
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DBez3Bez3
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DCircle
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DLine
+ *                    - com.wis3.math.geom.intersect2D.Intersect2DParams
  * -----------------------------------------------
- * AS2 revision copyright: © 2003, Richard Wright     [wisolutions2002@shaw.ca]
- * JS  original copyright: © 2000-2002, Kevin Lindsey [http://www.kevlindev.com/]
+ * AS2 revision copyright: ï¿½ 2003, Richard Wright     [wisolutions2002@shaw.ca]
+ * JS  original copyright: ï¿½ 2000-2002, Kevin Lindsey [http://www.kevlindev.com/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -48,8 +49,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * -----------------------------------------------
  * Functions:
- *       Intersect2DParams(name,params)
- *             1.  init(name,params)
+ *       Intersect2DParams(name, params)
+ *             1.  init(name, params)
  * -----------------------------------------------
  * Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
@@ -58,45 +59,44 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.geom.intersect2D.Intersect2D;
+import com.wis3.math.geom.intersect2D.Intersect2D;
 
-class com.wis.math.geom.intersect2D.Intersect2DParams extends Intersect2D
-{
+public class Intersect2DParams extends Intersect2D {
 	/**
 	 * @property $name (String)  -- a string for shape type.
 	 * @property $params (Array)  -- a holder for shape type parameters.
 	**/
-    var $name:String;
-    var $params:Array;
+    public var $name:String;
+    public var $params:Array;
 
     // Intersect2DParams
-    function Intersect2DParams(name:String,params:Array)
-    {
+    public function Intersect2DParams (name:String, params:Array) {
+    	super(name);
         //trace ("Intersect2DParams loaded");
-        if (arguments.length>0) init(name,params);
+        if (arguments.length>0) init(name, params);
     }
 
-// 1. init ---------------------------------------
+      // 1. init ---------------------------------------
 
     /**
      * @method  init
      * @description  Initializes a new class instance.
-     * @usage  <pre>inst.init(name,params);</pre>
-     * @param   name   (String)  -- a string fo shape type.
+     * @usage  <pre>inst.init(name, params);</pre>
+     * @param   name   (String)   -- a string for shape type.
      * @param   params   (Array)  -- a holder for shape type parameters.
-     * @return  Void
+     * @return  void
     **/
-    function init(name:String,params:Array):Void
-    {
+    private function init(name:String, params:Array):void {
         $name = name;
         $params = params;
     }
 
-}
+}// class
+}//package
 
-// -----------------------------------------------
+      // -----------------------------------------------
 
-// relevant functions from the shape classes (AS1)
+      // relevant functions from the shape classes (AS1)
 
 	    ////15. intersectShape
 	    //Path.prototype.intersectShape = f\unction(shape)
@@ -104,7 +104,7 @@ class com.wis.math.geom.intersect2D.Intersect2DParams extends Intersect2D
 	    //    var result = new Intersect2D("No Intersect");
 	    //    for (var i=0;i<this.segments.length;i++)
 	    //    {
-	    //        var inter = Intersect2D.intersectShapes(this.segments[i],shape);
+	    //        var inter = Intersect2D.intersectShapes(this.segments[i], shape);
 	    //        result.appendPoints(inter.points);
 	    //    }
 	    //    if (result.points.length>0) result.status = "Intersect";
@@ -114,6 +114,6 @@ class com.wis.math.geom.intersect2D.Intersect2DParams extends Intersect2D
 	    // 16. getIntersect2DParams
 	    //Path.prototype.getIntersect2DParams = f\unction()
 	    //{
-	    //    return new Intersect2DParams("Path",[]);
+	    //    return new Intersect2DParams("Path", []);
         //};
 

@@ -1,27 +1,28 @@
+package com.wis3.math.geom.util {
 /**
- * @class       com.wis.math.geom.util.Ray
+ * @class       com.wis3.math.geom.util.Ray
  * @author      Richard Wright
  * @version     1.6
  * @description Implements the behaviours of the Ray Class.
  *              <p>
  *		        Provides methods for the IObj interface based on JS RayTracer2 by
  *              John Haggerty.
- * @usage       <pre>var inst:Ray = new Ray(start,dir,distMult);</pre>
+ * @usage       <pre>var inst:Ray = new Ray(start, dir, distMult);</pre>
  * @param       start (Vector)  -- a position Vector object.
  * @param       dir (Vector)  -- a direction Vector object.
  * @param       distMult (Number)  -- a scalar value for this instance's magnitude.
  * -----------------------------------------------
  * Latest update: July 27, 2004
  * -----------------------------------------------
- * Dependencies:  com.wis.math.alg.Point
- *                com.wis.math.alg.Vector
- *                com.wis.math.geom.util.LightSource
- *                com.wis.math.geom.util.Intersection
- *                com.wis.math.geom.util.Transformation
- *                com.wis.types.Col.as
+ * Dependencies:  com.wis3.math.alg.Point
+ *                com.wis3.math.alg.Vector
+ *                com.wis3.math.geom.util.LightSource
+ *                com.wis3.math.geom.util.Intersection
+ *                com.wis3.math.geom.util.Transformation
+ *                com.wis3.types.wis3Color.as
  * -----------------------------------------------
- * AS2 revision copyright © 2004, Richard Wright [wisolutions2002@shaw.ca]
- * JS  original copyright © 2003, John Haggerty  [http://www.slimeland.com/]
+ * AS2 revision copyright ï¿½ 2004, Richard Wright [wisolutions2002@shaw.ca]
+ * JS  original copyright ï¿½ 2003, John Haggerty  [http://www.slimeland.com/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -49,13 +50,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * -----------------------------------------------
  * Functions:
- *       Ray(start,dir,distMult)
+ *       Ray(start, dir, distMult)
  *             1.  copy()
  *             2.  toString()
  *             3.  transform(trans)
  *             4.  transformed(trans)
- *             5.  tracer(objs,giveUpAt)
- *             6.  traceForColor(objs,lights,traceLevel,effect)
+ *             5.  tracer(objs, giveUpAt)
+ *             6.  traceForColor(objs, lights, traceLevel, effect)
  * -----------------------------------------------
  *  Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
@@ -66,15 +67,16 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.alg.Point;
-import com.wis.math.alg.Vector;
-import com.wis.math.geom.util.LightSource;
-import com.wis.math.geom.util.Intersection;
-import com.wis.math.geom.util.Transformation;
-import com.wis.types.Col;
+import com.wis3.math.alg.Point;
+import com.wis3.math.alg.Vector;
+import com.wis3.math.geom.util.LightSource;
+import com.wis3.math.geom.util.Intersection;
+import com.wis3.math.geom.util.Transformation;
+import com.wis3.types.wis3Color;
+import flash.display.MovieClip;
+import flash.geom.ColorTransform;
 
-class com.wis.math.geom.util.Ray
-{
+public class Ray  {
 	/**
 	 * @property $start (Vector)  -- start position of vector in 3-space.
 	 * @property $dir (Vector)  -- direction of vector in 3-space.
@@ -83,16 +85,15 @@ class com.wis.math.geom.util.Ray
 	 * @property $trans (Transformation)  -- a Transformation object.
 	 * @property $ACCURACY (Number)  -- static -- precision for calculations -- 1e-8.
 	**/
-    var $start:Vector;
-    var $dir:Vector;
-    var $distMult:Number;
-    var $isShadowTest:Boolean;
-    var $trans:Transformation;
-    static var $ACCURACY:Number = .00000001;
+    public var $start:Vector;
+    public var $dir:Vector;
+    public var $distMult:Number;
+    public var $isShadowTest:Boolean;
+    public var $trans:Transformation;
+    public static var $ACCURACY:Number = .00000001;
 
     // constructor
-    function Ray(start:Vector,dir:Vector,distMult:Number)
-    {
+    public function Ray(start:Vector, dir:Vector, distMult:Number) {
         trace ("Ray Class fired");
     	$start = start;
     	$dir = Vector.normalizer(dir);
@@ -100,7 +101,7 @@ class com.wis.math.geom.util.Ray
     	$isShadowTest = false;
     }
 
-// 1. copy ------------------------------------------------------------
+      // 1. copy ------------------------------------------------------------
 
     /**
      * @method  copy
@@ -108,16 +109,15 @@ class com.wis.math.geom.util.Ray
      * @usage  <pre>inst.copy();</pre>
      * @return  (Ray)  -- returns a copy of the class instance.
     **/
-    function copy():Ray
-    {
-    	var toReturn:Ray = new Ray($start.copy(),$dir.copy(),$distMult);
+    public function copy():Ray {
+    	var toReturn:Ray = new Ray($start.copy(), $dir.copy(), $distMult);
 
     	toReturn.$isShadowTest = $isShadowTest;
 
     	return toReturn;
     }
 
-// 2. toString ------------------------------------------------------------
+      // 2. toString ------------------------------------------------------------
 
     /**
      * @method  toString
@@ -125,32 +125,30 @@ class com.wis.math.geom.util.Ray
      * @usage  <pre>inst.toString();</pre>
      * @return  (String)  -- returns a string containing class Vector properties.
     **/
-    function toString():String
-    {
+    public function toString():String {
     	return "[Ray from "+$start+" in the direction of "+$dir+"]";
     }
 
-// 3. transform ------------------------------------------------------------
+      // 3. transform ------------------------------------------------------------
 
     /**
      * @method  transform
      * @description  Transforms this instance using passed 'trans' Transformation object.
      * @usage  <pre>inst.transform(trans);</pre>
      * @param   trans   (Transformation)  -- a Transformation object.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function transform(trans:Transformation):Void
-    {
+    public function transform(trans:Transformation):void {
     	$start.transform(trans);
-    	$dir.transform(trans,true);
+    	$dir.transform(trans, true);
 
     	var dirLength:Number = $dir._len;
 
     	$distMult /= dirLength;
-    	$dir = Vector.scaler($dir,1/dirLength); // (normalize)
+    	$dir = Vector.scaler($dir, 1/dirLength); // (normalize)
     }
 
-// 4. transformed ------------------------------------------------------------
+      // 4. transformed ------------------------------------------------------------
 
     /**
      * @method  transformed
@@ -159,8 +157,7 @@ class com.wis.math.geom.util.Ray
      * @param   trans   (Transformation)  -- a Transformation object.
      * @return  (Ray)  -- returns a new transformed Ray object.
     **/
-    function transformed(trans:Transformation):Ray
-    {
+    public function transformed(trans:Transformation):Ray {
     	var toReturn:Ray = copy();
 
     	toReturn.$distMult = 1;
@@ -169,31 +166,26 @@ class com.wis.math.geom.util.Ray
     	return toReturn;
     }
 
-// 5. tracer ------------------------------------------------------------
+      // 5. tracer ------------------------------------------------------------
 
     /**
      * @method  tracer
      * @description  Trace this instance's path for intersection(s) with passed shape objects.
-     * @usage  <pre>inst.tracer(obs,giveUpAt);</pre>
+     * @usage  <pre>inst.tracer(obs, giveUpAt);</pre>
      * @param   objs_arr   (Array)  -- a list of shape objects.
      * @param   giveUpAt   (Number)  -- tests against newly created list of intersections' $depth property.
      * @return  (Intersection)  -- returns a new Intersection object.
     **/
-    function tracer(objs_arr:Array,giveUpAt:Number):Intersection
-    {
-    	var winningIsect:Intersection = new Intersection(-1,this,null);
+    public function tracer(objs_arr:Array, giveUpAt:Number):Intersection {
+    	var winningIsect:Intersection = new Intersection(-1, this, null);
     	var intersections:Array = [];
-    	var a:Number,b:Number;
+    	var a:Number, b:Number;
 
-    	for (a=0;a<objs_arr.length;a++)
-    	{
+    	for (a=0;a<objs_arr.length;a++) {
     		intersections = objs_arr[a].findIntersections(this);
-    		for (b=0;b<intersections.length;b++)
-    		{
-    			if (intersections[b].$depth>Ray.$ACCURACY)
-    			{
-    				if (winningIsect.$depth==-1 || intersections[b].$depth<winningIsect.$depth)
-    				{
+    		for (b=0;b<intersections.length;b++) {
+    			if (intersections[b].$depth>Ray.$ACCURACY) {
+    				if (winningIsect.$depth==-1 || intersections[b].$depth<winningIsect.$depth) {
     					winningIsect = intersections[b];
     					if ($isShadowTest && intersections[b].$depth<=giveUpAt) return winningIsect;
     				}
@@ -205,29 +197,32 @@ class com.wis.math.geom.util.Ray
     	return winningIsect;
     }
 
-// 6. traceForColor ------------------------------------------------------------
+      // 6. traceForColor ------------------------------------------------------------
 
     /**
      * @method  traceForColor
-     * @description  Creates a new Col object by calling super's 'getColorAt' method.
-     * @usage  <pre>inst.traceForColor(objs,lights,traceLevel,effect,clip)</pre>
+     * @description  Creates a new wis3Color object by calling super's 'getColorAt' method.
+     * @usage  <pre>inst.traceForColor(objs, lights, traceLevel, effect, clip)</pre>
      * @param   objs_arr   (Array)  -- a list of shape objects.
      * @param   lights_arr   (Array)  -- a list of LightSource objects.
      * @param   traceLevel   (Number)  -- a maximum value for traces.
      * @param   effect   (Number)  -- -- a real number passed to test against super's $bailout property.
      * @param   clip   (MovieClip)  -- scope MovieClip object.
-     * @return  (Col)  -- returns a new Col object.
+     * @return  (wis3Color)  -- returns a new wis3Color object.
     **/
-    function traceForColor(objs_arr:Array,lights_arr:Array,traceLevel:Number,effect:Number,clip:MovieClip):Col
-    {
-    	var isect:Intersection = new Intersection(-1,this,null);
-    	isect = tracer(objs_arr,traceLevel);
-		var target:Color = new Color(clip);
+    public function traceForColor(objs_arr:Array, lights_arr:Array, traceLevel:Number, effect:Number, clip:MovieClip):ColorTransform {
+    	throw new Error("AS2-AS3 Transition Error: Color changed to ColorTransform and we haven't fixed it yet");
+    	/*
+    	var isect:Intersection = new Intersection(-1, this, null);
+    	isect = tracer(objs_arr, traceLevel);
+		var target:wis3Color = new wis3Color(clip);
 
-        if (isect.$depth==-1) return new Col(target,0,0,0);
+        if (isect.$depth==-1) return new wis3Color(target, 0, 0, 0);
 
-    	return isect.$objectStack[0].getColorAt(isect,objs_arr,lights_arr,traceLevel,effect);
+    	return isect.$objectStack[0].getColorAt(isect, objs_arr, lights_arr, traceLevel, effect);*/
+    	return null;
     }
 
-}
+}// class
+}//package
 

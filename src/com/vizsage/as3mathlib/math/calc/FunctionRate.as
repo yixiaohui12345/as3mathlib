@@ -1,16 +1,17 @@
+package com.wis3.math.calc {
 /**
- * @class       com.wis.math.calc.FunctionRate
+ * @class       com.wis3.math.calc.FunctionRate
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description FunctionRate implements the behaviours of the IODE Interface.
- * @usage       <pre>var inst:FunctionRate = new FunctionRate(_f,start);</pre>
+ * @usage       <pre>var inst:FunctionRate = new FunctionRate(_f, start);</pre>
  * @param       _f:Function --
  * @param       start:Number --
  * -----------------------------------------------
  * Latest update: September 19, 2004
  * -----------------------------------------------
- * AS2  revision copyright: © 2003, Richard Wright     [wisolutions2002@shaw.ca]
- * Java original copyright: © 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
+ * AS2  revision copyright: ï¿½ 2003, Richard Wright     [wisolutions2002@shaw.ca]
+ * Java original copyright: ï¿½ 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -38,28 +39,26 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * -----------------------------------------------
  * Functions:
- *       FunctionRate(_f,start)
+ *       FunctionRate(_f, start)
  *           1.  getState()
- *           2.  getRate(state,rate)
+ *           2.  getRate(state, rate)
  * -----------------------------------------------
  * Updates may be available at:
  *              http://members.shaw.ca/flashprogramming/wisASLibrary/wis/
  * -----------------------------------------------
 **/
 
-import com.wis.math.calc.*;
+import com.wis3.math.calc.*;
 
-class com.wis.math.calc.FunctionRate implements com.wis.math.calc.IODE
-{
+public class FunctionRate implements com.wis3.math.calc.IODE {
 	/**
 	 * @property $state  (Array)  --
 	 * @property $f  (Function)  --
 	**/
-    var $state:Array = [];
-    var $f:Function;
+    public var $state:Array = [];
+    public var $f:Function;
 
-    function FunctionRate(_f:Function,start:Number)
-    {
+    public function FunctionRate(_f:Function, start:Number) {
         //trace ("FunctionRate Class loaded");
         $state = new Array(2);
 
@@ -68,7 +67,7 @@ class com.wis.math.calc.FunctionRate implements com.wis.math.calc.IODE
         $f = _f;
     }
 
-// 1. getState -----------------------------------------------
+      // 1. getState -----------------------------------------------
 
     /**
      * @method  getState
@@ -76,28 +75,27 @@ class com.wis.math.calc.FunctionRate implements com.wis.math.calc.IODE
      * @usage  <pre>inst.getState();</pre>
      * @return  (Array)
     **/
-    public function getState():Array
-    {
+    public function getState():Array {
         //trace ("**FunctionRate getState fired");
         return $state;
     }
 
-// 2. getRate ------------------------------------------------
+      // 2. getRate ------------------------------------------------
 
     /**
      * @method  getRate
      * @description
-     * @usage  <pre>inst.getRate(state,rate);</pre>
+     * @usage  <pre>inst.getRate(state, rate);</pre>
      * @param   state  (Array) -- .
      * @param   rate  (Array)  -- .
      * @return  (Array)
     **/
-    public function getRate(state:Array,rate:Array):Void
-    {
+    public function getRate(state:Array, rate:Array):void {
         //trace ("**FunctionRate getState fired");
-        rate[0] = $f.call(this,state[1]); // integral
+        rate[0] = $f.call(this, state[1]); // integral
         rate[1] = 1;                      // independent variable
     }
 
-}
+}// class
+}//package
 

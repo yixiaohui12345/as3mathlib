@@ -1,5 +1,6 @@
+package com.wis3.math.alg {
 /**
- * @class       com.wis.math.alg.Complex
+ * @class       com.wis3.math.alg.Complex
  * @author      Richard Wright
  * @version     1.7
  * @description Implements the static behaviours of the Complex Class, with
@@ -10,7 +11,7 @@
  *              The calculator is capable of performing all basic operations:
  *              powers, roots, logarithms, trigonometric functions, hyperbolic
  *              functions, gamma and polygamma functions. Other than the following
- *              exceptions, all methods call an inner 'Complex.input(re,im)' method
+ *              exceptions, all methods call an inner 'Complex.input(re, im)' method
  *              to capture the values of the two UI input fields for manipulation
  *              within the outer method:
  *              <blockquote><pre>
@@ -23,7 +24,7 @@
  *              declared as 'public static' to be able to utilize all class methods
  *              in other application structures.
  * @usage       <pre>
- *              var inst:Complex = new Complex(re,im);
+ *              var inst:Complex = new Complex(re, im);
  *              Complex.classMethod(args);</pre>
  * @param       re (Number)  -- real portion of complex number from re_txt string
  *                              converted in UI.
@@ -61,24 +62,24 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * -----------------------------------------------
  * Functions:
- *     Complex(re,im)
- *           1.  input(re,im)
- *           2.  arg(x,y)
+ *     Complex(re, im)
+ *           1.  input(re, im)
+ *           2.  arg(x, y)
  *           3.  chSign(c)
  *           4.  norm(c)
  *           5.  rAbs(c)
  *           6.  abs(c)
  *           7.  timesi(c)
  *           8.  timesi3(c)
- *           9.  adds(c1,c2)
- *           10. subt(c1,c2)
- *           11. mult(c1,c2)
- *           12. div(c1,c2)
+ *           9.  adds(c1, c2)
+ *           10. subt(c1, c2)
+ *           11. mult(c1, c2)
+ *           12. div(c1, c2)
  *           13. log(c)
  *           14. exp(c)
  *           15. sqrt(c)
- *           16. power(c1,c2)
- *           17. root(c1,c2)
+ *           16. power(c1, c2)
+ *           17. root(c1, c2)
  *           18. rSinh(r)
  *           19. rCosh(r)
  *           20. sin(c)
@@ -107,7 +108,7 @@
  *           43. acosech(c)
  *           44. contFrac(arguments)
  *           45. factorial(c)
- *           46. equals(c1,c2)
+ *           46. equals(c1, c2)
  *           47. conjugate(c)
  *           48. modulo(c)
  *           49. logGamma(c)
@@ -127,7 +128,7 @@
  * -----------------------------------------------
 **/
 
-class com.wis.math.alg.Complex {
+public class Complex {
 	/**
 	 * @property $r  (Number)  -- real portion of complex number, any real number.
 	 * @property $i  (Number)  -- imaginary portion of complex number, any real number.
@@ -138,64 +139,59 @@ class com.wis.math.alg.Complex {
 	**/
     private var $r:Number;
     private var $i:Number;
-    static var Mem:Complex   = new Complex(0,0);
-    static var One:Complex   = new Complex(1,0);
-    static var Pi:Complex    = new Complex(Math.PI,0);
-    static var ToRad:Complex = new Complex(180/Math.PI,0);
+    public static var Mem:Complex   = new Complex(0, 0);
+    public static var One:Complex   = new Complex(1, 0);
+    public static var Pi:Complex    = new Complex(Math.PI, 0);
+    public static var ToRad:Complex = new Complex(180/Math.PI, 0);
 
     // constructor
-    function Complex(re:Number,im:Number)
-    {
+    public function Complex(re:Number, im:Number) {
         //trace ("$$ Complex Class fired! $$");
         $r = re;
         $i = im;
     }
 
-// 1. input --------------------------------------
+      // 1. input --------------------------------------
 
     /**
      * @method  input
      * @description  Main public  method for capture of UI input from textfields to
      *               instantiate a new Complex class instance.
-     * @usage  <pre>Complex.input(re,im);</pre>
+     * @usage  <pre>Complex.input(re, im);</pre>
      * @param   re   (Number)  -- real portion of complex number from re_txt string converted in UI.
      * @param   im   (Number)  -- imaginary portion of complex number from im_txt string converted in UI.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function input(re:Number,im:Number):Complex
-    {
+    public static function input(re:Number, im:Number):Complex {
         var oldRe:String = re.toString();
         var oldIm:String = im.toString();
         var newRe:String = ""
         var newIm:String = "";
         var j:Number;
 
-        for (j=0;j<oldRe.length;j++)
-        {
-            if (oldRe.charAt(j)==",") newRe += ".";
+        for (j=0;j<oldRe.length;j++) {
+            if (oldRe.charAt(j)==", ") newRe += ".";
             else newRe += oldRe.charAt(j);
         }
-        for (j=0;j<oldIm.length;j++)
-        {
-            if (oldIm.charAt(j)==",") newIm += ".";
+        for (j=0;j<oldIm.length;j++) {
+            if (oldIm.charAt(j)==", ") newIm += ".";
             else newIm += oldIm.charAt(j);
         }
 
-        return new Complex(parseFloat(newRe),parseFloat(newIm));
+        return new Complex(parseFloat(newRe), parseFloat(newIm));
     }
 
-// 2. arg ----------------------------------------
+      // 2. arg ----------------------------------------
 
     /**
      * @method  arg
      * @description  Method used within 'log' and 'atan' methods.
-     * @usage  <pre>Complex.arg(x,y);</pre>
+     * @usage  <pre>Complex.arg(x, y);</pre>
      * @param   x   (Number)  -- any real number.
      * @param   y   (Number)  -- any real number.
      * @return  (Number)  -- returns a real number based on input signs.
     **/
-    static function arg(x:Number,y:Number):Number
-    {
+    public static function arg(x:Number, y:Number):Number {
         if (x>0) return Math.atan(y/x);
         if (x<0 && y>=0) return Math.PI+Math.atan(y/x);
         if (x<0 && y<0) return -Math.PI+Math.atan(y/x);
@@ -205,7 +201,7 @@ class com.wis.math.alg.Complex {
         return 0;
     }
 
-// 3. chSign -------------------------------------
+      // 3. chSign -------------------------------------
 
     /**
      * @method  chSign
@@ -215,15 +211,14 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- 'log' of 'asinh' inner c2 complex number, or UI complex input.
      * @return  (Complex)  -- returns a modified Complex object.
     **/
-    static function chSign(c:Complex):Complex
-    {
+    public static function chSign(c:Complex):Complex {
         c.$r = -c.$r;
         c.$i = -c.$i;
 
         return c;
     }
 
-// 4. norm ----------------------------------------
+      // 4. norm ----------------------------------------
 
     /**
      * @method  norm
@@ -233,12 +228,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number to be normalized.
      * @return  (Number)  -- returns a real number.
     **/
-    static function norm(c:Complex):Number
-    {
+    public static function norm(c:Complex):Number {
         return(c.$r*c.$r+c.$i*c.$i);
     }
 
-// 5. rAbs ---------------------------------------
+      // 5. rAbs ---------------------------------------
 
     /**
      * @method  rAbs
@@ -247,17 +241,15 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Number)  -- returns a positive real number.
     **/
-    static function rAbs(c:Complex):Number
-    {
-        if (Math.abs(c.$r)>Math.abs(c.$i))
-        {
+    public static function rAbs(c:Complex):Number {
+        if (Math.abs(c.$r)>Math.abs(c.$i)) {
             return Math.abs(c.$r)*Math.sqrt(1+(c.$i/c.$r)*(c.$i/c.$r));
         }
 
         return Math.abs(c.$i)*Math.sqrt(1+(c.$r/c.$i)*(c.$r/c.$i));
     }
 
-// 6. abs ----------------------------------------
+      // 6. abs ----------------------------------------
 
     /**
      * @method  abs
@@ -266,12 +258,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)    -- returns a new Complex object.
     **/
-    static function abs(c:Complex):Complex
-    {
-        return new Complex(Complex.rAbs(c),0);
+    public static function abs(c:Complex):Complex {
+        return new Complex(Complex.rAbs(c), 0);
     }
 
-// 7. timesi -------------------------------------
+      // 7. timesi -------------------------------------
 
     /**
      * @method  timesi
@@ -280,12 +271,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function timesi(c:Complex):Complex
-    {
-        return new Complex(-c.$i,c.$r);
+    public static function timesi(c:Complex):Complex {
+        return new Complex(-c.$i, c.$r);
     }
 
-// 8. timesi3 ------------------------------------
+      // 8. timesi3 ------------------------------------
 
     /**
      * @method  timesi3
@@ -294,85 +284,79 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function timesi3(c:Complex):Complex
-    {
-        return new Complex(c.$i,-c.$r);
+    public static function timesi3(c:Complex):Complex {
+        return new Complex(c.$i, -c.$r);
     }
 
-// 9. adds ---------------------------------------
+      // 9. adds ---------------------------------------
 
     /**
      * @method  adds
      * @description  Adds two complex numbers.
-     * @usage <pre>Complex.adds(c1,c2);</pre>
+     * @usage <pre>Complex.adds(c1, c2);</pre>
      * @param   c1   (Complex)  -- complex number input.
      * @param   c2   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function adds(c1:Complex,c2:Complex):Complex
-    {
-        return new Complex(c1.$r+c2.$r,c1.$i+c2.$i);
+    public static function adds(c1:Complex, c2:Complex):Complex {
+        return new Complex(c1.$r+c2.$r, c1.$i+c2.$i);
     }
 
-// 10. subt ---------------------------------------
+      // 10. subt ---------------------------------------
 
     /**
      * @method  subt
      * @description  Subtracts two complex numbers.
-     * @usage <pre>Complex.subt(c1,c2);</pre>
+     * @usage <pre>Complex.subt(c1, c2);</pre>
      * @param   c1   (Complex)  -- complex number input.
      * @param   c2   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function subt(c1:Complex,c2:Complex):Complex
-    {
-        return new Complex(c1.$r-c2.$r,c1.$i-c2.$i);
+    public static function subt(c1:Complex, c2:Complex):Complex {
+        return new Complex(c1.$r-c2.$r, c1.$i-c2.$i);
     }
 
-// 11. mult ---------------------------------------
+      // 11. mult ---------------------------------------
 
     /**
      * @method  mult
      * @description  Multiplies two complex numbers.
-     * @usage <pre>Complex.mult(c1,c2);</pre>
+     * @usage <pre>Complex.mult(c1, c2);</pre>
      * @param   c1   (Complex)  -- complex number input.
      * @param   c2   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function mult(c1:Complex,c2:Complex):Complex
-    {
-        return new Complex(c1.$r*c2.$r-c1.$i*c2.$i,c1.$i*c2.$r+c1.$r*c2.$i);
+    public static function mult(c1:Complex, c2:Complex):Complex {
+        return new Complex(c1.$r*c2.$r - c1.$i*c2.$i, c1.$i*c2.$r + c1.$r*c2.$i);
     }
 
-// 12. div ----------------------------------------
+      // 12. div ----------------------------------------
 
     /**
      * @method  div
      * @description  Divides two complex numbers.
-     * @usage <pre>Complex.div(c1,c2);</pre>
+     * @usage <pre>Complex.div(c1, c2);</pre>
      * @param   c1   (Complex)  -- complex number input.
      * @param   c2   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function div(c1:Complex,c2:Complex):Complex
-    {
+    public static function div(c1:Complex, c2:Complex):Complex {
         var r:Number;
 	    var s:Number;
 
-        if (Math.abs(c2.$r)>=Math.abs(c2.$i))
-        {
+        if (Math.abs(c2.$r)>=Math.abs(c2.$i)) {
             r = c2.$i/c2.$r;
             s = c2.$r+r*c2.$i;
 
-            return new Complex((c1.$r+c1.$i*r)/s,(c1.$i-c1.$r*r)/s);
+            return new Complex((c1.$r+c1.$i*r)/s, (c1.$i-c1.$r*r)/s);
         }
         r = c2.$r/c2.$i;
         s = c2.$i+r*c2.$r;
 
-        return new Complex((c1.$r*r+c1.$i)/s,(c1.$i*r-c1.$r)/s);
+        return new Complex((c1.$r*r+c1.$i)/s, (c1.$i*r-c1.$r)/s);
     }
 
-// 13. log ----------------------------------------
+      // 13. log ----------------------------------------
 
     /**
      * @method  log
@@ -381,12 +365,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function log(c:Complex):Complex
-    {
-        return new Complex(Math.log(Complex.rAbs(c)),Complex.arg(c.$r,c.$i));
+    public static function log(c:Complex):Complex {
+        return new Complex(Math.log(Complex.rAbs(c)), Complex.arg(c.$r, c.$i));
     }
 
-// 14. exp ----------------------------------------
+      // 14. exp ----------------------------------------
 
     /**
      * @method  exp
@@ -396,12 +379,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function exp(c:Complex):Complex
-    {
-        return new Complex(Math.exp(c.$r)*Math.cos(c.$i),Math.exp(c.$r)*Math.sin(c.$i));
+    public static function exp(c:Complex):Complex {
+        return new Complex(Math.exp(c.$r)*Math.cos(c.$i), Math.exp(c.$r)*Math.sin(c.$i));
     }
 
-// 15. sqrt ---------------------------------------
+      // 15. sqrt ---------------------------------------
 
     /**
      * @method  sqrt
@@ -410,61 +392,54 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function sqrt(c:Complex):Complex
-    {
+    public static function sqrt(c:Complex):Complex {
         var aux:Number;
 
-        if (c.$r>0)
-        {
+        if (c.$r>0) {
             aux = Complex.rAbs(c)+c.$r;
 
-            return new Complex(Math.sqrt(aux/2),c.$i/Math.sqrt(2*aux));
+            return new Complex(Math.sqrt(aux/2), c.$i/Math.sqrt(2*aux));
         }
-        else
-        {
+        else {
             aux = Complex.rAbs(c)-c.$r;
-            if (c.$i<0)
-            {
-                return new Complex(Math.abs(c.$i)/Math.sqrt(2*aux),-Math.sqrt(aux/2));
+            if (c.$i<0) {
+                return new Complex(Math.abs(c.$i)/Math.sqrt(2*aux), -Math.sqrt(aux/2));
             }
-            else
-            {
-                return new Complex(Math.abs(c.$i)/Math.sqrt(2*aux),Math.sqrt(aux/2));
+            else {
+                return new Complex(Math.abs(c.$i)/Math.sqrt(2*aux), Math.sqrt(aux/2));
             }
         }
     }
 
-// 16. power --------------------------------------
+      // 16. power --------------------------------------
 
     /**
      * @method  power
      * @description  Calculates c2 power of c1.
-     * @usage <pre>Complex.power(c1,c2);</pre>
+     * @usage <pre>Complex.power(c1, c2);</pre>
      * @param   c1   (Complex)  -- complex number input.
      * @param   c2   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function power(c1:Complex,c2:Complex):Complex
-    {
-        return Complex.exp(Complex.mult(Complex.log(c1),c2));
+    public static function power(c1:Complex, c2:Complex):Complex {
+        return Complex.exp(Complex.mult(Complex.log(c1), c2));
     }
 
-// 17. root ---------------------------------------
+      // 17. root ---------------------------------------
 
     /**
      * @method  root
      * @description  Calculates c2 root of c1.
-     * @usage <pre>Complex.root(c1,c2);</pre>
+     * @usage <pre>Complex.root(c1, c2);</pre>
      * @param   c1   (Complex)  -- complex number input.
      * @param   c2   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function root(c1:Complex,c2:Complex):Complex
-    {
-        return Complex.exp(Complex.div(Complex.log(c1),c2));
+    public static function root(c1:Complex, c2:Complex):Complex {
+        return Complex.exp(Complex.div(Complex.log(c1), c2));
     }
 
-// 18. rSinh --------------------------------------
+      // 18. rSinh --------------------------------------
 
     /**
      * @method  rSinh
@@ -473,14 +448,11 @@ class com.wis.math.alg.Complex {
      * @param   r   (Number)  -- a real number.
      * @return  (Number)  -- returns a real number.
     **/
-    static function rSinh(r:Number):Number
-    {
-        if (Math.abs(r)>.1)
-        {
+    public static function rSinh(r:Number):Number {
+        if (Math.abs(r)>.1) {
             return (Math.exp(r)-Math.exp(-r))/2;
         }
-        else
-        {
+        else {
             var s:Number = 1;
             var j:Number;
 
@@ -490,7 +462,7 @@ class com.wis.math.alg.Complex {
         }
     }
 
-// 19. rCosh --------------------------------------
+      // 19. rCosh --------------------------------------
 
     /**
      * @method  rCosh
@@ -499,12 +471,11 @@ class com.wis.math.alg.Complex {
      * @param   r   (Number)  -- a real number.
      * @return  (Number)  -- returns a real number.
     **/
-    static function rCosh(r:Number):Number
-    {
+    public static function rCosh(r:Number):Number {
         return (Math.exp(r)+Math.exp(-r))/2;
     }
 
-// 20. sin ----------------------------------------
+      // 20. sin ----------------------------------------
 
     /**
      * @method  sin
@@ -513,12 +484,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function sin(c:Complex):Complex
-    {
-        return new Complex(Math.sin(c.$r)*Complex.rCosh(c.$i),Math.cos(c.$r)*Complex.rSinh(c.$i));
+    public static function sin(c:Complex):Complex {
+        return new Complex(Math.sin(c.$r)*Complex.rCosh(c.$i), Math.cos(c.$r)*Complex.rSinh(c.$i));
     }
 
-// 21. cos ----------------------------------------
+      // 21. cos ----------------------------------------
 
     /**
      * @method  cos
@@ -527,12 +497,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function cos(c:Complex):Complex
-    {
-        return new Complex(Math.cos(c.$r)*Complex.rCosh(c.$i),-Math.sin(c.$r)*Complex.rSinh(c.$i));
+    public static function cos(c:Complex):Complex {
+        return new Complex(Math.cos(c.$r)*Complex.rCosh(c.$i), -Math.sin(c.$r)*Complex.rSinh(c.$i));
     }
 
-// 22. tan ----------------------------------------
+      // 22. tan ----------------------------------------
 
     /**
      * @method  tan
@@ -541,12 +510,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function tan(c:Complex):Complex
-    {
-        return Complex.div(Complex.sin(c),Complex.cos(c));
+    public static function tan(c:Complex):Complex {
+        return Complex.div(Complex.sin(c), Complex.cos(c));
     }
 
-// 23. cot ----------------------------------------
+      // 23. cot ----------------------------------------
 
     /**
      * @method  cot
@@ -555,12 +523,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function cot(c:Complex):Complex
-    {
-        return Complex.div(Complex.cos(c),Complex.sin(c));
+    public static function cot(c:Complex):Complex {
+        return Complex.div(Complex.cos(c), Complex.sin(c));
     }
 
-// 24. sec ----------------------------------------
+      // 24. sec ----------------------------------------
 
     /**
      * @method  sec
@@ -569,12 +536,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function sec(c:Complex):Complex
-    {
-        return Complex.div(Complex.One,Complex.cos(c));
+    public static function sec(c:Complex):Complex {
+        return Complex.div(Complex.One, Complex.cos(c));
     }
 
-// 25. cosec --------------------------------------
+      // 25. cosec --------------------------------------
 
     /**
      * @method  cosec
@@ -583,12 +549,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function cosec(c:Complex):Complex
-    {
-        return Complex.div(Complex.One,Complex.sin(c));
+    public static function cosec(c:Complex):Complex {
+        return Complex.div(Complex.One, Complex.sin(c));
     }
 
-// 26. asin ---------------------------------------
+      // 26. asin ---------------------------------------
 
     /**
      * @method  asin
@@ -597,12 +562,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function asin(c:Complex):Complex
-    {
+    public static function asin(c:Complex):Complex {
         return Complex.timesi(Complex.asinh(Complex.timesi3(c)));
     }
 
-// 27. acos ---------------------------------------
+      // 27. acos ---------------------------------------
 
     /**
      * @method  acos
@@ -611,12 +575,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function acos(c:Complex):Complex
-    {
+    public static function acos(c:Complex):Complex {
         return Complex.timesi(Complex.acosh(c));
     }
 
-// 28. atan ---------------------------------------
+      // 28. atan ---------------------------------------
 
     /**
      * @method  atan
@@ -625,28 +588,25 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function atan(c:Complex):Complex
-    {
-        var tre:Number = Complex.arg(1-Complex.norm(c),2*c.$r)/2;
+    public static function atan(c:Complex):Complex {
+        var tre:Number = Complex.arg(1-Complex.norm(c), 2*c.$r)/2;
         var s:Number = 4*c.$i/(c.$r*c.$r+(c.$i-1)*(c.$i-1));
 
-        if (Math.abs(s)>.1)
-        {
-            return new Complex(tre,Math.log(1+s)/4);
+        if (Math.abs(s)>.1) {
+            return new Complex(tre, Math.log(1+s)/4);
         }
-        else
-        {
+        else {
             var i2:Number = -1/20;
             var j:Number;
 
             s = -s;
             for (j=19;j>0;j--) i2 = i2*s-1/j;
 
-            return new Complex(tre,s*i2/4)
+            return new Complex(tre, s*i2/4)
         }
     }
 
-// 29. acot ---------------------------------------
+      // 29. acot ---------------------------------------
 
     /**
      * @method  acot
@@ -655,12 +615,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function acot(c:Complex):Complex
-    {
-        return Complex.atan(Complex.div(One,c));
+    public static function acot(c:Complex):Complex {
+        return Complex.atan(Complex.div(One, c));
     }
 
-// 30. asec ---------------------------------------
+      // 30. asec ---------------------------------------
 
     /**
      * @method  asec
@@ -669,12 +628,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function asec(c:Complex):Complex
-    {
+    public static function asec(c:Complex):Complex {
         return Complex.timesi(Complex.asech(c));
     }
 
-// 31. acosec -------------------------------------
+      // 31. acosec -------------------------------------
 
     /**
      * @method  acosec
@@ -683,12 +641,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function acosec(c:Complex):Complex
-    {
-        return Complex.asin(Complex.div(Complex.One,c));
+    public static function acosec(c:Complex):Complex {
+        return Complex.asin(Complex.div(Complex.One, c));
     }
 
-// 32. sinh ---------------------------------------
+      // 32. sinh ---------------------------------------
 
     /**
      * @method  sinh
@@ -697,12 +654,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function sinh(c:Complex):Complex
-    {
-        return new Complex(Complex.rSinh(c.$r)*Math.cos(c.$i),Complex.rCosh(c.$r)*Math.sin(c.$i));
+    public static function sinh(c:Complex):Complex {
+        return new Complex(Complex.rSinh(c.$r)*Math.cos(c.$i), Complex.rCosh(c.$r)*Math.sin(c.$i));
     }
 
-// 33. cosh ---------------------------------------
+      // 33. cosh ---------------------------------------
 
     /**
      * @method  cosh
@@ -711,12 +667,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function cosh(c:Complex):Complex
-    {
-        return new Complex(Complex.rCosh(c.$r)*Math.cos(c.$i),Complex.rSinh(c.$r)*Math.sin(c.$i));
+    public static function cosh(c:Complex):Complex {
+        return new Complex(Complex.rCosh(c.$r)*Math.cos(c.$i), Complex.rSinh(c.$r)*Math.sin(c.$i));
     }
 
-// 34. tanh  ---------------------------------------
+      // 34. tanh  ---------------------------------------
 
     /**
      * @method  tanh
@@ -725,12 +680,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function tanh(c:Complex):Complex
-    {
-        return Complex.div(Complex.sinh(c),Complex.cosh(c));
+    public static function tanh(c:Complex):Complex {
+        return Complex.div(Complex.sinh(c), Complex.cosh(c));
     }
 
-// 35. coth ---------------------------------------
+      // 35. coth ---------------------------------------
 
     /**
      * @method  coth
@@ -739,12 +693,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function coth(c:Complex):Complex
-    {
-        return Complex.div(Complex.cosh(c),Complex.sinh(c));
+    public static function coth(c:Complex):Complex {
+        return Complex.div(Complex.cosh(c), Complex.sinh(c));
     }
 
-// 36. sech ---------------------------------------
+      // 36. sech ---------------------------------------
 
     /**
      * @method  sech
@@ -753,12 +706,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function sech(c:Complex):Complex
-    {
-        return Complex.div(Complex.One,Complex.cosh(c));
+    public static function sech(c:Complex):Complex {
+        return Complex.div(Complex.One, Complex.cosh(c));
     }
 
-// 37. cosech -------------------------------------
+      // 37. cosech -------------------------------------
 
     /**
      * @method  cosech
@@ -767,12 +719,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function cosech(c:Complex):Complex
-    {
-        return Complex.div(Complex.One,Complex.sinh(c));
+    public static function cosech(c:Complex):Complex {
+        return Complex.div(Complex.One, Complex.sinh(c));
     }
 
-// 38. asinh --------------------------------------
+      // 38. asinh --------------------------------------
 
     /**
      * @method  asinh
@@ -781,35 +732,34 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function asinh(c:Complex):Complex
-    {
-        if (Complex.norm(c)>.1)
-        {
-            var c1 = Complex.adds(Complex.sqrt(Complex.adds(Complex.mult(c,c),Complex.One)),c);
-            var c2 = Complex.subt(Complex.sqrt(Complex.adds(Complex.mult(c,c),Complex.One)),c);
-
-            if (Complex.norm(c1)>Complex.norm(c2)) return Complex.log(c1);
-
-            return Complex.chSign(Complex.log(c2));
-        }
-
-        var c2:Complex = new Complex(-1/19,0);
-        var c3:Complex = Complex.mult(c,c);
+    public static function asinh(c:Complex):Complex {
+    	var c1:Complex;
+        var c2:Complex;
+        var c3:Complex;
         var sgn:Number = 1;
         var j:Number;
+        
+        if (Complex.norm(c)>.1) {
+            c1 = Complex.adds(Complex.sqrt(Complex.adds(Complex.mult(c, c), Complex.One)), c);
+            c2 = Complex.subt(Complex.sqrt(Complex.adds(Complex.mult(c, c), Complex.One)), c);
+            if 	 (Complex.norm(c1) > Complex.norm(c2)) { return Complex.log(c1) }
+            else { return Complex.chSign(Complex.log(c2)); }
+        } else {
 
-        for (j=17;j>0;j-=2)
-        {
-            c2 = Complex.mult(c3,c2);
-            c2.r = c2.r*j/(j+1)+sgn/j;
-            c2.i = c2.i*j/(j+1);
-            sgn = -sgn;
-        }
-
-        return Complex.mult(c,c2);
+			c2 = new Complex(-1/19, 0);
+			c3 = Complex.mult(c, c);
+	        for (j=17; j>0; j-=2) {
+	            c2 = Complex.mult(c3, c2);
+	            c2._real = (c2._real *j / (j+1)) + (sgn/j);
+	            c2._imag = (c2._imag *j / (j+1));
+	            sgn = -sgn;
+	        }
+	
+	        return Complex.mult(c, c2);
+       	}
     }
 
-// 39. acosh --------------------------------------
+      // 39. acosh --------------------------------------
 
     /**
      * @method  acosh
@@ -818,17 +768,16 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function acosh(c:Complex):Complex
-    {
-        var c1:Complex = Complex.adds(Complex.sqrt(Complex.subt(Complex.mult(c,c),Complex.One)),c);
-        var c2:Complex = Complex.subt(Complex.sqrt(Complex.subt(Complex.mult(c,c),Complex.One)),c);
+    public static function acosh(c:Complex):Complex {
+        var c1:Complex = Complex.adds(Complex.sqrt(Complex.subt(Complex.mult(c, c), Complex.One)), c);
+        var c2:Complex = Complex.subt(Complex.sqrt(Complex.subt(Complex.mult(c, c), Complex.One)), c);
 
         if (Complex.norm(c1)>Complex.norm(c2)) return Complex.log(c1);
 
-        return Complex.log(Complex.mult(new Complex(-1,0),c2));
+        return Complex.log(Complex.mult(new Complex(-1, 0), c2));
     }
 
-// 40. atanh --------------------------------------
+      // 40. atanh --------------------------------------
 
     /**
      * @method  atanh
@@ -837,12 +786,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function atanh(c:Complex):Complex
-    {
+    public static function atanh(c:Complex):Complex {
         return Complex.timesi(Complex.atan(Complex.timesi3(c)));
     }
 
-// 41. acoth --------------------------------------
+      // 41. acoth --------------------------------------
 
     /**
      * @method  acoth
@@ -851,12 +799,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function acoth(c:Complex):Complex
-    {
-        return Complex.atanh(Complex.div(Complex.One,c));
+    public static function acoth(c:Complex):Complex {
+        return Complex.atanh(Complex.div(Complex.One, c));
     }
 
-// 42. asech --------------------------------------
+      // 42. asech --------------------------------------
 
     /**
      * @method  asech
@@ -865,12 +812,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function asech(c:Complex):Complex
-    {
-        return Complex.acosh(Complex.div(Complex.One,c));
+    public static function asech(c:Complex):Complex {
+        return Complex.acosh(Complex.div(Complex.One, c));
     }
 
-// 43. acosech ------------------------------------
+      // 43. acosech ------------------------------------
 
     /**
      * @method  acosech
@@ -879,12 +825,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function acosech(c:Complex):Complex
-    {
-        return Complex.asinh(Complex.div(Complex.One,c));
+    public static function acosech(c:Complex):Complex {
+        return Complex.asinh(Complex.div(Complex.One, c));
     }
 
-// 44. contFrac -----------------------------------
+      // 44. contFrac -----------------------------------
 
     /**
      * @method  contFrac
@@ -894,21 +839,19 @@ class com.wis.math.alg.Complex {
      * @param   arguments   (variant)  -- 1st argument is complex number, balance are fractional input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function contFrac(arguments):Complex
-    {
-        var s:Complex = Complex.div(new Complex(3,0),arguments[0]); //,c);
+    public static function contFrac(...args):Complex {
+        var s:Complex = Complex.div(new Complex(3, 0), args[0]); //, c);
         var j:Number;
 
-        for (j=7;j>0;j--)
-        {
-            //s = Complex.div(new Complex(Complex.contFrac.arguments[j],0),Complex.adds(c,s));
-            s = Complex.div(new Complex(arguments[j],0),Complex.adds(arguments[0],s)); //(c,s));
+        for (j=7;j>0;j--) {
+            //s = Complex.div(new Complex(Complex.contFrac.arguments[j], 0), Complex.adds(c, s));
+            s = Complex.div(new Complex(args[j], 0), Complex.adds(args[0], s)); //(c, s));
             trace(j+" .. s._real: "+s._real+", _imag: "+s._imag);
         }
         return s;
     }
 
-// 45. factorial ----------------------------------
+      // 45. factorial ----------------------------------
 
     /**
      * @method  factorial
@@ -917,54 +860,49 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function factorial(c:Complex):Complex
-    {
+    public static function factorial(c:Complex):Complex {
         var c1:Complex;
         var c2:Complex;
         var s:Complex;
         var j:Number;
 
-        if (c.$r<-1)
-        {
-            c2 = Complex.div(Complex.Pi,Complex.sin(Complex.mult(Complex.Pi,c)));
+        if (c.$r<-1) {
+            c2 = Complex.div(Complex.Pi, Complex.sin(Complex.mult(Complex.Pi, c)));
             c2.$r = -c2.$r;
             c2.$i = -c2.$i;
-            c1 = Complex.subt(new Complex(5,0),c);
+            c1 = Complex.subt(new Complex(5, 0), c);
         }
-        else
-        {
-            c1 = Complex.adds(c,new Complex(6,0));
+        else {
+            c1 = Complex.adds(c, new Complex(6, 0));
         }
-        s = Complex.contFrac(c1,1/12,1/30,53/210,195/371,22999/22737,29944523/19733142,109535241009/48264275462);
-        s = Complex.adds(s,new Complex(.5*Math.log(2*Math.PI),0));
-        s = Complex.adds(s,Complex.mult(Complex.adds(c1,new Complex(.5,0)),Complex.log(c1)));
-        s = Complex.exp(Complex.subt(s,c1));
-        for (j=0;j<6;j++)
-        {
-            s = Complex.div(s,c1);
+        s = Complex.contFrac(c1, 1/12, 1/30, 53/210, 195/371, 22999/22737, 29944523/19733142, 109535241009/48264275462);
+        s = Complex.adds(s, new Complex(.5*Math.log(2*Math.PI), 0));
+        s = Complex.adds(s, Complex.mult(Complex.adds(c1, new Complex(.5, 0)), Complex.log(c1)));
+        s = Complex.exp(Complex.subt(s, c1));
+        for (j=0;j<6;j++) {
+            s = Complex.div(s, c1);
             c1.$r--;
         }
         if (c.$r>=-1) return s;
 
-        return Complex.div(c2,s);
+        return Complex.div(c2, s);
     }
 
-// 46. equals -------------------------------------
+      // 46. equals -------------------------------------
 
     /**
      * @method  equals
      * @description  Determines whether complex numbers c1 and c2 are equal.
-     * @usage <pre>Complex.equals(c1,c2);</pre>
+     * @usage <pre>Complex.equals(c1, c2);</pre>
      * @param   c1   (Complex)  -- complex number input.
      * @param   c2   (Complex)  -- complex number input.
      * @return  (Boolean)
     **/
-    static function equals(c1:Complex,c2:Complex):Boolean
-    {
+    public static function equals(c1:Complex, c2:Complex):Boolean {
         return (c1.$r==c2.$r && c1.$i==c2.$i);
     }
 
-// 47. conjugate ----------------------------------
+      // 47. conjugate ----------------------------------
 
     /**
      * @method  conjugate
@@ -973,12 +911,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a new Complex object.
     **/
-    static function conjugate(c:Complex):Complex
-    {
-        return new Complex(c.$r,-c.$i);
+    public static function conjugate(c:Complex):Complex {
+        return new Complex(c.$r, -c.$i);
     }
 
-// 48. modulo -------------------------------------
+      // 48. modulo -------------------------------------
 
     /**
      * @method  modulo
@@ -987,12 +924,11 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Number)  -- returns a real number.
     **/
-    static function modulo(c:Complex):Number
-    {
+    public static function modulo(c:Complex):Number {
         return Math.sqrt(c.$r*c.$r+c.$i*c.$i);
     }
 
-// 49. logGamma -----------------------------------
+      // 49. logGamma -----------------------------------
 
     /**
      * @method  logGamma
@@ -1001,43 +937,39 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function logGamma(c:Complex):Complex
-    {
+    public static function logGamma(c:Complex):Complex {
         var c1:Complex;
         var c2:Complex;
         var s:Complex;
         var j:Number;
 
-        if (c.$r<0)
-        {
-            c2 = Complex.log(Complex.sin(Complex.mult(Complex.Pi,c)));
-            c1 = Complex.subt(new Complex(6,0),c);
-            trace ("1. Complex.logGamma (c.$r<0) ... c2.$r: "+c2.$r+",$i: "+c2.$i+", c1.$r: "+c1.$r+",$i: "+c1.$i);
+        if (c.$r<0) {
+            c2 = Complex.log(Complex.sin(Complex.mult(Complex.Pi, c)));
+            c1 = Complex.subt(new Complex(6, 0), c);
+            trace ("1. Complex.logGamma (c.$r<0) ... c2.$r: "+c2.$r+", $i: "+c2.$i+", c1.$r: "+c1.$r+", $i: "+c1.$i);
         }
-        else
-        {
-            c1 = Complex.adds(c,new Complex(7,0));
-            trace ("2. Complex.logGamma (c.$r>=0) ... c1.$r: "+c1.$r+",$i: "+c1.$i);
+        else {
+            c1 = Complex.adds(c, new Complex(7, 0));
+            trace ("2. Complex.logGamma (c.$r>=0) ... c1.$r: "+c1.$r+", $i: "+c1.$i);
         }
-        s = Complex.contFrac(c1,1/12,1/30,53/210,195/371,22999/22737,29944523/19733142,109535241009/48264275462);
-        trace ("3. Complex.logGamma contFrac ... s.$r: "+s.$r+",$i: "+s.$i);
-        s = Complex.adds(s,new Complex(.5*Math.log(2*Math.PI),0));
-        trace ("4. Complex.logGamma adds ... s.$r: "+s.$r+",$i: "+s.$i);
-        s = Complex.subt(Complex.adds(s,Complex.mult(Complex.subt(c1,new Complex(.5,0)),Complex.log(c1))),c1);
-        trace ("5. Complex.logGamma subt ... s.$r: "+s.$r+",$i: "+s.$i);
-        for (j=0;j<7;j++)
-        {
+        s = Complex.contFrac(c1, 1/12, 1/30, 53/210, 195/371, 22999/22737, 29944523/19733142, 109535241009/48264275462);
+        trace ("3. Complex.logGamma contFrac ... s.$r: "+s.$r+", $i: "+s.$i);
+        s = Complex.adds(s, new Complex(.5*Math.log(2*Math.PI), 0));
+        trace ("4. Complex.logGamma adds ... s.$r: "+s.$r+", $i: "+s.$i);
+        s = Complex.subt(Complex.adds(s, Complex.mult(Complex.subt(c1, new Complex(.5, 0)), Complex.log(c1))), c1);
+        trace ("5. Complex.logGamma subt ... s.$r: "+s.$r+", $i: "+s.$i);
+        for (j=0;j<7;j++) {
             c1.$r--;
-            s = Complex.subt(s,Complex.log(c1));
-            trace ("6. Complex.logGamma subt "+j+" ... s.$r: "+s.$r+",$i: "+s.$i);
+            s = Complex.subt(s, Complex.log(c1));
+            trace ("6. Complex.logGamma subt "+j+" ... s.$r: "+s.$r+", $i: "+s.$i);
         }
-        trace ("7. Complex.logGamma (c.$r>=0): "+(c.$r>=0)+" ... s.$r: "+s.$r+",$i: "+s.$i);
+        trace ("7. Complex.logGamma (c.$r>=0): "+(c.$r>=0)+" ... s.$r: "+s.$r+", $i: "+s.$i);
         if (c.$r>=0) return s;
-        trace ("8. Complex.logGamma return: "+(c.$r<0)+" ... s.$r: "+s.$r+",$i: "+s.$i+", c2.$r: "+c2.$r+",$i: "+c2.$i);
-        return Complex.subt(s,c2);
+        trace ("8. Complex.logGamma return: "+(c.$r<0)+" ... s.$r: "+s.$r+", $i: "+s.$i+", c2.$r: "+c2.$r+", $i: "+c2.$i);
+        return Complex.subt(s, c2);
     }
 
-// 50. diGamma ------------------------------------
+      // 50. diGamma ------------------------------------
 
     /**
      * @method  diGamma
@@ -1046,37 +978,33 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function diGamma(c:Complex):Complex
-    {
+    public static function diGamma(c:Complex):Complex {
         var c1:Complex;
         var c2:Complex;
         var s:Complex;
         var j:Number;
 
-        if (c.$r<0)
-        {
-            c2 = Complex.div(Complex.Pi,Complex.tan(Complex.mult(Complex.Pi,c)));
-            c1 = Complex.subt(new Complex(6,0),c);
+        if (c.$r<0) {
+            c2 = Complex.div(Complex.Pi, Complex.tan(Complex.mult(Complex.Pi, c)));
+            c1 = Complex.subt(new Complex(6, 0), c);
         }
-        else
-        {
-            c1 = Complex.adds(c,new Complex(7,0));
+        else {
+            c1 = Complex.adds(c, new Complex(7, 0));
         }
-        s = Complex.contFrac(c1,1/12,1/10,79/210,1205/1659,262445/209429,33461119209/18089284070,361969913862291/137627660760070);
-        s = Complex.div(s,c1);
-        s = Complex.adds(s,Complex.div(new Complex(.5,0),c1));
-        s = Complex.subt(Complex.log(c1),s);
-        for (j=0;j<7;j++)
-        {
+        s = Complex.contFrac(c1, 1/12, 1/10, 79/210, 1205/1659, 262445/209429, 33461119209/18089284070, 361969913862291/137627660760070);
+        s = Complex.div(s, c1);
+        s = Complex.adds(s, Complex.div(new Complex(.5, 0), c1));
+        s = Complex.subt(Complex.log(c1), s);
+        for (j=0;j<7;j++) {
             c1.$r--;
-            s = Complex.subt(s,Complex.div(Complex.One,c1));
+            s = Complex.subt(s, Complex.div(Complex.One, c1));
         }
         if (c.$r>=0) return s;
 
-        return Complex.subt(s,c2);
+        return Complex.subt(s, c2);
     }
 
-// 51. triGamma -----------------------------------
+      // 51. triGamma -----------------------------------
 
     /**
      * @method  triGamma
@@ -1085,8 +1013,7 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function triGamma(c:Complex):Complex
-    {
+    public static function triGamma(c:Complex):Complex {
         var c1:Complex;
         var c2:Complex;
         var c3:Complex;
@@ -1094,33 +1021,30 @@ class com.wis.math.alg.Complex {
         var s:Complex;
         var j:Number;
 
-        if (c.$r<0)
-        {
-            u = Complex.cot(Complex.mult(Complex.Pi,c));
-            c2 = Complex.mult(Complex.mult(Complex.Pi,Complex.Pi),Complex.adds(Complex.mult(u,u),Complex.One));
-            c1 = Complex.subt(new Complex(6,0),c);
+        if (c.$r<0) {
+            u = Complex.cot(Complex.mult(Complex.Pi, c));
+            c2 = Complex.mult(Complex.mult(Complex.Pi, Complex.Pi), Complex.adds(Complex.mult(u, u), Complex.One));
+            c1 = Complex.subt(new Complex(6, 0), c);
         }
-        else
-        {
-            c1 = Complex.adds(c,new Complex(7,0));
+        else {
+            c1 = Complex.adds(c, new Complex(7, 0));
         }
-        s = Complex.contFrac(c1,1/6,1/5,18/35,20/21,50/33,315/143,196/65);
-        s = Complex.adds(s,new Complex(.5,0));
-        s = Complex.div(s,c1);
-        s = Complex.adds(s,Complex.One);
-        s = Complex.div(s,c1);
-        for (j=0;j<7;j++)
-        {
+        s = Complex.contFrac(c1, 1/6, 1/5, 18/35, 20/21, 50/33, 315/143, 196/65);
+        s = Complex.adds(s, new Complex(.5, 0));
+        s = Complex.div(s, c1);
+        s = Complex.adds(s, Complex.One);
+        s = Complex.div(s, c1);
+        for (j=0;j<7;j++) {
             c1.$r--;
-            c3 = Complex.mult(c1,c1);
-            s = Complex.adds(s,Complex.div(Complex.One,c3));
+            c3 = Complex.mult(c1, c1);
+            s = Complex.adds(s, Complex.div(Complex.One, c3));
         }
         if (c.$r>=0) return s;
 
-        return Complex.subt(c2,s);
+        return Complex.subt(c2, s);
     }
 
-// 52. tetraGamma ---------------------------------
+      // 52. tetraGamma ---------------------------------
 
     /**
      * @method  tetraGamma
@@ -1129,8 +1053,7 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function tetraGamma(c:Complex):Complex
-    {
+    public static function tetraGamma(c:Complex):Complex {
         var c1:Complex;
         var c2:Complex;
         var c3:Complex;
@@ -1138,34 +1061,31 @@ class com.wis.math.alg.Complex {
         var s:Complex;
         var j:Number;
 
-        if (c.$r<0)
-        {
-            u = Complex.cot(Complex.mult(Complex.Pi,c));
-            c2 = Complex.mult(new Complex(2*Math.PI*Math.PI*Math.PI,0),Complex.mult(u,Complex.adds(Complex.mult(u,u),Complex.One)));
-            c1 = Complex.subt(new Complex(6,0),c);
+        if (c.$r<0) {
+            u = Complex.cot(Complex.mult(Complex.Pi, c));
+            c2 = Complex.mult(new Complex(2*Math.PI*Math.PI*Math.PI, 0), Complex.mult(u, Complex.adds(Complex.mult(u, u), Complex.One)));
+            c1 = Complex.subt(new Complex(6, 0), c);
         }
-        else
-        {
-            c1 = Complex.adds(c,new Complex(7,0));
+        else {
+            c1 = Complex.adds(c, new Complex(7, 0));
         }
-        s = Complex.contFrac(c1,1/2,1/3,2/3,6/5,9/5,18/7,24/7);
-        s = Complex.div(Complex.div(Complex.adds(Complex.div(Complex.adds(s,Complex.One),c1),Complex.One),c1),c1);
+        s = Complex.contFrac(c1, 1/2, 1/3, 2/3, 6/5, 9/5, 18/7, 24/7);
+        s = Complex.div(Complex.div(Complex.adds(Complex.div(Complex.adds(s, Complex.One), c1), Complex.One), c1), c1);
         s.$r = -s.$r;
         s.$i = -s.$i;
-        for (j=0;j<7;j++)
-        {
+        for (j=0;j<7;j++) {
             c1.$r--;
-            c3 = Complex.mult(Complex.mult(c1,c1),c1);
+            c3 = Complex.mult(Complex.mult(c1, c1), c1);
             c3.$r /= 2;
             c3.$i /= 2;
-            s = Complex.subt(s,Complex.div(Complex.One,c3));
+            s = Complex.subt(s, Complex.div(Complex.One, c3));
         }
         if (c.$r>=0) return s;
 
-        return Complex.subt(s,c2);
+        return Complex.subt(s, c2);
     }
 
-// 53. pentaGamma ---------------------------------
+      // 53. pentaGamma ---------------------------------
 
     /**
      * @method  pentaGamma
@@ -1174,44 +1094,49 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function pentaGamma(c:Complex):Complex
-    {
+    public static function pentaGamma(c:Complex):Complex {
         var c1:Complex;
         var c2:Complex;
         var c3:Complex;
         var u:Complex;
         var s:Complex;
         var j:Number;
-
-        if (c.$r<0)
-        {
-            u = Complex.cot(Complex.mult(Complex.Pi,c));
-            c2 = Complex.adds(Complex.mult(Complex.adds(Complex.mult(Complex.mult(u,u),Complex.mult(new Complex(6,0)),new Complex(8,0)),Complex.mult(u,u)),new Complex(2,0)));
+		/* 
+        if (c.$r<0) {
+            u = Complex.cot(Complex.mult(Complex.Pi, c));
+            c2 = Complex.adds( 
+            		Complex.mult( 
+            		  Complex.adds(
+            		  	Complex.mult( Complex.mult(u, u), 
+            		  				  Complex.mult( new Complex(6, 0) ), new Complex(8, 0) 
+            		    ), 
+            		  Complex.mult(u, u)), 
+            		new Complex(2, 0))
+            	  );
             c2.$r *= -Math.PI*Math.PI*Math.PI*Math.PI;
             c2.$i *= -Math.PI*Math.PI*Math.PI*Math.PI;
 
-            c1 = Complex.subt(new Complex(6,0),c);
+            c1 = Complex.subt(new Complex(6, 0), c);
         }
-        else
-        {
-            c1 = Complex.adds(c,new Complex(7,0));
+        else {
+            c1 = Complex.adds(c, new Complex(7, 0));
         }
-        s = Complex.contFrac(c1,2,1/2,5/6,22/15,116/55,942/319,17622/4553);
-        s = Complex.div(Complex.div(Complex.div(Complex.adds(Complex.div(Complex.adds(s,new Complex(3,0)),c1),new Complex(2,0)),c1),c1),c1);
-        for (j=0;j<7;j++)
-        {
+        s = Complex.contFrac(c1, 2, 1/2, 5/6, 22/15, 116/55, 942/319, 17622/4553);
+        s = Complex.div(Complex.div(Complex.div(Complex.adds(Complex.div(Complex.adds(s, new Complex(3, 0)), c1), new Complex(2, 0)), c1), c1), c1);
+        for (j=0;j<7;j++) {
             c1.$r--;
-            var c3 = Complex.mult(Complex.mult(c1,c1),Complex.mult(c1,c1));
+            var c3 = Complex.mult(Complex.mult(c1, c1), Complex.mult(c1, c1));
             c3.$r /= 6;
             c3.$i /= 6;
-            s = Complex.adds(s,Complex.div(Complex.One,c3));
+            s = Complex.adds(s, Complex.div(Complex.One, c3));
         }
         if (c.$r>=0) return s;
 
-        return Complex.subt(c2,s);
+        return Complex.subt(c2, s);*/
+        throw new Error("This needs to be reimplemented");
     }
 
-// 54. hexaGamma ----------------------------------
+      // 54. hexaGamma ----------------------------------
 
     /**
      * @method  hexaGamma
@@ -1220,8 +1145,8 @@ class com.wis.math.alg.Complex {
      * @param   c   (Complex)  -- complex number input.
      * @return  (Complex)  -- returns a Complex object result.
     **/
-    static function hexaGamma(c:Complex):Complex
-    {
+    public static function hexaGamma(c:Complex):Complex {
+    	/*
         var c1:Complex;
         var c2:Complex;
         var c3:Complex;
@@ -1229,37 +1154,36 @@ class com.wis.math.alg.Complex {
         var s:Complex;
         var j:Number;
 
-        if (c.$r<0)
-        {
-            u = Complex.cot(Complex.mult(Complex.Pi,c));
-            c2 = Complex.mult(Complex.adds(Complex.mult(Complex.adds(Complex.mult(Complex.mult(u,u),Complex.mult(new Complex(24,0)),new Complex(40,0)),Complex.mult(u,u)),new Complex(16,0)),u));
+        if (c.$r<0) {
+            u = Complex.cot(Complex.mult(Complex.Pi, c));
+            c2 = Complex.mult(Complex.adds(Complex.mult(Complex.adds(Complex.mult(Complex.mult(u, u), Complex.mult(new Complex(24, 0)), new Complex(40, 0)), Complex.mult(u, u)), new Complex(16, 0)), u));
             c2.$r *= -Math.PI*Math.PI*Math.PI*Math.PI*Math.PI;
             c2.$i *= -Math.PI*Math.PI*Math.PI*Math.PI*Math.PI;
 
-            c1 = subt(new Complex(6,0),c);
+            c1 = subt(new Complex(6, 0), c);
         }
-        else
-        {
-            c1 = adds(c,new Complex(7,0));
+        else {
+            c1 = adds(c, new Complex(7, 0));
         }
-        s = Complex.contFrac(c1,10,7/10,71/70,870/497,15092/6177,156910/46893,2585118/595595);
-        s = Complex.div(Complex.div(Complex.div(Complex.div(Complex.adds(Complex.div(Complex.adds(s,new Complex(12,0)),c1),new Complex(6,0)),c1),c1),c1),c1);
+        s = Complex.contFrac(c1, 10, 7/10, 71/70, 870/497, 15092/6177, 156910/46893, 2585118/595595);
+        s = Complex.div(Complex.div(Complex.div(Complex.div(Complex.adds(Complex.div(Complex.adds(s, new Complex(12, 0)), c1), new Complex(6, 0)), c1), c1), c1), c1);
         s.$r = -s.$r;
         s.$i = -s.$i;
-        for (j=0;j<7;j++)
-        {
+        for (j=0;j<7;j++) {
             c1.$r--;
-            c3 = Complex.mult(Complex.mult(Complex.mult(c1,c1),Complex.mult(c1,c1)),c1);
+            c3 = Complex.mult(Complex.mult(Complex.mult(c1, c1), Complex.mult(c1, c1)), c1);
             c3.$r /= 24;
             c3.$i /= 24;
-            s = Complex.subt(s,Complex.div(Complex.One,c3));
+            s = Complex.subt(s, Complex.div(Complex.One, c3));
         }
         if (c.$r>=0) return s;
 
-        return Complex.subt(s,c2);
+        return Complex.subt(s, c2);
+        */        
+        throw new Error("This needs to be reimplemented");
     }
 
-// 55. get _real ----------------------------------
+      // 55. get _real ----------------------------------
 
     /**
      * @method  get _real
@@ -1267,26 +1191,24 @@ class com.wis.math.alg.Complex {
      * @usage <pre>Complex._real;</pre>
      * @return  (Number)  -- returns a real number.
     **/
-    function get _real():Number
-    {
+    public function get _real():Number {
         return $r;
     }
 
-// 56. set _real ----------------------------------
+      // 56. set _real ----------------------------------
 
     /**
      * @method  set _real
      * @description  Sets real portion of Complex object.
      * @usage <pre>Complex._real = num;</pre>
      * @param  (Number)  -- a real number.
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _real(num:Number):Number
-    {
+    public function set _real(num:Number):void {
         $r = num;
     }
 
-// 57. get _imag ----------------------------------
+      // 57. get _imag ----------------------------------
 
     /**
      * @method  get _imag
@@ -1294,23 +1216,22 @@ class com.wis.math.alg.Complex {
      * @usage <pre>Complex._imag);</pre>
      * @return  (Number)  -- returns a real number (to be multiplied by i).
     **/
-    function get _imag():Number
-	{
+    public function get _imag():Number {
 	    return $i;
     }
 
-// 58. set _imag ----------------------------------
+      // 58. set _imag ----------------------------------
 
     /**
      * @method  get _imag
      * @description  Sets imaginary portion of Complex object.
      * @usage <pre>Complex._imag = num;</pre>
-     * @return  (Void)
+     * @return  (void)
     **/
-    function set _imag(num:Number):Number
-	{
+    public function set _imag(num:Number):void {
 	    $i = num;
     }
 
-}
+}// class
+}//package
 

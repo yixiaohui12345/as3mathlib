@@ -1,5 +1,6 @@
+package com.wis3.math.calc.solvers {
 /**
- * @class       com.wis.math.calc.solvers.RK45MultiStep
+ * @class       com.wis3.math.calc.solvers.RK45MultiStep
  * @author      Richard Wright - wisolutions2002@shaw.ca
  * @version     1.7
  * @description RK45MultiStep extends RK45, which implements the behaviours of the
@@ -11,8 +12,8 @@
  * -----------------------------------------------
  * Latest update: January 11, 2005
  * -----------------------------------------------
- * AS2  revision copyright: © 2005, Richard Wright     [wisolutions2002@shaw.ca]
- * Java original copyright: © 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
+ * AS2  revision copyright: ï¿½ 2005, Richard Wright     [wisolutions2002@shaw.ca]
+ * Java original copyright: ï¿½ 2003, Wolfgang Christian [http://sip.clarku.edu/3e/]
  * -----------------------------------------------
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -55,12 +56,9 @@
  * -----------------------------------------------
 **/
 
-import com.wis.math.calc.*;
+import com.wis3.math.calc.*;
 
-class com.wis.math.calc.solvers.RK45MultiStep
-    extends com.wis.math.calc.solvers.RK45
-    implements com.wis.math.calc.IODESolver
-{
+public class RK45MultiStep extends RK45 implements IODESolver {
     /**
      * @property $maxMessages  (Number) -- static, maximum number of error messages.
      * @property $fixedStepSize  (Number)  -- fixed number for step size.
@@ -68,12 +66,11 @@ class com.wis.math.calc.solvers.RK45MultiStep
     private static var $maxMessages:Number = 4;
     private var $fixedStepSize:Number = 0.1;
 
-    public function RK45MultiStep(_ode:IODE)
-    {
+    public function RK45MultiStep(_ode:IODE) {
         super(_ode);
     }
 
-// 1. initialize -------------------------------------------
+      // 1. initialize -------------------------------------------
 
     /**
      * @method  initialize
@@ -82,13 +79,12 @@ class com.wis.math.calc.solvers.RK45MultiStep
      * @usage  <pre>inst.initialize(_stepSize);</pre>
      * @param  _stepSize  (Number)  -- the step size.
     **/
-    public function initialize(_stepSize:Number):Void
-    {
+    override public function initialize(_stepSize:Number):void {
         $fixedStepSize = _stepSize;
         super.initialize(_stepSize);
     }
 
-// 2. step -------------------------------------------
+      // 2. step -------------------------------------------
 
     /**
      * @method  step
@@ -100,13 +96,12 @@ class com.wis.math.calc.solvers.RK45MultiStep
      * @usage  <pre>inst.step();</pre>
      * @return  (Number)  -- returns the step size.
     **/
-    public function step():Number
-    {
+    override public function step():Number {
         if ($fixedStepSize>0) return $fixedStepSize-plus();
         else return $fixedStepSize-minus();
     }
 
-// 3. setStepSize -------------------------------------------
+      // 3. setStepSize -------------------------------------------
 
     /**
      * @method  setStepSize
@@ -114,14 +109,13 @@ class com.wis.math.calc.solvers.RK45MultiStep
      * @usage  <pre>inst.initialize(_stepSize);</pre>
      * @param _stepSize  (Number)  -- the step size.
     **/
-    public function setStepSize(_stepSize:Number):Void
-    {
+    override public function setStepSize(_stepSize:Number):void {
         $maxMessages = 4;               // reset the message counter
         $fixedStepSize = _stepSize;     // the fixed step size
         super.setStepSize(_stepSize);   // the variable step size
     }
 
-// 4. getStepSize -------------------------------------------
+      // 4. getStepSize -------------------------------------------
 
     /**
      * @method  getStepSize
@@ -131,30 +125,29 @@ class com.wis.math.calc.solvers.RK45MultiStep
      * @usage  <pre>inst.getStepSize();</pre>
      * @return  (Number)  -- returns the step size.
     **/
-    public function getStepSize():Number
-    {
+    override public function getStepSize():Number {
         return $fixedStepSize;
     }
 
-// 5. setTolerance -------------------------------
+      // 5. setTolerance -------------------------------
 
     /**
      * @description  Sets the tolerance of the adaptive IODE solver. This is an
      *               an abstract method to support IODESolver interface.
      * @param  tol  (Number)  -- the tolerance.
     **/
-    public function setTolerance(_tol:Number):Void {}
+    override public function setTolerance(_tol:Number):void {}
 
-// 6. getTolerance -------------------------------
+      // 6. getTolerance -------------------------------
 
     /**
      * @description  Gets the tolerance of the adaptive IODE solver. This is an
      *               an abstract method to support IODESolver interface.
      * @return  (Number)  -- returns the relative tolerance.
     **/
-    public function getTolerance():Number {return;}
+    override public function getTolerance():Number { return NaN; }
 
-// 7. plus ---------------------------------------
+      // 7. plus ---------------------------------------
 
     /**
      * @method  plus
@@ -162,31 +155,31 @@ class com.wis.math.calc.solvers.RK45MultiStep
      * @usage  <pre>inst.plus();</pre>
      * @return  (Number)  -- returns the step size.
     **/
-    private function plus():Number
-    {  // positive step size
+    private function plus():Number {  
+    	// positive step size
         var remainder:Number = $fixedStepSize;                    // dt will keep track of the remaining time
         if ((super.getStepSize()<=0) ||                           // is the stepsize postive?
             (super.getStepSize()>$fixedStepSize) ||               //is the stepsize larger than what is requested?
-            ($fixedStepSize-super.getStepSize()==$fixedStepSize)) // is the stepsize smaller than the precision?
+            ($fixedStepSize-super.getStepSize()==$fixedStepSize)) // is the stepsize smaller than the precision? 
         {
             super.setStepSize($fixedStepSize);                    // reset the step size and let it adapt to an optimum size
         }
-        while (remainder>this.$tol*$fixedStepSize)
-        {           // check to see if we are close enough
+        while (remainder>this.$tol*$fixedStepSize) {           // check to see if we are close enough
             var oldRemainder:Number = remainder;
-            if (remainder<super.getStepSize())
-            {                                                     // temporarily reduce the step size so that we hit the exact dt value
+            if (remainder<super.getStepSize()) {                                                     
+            	// temporarily reduce the step size so that we hit the exact dt value
                 var tempStep:Number = super.getStepSize();        // save the current optimum step size
                 super.setStepSize(remainder);                     // set the RK4/5 step size to the remainder
                 var delta:Number = super.step();
                 remainder -= delta;
-                super.setStepSize(Math.min(tempStep,delta));      // restore the optimum step size
+                super.setStepSize(Math.min(tempStep, delta));      // restore the optimum step size
+                
             }
             else remainder -= super.step();                       // do a RK45 step and set the remainder
+            
             // check to see if roundoff error prevents further calculation.
             if ((Math.abs(oldRemainder-remainder)<=100*Number.MIN_VALUE) ||
-                (this.$tol*$fixedStepSize/100.0>super.getStepSize()))
-            {
+                (this.$tol*$fixedStepSize/100.0>super.getStepSize())) {
                 if ($maxMessages<=0) break;
                 $maxMessages--;
                 trace ("Warning: RK45MultiStep did not converge. Remainder = "+remainder);
@@ -197,7 +190,7 @@ class com.wis.math.calc.solvers.RK45MultiStep
         return remainder;
     }
 
-// 8. minus --------------------------------------
+      // 8. minus --------------------------------------
 
     /**
      * @method  minus
@@ -205,31 +198,29 @@ class com.wis.math.calc.solvers.RK45MultiStep
      * @usage  <pre>inst.minus();</pre>
      * @return  (Number)  -- returns the step size.
     **/
-    private function minus():Number
-    {                                                             // negative step size
+    private function minus():Number {                               
+    	// negative step size
         var remainder:Number = $fixedStepSize;                    // dt will keep track of the remaining time
         if ((super.getStepSize()>=0) ||                           // is the step negative?
             (super.getStepSize()<$fixedStepSize) ||               // is the stepsize larger than what is requested?
-            ($fixedStepSize-super.getStepSize()==$fixedStepSize)) // is the stepsize smaller than the precision?
-        {
+            ($fixedStepSize-super.getStepSize()==$fixedStepSize)) // is the stepsize smaller than the precision? 
+        {   
             super.setStepSize($fixedStepSize);                    // reset the step size and let it adapt to an optimum size
         }
-        while (remainder<this.$tol*$fixedStepSize)
-        {                                                         // check to see if we are close enough
+        while (remainder<this.$tol*$fixedStepSize) {                           
+        	// check to see if we are close enough
             var oldRemainder:Number = remainder;
-            if (remainder>super.getStepSize())
-            {
+            if (remainder>super.getStepSize()) {
                 var tempStep:Number = super.getStepSize();        // save the current optimum step size
                 super.setStepSize(remainder);                     // set the step RK4/5 size to the remainder
                 var delta:Number = super.step();
                 remainder -= delta;
-                super.setStepSize(Math.max(tempStep,delta));      // restore the optimum step size
+                super.setStepSize(Math.max(tempStep, delta));      // restore the optimum step size
             }
             else remainder -= super.step();                       // do a RK45 step and set the remainder
             // check to see if roundoff error prevents further calculation.
             if ((Math.abs(oldRemainder-remainder)<=100*Number.MIN_VALUE) ||
-                (this.$tol*$fixedStepSize/100.0<super.getStepSize()))
-            {
+                (this.$tol*$fixedStepSize/100.0<super.getStepSize())) {
                 if ($maxMessages <= 0) break;
                 $maxMessages--;
                 trace ("Warning: RK45MultiStep did not converge. Remainder = "+remainder);
@@ -239,5 +230,6 @@ class com.wis.math.calc.solvers.RK45MultiStep
         }
         return remainder;
     }
-}
+}// class
+}//package
 
