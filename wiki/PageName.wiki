@@ -6,10 +6,24 @@ The as3mathlib is intended to provide rudimentary numerical analysis tools for t
 
 It is based off of the WIS Actionscript 2 libraries, which are still [http://members.shaw.ca/flashprogramming/wisASLibrary/wis/index.html available]
 
+== Details ==
 
-= Details =
+Library includes support for 
+  * Geometric Objects and Intersection calculations
+  * Integral and Differential equation calculations
+  * Bezier, Quadric, Polynomial, Complex, Vector and Matrix calculations
+  * Symbolic expression parsing
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+
+== Status ==
+
+
+== Goals ==
+This library intends to provide a correct and modular set of mathematical objects and routines.
+
+Our primary goals are 
+  * Correctness: the library is accompanied by a complete set of regression tests.
+  * Clarity of code: the routines are well commented and follow best software engineering practices
+  * Modularity: 
+  * Flexibility: 
+ Actionscript will never be a premiere high-performance computing environment.  Any heavy lifting will have to be done server-side or by a more performant daemon process.  This library will target calculations of modest scope and prototyping applications.
