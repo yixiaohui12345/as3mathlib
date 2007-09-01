@@ -1,0 +1,568 @@
+
+		<HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: BinaryTree - Wright Internet Solutions">
+		<meta name="keywords" content="lists,BinaryTree,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.types.lists.BinaryTree Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.types.lists.BinaryTree Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary BinaryTree Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 07/17/04 18:28:21<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.types.lists.BinaryTree class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.types.lists.BinaryTree Properties:</P><div class='methodsDiv'>
+<a href='#$root'>- $root</a><br>
+<a href='#$debug'>- $debug</a><br>
+</div><br>
+<P class='ToC'>com.wis.types.lists.BinaryTree Methods:</P><div class='methodsDiv'>
+<a href='# lookup'>-  lookup</a><br>
+<a href='# lookupRecurs'>-  lookupRecurs</a><br>
+<a href='# insert'>-  insert</a><br>
+<a href='# insertRecurs'>-  insertRecurs</a><br>
+<a href='# size'>-  size</a><br>
+<a href='# sizeRecurs'>-  sizeRecurs</a><br>
+<a href='# maxDepth'>-  maxDepth</a><br>
+<a href='# maxDepthRecurs'>-  maxDepthRecurs</a><br>
+<a href='# minValue'>-  minValue</a><br>
+<a href='# minValueIter'>-  minValueIter</a><br>
+<a href='# maxValue'>-  maxValue</a><br>
+<a href='# maxValueIter'>-  maxValueIter</a><br>
+<a href='# printTree'>-  printTree</a><br>
+<a href='# printTreeRecurs'>-  printTreeRecurs</a><br>
+<a href='# printPostOrder'>-  printPostOrder</a><br>
+<a href='# printPostOrderRecurs'>-  printPostOrderRecurs</a><br>
+<a href='# hasPathSum'>-  hasPathSum</a><br>
+<a href='# hasPathSumRecurs'>-  hasPathSumRecurs</a><br>
+<a href='# printPaths'>-  printPaths</a><br>
+<a href='# printPathsRecurs'>-  printPathsRecurs</a><br>
+<a href='# printArray'>-  printArray</a><br>
+<a href='# mirror'>-  mirror</a><br>
+<a href='# mirrorRecurs'>-  mirrorRecurs</a><br>
+<a href='# doubleTree'>-  doubleTree</a><br>
+<a href='# doubleTreeRecurs'>-  doubleTreeRecurs</a><br>
+<a href='# sameTree'>-  sameTree</a><br>
+<a href='# sameTreeRecurs'>-  sameTreeRecurs</a><br>
+<a href='# countTreesRecurs'>-  countTreesRecurs</a><br>
+<a href='# isBST'>-  isBST</a><br>
+<a href='# isBSTRecurs'>-  isBSTRecurs</a><br>
+<a href='# isBST2'>-  isBST2</a><br>
+<a href='# isBST2Recurs'>-  isBST2Recurs</a><br>
+<a href='# build123a'>-  build123a</a><br>
+<a href='# build123b'>-  build123b</a><br>
+<a href='# build123c'>-  build123c</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.types.lists.BinaryTree <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.6</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the BinaryTree Class.
+ <p>
+ 		        Provides methods for creating and displaying results from
+ a binary tree crawl.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:BinaryTree = new BinaryTree();</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      none  -- no class input parameters.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.types.lists.BinaryTree Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='$root'></A><u> $root</u></P>
+				<P> (Node) -- will be null for an empty tree. </P>
+
+				<P class='methodTitle'><A name='$debug'></A><u> $debug</u></P>
+				<P> (String)  -- debug mode results.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.types.lists.BinaryTree Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' lookup'></A><u>  lookup</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- calls recursive lookup for input number.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.lookup(data);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  data   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)  -- returns true if the given target is in the binary tree.
+    </P>
+
+				<P class='methodTitle'><A name=' lookupRecurs'></A><u>  lookupRecurs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Recursive lookup  -- given a node, recur down searching
+     for the given data.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.lookupRecurs(node,data);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  node   (Node)  -- a Node instance ($root).</li>
+<li>  data   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' insert'></A><u>  insert</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- inserts the given data into the binary tree.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.insert(data);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  data   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' insertRecurs'></A><u>  insertRecurs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Recursive insert -- given a node pointer, recur down and
+     insert the given data into the tree.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.insertRecurs(node,data);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  node   (Node)  -- a Node instance ($root).</li>
+<li>  data   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Node)  -- returns the new node pointer (the standard way to communicate a changed pointer back to the caller).
+    </P>
+
+				<P class='methodTitle'><A name=' size'></A><u>  size</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- uses a recursive helper that recurs down the
+     tree and counts the nodes.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.size();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the number of nodes in the tree.
+    </P>
+
+				<P class='methodTitle'><A name=' sizeRecurs'></A><u>  sizeRecurs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Recursive helper that recurs down the tree and counts the nodes.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.sizeRecurs(node);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  node   (Node)  -- a Node instance ($root).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the number of nodes in the tree.
+    </P>
+
+				<P class='methodTitle'><A name=' maxDepth'></A><u>  maxDepth</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- uses a recursive helper that recurs down to
+     find the max depth.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.maxDepth();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the max $root-to-leaf depth of the tree.
+    </P>
+
+				<P class='methodTitle'><A name=' maxDepthRecurs'></A><u>  maxDepthRecurs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Recursive helper that recurs down to find the max depth.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.maxDepthRecurs(node);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  node   (Node)  -- a Node instance ($root).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the max $root-to-leaf depth of the tree.
+    </P>
+
+				<P class='methodTitle'><A name=' minValue'></A><u>  minValue</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- uses a helper method that iterates to the left
+     to find the min value.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.minValue();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the min value in a non-empty binary search tree.
+    </P>
+
+				<P class='methodTitle'><A name=' minValueIter'></A><u>  minValueIter</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Recursive helper that iterates to the left to find the min value.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.minValueIter(node);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  node   (Node)  -- a Node instance ($root).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the min value in a non-empty binary search tree.
+    </P>
+
+				<P class='methodTitle'><A name=' maxValue'></A><u>  maxValue</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- uses a helper method that iterates to the right
+	 to find the max value.
+	 </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.maxValue();</pre>
+	 </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the max value in a non-empty binary search tree.
+	</P>
+
+				<P class='methodTitle'><A name=' maxValueIter'></A><u>  maxValueIter</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Recursive helper that iterates to the right to find
+	 the max value.
+	 </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.maxValueIter(node);</pre>
+	 </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  node   (Node)  -- a Node instance ($root).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the max value in a non-empty binary search tree.
+	</P>
+
+				<P class='methodTitle'><A name=' printTree'></A><u>  printTree</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- prints the node values in the 'inorder' order.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.printTree();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' printTreeRecurs'></A><u>  printTreeRecurs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Recursive helper to do the tree traversal.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.printTreeRecurs(node);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  node   (Node)  -- a Node instance ($root).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' printPostOrder'></A><u>  printPostOrder</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- prints the node values in the 'postOrder' order.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.printPostOrder();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' printPostOrderRecurs'></A><u>  printPostOrderRecurs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Recursive helper to do the tree traversal.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.printPostOrderRecurs(node);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  node   (Node)  -- a Node instance ($root).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' hasPathSum'></A><u>  hasPathSum</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- given a tree and a sum, tests to see if there
+     is a path from the $root down to a leaf, such that adding
+     up all the values along the path equals the given sum.
+     <p>
+     Strategy -- subtract the node value from the sum when recurring
+     down, and check to see if the sum is 0 when you run out of tree.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.hasPathSum(sum);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  sum   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)  -- returns true if there is a path from the $root down to a leaf.
+    </P>
+
+				<P class='methodTitle'><A name=' hasPathSumRecurs'></A><u>  hasPathSumRecurs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Recursive helper that sums the path data.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.hasPathSumRecurs(node,sum);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  node   (Node)  -- a Node instance ($root).</li>
+<li>  sum   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' printPaths'></A><u>  printPaths</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- given a binary tree, prints out all of its
+     $root-to-leaf paths, one per line.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.printPaths();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' printPathsRecurs'></A><u>  printPathsRecurs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Recursive helper -- given a node, and an array containing
+     the path from the $root node up to but not including this
+     node, prints out all the $root-leaf paths.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.printPathsRecurs(node,path,pathLen);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  node   (Node)  -- a Node instance ($root).</li>
+<li>  path   (Array)  -- an empty array to hold pushed data.</li>
+<li>  pathLen   (Number)  -- a positive integer.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' printArray'></A><u>  printArray</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- utility that prints ints from an array on one line.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.printArray(ints,len);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  ints   (Array)  -- a holder for path elements.</li>
+<li>  len   (Number)  -- a positive integer.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' mirror'></A><u>  mirror</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- changes the tree into its mirror image.
+     <blockquote><pre>
+     So the tree...
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ \
+     &nbsp;&nbsp;&nbsp;&nbsp;2   5
+     &nbsp;&nbsp;&nbsp;/ \
+     &nbsp;&nbsp;1   3
+
+     is changed to...
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ \
+     &nbsp;&nbsp;&nbsp;&nbsp;5   2
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ \
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3   1
+     </pre></blockquote>
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.mirror();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' mirrorRecurs'></A><u>  mirrorRecurs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Recursive helper that recurs over the tree, swapping
+     the left/right pointers.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.mirrorRecurs(node);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  node   (Node)  -- a Node instance ($root).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' doubleTree'></A><u>  doubleTree</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- changes the tree by inserting a duplicate node
+     on each node's $left.
+     <blockquote><pre>
+     So the tree...
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ \
+     &nbsp;&nbsp;&nbsp;&nbsp;1   3
+
+     Is changed to...
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ \
+     &nbsp;&nbsp;&nbsp;&nbsp;2   3
+     &nbsp;&nbsp;&nbsp;/   /
+     &nbsp;&nbsp;1   3
+     &nbsp;/
+     1
+     </pre></blockquote>
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.doubleTree();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' doubleTreeRecurs'></A><u>  doubleTreeRecurs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Recursive helper to recur over the tree and insert
+     the duplicates.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.doubleTreeRecurs(node);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  node   (Node)  -- a Node instance ($root).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' sameTree'></A><u>  sameTree</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- compares the receiver to another tree to see
+     if they are structurally identical.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.sameTree(other);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  other   (BinaryTree)  -- passed tree for comparison.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' sameTreeRecurs'></A><u>  sameTreeRecurs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Recursive helper -- recurs down two trees in parallel,
+     checking to see if they are identical.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.sameTreeRecurs(a,b);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Node)  -- a Node instance ($root).</li>
+<li>  b   (Node)  -- a passed Node instance ($root).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' countTreesRecurs'></A><u>  countTreesRecurs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- for the key values 1...numKeys, how many
+     structurally unique binary search trees are possible
+     that store those keys?
+     <p>
+     Strategy -- consider that each value could be the $root.
+     Recursively find the size of the left and right subtrees.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.countTreesRecurs(numKeys);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  numKeys   (Number)  -- a positive integer.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the number of possible trees with this $root == leftright.
+    </P>
+
+				<P class='methodTitle'><A name=' isBST'></A><u>  isBST</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- tests if a tree meets the conditions to be a
+     binary search tree (BST).
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.isBST();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' isBSTRecurs'></A><u>  isBSTRecurs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Recursive helper -- checks if a tree is a BST using
+     'minValue()' and 'maxValue()' (not efficient).
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.isBSTRecurs(node);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  node   (Node)  -- a Node instance ($root).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' isBST2'></A><u>  isBST2</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- tests if a tree meets the conditions to be a
+     binary search tree (BST). Uses the efficient recursive helper.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.isBST2();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' isBST2Recurs'></A><u>  isBST2Recurs</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Efficient BST helper -- given a node, and min and max values,
+     recurs down the tree to verify that it is a BST, and that all
+     its nodes are within the min..max range. Works in O(n) time --
+     visits each node only once.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.isBST2Recurs(node,min,max);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  node   (Node)  -- a Node instance ($root).</li>
+<li>  min   (Number)  -- Number.MIN_VALUE.</li>
+<li>  max   (Number)  -- Number.MAX_VALUE.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' build123a'></A><u>  build123a</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- tester using three pointer variables.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.build123a();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' build123b'></A><u>  build123b</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- tester using one pointer variable.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.build123b();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' build123c'></A><u>  build123c</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Public -- tester calls insert() three times. Note that
+     the '2' must be inserted first.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.build123c();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

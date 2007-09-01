@@ -1,0 +1,659 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Point - Wright Internet Solutions">
+		<meta name="keywords" content="algebra,Point,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.alg.Point Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.alg.Point Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Point Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 07/17/04 18:46:56<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.alg.Point class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.alg.Point Properties:</P><div class='methodsDiv'>
+<a href='#x'>- x</a><br>
+<a href='#y'>- y</a><br>
+<a href='#z'>- z</a><br>
+<a href='#xCtr'>- xCtr</a><br>
+<a href='#yCtr'>- yCtr</a><br>
+<a href='#size'>- size</a><br>
+<a href='#perSize'>- perSize</a><br>
+<a href='#D'>- D</a><br>
+<a href='#xp'>- xp</a><br>
+<a href='#yp'>- yp</a><br>
+<a href='#clip'>- clip</a><br>
+<a href='#M'>- M</a><br>
+<a href='#$b3'>- $b3</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.alg.Point Methods:</P><div class='methodsDiv'>
+<a href='# adds'>-  adds</a><br>
+<a href='# addEquals'>-  addEquals</a><br>
+<a href='# scalarAdd'>-  scalarAdd</a><br>
+<a href='# scalarAddEquals'>-  scalarAddEquals</a><br>
+<a href='# subtract'>-  subtract</a><br>
+<a href='# subtractEquals'>-  subtractEquals</a><br>
+<a href='# scalarSubtract'>-  scalarSubtract</a><br>
+<a href='# scalarSubtractEquals'>-  scalarSubtractEquals</a><br>
+<a href='# multiply'>-  multiply</a><br>
+<a href='# multiplyEquals'>-  multiplyEquals</a><br>
+<a href='# divide'>-  divide</a><br>
+<a href='# divideEquals'>-  divideEquals</a><br>
+<a href='# equals'>-  equals</a><br>
+<a href='# lessThan'>-  lessThan</a><br>
+<a href='# lessThanEq'>-  lessThanEq</a><br>
+<a href='# greaterThan'>-  greaterThan</a><br>
+<a href='# greaterThanEq'>-  greaterThanEq</a><br>
+<a href='# lerp'>-  lerp</a><br>
+<a href='# distanceFrom'>-  distanceFrom</a><br>
+<a href='# min'>-  min</a><br>
+<a href='# max'>-  max</a><br>
+<a href='# toString'>-  toString</a><br>
+<a href='# setXYZ'>-  setXYZ</a><br>
+<a href='# setFromPoint'>-  setFromPoint</a><br>
+<a href='# swap'>-  swap</a><br>
+<a href='# recenter'>-  recenter</a><br>
+<a href='# resize'>-  resize</a><br>
+<a href='# translate'>-  translate</a><br>
+<a href='# scale'>-  scale</a><br>
+<a href='# rotateXMatrix'>-  rotateXMatrix</a><br>
+<a href='# rotateYMatrix'>-  rotateYMatrix</a><br>
+<a href='# rotateZMatrix'>-  rotateZMatrix</a><br>
+<a href='# axisMatrix'>-  axisMatrix</a><br>
+<a href='# rotate'>-  rotate</a><br>
+<a href='# perspective'>-  perspective</a><br>
+<a href='# render'>-  render</a><br>
+<a href='# setDepth'>-  setDepth</a><br>
+<a href='# lineD1'>-  lineD1</a><br>
+<a href='# angle'>-  angle</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.alg.Point <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.6</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Point Class -- provides methods
+ for 2D and 3D point instantiation.
+ <p>
+ 		        I've swayed from using '$' as a class-based variable identifier for
+ this class due to the increased usage of UI-defined class variables
+ for this group of classes: Point, Vector, Quaternion, Col, and ColMC
+ classes all reflect this format.
+ 		        <p>
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:Point = new Point(px,py[,pz,pcx,pcy,MC,pSize,D])</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      px (Number)  -- x-axis value of point.</li>
+<li>      py (Number)  -- y-axis value of point.</li>
+<li>      pz (Number)  -- z-axis value of point.</li>
+<li>      pcx (Number)  -- x-axis center position on 2d screen.</li>
+<li>      pcy (Number)  -- y-axis center position on 2d screen.</li>
+<li>      MC (MovieClip)  -- target clip that represents point.</li>
+<li>      pSize (Number)  -- size of point with perspective.</li>
+<li>      D (Number)  -- distance from user to screen.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.alg.Point Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='x'></A><u> x</u></P>
+				<P> (Number)  -- x-axis value of Point object. </P>
+
+				<P class='methodTitle'><A name='y'></A><u> y</u></P>
+				<P> (Number)  -- y-axis value of Point object. </P>
+
+				<P class='methodTitle'><A name='z'></A><u> z</u></P>
+				<P> (Number)  -- z-axis value of Point object. </P>
+
+				<P class='methodTitle'><A name='xCtr'></A><u> xCtr</u></P>
+				<P> (Number)  -- x-axis center position on 2d screen. </P>
+
+				<P class='methodTitle'><A name='yCtr'></A><u> yCtr</u></P>
+				<P> (Number)  -- y-axis center position on 2d screen. </P>
+
+				<P class='methodTitle'><A name='size'></A><u> size</u></P>
+				<P> (Number)  -- size of point at origin.</P>
+
+				<P class='methodTitle'><A name='perSize'></A><u> perSize</u></P>
+				<P> (Number)  -- size of point with perspective. </P>
+
+				<P class='methodTitle'><A name='D'></A><u> D</u></P>
+				<P> (Number)  -- used for perspective -- distance from your eye to the screen.</P>
+
+				<P class='methodTitle'><A name='xp'></A><u> xp</u></P>
+				<P> (Number)  -- x-axis value of Point object scaled with perspective. </P>
+
+				<P class='methodTitle'><A name='yp'></A><u> yp</u></P>
+				<P> (Number)  -- y-axis value of Point object scaled with perspective.  </P>
+
+				<P class='methodTitle'><A name='clip'></A><u> clip</u></P>
+				<P> (MovieClip)  -- scope for Point object.</P>
+
+				<P class='methodTitle'><A name='M'></A><u> M</u></P>
+				<P> (Array)  -- array holder for rotation matrix.</P>
+
+				<P class='methodTitle'><A name='$b3'></A><u> $b3</u></P>
+				<P> (Boolean)  -- if true, Point object is in 3-space.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.alg.Point Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' adds'></A><u>  adds</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Adds this instance to passed Point object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.adds(that);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  that   (Point)  -- a Point object in 2-space or 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns a new Point object with addition result.
+    </P>
+
+				<P class='methodTitle'><A name=' addEquals'></A><u>  addEquals</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Adds this instance to passed Point object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.addEquals(that);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  that   (Point))  -- a Point object in 2-space or 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns this instance altered by addition result.
+    </P>
+
+				<P class='methodTitle'><A name=' scalarAdd'></A><u>  scalarAdd</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Adds a scalar to each axis property of this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.scalarAdd(s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  s   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns a new Point object with scalar addition result.
+    </P>
+
+				<P class='methodTitle'><A name=' scalarAddEquals'></A><u>  scalarAddEquals</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Adds a scalar to each axis property of this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.scalarAddEquals(s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  s   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns this instance altered by scalar addition result.
+    </P>
+
+				<P class='methodTitle'><A name=' subtract'></A><u>  subtract</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Subtracts passed Point object from this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.subtract(that);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  that   (Point))  -- a Point object in 2-space or 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns a new Point object with subtraction result.
+    </P>
+
+				<P class='methodTitle'><A name=' subtractEquals'></A><u>  subtractEquals</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Subtracts passed Point object from this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>subtractEquals(that);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  that   (Point))  -- a Point object in 2-space or 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns this instance altered by subtraction result.
+    </P>
+
+				<P class='methodTitle'><A name=' scalarSubtract'></A><u>  scalarSubtract</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Subtracts a scalar from each axis property of this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.scalarSubtract(s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  s   (Number)  -- a real nmuber.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns a new Point object with scalar subtraction result.
+    </P>
+
+				<P class='methodTitle'><A name=' scalarSubtractEquals'></A><u>  scalarSubtractEquals</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Subtracts a scalar from each axis property of this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.scalarSubtractEquals(s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  s   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns this instance altered by scalar subtraction result.
+    </P>
+
+				<P class='methodTitle'><A name=' multiply'></A><u>  multiply</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Multiplies this instance by a passed scalar.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.multiply(s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  s   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns a new Point object with the scalar multiplication result.
+    </P>
+
+				<P class='methodTitle'><A name=' multiplyEquals'></A><u>  multiplyEquals</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Multiplies this instance by a passed scalar.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.multiplyEquals(s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  s   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns this instance altered by the scalar multiplication result.
+    </P>
+
+				<P class='methodTitle'><A name=' divide'></A><u>  divide</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Divides this instance by a passed scalar.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.divide(s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  s   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns a new Point object with the scalar division result.
+    </P>
+
+				<P class='methodTitle'><A name=' divideEquals'></A><u>  divideEquals</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Divides this instance by a passed scalar.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.divideEquals(s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  s   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns this instance altered by the scalar division result.
+    </P>
+
+				<P class='methodTitle'><A name=' equals'></A><u>  equals</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Boolean 'equality' test between this instance and passed Point object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.equals(that);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  that   (Point)  -- a Point object in 2-space or 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' lessThan'></A><u>  lessThan</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Boolean 'less than' test between this instance and passed Point object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.lessThan(that);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  that   (Point)  -- a Point object in 2-space or 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' lessThanEq'></A><u>  lessThanEq</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Boolean 'less than or equal' test between this instance and passed Point object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.lessThanEq(that);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  that   (Point)  -- a Point object in 2-space or 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' greaterThan'></A><u>  greaterThan</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Boolean 'greater than' test between this instance and passed Point object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.greaterThan(that);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  that   (Point)  -- a Point object in 2-space or 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' greaterThanEq'></A><u>  greaterThanEq</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Boolean 'greater than or equal' test between this instance and passed Point object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.greaterThanEq(that);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  that   (Point)  -- a Point object in 2-space or 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' lerp'></A><u>  lerp</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Linear interpolation of this instance by the passed Point
+     object and scalar.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.lerp(that,t);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  that   (Point)  -- a Point object in 2-space or 3-space.</li>
+<li>  t   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns a new Point object with the lerped results.
+    </P>
+
+				<P class='methodTitle'><A name=' distanceFrom'></A><u>  distanceFrom</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates distance from this instance to passed Point object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.distanceFrom(that);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  that   (Point)  -- a Point object in 2-space or 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the distance between the two points.
+    </P>
+
+				<P class='methodTitle'><A name=' min'></A><u>  min</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines minimum axis properties for this instance and
+     passed Point object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.min(that);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  that   (Point)  -- a Point object in 2-space or 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns a new Point object with the minimum values.
+    </P>
+
+				<P class='methodTitle'><A name=' max'></A><u>  max</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines maximum axis properties for this instance and
+     passed Point object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.max(that);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  that   (Point)  -- a Point object in 2-space or 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns a new Point object with the maximum values.
+    </P>
+
+				<P class='methodTitle'><A name=' toString'></A><u>  toString</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a string representation of this instance's axis properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.toString();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string representation of this instance's axis properties.
+    </P>
+
+				<P class='methodTitle'><A name=' setXYZ'></A><u>  setXYZ</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets new axis properties for this instance with axis values.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.setXYZ(px,py,pz);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  px   (Number)  -- a real number.</li>
+<li>  py   (Number)  -- a real number.</li>
+<li>  pz   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' setFromPoint'></A><u>  setFromPoint</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets new axis properties for this instance with a passed
+     Point object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.setFromPoint(that);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  that   (Point)  -- a Point object in 2-space or 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' swap'></A><u>  swap</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Swaps axis properties for this instance and a passed Point object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.swap(that);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  that   (Point)  -- a Point object in 2-space or 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' recenter'></A><u>  recenter</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Resets this instance's 2D screen center values.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.recenter(pcx,pcy);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pcx   (Number)  -- a real number.</li>
+<li>  pcy   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' resize'></A><u>  resize</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Resets this instance's original size at origin.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.resize(pSize);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pSize   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' translate'></A><u>  translate</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines translation of this instance with passed
+     translation values.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.translate(tx,ty,tz);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  tx   (Number)  -- a real number.</li>
+<li>  ty   (Number)  -- a real number.</li>
+<li>  tz   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' scale'></A><u>  scale</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Scales this instance's axis properties with passed scalar values.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.scale(sx,sy,sz);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  sx   (Number)  -- a real number.</li>
+<li>  sy   (Number)  -- a real number.</li>
+<li>  sz   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' rotateXMatrix'></A><u>  rotateXMatrix</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Rotates this instance's matrix around the x-axis.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rotateXMatrix(a);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' rotateYMatrix'></A><u>  rotateYMatrix</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Rotates this instance's matrix around the y-axis.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rotateYMatrix(a);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' rotateZMatrix'></A><u>  rotateZMatrix</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Rotates this instance's matrix around the z-axis.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rotateZMatrix(a);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' axisMatrix'></A><u>  axisMatrix</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates this instance's new rotation matrix values around
+     passed axis Vector object by angle value.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.axisMatrix(axis,a);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  axis   (Vector)  -- a direction Vector object.</li>
+<li>  a   (Number)  -- a real number for the rotation angle.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' rotate'></A><u>  rotate</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates this instance's new rotation matrix values
+     through summation of the multiplication results for this
+     instance and passed Vector object axis values.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rotate(mat)</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  mat   (Array)  --  a nested array holding matrix data.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' perspective'></A><u>  perspective</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates this instance's perspective properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.perspective()</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' render'></A><u>  render</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Renders scope clip based on this instance's
+     perspective properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.render()</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' setDepth'></A><u>  setDepth</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets scope clip's depth based on the negative value of
+     this instance's z-axis property.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.setDepth()</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' lineD1'></A><u>  lineD1</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates this instance's 'line of sight' vector based on
+     passed Point objects and Vector object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.lineD1(p1,p2,V)</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  p1   (Point)  -- a Point object in 2-space or 3-space.</li>
+<li>  p2   (Point)  -- a Point object in 2-space or 3-space.</li>
+<li>  V   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a perspective ratio value.
+    </P>
+
+				<P class='methodTitle'><A name=' angle'></A><u>  angle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines angle vector created from three passed Point
+     objects wrt this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.angle(p1,p2,p3)</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  p1   (Point)  -- a Point object in 2-space or 3-space.</li>
+<li>  p2   (Point)  -- a Point object in 2-space or 3-space.</li>
+<li>  p3   (Point)  -- a Point object in 2-space or 3-space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns an angle vector value.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

@@ -1,0 +1,118 @@
+		<HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: IODESolver - Wright Internet Solutions">
+		<meta name="keywords" content="calculus,IODE,Solver,ode,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,classes,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.calc.IODESolver Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.calc.IODESolver Documentation</P>
+
+        <P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary  IODESolver Interface'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 01/11/05 17:58:23<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.calc.ode.IODESolver interface:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.calc.ode.IODESolver Methods:</P><div class='methodsDiv'>
+<a href='# initialize'>-  initialize</a><br>
+<a href='# step'>-  step</a><br>
+<a href='# setStepSize'>-  setStepSize</a><br>
+<a href='# getStepSize'>-  getStepSize</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.calc.ode.IODESolver <I>interface</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.7</P>
+		<P class="methodTitle">description:</P>
+		<P>IODESolver interface defines a minimal differential equation solver.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:IODESolver = new IODESolver();</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      none  -- interface has no parameters.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.calc.ode.IODESolver Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' initialize'></A><u>  initialize</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Initializes the IODE solver. IODE solvers use this method to
+     allocate temporary arrays that may be required to carry out
+     the solution. The number of differential equations is
+     determined by invoking getState().length on the ODE.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.initialize(_stepSize);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>_stepSize  (Number)  -- the step size.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' step'></A><u>  step</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Steps (advances) the differential equations by the stepSize.
+     The IODESolver invokes the IODE's getRate method to obtain the
+     initial state of the system. The IODESolver then advances the
+     solution and copies the new state into the state array at the
+     end of the solution step.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.step();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> -- returns the step size.
+    </P>
+
+				<P class='methodTitle'><A name=' setStepSize'></A><u>  setStepSize</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets the initial step size. The step size may change if the
+     IODE solver implements an adaptive step size algorithm such
+     as RK4/5.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.setStepSize(_stepSize);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li> _stepSize  (Number)  -- the step size.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' getStepSize'></A><u>  getStepSize</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the step size.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.getStepSize(();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the step size.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

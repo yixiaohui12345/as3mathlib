@@ -1,0 +1,628 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: DoubleLink - Wright Internet Solutions">
+		<meta name="keywords" content="lists,DoubleLink,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.types.lists.DoubleLink Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.types.lists.DoubleLink Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary DoubleLink Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 07/17/04 18:28:48<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.types.lists.DoubleLink class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.types.lists.DoubleLink Properties:</P><div class='methodsDiv'>
+<a href='#oReturn'>- oReturn</a><br>
+<a href='#oSrchOrigin'>- oSrchOrigin</a><br>
+<a href='#oSrchDir'>- oSrchDir</a><br>
+<a href='#list'>- list</a><br>
+<a href='#node'>- node</a><br>
+<a href='#info'>- info</a><br>
+<a href='#head'>- head</a><br>
+<a href='#tail'>- tail</a><br>
+<a href='#current'>- current</a><br>
+<a href='#saved'>- saved</a><br>
+<a href='#infoSize'>- infoSize</a><br>
+<a href='#listSize'>- listSize</a><br>
+<a href='#currentIndex'>- currentIndex</a><br>
+<a href='#saveIndex'>- saveIndex</a><br>
+<a href='#modified'>- modified</a><br>
+<a href='#searchOrigin'>- searchOrigin</a><br>
+<a href='#searchDir'>- searchDir</a><br>
+<a href='#nodeInfo'>- nodeInfo</a><br>
+<a href='#nodeNext'>- nodeNext</a><br>
+<a href='#nodePrior'>- nodePrior</a><br>
+<a href='#infoData'>- infoData</a><br>
+<a href='#searchModeOrigin'>- searchModeOrigin</a><br>
+<a href='#searchModeDir'>- searchModeDir</a><br>
+</div><br>
+<P class='ToC'>com.wis.types.lists.DoubleLink Methods:</P><div class='methodsDiv'>
+<a href='# createList'>-  createList</a><br>
+<a href='# destroyList'>-  destroyList</a><br>
+<a href='# initializeList'>-  initializeList</a><br>
+<a href='# isListEmpty'>-  isListEmpty</a><br>
+<a href='# isListFull'>-  isListFull</a><br>
+<a href='# getNumberOfRecords'>-  getNumberOfRecords</a><br>
+<a href='# setSearchModes'>-  setSearchModes</a><br>
+<a href='# getSearchModes'>-  getSearchModes</a><br>
+<a href='# getCurrentIndex'>-  getCurrentIndex</a><br>
+<a href='# currentPointerToHead'>-  currentPointerToHead</a><br>
+<a href='# currentPointerToTail'>-  currentPointerToTail</a><br>
+<a href='# incrementCurrentPointer'>-  incrementCurrentPointer</a><br>
+<a href='# decrementCurrentPointer'>-  decrementCurrentPointer</a><br>
+<a href='# storeCurrentPointer'>-  storeCurrentPointer</a><br>
+<a href='# restoreCurrentPointer'>-  restoreCurrentPointer</a><br>
+<a href='# addRecord'>-  addRecord</a><br>
+<a href='# insertRecord'>-  insertRecord</a><br>
+<a href='# swapRecord'>-  swapRecord</a><br>
+<a href='# updateCurrentRecord'>-  updateCurrentRecord</a><br>
+<a href='# deleteCurrentRecord'>-  deleteCurrentRecord</a><br>
+<a href='# deleteEntireList'>-  deleteEntireList</a><br>
+<a href='# findRecord'>-  findRecord</a><br>
+<a href='# findNthRecord'>-  findNthRecord</a><br>
+<a href='# getCurrentRecord'>-  getCurrentRecord</a><br>
+<a href='# getPriorRecord'>-  getPriorRecord</a><br>
+<a href='# getNextRecord'>-  getNextRecord</a><br>
+<a href='# toString'>-  toString</a><br>
+<a href='# saveList'>-  saveList</a><br>
+<a href='# loadList'>-  loadList</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.types.lists.DoubleLink <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.6</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the DoubleLink Class.
+ <p>
+ 		        Provides methods for replicating in Flash a doubly linked
+ list API in C, written in 1996 by Carl J. Nobile.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:DoubleLink = new DoubleLink();</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      none -- no class input parameters</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.types.lists.DoubleLink Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='oReturn'></A><u> oReturn</u></P>
+				<P> (Object)  -- holder for return message pointers.</P>
+
+				<P class='methodTitle'><A name='oSrchOrigin'></A><u> oSrchOrigin</u></P>
+				<P> (Object)  -- holder for origin of search pointers.</P>
+
+				<P class='methodTitle'><A name='oSrchDir'></A><u> oSrchDir</u></P>
+				<P> (Object) holder for direction of search pointers.</P>
+
+				<P class='methodTitle'><A name='list'></A><u> list</u></P>
+				<P> (Object)  -- pointer to list record. </P>
+
+				<P class='methodTitle'><A name='node'></A><u> node</u></P>
+				<P> (Object)  -- pointer to node record.</P>
+
+				<P class='methodTitle'><A name='info'></A><u> info</u></P>
+				<P> (Object)  -- pointer to info record.</P>
+
+				<P class='methodTitle'><A name='head'></A><u> head</u></P>
+				<P> (Object)  -- pointer to head record.</P>
+
+				<P class='methodTitle'><A name='tail'></A><u> tail</u></P>
+				<P> (Object)  -- pointer to tail record.</P>
+
+				<P class='methodTitle'><A name='current'></A><u> current</u></P>
+				<P> (Object)  -- pointer to current record.</P>
+
+				<P class='methodTitle'><A name='saved'></A><u> saved</u></P>
+				<P> (Object)  -- pointer to stored record.</P>
+
+				<P class='methodTitle'><A name='infoSize'></A><u> infoSize</u></P>
+				<P> (Number)  -- size of record incident.</P>
+
+				<P class='methodTitle'><A name='listSize'></A><u> listSize</u></P>
+				<P> (Number)  -- number of records in list.</P>
+
+				<P class='methodTitle'><A name='currentIndex'></A><u> currentIndex</u></P>
+				<P> (Number)  -- index value of current record.</P>
+
+				<P class='methodTitle'><A name='saveIndex'></A><u> saveIndex</u></P>
+				<P> (Number)  -- index value of stored record.</P>
+
+				<P class='methodTitle'><A name='modified'></A><u> modified</u></P>
+				<P> (Boolean)  -- modified flag (TRUE OR FALSE).</P>
+
+				<P class='methodTitle'><A name='searchOrigin'></A><u> searchOrigin</u></P>
+				<P> (Object)  -- location a search originates from.</P>
+
+				<P class='methodTitle'><A name='searchDir'></A><u> searchDir</u></P>
+				<P> (Object)  -- direction the search proceeds from.</P>
+
+				<P class='methodTitle'><A name='nodeInfo'></A><u> nodeInfo</u></P>
+				<P> (Object)  -- pointer to record data.</P>
+
+				<P class='methodTitle'><A name='nodeNext'></A><u> nodeNext</u></P>
+				<P> (Object)  -- pointer to next node.</P>
+
+				<P class='methodTitle'><A name='nodePrior'></A><u> nodePrior</u></P>
+				<P> (Object)  -- pointer to prior node.</P>
+
+				<P class='methodTitle'><A name='infoData'></A><u> infoData</u></P>
+				<P> (Object)  -- your data goes here.</P>
+
+				<P class='methodTitle'><A name='searchModeOrigin'></A><u> searchModeOrigin</u></P>
+				<P> (Object)  -- search from head, tail, or current.</P>
+
+				<P class='methodTitle'><A name='searchModeDir'></A><u> searchModeDir</u></P>
+				<P> (Object)  -- search up or down.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.types.lists.DoubleLink Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' createList'></A><u>  createList</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a structure of type list.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.createList(newList);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  newList   (Object)  -- pointer to a name of a structure to create.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns pointer to created structure - null if unsuccessful.
+    </P>
+
+				<P class='methodTitle'><A name=' destroyList'></A><u>  destroyList</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Destroys info, node, and list structures.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.destroyList();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' initializeList'></A><u>  initializeList</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Initializes doubly linked list.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.initializeList(infoSize);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  infoSize   (Number)  -- size of user info (bytes).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL    -- Initialization was done successfully
+     oReturn.DLL_ZERO_INFO -- sizeof(info) is zero
+     oReturn.DLL_NULL_LIST -- info is null
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' isListEmpty'></A><u>  isListEmpty</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Checks for an empty list.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.isListEmpty();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)  -- returns:
+     <blockquote><pre>
+     true  -- List is empty
+     false -- List has items in it
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' isListFull'></A><u>  isListFull</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Checks for a full list.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.isListFull();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)  -- returns:
+     <blockquote><pre>
+     true  -- List is full (memory dependent)
+     false -- List is empty or partially full
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' getNumberOfRecords'></A><u>  getNumberOfRecords</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Return number of records.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.getNumberOfRecords();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns number of records.
+    </P>
+
+				<P class='methodTitle'><A name=' setSearchModes'></A><u>  setSearchModes</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets the pointer used to start a search origin
+     and the direction indicator.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.setSearchModes(origin,dir);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  origin   (Object)  -- indicates the start search pointer to use.</li>
+<li>  dir   (Object)  -- indicates the direction to search in.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL       -- Values assigned were accepted
+     oReturn.DLL_NOT_MODIFIED -- Values were not assigned--invalid type (defaults are still in place)
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' getSearchModes'></A><u>  getSearchModes</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Returns the search modes.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.getSearchModes(ssp);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  ssp   (DoubleLink)  -- save structure pointer.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (DoubleLink)  -- returns a pointer to type DLL_SearchModes.
+    </P>
+
+				<P class='methodTitle'><A name=' getCurrentIndex'></A><u>  getCurrentIndex</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines the index of the current record. The index is always
+     referenced from the head of the list.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.getCurrentIndex();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  --  returns current record's index.
+    </P>
+
+				<P class='methodTitle'><A name=' currentPointerToHead'></A><u>  currentPointerToHead</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Moves the current pointer to the head of the list.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.currentPointerToHead();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL    -- Record found
+     oReturn.DLL_NULL_LIST -- Empty list
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' currentPointerToTail'></A><u>  currentPointerToTail</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Moves the current pointer to the tail of the list.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.currentPointerToTail();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL    -- Record found
+     oReturn.DLL_NULL_LIST -- Empty list
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' incrementCurrentPointer'></A><u>  incrementCurrentPointer</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Moves the current pointer to next position.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.incrementCurrentPointer();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL    -- Record found
+     oReturn.DLL_NULL_LIST -- Empty list
+     oReturn.DLL_NOT_FOUND -- Record not found
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' decrementCurrentPointer'></A><u>  decrementCurrentPointer</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Moves the current pointer to last position.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.decrementCurrentPointer();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL    -- Record found
+     oReturn.DLL_NULL_LIST -- Empty list
+     oReturn.DLL_NOT_FOUND -- Record not found
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' storeCurrentPointer'></A><u>  storeCurrentPointer</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Saves the current pointer.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.storeCurrentPointer();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL    -- Record found
+     oReturn.DLL_NOT_FOUND -- Record not found
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' restoreCurrentPointer'></A><u>  restoreCurrentPointer</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Loads the previously saved current pointer.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.restoreCurrentPointer();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL    -- Record found
+     oReturn.DLL_NOT_FOUND -- Record not found
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' addRecord'></A><u>  addRecord</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a new node in list with or without sorting.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.addRecord(info,pFun);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  info   (Object)  -- record to add.</li>
+<li>  pFun   (Function)  -- pointer to search function.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL    -- node was added successfully
+     oReturn.DLL_MEM_ERROR -- Memory allocation failed
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' insertRecord'></A><u>  insertRecord</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a new node in list above or below current
+     record. The new record will be current after completion.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.insertRecord(info,dir);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  info   (Object)  -- pointer to info record.</li>
+<li>  dir   (Object)  -- pointer to dir record.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL       -- node was added successfully
+     oReturn.DLL_MEM_ERROR    -- Memory allocation failed
+     oReturn.DLL_NOT_MODIFIED -- Insert direction is invalid (not DLL_ABOVE or DLL_BELOW)
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' swapRecord'></A><u>  swapRecord</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Swaps current record up or down one place in the list.
+     The swapped record will still be current after completion.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.swapRecord(dir);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  dir   (Object)  -- direction to swap (DLL_ABOVE or DLL_BELOW).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL       -- node was swapped successfully
+     oReturn.DLL_NULL_LIST    -- list.current is null
+     oReturn.DLL_NOT_MODIFIED -- Swap direction not DLL_ABOVE or DLL_BELOW
+     oReturn.DLL_NOT_FOUND    -- Current record is already at end of list indicated by dir
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' updateCurrentRecord'></A><u>  updateCurrentRecord</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Updates current record
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.updateCurrentRecord(record);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  record   (Object)  -- pointer to an info structure in list.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL    -- Record updated
+     oReturn.DLL_NULL_LIST -- Empty list
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' deleteCurrentRecord'></A><u>  deleteCurrentRecord</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Delete a record from the list.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.deleteCurrentRecord();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL    -- Record deleted
+     oReturn.DLL_NULL_LIST -- List is empty
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' deleteEntireList'></A><u>  deleteEntireList</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Delete the entire list.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.deleteEntireList();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL    -- List deleted
+     oReturn.DLL_NULL_LIST -- List is empty
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' findRecord'></A><u>  findRecord</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Find a record in list with search criteria.
+	 </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.findRecord(record,match,pFun);</pre>
+	 </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  record   (Object)  -- pointer to an info structure in list.</li>
+<li>  match   (Object)  -- pointer to an info structure to match to list.</li>
+<li>  pFun   (Function)  -- pointer to search function.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+	 <blockquote><pre>
+     oReturn.DLL_NORMAL        -- Record found
+     oReturn.DLL_NULL_LIST     -- Empty list
+     oReturn.DLL_NOT_FOUND     -- Record not found
+     oReturn.DLL_NULL_FUNCTION -- pFun is null
+     </pre></blockquote>
+	</P>
+
+				<P class='methodTitle'><A name=' findNthRecord'></A><u>  findNthRecord</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Returns the Nth record in the list based on the
+     setting of list.searchOrigin and list.searchDir.
+     <p>
+     NOTE: The Nth record is found based on the ordinant numbering
+     system, in other words the current record is 0 (zero) so a
+     skip value of 5 would return the 6th not the 5th record.
+     Just think of 0-based array indexing.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.findNthRecord(record,skip);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  record   (Object)  -- record to hold return data.</li>
+<li>  skip   (Number)  -- number of records to skip.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL    -- node was found successfully
+     oReturn.DLL_NULL_LIST -- list.current is null
+     oReturn.DLL_NOT_FOUND -- Index value is too large or wrong dir value (current record index remains unchanged)
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' getCurrentRecord'></A><u>  getCurrentRecord</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the record pointed to by current.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.getCurrentRecord(record);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  record   (Object)  -- pointer to a pointer to an info structure.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL    -- Record returned
+     oReturn.DLL_NULL_LIST -- List is empty
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' getPriorRecord'></A><u>  getPriorRecord</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the record pointed to by current.prior
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.getPriorRecord(record);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  record   (Object)  -- pointer to an info structure.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL    -- Record returned
+     oReturn.DLL_NULL_LIST -- List is empty
+     oReturn.DLL_NOT_FOUND -- Beginning of list
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' getNextRecord'></A><u>  getNextRecord</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the record pointed to by current.next
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.getNextRecord(record);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  record   (Object)  -- pointer to an info structure.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL    -- Record returned
+     oReturn.DLL_NULL_LIST -- List is empty
+     oReturn.DLL_NOT_FOUND -- End of list
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' toString'></A><u>  toString</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Save list of properties to a string.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.toString();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- a string consisting of a list of class properties.
+    </P>
+
+				<P class='methodTitle'><A name=' saveList'></A><u>  saveList</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Save list to disk
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.saveList(path);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  path   (Object)  -- pointer to path and filename.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL       -- File written successfully
+     oReturn.DLL_NULL_LIST    -- List is empty
+     oReturn.DLL_OPEN_ERROR   -- File open error
+     oReturn.DLL_WRITE_ERROR  -- File write error
+     oReturn.DLL_NOT_MODIFIED -- Unmodified list no save was done
+     </pre></blockquote>
+    </P>
+
+				<P class='methodTitle'><A name=' loadList'></A><u>  loadList</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Load list to disk.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.loadList(path,pFun);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  path   (Object)  -- pointer to path and filename.</li>
+<li>  pFun   (Object)  -- pointer to search function.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns:
+     <blockquote><pre>
+     oReturn.DLL_NORMAL     -- File written successfully
+     oReturn.DLL_MEM_ERROR  -- Memory allocation failed
+     oReturn.DLL_OPEN_ERROR -- File open error
+     oReturn.DLL_READ_ERROR -- File read error
+     </pre></blockquote>
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

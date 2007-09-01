@@ -1,0 +1,373 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Obj - Wright Internet Solutions">
+		<meta name="keywords" content="Obj,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.types.Obj Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.types.Obj Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Obj Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 07/18/04 01:15:09<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.types.Obj class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.types.Obj Properties:</P><div class='methodsDiv'>
+<a href='#$texture'>- $texture</a><br>
+<a href='#$transform'>- $transform</a><br>
+<a href='#$boundedBy'>- $boundedBy</a><br>
+<a href='#$castShadows'>- $castShadows</a><br>
+<a href='#$inversed'>- $inversed</a><br>
+<a href='#$infiniteBounds'>- $infiniteBounds</a><br>
+<a href='#$volumeOutsideOfBounds'>- $volumeOutsideOfBounds</a><br>
+<a href='#$textureOverridesParent'>- $textureOverridesParent</a><br>
+<a href='#$maxTraceLevel'>- $maxTraceLevel</a><br>
+<a href='#$bailout'>- $bailout</a><br>
+<a href='#$boundsTransformed'>- $boundsTransformed</a><br>
+</div><br>
+<P class='ToC'>com.wis.types.Obj Methods:</P><div class='methodsDiv'>
+<a href='# copy'>-  copy</a><br>
+<a href='# initialize'>-  initialize</a><br>
+<a href='# findIntersectionsUntransformed'>-  findIntersectionsUntransformed</a><br>
+<a href='# isPointInsideUntransformed'>-  isPointInsideUntransformed</a><br>
+<a href='# getNormalAtUntransformed'>-  getNormalAtUntransformed</a><br>
+<a href='# getColorAt'>-  getColorAt</a><br>
+<a href='# numericalOrder'>-  numericalOrder</a><br>
+<a href='# correctBounds'>-  correctBounds</a><br>
+<a href='# generalLowLevelObjectInitialization'>-  generalLowLevelObjectInitialization</a><br>
+<a href='# findBoundInts'>-  findBoundInts</a><br>
+<a href='# boundTest'>-  boundTest</a><br>
+<a href='# boundTestPoint'>-  boundTestPoint</a><br>
+<a href='# findIntersections'>-  findIntersections</a><br>
+<a href='# getNormalAt'>-  getNormalAt</a><br>
+<a href='# isPointInside'>-  isPointInside</a><br>
+<a href='# setupDefaultModifiers'>-  setupDefaultModifiers</a><br>
+<a href='# copyModifiers'>-  copyModifiers</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.types.Obj <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.6</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Obj SuperClass.
+ <p>
+ 		          Provides methods for the IObj interface based on JS RayTracer2 by
+ John Haggerty.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:Obj = new Obj(arguments);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>        arguments (variant)  -- arguments vary, depending on subclass instantiation.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.types.Obj Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='$texture'></A><u> $texture</u></P>
+				<P> (Texture)  -- object passed with class instance 'arguments[0]'.</P>
+
+				<P class='methodTitle'><A name='$transform'></A><u> $transform</u></P>
+				<P> (Transformation)  -- object passed with class instance 'arguments[1]'. </P>
+
+				<P class='methodTitle'><A name='$boundedBy'></A><u> $boundedBy</u></P>
+				<P> (Box)  -- object passed with class instance 'arguments[2]'. </P>
+
+				<P class='methodTitle'><A name='$castShadows'></A><u> $castShadows</u></P>
+				<P> (Boolean)  -- 'setupDefaultModifiers' default is 'true', slows processing. </P>
+
+				<P class='methodTitle'><A name='$inversed'></A><u> $inversed</u></P>
+				<P> (Boolean)  -- 'setupDefaultModifiers' default is 'false'.</P>
+
+				<P class='methodTitle'><A name='$infiniteBounds'></A><u> $infiniteBounds</u></P>
+				<P> (Boolean)  -- 'setupDefaultModifiers' default is 'false'. </P>
+
+				<P class='methodTitle'><A name='$volumeOutsideOfBounds'></A><u> $volumeOutsideOfBounds</u></P>
+				<P> (Boolean)  -- 'setupDefaultModifiers' default is 'false'. </P>
+
+				<P class='methodTitle'><A name='$textureOverridesParent'></A><u> $textureOverridesParent</u></P>
+				<P> (Boolean)  -- 'setupDefaultModifiers' default is 'false'. </P>
+
+				<P class='methodTitle'><A name='$maxTraceLevel'></A><u> $maxTraceLevel</u></P>
+				<P> (Number)  -- value sent from UI main.as.</P>
+
+				<P class='methodTitle'><A name='$bailout'></A><u> $bailout</u></P>
+				<P> (Number)  -- value sent from UI main.as. </P>
+
+				<P class='methodTitle'><A name='$boundsTransformed'></A><u> $boundsTransformed</u></P>
+				<P> (Boolean)  -- static -- default is 'false'.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.types.Obj Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' copy'></A><u>  copy</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Virtual function to be overridden by subclass ...
+     copies super's properties with its 'copyModifiers' method.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>
+     inst.copy();
+     // which in turn calls the method:
+     this.copyModifiers(newObj);
+     </pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  none   -- no method parameters.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Obj)  -- returns a copy of its properties.
+    </P>
+
+				<P class='methodTitle'><A name=' initialize'></A><u>  initialize</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Virtual function to be overridden by subclass ...
+      defines a bounding box construct and all low-level
+      instantiation for the subclass instance.
+      </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>
+      var inst:Obj = new Obj();
+      // which in turn fires the inst.initialize() method
+      </pre>
+      </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  none   (Void)  -- no method parameters.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+     </P>
+
+				<P class='methodTitle'><A name=' findIntersectionsUntransformed'></A><u>  findIntersectionsUntransformed</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Virtual function to be overridden by subclass ...
+     defines bounding box vertices in 3-space.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>instObj.findIntersectionsUntransformed();</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  ray   (Ray)  -- tracer object that defines point and direction in n3 space.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Array)  -- returns a list of Intersection objects, or an empty list.
+    </P>
+
+				<P class='methodTitle'><A name=' isPointInsideUntransformed'></A><u>  isPointInsideUntransformed</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Virtual function to be overridden by subclass ...
+     tests bounding box and vector for union.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>
+     instObj.isPointInsideUntransformed(pos);
+     </pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pos   (Vector)  -- a position Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' getNormalAtUntransformed'></A><u>  getNormalAtUntransformed</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Virtual function to be overridden by subclass ...
+     which defines bounding box to vector normal in 3-space
+     before transformation.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>
+     instObj.getNormalAtUntransformed(pos);
+     </pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pos   (Vector)  -- a position Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns normal of untransformed vector.
+    </P>
+
+				<P class='methodTitle'><A name=' getColorAt'></A><u>  getColorAt</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.getColorAt(isect,objs,lights,traceLevel,effect);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  isect   (Intersection)  -- focus Intersection class instance.</li>
+<li>  objs   (Array)  -- a list of shape objects passed to a Ray class instance.</li>
+<li>  lights   (Array)  -- a list of LightSource class instances.</li>
+<li>  traceLevel   (Number)  -- a real number passed to test against class instance $maxTraceLevel property. </li>
+<li>  effect   (Number)  -- a real number passed to test against class instance $bailout property.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Col)  -- returns a Col object for this subclass instance.
+    </P>
+
+				<P class='methodTitle'><A name=' numericalOrder'></A><u>  numericalOrder</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Static dependent method of Array.sort() for use with Obj
+     subclasses -- presently only called from Box class instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>subclassInst.sort(Obj.numericalOrder);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Number)  -- a real number _arr[n-1] generated with subclass' Array.sort method.</li>
+<li>  b   (Number)  -- a real number _arr[n] generated with subclass' Array.sort method.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a positive or negative value which is evaluated by the subclass' Array.sort method.
+    </P>
+
+				<P class='methodTitle'><A name=' correctBounds'></A><u>  correctBounds</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Changes the class instance bounding box to take
+     transformations into account.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.correctBounds();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' generalLowLevelObjectInitialization'></A><u>  generalLowLevelObjectInitialization</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Called at the end of the initialization function of all
+     lowest-level object subclasses (spheres, boxes, cylinders, etc).
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.generalLowLevelObjectInitialization();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' findBoundInts'></A><u>  findBoundInts</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Static method used by 'boundTest' method.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.findBoundInts(v1,v2,dim,odim1,odim2,s,d);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  v1   (Vector)  -- a bounding box Vector object.</li>
+<li>  v2   (Vector)  -- a bounding box Vector object. </li>
+<li>  dim   (String)  -- a string passing 'x'. </li>
+<li>  odim1   (String)  -- a string passing 'y'. </li>
+<li>  odim2   (String)  -- a string passing 'z'. </li>
+<li>  s   (Vector)  -- local pointer to Ray class instance $start Vector object.</li>
+<li>  d   (Vector)  -- local pointer to Ray class instance $dir Vector object. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' boundTest'></A><u>  boundTest</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Boolean to test whether passed 'ray' argument resides
+     within subclass instance bounding box.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.boundTest(ray);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  ray   (Ray)  -- a Ray class instance that defines its $start and $dir Vector objects.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' boundTestPoint'></A><u>  boundTestPoint</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Boolean used in 'isPointInside' method.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.boundTestPoint(pos);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pos   (Vector)  -- a Vector object defining point wrt to Obj subclass instance.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' findIntersections'></A><u>  findIntersections</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines all subclass instance intersections found by
+     referencing the 'ray' argument that exist within its
+     bounding box.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.findIntersections(ray);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  ray   (Ray)  -- a Ray class instance that defines its $start and $dir Vector objects.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Array)  -- returns an array of found intersections.
+    </P>
+
+				<P class='methodTitle'><A name=' getNormalAt'></A><u>  getNormalAt</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines normal vector based on the 'pos' Vector object and
+     the focus intersection using a winding number algorithm
+     affecting the direction of the class instance $transform
+     property.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.getNormalAt(pos,isect);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pos   (Vector)  -- an object defining a point in 3-space wrt the subclass instance.</li>
+<li>  isect   (Intersection)  -- focus intersection.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Vector)  -- returns a normalized Vector object.
+    </P>
+
+				<P class='methodTitle'><A name=' isPointInside'></A><u>  isPointInside</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Boolean to confirm if passed Vector object defines a
+     point inside this subclass instance's bounding box.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.isPointInside(pos);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pos   (Vector)  -- a Vector object defining a point in 3-space wrt this subclass instance's bounding box.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' setupDefaultModifiers'></A><u>  setupDefaultModifiers</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets up subclass instance with low-level superclass properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.setupDefaultModifiers();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' copyModifiers'></A><u>  copyModifiers</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Copies subclass object's superclass properties to 'newObj'
+     argument and calls the new class instance 'initialize' method.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.copyModifiers(newObj);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  newObj   (Obj)  -- new class instance which inherits the Obj superclass properties.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Obj)  -- returns a new Obj class instance with a copy of inherited properties.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

@@ -1,0 +1,212 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Transformation - Wright Internet Solutions">
+		<meta name="keywords" content="geometry,Transformation,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.geom.util.Transformation Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.geom.util.Transformation Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Transformation Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 08/05/04 21:56:12<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.geom.util.Transformation class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.geom.util.Transformation Properties:</P><div class='methodsDiv'>
+<a href='#$vx'>- $vx</a><br>
+<a href='#$vy'>- $vy</a><br>
+<a href='#$vz'>- $vz</a><br>
+<a href='#$c'>- $c</a><br>
+<a href='#$identity'>- $identity</a><br>
+<a href='#$inverse'>- $inverse</a><br>
+<a href='#$IdentityTrans'>- $IdentityTrans</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.geom.util.Transformation Methods:</P><div class='methodsDiv'>
+<a href='# copy'>-  copy</a><br>
+<a href='# findInverse'>-  findInverse</a><br>
+<a href='# reducedRowEchelonForm'>-  reducedRowEchelonForm</a><br>
+<a href='# toString'>-  toString</a><br>
+<a href='# multipleTrans'>-  multipleTrans</a><br>
+<a href='# scale'>-  scale</a><br>
+<a href='# rotate'>-  rotate</a><br>
+<a href='# translate'>-  translate</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.geom.util.Transformation <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.7</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Transformation Class.
+ <p>
+ 		        Provides utility methods for the IObj interface based on JS
+ RayTracer2 by John Haggerty.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:Transformation = new Transformation(vx,vy,vz,c[,dontFindInverse,actualOrder]);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      vx (Vector)  -- an x-axis Vector object.</li>
+<li>      vy (Vector)  -- a y-axis Vector object.</li>
+<li>      vz (Vector)  -- a z-axis Vector object.</li>
+<li>      c (Vector)  -- a translation Vector object.</li>
+<li>      dontFindInverse (Boolean)  -- if 'false', initialization populates $inverse Transformation object.</li>
+<li>      actualOrder (Boolean)  -- if 'true', copies passed vx, vy, and vz directly, else creates new Vector objects from their elements.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.geom.util.Transformation Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='$vx'></A><u> $vx</u></P>
+				<P> (Vector)  -- an x-axis Vector object.</P>
+
+				<P class='methodTitle'><A name='$vy'></A><u> $vy</u></P>
+				<P> (Vector)  -- a y-axis Vector object.</P>
+
+				<P class='methodTitle'><A name='$vz'></A><u> $vz</u></P>
+				<P> (Vector)  -- a z-axis Vector object.</P>
+
+				<P class='methodTitle'><A name='$c'></A><u> $c</u></P>
+				<P> (Vector)  -- a translation Vector object.</P>
+
+				<P class='methodTitle'><A name='$identity'></A><u> $identity</u></P>
+				<P> (Boolean)  -- if 'true', this instance is an Identity Transformation object.</P>
+
+				<P class='methodTitle'><A name='$inverse'></A><u> $inverse</u></P>
+				<P> (Transformation)  -- the inverse of this instance, if available.</P>
+
+				<P class='methodTitle'><A name='$IdentityTrans'></A><u> $IdentityTrans</u></P>
+				<P> (Transformation)  -- static -- an Identity Transformation object.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.geom.util.Transformation Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' copy'></A><u>  copy</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a copy of this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.copy();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Transformation)  -- returns a new Transformation object, a copy of this instance.
+    </P>
+
+				<P class='methodTitle'><A name=' findInverse'></A><u>  findInverse</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines inverse of passed 'trans' Transformation object
+     using the reduced row echelon method.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.findInverse(trans);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  trans   (Transformation)  -- a Transformation object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Transformation)  -- returns inverse of passed 'trans' Transformation object.
+    </P>
+
+				<P class='methodTitle'><A name=' reducedRowEchelonForm'></A><u>  reducedRowEchelonForm</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines passed 'rows' array in reduced row echelon form.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.reducedRowEchelonForm(rows);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  rows   (Array)  -- a 2d nested array.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Array)  -- returns passed 'rows' array in reduced row echelon form.
+    </P>
+
+				<P class='methodTitle'><A name=' toString'></A><u>  toString</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a formatted string representation of this instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.toString();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a formatted string representation of this instance.
+    </P>
+
+				<P class='methodTitle'><A name=' multipleTrans'></A><u>  multipleTrans</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Static -- this is an extremely helpful function that takes an
+     array of transformations and turns them all into one single
+     transformation.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.multipleTrans(trans_arr);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  trans_arr   (Array)  -- a list of Transformation objects.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Transformation)  -- returns a single Transformation object, a summation of Vector objects produced by a progression of dot product results.
+    </P>
+
+				<P class='methodTitle'><A name=' scale'></A><u>  scale</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Scales an Identity Transformation object with passed Vector object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.scale(amount);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  amount   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Transformation)  -- returns a new scaled Transformation object.
+    </P>
+
+				<P class='methodTitle'><A name=' rotate'></A><u>  rotate</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a rotated Transformation object around the passed
+	 'dim' axis.
+	 </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.rotate(dim,amnt);</pre>
+	 </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  dim   (Number)  -- a pointer to axis, created in UI 'main.as'.</li>
+<li>  amnt   (Number)  -- a real number representing radians.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Transformation)  -- returns a new rotated Transformation object.
+	</P>
+
+				<P class='methodTitle'><A name=' translate'></A><u>  translate</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a new translation Transformation object using passed Vector object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.translate(amount);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  amount   (Vector)  -- a direction Vector object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Transformation)  -- returns a new translation Transformation object.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

@@ -1,0 +1,245 @@
+
+		<HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Bitwise - Wright Internet Solutions">
+		<meta name="keywords" content="algebra,Bitwise,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.alg.Bitwise Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.alg.Bitwise Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Bitwise Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 07/17/04 18:44:51<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.alg.Bitwise class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.alg.Bitwise Properties:</P><div class='methodsDiv'>
+<a href='#none'>- none</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.alg.Bitwise Methods:</P><div class='methodsDiv'>
+<a href='# binToDec'>-  binToDec</a><br>
+<a href='# decToBin'>-  decToBin</a><br>
+<a href='# binPad'>-  binPad</a><br>
+<a href='# binOr'>-  binOr</a><br>
+<a href='# binAnd'>-  binAnd</a><br>
+<a href='# binXor'>-  binXor</a><br>
+<a href='# binNot'>-  binNot</a><br>
+<a href='# binInvert'>-  binInvert</a><br>
+<a href='# binInvert64'>-  binInvert64</a><br>
+<a href='# binShiftLeft'>-  binShiftLeft</a><br>
+<a href='# binShiftRight'>-  binShiftRight</a><br>
+<a href='# binShiftRightUnsigned'>-  binShiftRightUnsigned</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.alg.Bitwise <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.6</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the static behaviours of the Bitwise Class.
+ <p>
+ 		        All methods in this class are static, allowing for inline bitwise
+ operations without the need for class instantiation.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>Bitwise.classMethod(args);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      none  -- no class input parameters.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.alg.Bitwise Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='none'></A><u> none</u></P>
+				<P> -- no class properties.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.alg.Bitwise Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' binToDec'></A><u>  binToDec</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Converts binary string input to decimal number output.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Bitwise.binToDec("-01001");</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  bin   (String)  -- must be a string to avoid octal conversion.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a decimal base.
+    </P>
+
+				<P class='methodTitle'><A name=' decToBin'></A><u>  decToBin</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Converts decimal number input to binary string output.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Bitwise.decToBin(-9);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  dec   (Number)  -- positive or negative integer - method ignores fractional input. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string representation of a binary base.
+    </P>
+
+				<P class='methodTitle'><A name=' binPad'></A><u>  binPad</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Pads binary string input to desired bit length string output.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Bitwise.binPad("0111",32);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  bin   (String)  -- must be a string to avoid octal conversion.</li>
+<li>  len   (Number)  -- 2^n (up to 64) - usually 8, 32, or 64.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string representation of a padded binary base.
+    </P>
+
+				<P class='methodTitle'><A name=' binOr'></A><u>  binOr</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				logical bitwise OR operation
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Bitwise.binOr("110001","000100","000111");</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  arguments   (String)  -- list of binary arguments must be strings to avoid octal conversion.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string representation of a binary base.
+    </P>
+
+				<P class='methodTitle'><A name=' binAnd'></A><u>  binAnd</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Logical bitwise AND operation.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Bitwise.binAnd("01001","1010");</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  arguments   (String)  -- list of  binary arguments must be strings to avoid octal conversion.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string representation of a binary base.
+    </P>
+
+				<P class='methodTitle'><A name=' binXor'></A><u>  binXor</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Logical bitwise XOR operation.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Bitwise.binXor("01001","1010");</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  arguments   (String)  -- list of binary arguments must be strings to avoid octal conversion.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string representation of a binary base.
+    </P>
+
+				<P class='methodTitle'><A name=' binNot'></A><u>  binNot</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Logical bitwise NOT operation.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Bitwise.binNot("01001");</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  bin   (String)  -- must be a string to avoid octal conversion.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string representation of a binary base.
+    </P>
+
+				<P class='methodTitle'><A name=' binInvert'></A><u>  binInvert</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Inverts binary input using logical bitwise XOR operation
+     and pads to 32 bits.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Bitwise.binInvert("0101010101010101010101");</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  bin   (String)  -- must be a string to avoid octal conversion.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string representation of a 32-bit binary base.
+    </P>
+
+				<P class='methodTitle'><A name=' binInvert64'></A><u>  binInvert64</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Inverts binary input using logical bitwise XOR operation
+     and pads to 64 bits.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Bitwise.binInvert64("0101010101010101010101");</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  bin   (String)  -- must be a string to avoid octal conversion.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string representation of a 64-bit binary base.
+    </P>
+
+				<P class='methodTitle'><A name=' binShiftLeft'></A><u>  binShiftLeft</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Shifts binary string input 'pos' digits to the left --
+     multiplication.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Bitwise.binShiftLeft("-01001",2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  bin   (String)  -- must be a string to avoid octal conversion.</li>
+<li>  pos   (Number)  -- a positive integer.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string representation of a binary base.
+    </P>
+
+				<P class='methodTitle'><A name=' binShiftRight'></A><u>  binShiftRight</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Shifts binary string input 'pos' digits to the right --
+     diviision.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Bitwise.binShiftRight("-01001",2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  bin   (String)  --  must be a string to avoid octal conversion.</li>
+<li>  pos   (Number)  -- a positive integer.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string representation of a binary base.
+    </P>
+
+				<P class='methodTitle'><A name=' binShiftRightUnsigned'></A><u>  binShiftRightUnsigned</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				The same as the binShiftRight method except that it does
+     not preserve the sign of the binary string input.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> Bitwise.binShiftRightUnsigned("-01001",2)
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  bin   (String)  -- must be a string to avoid octal conversion.</li>
+<li>  pos   (Number)  -- a positive integer.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string representation of a binary base.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

@@ -1,0 +1,201 @@
+
+		<HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Arr - Wright Internet Solutions">
+		<meta name="keywords" content="algebra,Arr,Bitwise,class,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.types.Arr Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.types.Arr Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Arr Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 08/05/04 19:52:04<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.types.Arr class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.types.Arr Properties:</P><div class='methodsDiv'>
+<a href='#$arr'>- $arr</a><br>
+</div><br>
+<P class='ToC'>com.wis.types.Arr Methods:</P><div class='methodsDiv'>
+<a href='# get _len'>-  get _len</a><br>
+<a href='# get _min'>-  get _min</a><br>
+<a href='# get _max'>-  get _max</a><br>
+<a href='# map'>-  map</a><br>
+<a href='# filter'>-  filter</a><br>
+<a href='# reduce'>-  reduce</a><br>
+<a href='# shuffle'>-  shuffle</a><br>
+<a href='# sortNumeric'>-  sortNumeric</a><br>
+<a href='# qSort'>-  qSort</a><br>
+<a href='# pairSums'>-  pairSums</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.types.Arr <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.7</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Arr Class.
+ <p>
+ 		        Provides methods for extending the core Array class. It can
+ be instantiated as an empty array or by a list of arguments,
+ which first clears then populates the class $arr:Array property.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:Arr = new Arr();</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      none -- no class input parameters, or a list of variant parameters.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.types.Arr Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='$arr'></A><u> $arr</u></P>
+				<P> (Array) -- private -- an array holder for variant class arguments.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.types.Arr Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' get _len'></A><u>  get _len</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets length of private class property $arr.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._len;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the class property $arr length.
+    </P>
+
+				<P class='methodTitle'><A name=' get _min'></A><u>  get _min</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the minimum value of the class property $arr elements.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._min;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the minimum element value.
+    </P>
+
+				<P class='methodTitle'><A name=' get _max'></A><u>  get _max</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the maximum value of the class property $arr elements.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._max;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the maximum element value.
+    </P>
+
+				<P class='methodTitle'><A name=' map'></A><u>  map</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a new Arr instance using this instance $arr arguments
+     as arguments for the passed function.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.map(func);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  func   (Function)  -- a function available to the UI scope.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Arr)  -- returns a new class instance whose property $arr contains a list of the results from passing the function.
+    </P>
+
+				<P class='methodTitle'><A name=' filter'></A><u>  filter</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Filters identical elements of the class instance $arr based
+     on the results of passing the argument function to $arr.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.filter(func);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  func   (Function)  -- a function available to the UI scope.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Array)  -- returns an array of identical elements.
+    </P>
+
+				<P class='methodTitle'><A name=' reduce'></A><u>  reduce</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				A reduction of $arr element values is produced by applying
+     $arr[n-1] and $arr[n] to the passed function argument.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.reduce(func);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  func   (Function)  -- a function available to the UI scope.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a result of passing the argument function to $arr elements, replacing 'result' with the new result for each element.
+    </P>
+
+				<P class='methodTitle'><A name=' shuffle'></A><u>  shuffle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Randomly shuffles the class property $arr elements.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.shuffle();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Array)  -- returns a shuffled class property $arr.
+    </P>
+
+				<P class='methodTitle'><A name=' sortNumeric'></A><u>  sortNumeric</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Includes a dependent method 'sortNum' for sort by number
+     which is passed as an argument to the Array.sort method.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.sortNumeric();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Array)  -- returns the class instance $arr sorted min-max.
+    </P>
+
+				<P class='methodTitle'><A name=' qSort'></A><u>  qSort</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Recursive quick sort that sorts class property
+     $arr elements. This was proven to be faster than
+     the low-level Array.sort() in Flash 5, and since
+     it is still a valid method it is included here.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.qSort();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Array)  -- returns the class instance $arr sorted min-max.
+    </P>
+
+				<P class='methodTitle'><A name=' pairSums'></A><u>  pairSums</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Finds sum pairs of the class property $arr elements
+     equal to the passed argument.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.pairSums(n);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  n   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Arr)  -- returns a new class instance containing all pair sums.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

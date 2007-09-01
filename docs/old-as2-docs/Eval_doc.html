@@ -1,0 +1,398 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Eval - Wright Internet Solutions">
+		<meta name="keywords" content="algebra,Eval,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.alg.Eval Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.alg.Eval Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Eval Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 07/17/04 18:45:57<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.alg.Eval class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.alg.Eval Properties:</P><div class='methodsDiv'>
+<a href='#$tok'>- $tok</a><br>
+<a href='#$bError'>- $bError</a><br>
+<a href='#$iLen'>- $iLen</a><br>
+<a href='#$iPos'>- $iPos</a><br>
+<a href='#$sErrorMsg'>- $sErrorMsg</a><br>
+<a href='#$sExpr'>- $sExpr</a><br>
+<a href='#$aStack'>- $aStack</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.alg.Eval Methods:</P><div class='methodsDiv'>
+<a href='# init'>-  init</a><br>
+<a href='# compile'>-  compile</a><br>
+<a href='# execute'>-  execute</a><br>
+<a href='# token'>-  token</a><br>
+<a href='# nextToken'>-  nextToken</a><br>
+<a href='# isNotIDChar'>-  isNotIDChar</a><br>
+<a href='# isOperatorChar'>-  isOperatorChar</a><br>
+<a href='# isNotNumberChar'>-  isNotNumberChar</a><br>
+<a href='# error'>-  error</a><br>
+<a href='# plus'>-  plus</a><br>
+<a href='# minus'>-  minus</a><br>
+<a href='# mul'>-  mul</a><br>
+<a href='# div'>-  div</a><br>
+<a href='# mod'>-  mod</a><br>
+<a href='# pow2'>-  pow2</a><br>
+<a href='# addExpr'>-  addExpr</a><br>
+<a href='# mulExpr'>-  mulExpr</a><br>
+<a href='# unaryExpr'>-  unaryExpr</a><br>
+<a href='# primaryExpr'>-  primaryExpr</a><br>
+<a href='# exprList'>-  exprList</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.alg.Eval <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.6</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Eval Class.
+ <p>
+ 		        Provides methods for parsing string expression input, but is
+ restricted to addition, subtraction, multiplication, division,
+ and modulo operations. It supports parenthesized operation
+ precedence as well as normal arithmetic precedence. Bitwise
+ operations will be introduced to the class eventually.
+ 		        <p>
+ Implementation of Eval class for mathematical expressions:
+ <blockquote><pre>
+ &lt;addexpr&gt;     ::= &lt;mulExpr&gt;  ((+|-) &lt;mulExpr&gt;)
+ &lt;mulexpr&gt;     ::= &lt;unaryExpr&gt; ((|/|%) &lt;unaryExpr&gt;)
+ &lt;unaryExpr&gt;   ::= [+|-]&lt;primaryExpr&gt;
+ &lt;primaryExp&gt;  ::= &lt;number&gt; | ( addExpr ) | &lt;functionId&gt;(exprList)
+ &lt;functionId&gt;  ::= [Math.]( sin | cos | pow | sqrt | tan | atan | ...)
+ &lt;exprList&gt;    ::= [&lt;addExpr&gt;(,&lt;addExpr&gt;)]
+ &lt;number&gt;      ::= &lt;decNumber&gt; | &lt;floatNumber&gt;
+ </pre></blockquote>
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:Eval = new Eval([stringExp])</pre>
+ <blockquote><pre>
+ Simple usage:
+ var myEval:Eval = new Eval();
+ trace(myEval.init("2+3"));
+ trace(myEval.init("2+(3100)"));
+ trace(myEval.init("round(sin(2)+random()1000)"));
+ <p>
+ Advanced usage (without variables):
+ var compiledExp:String = myEval.compile("round(sin(2)+random()1000)");
+ for (var i:Number=0;i<5;i++) trace (myEval.execute(compiledExp));
+ <p>
+ Advanced usage (with variables):
+ var compiledExp:String = myEval.compile("x x");
+ for (x=-5;x<5;x++) trace (myEval.execute(compiledExp));
+ </pre></blockquote>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      stringExp (String)  -- a string representation of a mathematical</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.alg.Eval Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='$tok'></A><u> $tok</u></P>
+				<P> (Object)  -- a token object.</P>
+
+				<P class='methodTitle'><A name='$bError'></A><u> $bError</u></P>
+				<P> (Boolean)  -- flag for tracing error message.</P>
+
+				<P class='methodTitle'><A name='$iLen'></A><u> $iLen</u></P>
+				<P> (Number)  -- a positive integer.</P>
+
+				<P class='methodTitle'><A name='$iPos'></A><u> $iPos</u></P>
+				<P> (Number)  -- an integer.</P>
+
+				<P class='methodTitle'><A name='$sErrorMsg'></A><u> $sErrorMsg</u></P>
+				<P> (String)  -- an explanation of error.</P>
+
+				<P class='methodTitle'><A name='$sExpr'></A><u> $sExpr</u></P>
+				<P> (String)  -- lower case of 'stringExp' input.</P>
+
+				<P class='methodTitle'><A name='$aStack'></A><u> $aStack</u></P>
+				<P> (Array)  -- stack to hold expression heirarchy.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.alg.Eval Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' init'></A><u>  init</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Simple access to compile and execute to calculate an expression
+     once. Look at compile and execute if you want to execute the
+     same formula very often. Returns the calculated value of
+     <tt>stringExp</tt>.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.init(stringExp);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  stringExp   (String)  -- a string representation of the expression to be evaluated.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string representation of the result of Eval manipulations.
+    </P>
+
+				<P class='methodTitle'><A name=' compile'></A><u>  compile</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Translates the stringExp into a compiledExp for later execution.
+     This is useful if you want to calculate the same expression with
+     different variables very often.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.compile(stringExp);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  stringExp   (String)  -- a string representation of the expression to be evaluated.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string representation of the stack to be passed for Eval manipulations.
+    </P>
+
+				<P class='methodTitle'><A name=' execute'></A><u>  execute</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculate the <tt>compiledExp</tt> (see above) in the actual context
+     of variables.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.execute(compiledExp);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  compiledExp   (String)  -- a string representation of the stack. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a string representation of the stack's first element after executing the stack manipulation.
+    </P>
+
+				<P class='methodTitle'><A name=' token'></A><u>  token</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines token object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.token(sName,sType,value);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  sName   (String)  -- token character.</li>
+<li>  sType   (String)  -- type of token.</li>
+<li>  value   (Object)  -- evaluation of sName.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns populated $tok object.
+    </P>
+
+				<P class='methodTitle'><A name=' nextToken'></A><u>  nextToken</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Tests expression input character to decide if it is a token.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.nextToken();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' isNotIDChar'></A><u>  isNotIDChar</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Tests input character to decide if it isn't an ID character.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.isNotIDChar(ch);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  ch   (String)  -- a single character from 'stringExp'.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' isOperatorChar'></A><u>  isOperatorChar</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Tests input character to decide if it is an Operator character.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.isOperatorChar(ch);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  ch   (String)  -- a single character from 'stringExp'. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' isNotNumberChar'></A><u>  isNotNumberChar</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Tests input character to decide if it isn't a Number character.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.isNotNumberChar(ch);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  ch   (String)  -- a single character from 'stringExp'. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' error'></A><u>  error</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Tests state of $bError Boolean, if false, populates $sErrorMsg.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.error(msg);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  msg   (String)  -- an error message.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' plus'></A><u>  plus</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates 'a' added to 'b'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.plus(a,b);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Number)  -- a real number.</li>
+<li>  b   (Number)  --  a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns addition result.
+    </P>
+
+				<P class='methodTitle'><A name=' minus'></A><u>  minus</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates 'b' subtracted from 'a'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.minus(a,b);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Number)  -- a real number. </li>
+<li>  b   (Number)  -- a real number. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns subtraction result.
+    </P>
+
+				<P class='methodTitle'><A name=' mul'></A><u>  mul</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates 'a' multiplied by 'b'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.mul(a,b);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Number)  -- a real number. </li>
+<li>  b   (Number)  -- a real number. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns multiplication result.
+    </P>
+
+				<P class='methodTitle'><A name=' div'></A><u>  div</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates 'a' division by 'b'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.div(a,b);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Number)  -- a real number. </li>
+<li>  b   (Number)  -- a real number. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns division result.
+    </P>
+
+				<P class='methodTitle'><A name=' mod'></A><u>  mod</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates 'a' modulo 'b'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.mod(a,b);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Number)  -- a real number. </li>
+<li>  b   (Number)  -- a real number. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns modulo result.
+    </P>
+
+				<P class='methodTitle'><A name=' pow2'></A><u>  pow2</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Solves the 'Math.pow()' negative input bug.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.pow2(x,y);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  x   (Number)  -- a real number. </li>
+<li>  y   (Number)  --  a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns exponentiation result.
+    </P>
+
+				<P class='methodTitle'><A name=' addExpr'></A><u>  addExpr</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Tests for additive expression -- link in the method chain
+     calls, called from 'exprList and in turn calls 'multExpr'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.addExpr();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' mulExpr'></A><u>  mulExpr</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Tests for multiplicative expression -- link in the method chain
+     calls, called from 'addExpr' and in turn calls 'unaryExpr'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.mulExpr();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' unaryExpr'></A><u>  unaryExpr</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Tests for unary expression -- final link in chained method calls,
+     if $tok.$name is not '+' or '-', recurs 'primaryExpr'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.unaryExpr();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' primaryExpr'></A><u>  primaryExpr</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Tests expression by filtering all possible conditions --
+     the method chain starts here by calling 'exprList, and
+     continues by successively calling 'addExpr', 'multExpr',
+     and 'unaryExpr'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.primaryExpr();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+
+				<P class='methodTitle'><A name=' exprList'></A><u>  exprList</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Called from 'primaryExp' -- tests for the end of expression list.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.exprList(tVal_arr);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  tVal_arr   (Array)  -- passed array from 'primaryExpr'.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

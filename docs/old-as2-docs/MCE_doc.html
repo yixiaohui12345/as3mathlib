@@ -1,0 +1,111 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: MCE - Wright Internet Solutions">
+		<meta name="keywords" content="MCE,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : MCE Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>MCE Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary MCE Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 07/18/04 01:31:15<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>MCE class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>MCE Properties:</P><div class='methodsDiv'>
+<a href='#'>- </a><br>
+</div><br>
+<P class='ToC'>MCE Methods:</P><div class='methodsDiv'>
+<a href='# attach'>-  attach</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>MCE <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.6</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the static behaviour of the MCE Class,
+ a revision of the original class by
+ <a href='mailto:ted\u0320powersdk.com'>Ted Patrick</a>, It supports
+ dynamic instantiation, with the ability to bind movieClipDataType
+ to class with arguments. Place MCE.as in the default-level
+ folder of your classpath.
+ <p>
+ Options for instantiation:
+ <pre>
+ 1. create an empty mc, optionally passing an init object
+ 2. attach a library linkage mc, optionally passing an init object
+ 3. create a new class instance, optionally passing an init object and class arguments
+ 4. cast an existing library linkage mc to a class, optionally passing an init object and class arguments
+ </pre>
+ Follow <a href='http://www.were-here.com/forum/tm.asp?m=1352279&appid=&p=&mpage=1&key=&language=single&tmode=&smode=&s=#1352347'>this</a>
+ for links to full documentation and discussions of dynamic instantiation.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>Static MCE.attach is called directly.</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      None  -- no class parameters.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>MCE Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=''></A><u> </u></P>
+				<P> none  -- no class properties.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>MCE Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' attach'></A><u>  attach</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Dynamic MovieClip instantiation with class association.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>MCE.attach(scope,depth,name[,linkage][,initObj][,class][,classArguments])</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  t   (MovieClip)  -- scope for the new clip.</li>
+<li>  d   (Number)  -- depth of new clip.</li>
+<li>  n   (String)  -- name of new clip.</li>
+<li>  l   (String)  -- library linkage of new clip ... optional.</li>
+<li>  i   (Object)  -- initObj of new clip ... optional.</li>
+<li>  c   (Object)  -- class association of new clip ... optional.</li>
+<li>  ca   (Array)  -- class parameters of new clip ... optional.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (variant)  -- return dataType is variant, so there is no method return casting
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

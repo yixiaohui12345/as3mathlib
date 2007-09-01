@@ -1,0 +1,700 @@
+
+		<HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Col - Wright Internet Solutions">
+		<meta name="keywords" content="Col,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.types.Col Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.types.Col Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Col Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 08/05/04 20:07:04<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.types.Col class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.types.Col Properties:</P><div class='methodsDiv'>
+<a href='#r'>- r</a><br>
+<a href='#g'>- g</a><br>
+<a href='#b'>- b</a><br>
+<a href='#ra'>- ra</a><br>
+<a href='#ga'>- ga</a><br>
+<a href='#ba'>- ba</a><br>
+<a href='#rb'>- rb</a><br>
+<a href='#gb'>- gb</a><br>
+<a href='#bb'>- bb</a><br>
+<a href='#$target'>- $target</a><br>
+</div><br>
+<P class='ToC'>com.wis.types.Col Methods:</P><div class='methodsDiv'>
+<a href='# init'>-  init</a><br>
+<a href='# reset'>-  reset</a><br>
+<a href='# invert'>-  invert</a><br>
+<a href='# resetVal'>-  resetVal</a><br>
+<a href='# copy'>-  copy</a><br>
+<a href='# clip'>-  clip</a><br>
+<a href='# twoChars'>-  twoChars</a><br>
+<a href='# toString'>-  toString</a><br>
+<a href='# difference'>-  difference</a><br>
+<a href='# neg'>-  neg</a><br>
+<a href='# mult'>-  mult</a><br>
+<a href='# scalar'>-  scalar</a><br>
+<a href='# adds'>-  adds</a><br>
+<a href='# set _rgbStr'>-  set _rgbStr</a><br>
+<a href='# get _rgbStr'>-  get _rgbStr</a><br>
+<a href='# set _rgb2'>-  set _rgb2</a><br>
+<a href='# get _rgb2'>-  get _rgb2</a><br>
+<a href='# set _brightness'>-  set _brightness</a><br>
+<a href='# get _brightness'>-  get _brightness</a><br>
+<a href='# set _brightOffset'>-  set _brightOffset</a><br>
+<a href='# get _brightOffset'>-  get _brightOffset</a><br>
+<a href='# set _tint'>-  set _tint</a><br>
+<a href='# get _tint'>-  get _tint</a><br>
+<a href='# set _tint2'>-  set _tint2</a><br>
+<a href='# get _tint2'>-  get _tint2</a><br>
+<a href='# set _tintOffset'>-  set _tintOffset</a><br>
+<a href='# get _tintOffset'>-  get _tintOffset</a><br>
+<a href='# set _negative'>-  set _negative</a><br>
+<a href='# get _negative'>-  get _negative</a><br>
+<a href='# set _red'>-  set _red</a><br>
+<a href='# get _red'>-  get _red</a><br>
+<a href='# set _green'>-  set _green</a><br>
+<a href='# get _green'>-  get _green</a><br>
+<a href='# set _blue'>-  set _blue</a><br>
+<a href='# get _blue'>-  get _blue</a><br>
+<a href='# set _redPercent'>-  set _redPercent</a><br>
+<a href='# get _redPercent'>-  get _redPercent</a><br>
+<a href='# set _greenPercent'>-  set _greenPercent</a><br>
+<a href='# get _greenPercent'>-  get _greenPercent</a><br>
+<a href='# set _bluePercent'>-  set _bluePercent</a><br>
+<a href='# get _bluePercent'>-  get _bluePercent</a><br>
+<a href='# set _redOffset'>-  set _redOffset</a><br>
+<a href='# get _redOffset'>-  get _redOffset</a><br>
+<a href='# set _greenOffset'>-  set _greenOffset</a><br>
+<a href='# get _greenOffset'>-  get _greenOffset</a><br>
+<a href='# set _blueOffset'>-  set _blueOffset</a><br>
+<a href='# get _blueOffset'>-  get _blueOffset</a><br>
+<a href='# get _htmlStr'>-  get _htmlStr</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.types.Col <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.7</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Col Class.
+ <p>
+ This class isn't very user-friendly, requiring an instance of an mc
+ with a 'Color' object already applied to it. However, the Col class
+ supports the methods of the ColMC class, which is much more
+ user-friendly. It can be instantiated dynamically with the use of
+ the static methods of Ted Patrick's MCE class, which should be
+ placed into the default-level folder of your classpath. MCE.as is
+ included in the wisASLibrary bundle downloads .. thanks to Ted!
+ [ted AT powersdk DOT com]
+ <blockquote><pre>
+ // MCE dynamic class instantiation:
+ MCE.attach(scope,depth,name[,linkage][,initObj][,class][,classArguments]);
+ </pre></blockquote>
+ <p>
+ 		        I've swayed from using '$' as a class-based variable identifier for
+ this class due to the increased usage of UI-defined class variables
+ for this group of classes: Point, Vector, Col, and ColMC classes
+ all reflect this format.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>
+ // to initialize Col class and target without MCE ColMC class instantiation
+ var targ:Color = new Color(clip);
+ var inst:Col = new Col(targ,red,green,blue);
+ </pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      target (Color)  -- color object passed from UI or ColMC class</li>
+<li>      red (Number)  -- value for red portion of color (0-255)</li>
+<li>      green (Number)  -- value for green portion of color (0-255)</li>
+<li>      blue (Number)  -- value for blue portion of color (0-255)</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.types.Col Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='r'></A><u> r</u></P>
+				<P> (Number)  -- value for red portion of color (0-255).</P>
+
+				<P class='methodTitle'><A name='g'></A><u> g</u></P>
+				<P> (Number)  -- value for green portion of color (0-255).</P>
+
+				<P class='methodTitle'><A name='b'></A><u> b</u></P>
+				<P> (Number)  -- value for blue portion of color (0-255).</P>
+
+				<P class='methodTitle'><A name='ra'></A><u> ra</u></P>
+				<P> (Number)  -- the percentage for the red component (-100 to 100).</P>
+
+				<P class='methodTitle'><A name='ga'></A><u> ga</u></P>
+				<P> (Number)  -- the percentage for the green component (-100 to 100).</P>
+
+				<P class='methodTitle'><A name='ba'></A><u> ba</u></P>
+				<P> (Number)  -- the percentage for the blue component (-100 to 100).</P>
+
+				<P class='methodTitle'><A name='rb'></A><u> rb</u></P>
+				<P> (Number)  -- the offset for the red component (-255 to 255).</P>
+
+				<P class='methodTitle'><A name='gb'></A><u> gb</u></P>
+				<P> (Number)  -- the offset for the green component (-255 to 255).</P>
+
+				<P class='methodTitle'><A name='bb'></A><u> bb</u></P>
+				<P> (Number)  -- the offset for the blue component (-255 to 255).</P>
+
+				<P class='methodTitle'><A name='$target'></A><u> $target</u></P>
+				<P> (Color)  -- private color object.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.types.Col Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' init'></A><u>  init</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				If arguments are passed, initializes r, g, and b properties,
+     then calls the setter _rgb2 to populate the private $target.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.init(red,green,blue);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  red   (Number)   -- value for red portion of color (0-255).</li>
+<li>  green   (Number)   -- value for green portion of color (0-255).</li>
+<li>  blue   (Number)   -- value for blue portion of color (0-255).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' reset'></A><u>  reset</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Resets the color object to normal; 100 percent and 0 offset.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.reset()</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' invert'></A><u>  invert</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Invert the current color values.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.invert();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' resetVal'></A><u>  resetVal</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Resets r, g, and b properties, then calls the setter
+     _rgb2 to re-populate the private $target.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.resetVal(red,green,blue);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  red   (Number)   -- value for red portion of color (0-255).</li>
+<li>  green   (Number)   -- value for green portion of color (0-255).</li>
+<li>  blue   (Number)   -- value for blue portion of color (0-255).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' copy'></A><u>  copy</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Copies the class instance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.copy();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Col)  -- returns a copy of the class instance.
+    </P>
+
+				<P class='methodTitle'><A name=' clip'></A><u>  clip</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Clips r, g, and b values to a range (0 - 1).
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.clip();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' twoChars'></A><u>  twoChars</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Formats input by padding single characters with a preceding '0'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.twoChars(sNum)</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  sNum   (String)  -- hexadecimal string representation.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a 2 character string, padding single characters with a preceding '0'.
+    </P>
+
+				<P class='methodTitle'><A name=' toString'></A><u>  toString</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Overrides UIObject.toString() method.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.toString();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns an html string representation of the color object.
+    </P>
+
+				<P class='methodTitle'><A name=' difference'></A><u>  difference</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a new class instance for the existing target.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.difference(c2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c2   (Col)  -- object to compare with the existing class instance.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Col)  -- returns a new class instance based on the difference between input and present class instance r, g, and b values.
+    </P>
+
+				<P class='methodTitle'><A name=' neg'></A><u>  neg</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a new class instance for the existing target.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.neg();</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Col)  -- returns a new class instance based on the negatives of the existing r, g, and b values.
+    </P>
+
+				<P class='methodTitle'><A name=' mult'></A><u>  mult</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a new class instance for the existing target.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.mult(c2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c2   (Col)  -- object to compare with the existing class instance.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Col)  -- returns a new class instance based on the multiplication of the existing r, g, and b values and the input object.
+    </P>
+
+				<P class='methodTitle'><A name=' scalar'></A><u>  scalar</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a new class instance for the existing target.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.scalar(s);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  s   (Number)   -- a value to scale class instance properties.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Col)  -- returns a new class instance based on the multiplication of the existing r, g, and b values by the scalar value.
+    </P>
+
+				<P class='methodTitle'><A name=' adds'></A><u>  adds</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates a new class instance for the existing target.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.adds(c2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  c2   (Col)  -- object to compare with the existing class instance.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Col)  -- returns a new class instance based on the addition of the existing r, g, and b values and the input object.
+    </P>
+
+				<P class='methodTitle'><A name=' set _rgbStr'></A><u>  set _rgbStr</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets the class instance color using a hexadecimal string.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._rgbStr = hexStr;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  hexStr   (String)  -- a string representation of a hexadecimal value.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _rgbStr'></A><u>  get _rgbStr</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the class instance color.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._rgbStr;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns a hexadecimal string representation of the class instance color.
+    </P>
+
+				<P class='methodTitle'><A name=' set _rgb2'></A><u>  set _rgb2</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets red, green, and blue with normal numbers
+     r, g, b between 0 and 255.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._rgb2 = obj;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  obj   (Object)  -- an object with r, g, and b properties.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _rgb2'></A><u>  get _rgb2</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets an object with r, g, and b properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._rgb2;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns an object with r, g, and b properties.
+    </P>
+
+				<P class='methodTitle'><A name=' set _brightness'></A><u>  set _brightness</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Brighten just like Property Inspector bright (-100 and 100).
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._brightness = bright;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  bright   (Number)  -- a number between -100 and 100.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _brightness'></A><u>  get _brightness</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets brightness setting of the class instance color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._brightness;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the persentage of the brightness setting.
+    </P>
+
+				<P class='methodTitle'><A name=' set _brightOffset'></A><u>  set _brightOffset</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets offset of the class instance target between -255 and 255.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._brightOffset = offset;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  offset   (Number)  -- a number between -255 and 255.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _brightOffset'></A><u>  get _brightOffset</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the offset of the class instance target.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._brightOffset;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the target's brightness offset (-255 - 255).
+    </P>
+
+				<P class='methodTitle'><A name=' set _tint'></A><u>  set _tint</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Tint with a color just like Property Inspector --
+     r, g, b between 0 and 255; percent between 0 and 100.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._tint = obj;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  obj   (Object)  -- an object containing r, g, b, and percent values.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _tint'></A><u>  get _tint</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Get a tint object containing r, g, b, and percent values.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._tint;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object) -- returns a tint object containing r, g, b, and percent values.
+    </P>
+
+				<P class='methodTitle'><A name=' set _tint2'></A><u>  set _tint2</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Tint with a color - alternate approach rgb a color number
+     between 0 and 0xFFFFFF; percent between 0 and 100
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._tint2 = obj;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  obj   (Object)  -- contains rgb and percent values.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _tint2'></A><u>  get _tint2</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				returns a tint object containing rgb (a 0xFFFFFF number's
+     digital equivalent) and percent properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._tint2;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object) -- returns an object containing rgb and percent value.
+    </P>
+
+				<P class='methodTitle'><A name=' set _tintOffset'></A><u>  set _tintOffset</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets r, g, b between -255 and 255.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._tintOffset = obj;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  obj   (Object)  -- contains offset r, g, and b values.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _tintOffset'></A><u>  get _tintOffset</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the offset r, g, and b values.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._tintOffset;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object) -- returns an object showing offset r, g, and b values.
+    </P>
+
+				<P class='methodTitle'><A name=' set _negative'></A><u>  set _negative</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Produce a negative image of the normal appearance.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._negative = percent;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  percent   (Number)  -- percent of the strength of negative transform.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _negative'></A><u>  get _negative</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the negative of color transform.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._negative;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns negative of color transform, offset(rb) (100/255).
+    </P>
+
+				<P class='methodTitle'><A name=' set _red'></A><u>  set _red</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets the red portion of color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._red = amount;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  amount   (Number)  -- value of red portion of color object (0 - 255).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _red'></A><u>  get _red</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the red portion of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._red;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number) -- returns the red offset value of the color object (-255 - 255).
+    </P>
+
+				<P class='methodTitle'><A name=' set _green'></A><u>  set _green</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets the green portion of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._green = amount;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  amount   (Number)  -- value of green portion of color object (0 - 255).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _green'></A><u>  get _green</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the green portion of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._green;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number) -- returns the green offset value of the color object (-255 - 255).
+    </P>
+
+				<P class='methodTitle'><A name=' set _blue'></A><u>  set _blue</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets the blue portion of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._blue = amount;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  amount   (Number)  -- value of blue portion of color object (0 - 255).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _blue'></A><u>  get _blue</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the blue portion of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._blue;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number) -- returns the blue offset value of the color object (-255 - 255).
+    </P>
+
+				<P class='methodTitle'><A name=' set _redPercent'></A><u>  set _redPercent</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets the red percentage of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._redPercent = percent;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  percent   (Number)  -- a percentage value (0 - 100).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _redPercent'></A><u>  get _redPercent</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the red percentage of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._redPercent;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number) -- returns the red percentage value of the color object (0 - 100).
+    </P>
+
+				<P class='methodTitle'><A name=' set _greenPercent'></A><u>  set _greenPercent</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets the green percentage of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._greenPercent = percent;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  percent   (Number)  -- a percentage value (0 - 100).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _greenPercent'></A><u>  get _greenPercent</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the green percentage of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._greenPercent;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number) -- returns the green percentage value of the color object (0 - 100).
+    </P>
+
+				<P class='methodTitle'><A name=' set _bluePercent'></A><u>  set _bluePercent</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets the blue percentage of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._bluePercent = percent;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  percent   (Number)  -- a percentage value (0 - 100).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _bluePercent'></A><u>  get _bluePercent</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the blue percentage of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._bluePercent;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number) -- returns the blue percentage value of the color object (0 - 100).
+    </P>
+
+				<P class='methodTitle'><A name=' set _redOffset'></A><u>  set _redOffset</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets the red offset of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._redOffset = offset;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  offset   (Number)  -- an offset value (-255 - 255).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _redOffset'></A><u>  get _redOffset</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the red offset of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._redOffset;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number) -- returns the red offset value of the color object (-255 - 255).
+    </P>
+
+				<P class='methodTitle'><A name=' set _greenOffset'></A><u>  set _greenOffset</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets the green offset of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._greenOffset = offset;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  offset   (Number)  -- an offset value (-255 - 255).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _greenOffset'></A><u>  get _greenOffset</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the green offset of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._greenOffset;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number) -- returns the green offset value of the color object (-255 - 255).
+    </P>
+
+				<P class='methodTitle'><A name=' set _blueOffset'></A><u>  set _blueOffset</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sets the blue offset of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._blueOffset = offset;</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  offset   (Number)  -- an offset value (-255 - 255).</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' get _blueOffset'></A><u>  get _blueOffset</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Gets the blue offset of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._blueOffset;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number) -- returns the blue offset value of the color object (-255 - 255).
+    </P>
+
+				<P class='methodTitle'><A name=' get _htmlStr'></A><u>  get _htmlStr</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Creates an html string representation of the color object.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst._htmlStr;</pre>
+     </P>
+<P><span class='methodAttributesTitle'>returns:</span> (String)  -- returns the color object value as an html string.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

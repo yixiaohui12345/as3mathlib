@@ -1,0 +1,188 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Stat - Wright Internet Solutions">
+		<meta name="keywords" content="probability,statistics,Stat,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.num.Stat Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.num.Stat Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Stat Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 07/17/04 18:26:05<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.num.Stat class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.num.Stat Properties:</P><div class='methodsDiv'>
+<a href='#none'>- none</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.num.Stat Methods:</P><div class='methodsDiv'>
+<a href='# permutations'>-  permutations</a><br>
+<a href='# combinations'>-  combinations</a><br>
+<a href='# gcd'>-  gcd</a><br>
+<a href='# lcm'>-  lcm</a><br>
+<a href='# percentage'>-  percentage</a><br>
+<a href='# mean'>-  mean</a><br>
+<a href='# variance'>-  variance</a><br>
+<a href='# sd'>-  sd</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.num.Stat <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.6</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the static behaviours of the Stat Class, which deals
+ with Probability and Statistics math algorithms.
+ <p>
+ </P>
+		<P class="methodTitle">usage:</P> <pre>Stat.classMethod(args);</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      none  -- no class input parameters.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.num.Stat Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='none'></A><u> none</u></P>
+				<P> -- no class properties.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.num.Stat Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' permutations'></A><u>  permutations</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Number of ways to arrange a list -- order matters.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Stat.permutations(n,r);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  n   (Number)  -- a real number.</li>
+<li>  r   (Number)  -- a positive integer.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns total number of permutations.
+    </P>
+
+				<P class='methodTitle'><A name=' combinations'></A><u>  combinations</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Number of ways to arrange a list -- order doesn't matter.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Stat.combinations(n,r);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  n   (Number)  -- a real number.</li>
+<li>  r   (Number)  -- a positive integer.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns total number of combinations.
+    </P>
+
+				<P class='methodTitle'><A name=' gcd'></A><u>  gcd</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines greatest common divisor of two input numbers.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Stat.gcd(a,b);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Number)  -- a real number.</li>
+<li>  b   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns greatest common divisor of two input numbers.
+    </P>
+
+				<P class='methodTitle'><A name=' lcm'></A><u>  lcm</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines lowest common multiple of two input numbers.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Stat.lcm(a,b);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Number)  -- a real number.</li>
+<li>  b   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns lowest common multiple of two input numbers.
+    </P>
+
+				<P class='methodTitle'><A name=' percentage'></A><u>  percentage</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines percentage of two input numbers.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Stat.percentage(a,b);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  a   (Number)  -- a real number.</li>
+<li>  b   (Number)  -- a real number.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns percentage of two input numbers.
+    </P>
+
+				<P class='methodTitle'><A name=' mean'></A><u>  mean</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines the mean for an array of numbers.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Stat.mean(arr);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  arr   (Array)  -- a list of real numbers.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the mean for an array of numbers.
+    </P>
+
+				<P class='methodTitle'><A name=' variance'></A><u>  variance</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines the variance for an array of numbers.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Stat.variance(arr);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  arr   (Array)  -- a list of real numbers.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the variance for an array of numbers.
+    </P>
+
+				<P class='methodTitle'><A name=' sd'></A><u>  sd</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines the standard deviation for an array of numbers.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>Stat.sd(arr);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  arr   (Array)  -- a list of real numbers.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the standard deviation for an array of numbers.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

@@ -1,0 +1,466 @@
+
+		<HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: BezQuad - Wright Internet Solutions">
+		<meta name="keywords" content="geometry,BezQuad,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.alg.com.wis.math.geom.curve.BezQuad Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.geom.curve.BezQuad  Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary BezQuad Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 07/17/04 18:42:12<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.geom.curve.BezQuad  class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.geom.curve.BezQuad  Properties:</P><div class='methodsDiv'>
+<a href='#$p1'>- $p1</a><br>
+<a href='#$p2'>- $p2</a><br>
+<a href='#$p3'>- $p3</a><br>
+<a href='#$b1'>- $b1</a><br>
+<a href='#$b2'>- $b2</a><br>
+<a href='#$b3'>- $b3</a><br>
+<a href='#$sym1'>- $sym1</a><br>
+<a href='#$sym2'>- $sym2</a><br>
+<a href='#$dir1'>- $dir1</a><br>
+<a href='#$dir2'>- $dir2</a><br>
+<a href='#$vm'>- $vm</a><br>
+<a href='#$vt'>- $vt</a><br>
+<a href='#$vx'>- $vx</a><br>
+<a href='#$vy'>- $vy</a><br>
+<a href='#$va'>- $va</a><br>
+<a href='#$rax'>- $rax</a><br>
+<a href='#$ray'>- $ray</a><br>
+<a href='#$rbx'>- $rbx</a><br>
+<a href='#$rby'>- $rby</a><br>
+<a href='#$ra'>- $ra</a><br>
+<a href='#$rb'>- $rb</a><br>
+<a href='#$alfa'>- $alfa</a><br>
+<a href='#$beta'>- $beta</a><br>
+<a href='#$a'>- $a</a><br>
+<a href='#$fx'>- $fx</a><br>
+<a href='#$fy'>- $fy</a><br>
+<a href='#$arc'>- $arc</a><br>
+<a href='#$area'>- $area</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.geom.curve.BezQuad  Methods:</P><div class='methodsDiv'>
+<a href='# quadratic'>-  quadratic</a><br>
+<a href='# quadratic2d'>-  quadratic2d</a><br>
+<a href='# points'>-  points</a><br>
+<a href='# segment'>-  segment</a><br>
+<a href='# control'>-  control</a><br>
+<a href='# vertex'>-  vertex</a><br>
+<a href='# symmetryAxis'>-  symmetryAxis</a><br>
+<a href='# angle'>-  angle</a><br>
+<a href='# derivative'>-  derivative</a><br>
+<a href='# projection'>-  projection</a><br>
+<a href='# focalLength'>-  focalLength</a><br>
+<a href='# focus'>-  focus</a><br>
+<a href='# latusRectum'>-  latusRectum</a><br>
+<a href='# directrix'>-  directrix</a><br>
+<a href='# bezArea'>-  bezArea</a><br>
+<a href='# arcLength'>-  arcLength</a><br>
+<a href='# drawTangents'>-  drawTangents</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.geom.curve.BezQuad  <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.6</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the BezQuad Class.
+ <p>
+ 		        Supports display of my quadratic Bezier curve testing application's
+ methodology. Presently, it only supports 2D -- I plan to re-work the
+ architecture to support 3D definitons, as well as re-factoring for a
+ more generic class instantiation.
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:BezQuad = new BezQuad();</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      none  -- no class input parameters.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.geom.curve.BezQuad  Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='$p1'></A><u> $p1</u></P>
+				<P> (Point)  -- holder for initial start Point object.</P>
+
+				<P class='methodTitle'><A name='$p2'></A><u> $p2</u></P>
+				<P> (Point)  -- holder for initial control Point object. </P>
+
+				<P class='methodTitle'><A name='$p3'></A><u> $p3</u></P>
+				<P> (Point)  -- holder for initial end Point object. </P>
+
+				<P class='methodTitle'><A name='$b1'></A><u> $b1</u></P>
+				<P> (Point)  -- holder for segment start Point object. </P>
+
+				<P class='methodTitle'><A name='$b2'></A><u> $b2</u></P>
+				<P> (Point)  -- holder for segment control Point object.  </P>
+
+				<P class='methodTitle'><A name='$b3'></A><u> $b3</u></P>
+				<P> (Point)  -- holder for segment end Point object.  </P>
+
+				<P class='methodTitle'><A name='$sym1'></A><u> $sym1</u></P>
+				<P> (Point)  -- holder for symmetry axis start Point object.  </P>
+
+				<P class='methodTitle'><A name='$sym2'></A><u> $sym2</u></P>
+				<P> (Point)  -- holder for symmetry axis end Point object. </P>
+
+				<P class='methodTitle'><A name='$dir1'></A><u> $dir1</u></P>
+				<P> (Point)  -- holder for directrix start Point object. </P>
+
+				<P class='methodTitle'><A name='$dir2'></A><u> $dir2</u></P>
+				<P> (Point)  -- holder for directrix end Point object.  </P>
+
+				<P class='methodTitle'><A name='$vm'></A><u> $vm</u></P>
+				<P> (Number)  -- vertex mean. </P>
+
+				<P class='methodTitle'><A name='$vt'></A><u> $vt</u></P>
+				<P> (Number)  -- vertex scalar. </P>
+
+				<P class='methodTitle'><A name='$vx'></A><u> $vx</u></P>
+				<P> (Number)  -- vertex x-axis position. </P>
+
+				<P class='methodTitle'><A name='$vy'></A><u> $vy</u></P>
+				<P> (Number)  -- vertex y-axis position. </P>
+
+				<P class='methodTitle'><A name='$va'></A><u> $va</u></P>
+				<P> (Number)  -- vertex angle.</P>
+
+				<P class='methodTitle'><A name='$rax'></A><u> $rax</u></P>
+				<P> (Number)  -- projection point a x-axis position.</P>
+
+				<P class='methodTitle'><A name='$ray'></A><u> $ray</u></P>
+				<P> (Number)  -- projection point a y-axis position. </P>
+
+				<P class='methodTitle'><A name='$rbx'></A><u> $rbx</u></P>
+				<P> (Number)  -- projection point b x-axis position. </P>
+
+				<P class='methodTitle'><A name='$rby'></A><u> $rby</u></P>
+				<P> (Number)  -- projection point b y-axis position. </P>
+
+				<P class='methodTitle'><A name='$ra'></A><u> $ra</u></P>
+				<P> (Number)  -- projection distance, start point to vertex.</P>
+
+				<P class='methodTitle'><A name='$rb'></A><u> $rb</u></P>
+				<P> (Number)  -- projection distance, vertex to end point. </P>
+
+				<P class='methodTitle'><A name='$alfa'></A><u> $alfa</u></P>
+				<P> (Number)  -- projection ccw-angle from vertex.</P>
+
+				<P class='methodTitle'><A name='$beta'></A><u> $beta</u></P>
+				<P> (Number)  -- projection cw-angle from vertex. </P>
+
+				<P class='methodTitle'><A name='$a'></A><u> $a</u></P>
+				<P> (Number)  -- focal point length.</P>
+
+				<P class='methodTitle'><A name='$fx'></A><u> $fx</u></P>
+				<P> (Number)  -- focus x-axis position. </P>
+
+				<P class='methodTitle'><A name='$fy'></A><u> $fy</u></P>
+				<P> (Number)  --  focus y-axis position. </P>
+
+				<P class='methodTitle'><A name='$arc'></A><u> $arc</u></P>
+				<P> (Number)  -- quadBez arc length.</P>
+
+				<P class='methodTitle'><A name='$area'></A><u> $area</u></P>
+				<P> (Number)  -- area defined under quadBez arc.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.geom.curve.BezQuad  Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' quadratic'></A><u>  quadratic</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates a 1d quadratic equation.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.quadratic(t,a,b,c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  t   (Number)  -- a scalar value.</li>
+<li>  a   (Number)  -- a real number.</li>
+<li>  b   (Number)  -- a real number. </li>
+<li>  c   (Number)  -- a real number. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns 1d quadratic calculation.
+    </P>
+
+				<P class='methodTitle'><A name=' quadratic2d'></A><u>  quadratic2d</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates 2d quadratic equations.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.quadratic2d(pt1,pt2,pt3,t);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pt1   (Point)  -- start Point object.</li>
+<li>  pt2   (Point)  -- control Point object.</li>
+<li>  pt3   (Point)  -- end Point object.</li>
+<li>  t   (Number)  -- a scalar value. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Point)  -- returns a Point object containing 2d quadratic calculations.
+    </P>
+
+				<P class='methodTitle'><A name=' points'></A><u>  points</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Initializes class Point object properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.points(pt1,pt2,pt3);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pt1   (Point)  -- start Point object.</li>
+<li>  pt2   (Point)  -- control Point object.</li>
+<li>  pt3   (Point)  -- end Point object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' segment'></A><u>  segment</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates three bisector Point objects, $b1 and $b2 bisect
+     $p1-$p2 and $p2-$p3 respectively, then $b3 bisects $b1-$b2.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.segment(pt1,pt2,pt3,t1,t2);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pt1   (Point)  -- start Point object.</li>
+<li>  pt2   (Point)  -- control Point object.</li>
+<li>  pt3   (Point)  -- end Point object.</li>
+<li>  t1   (Number)  -- a scalar value. </li>
+<li>  t2   (Number)  -- a scalar value. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns three bisector Point objects.
+    </P>
+
+				<P class='methodTitle'><A name=' control'></A><u>  control</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates control basis value for passed axis values.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.control(t1,t2,a,b,c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  t1   (Number)  -- a scalar value. </li>
+<li>  t2   (Number)  -- a scalar value. </li>
+<li>  a   (Number)  -- a real number.</li>
+<li>  b   (Number)  -- a real number. </li>
+<li>  c   (Number)  -- a real number. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns a 1d axis value.
+    </P>
+
+				<P class='methodTitle'><A name=' vertex'></A><u>  vertex</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines parabola vertex class instance properties.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.vertex(pt1,pt2,pt3);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pt1   (Point)  -- start Point object.</li>
+<li>  pt2   (Point)  -- control Point object.</li>
+<li>  pt3   (Point)  -- end Point object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' symmetryAxis'></A><u>  symmetryAxis</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines parabola symmetry axis, which runs through parabola
+     vertex and focus points.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.symmetryAxis(pt1,pt2,pt3,r);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pt1   (Point)  -- start Point object.</li>
+<li>  pt2   (Point)  -- control Point object.</li>
+<li>  pt3   (Point)  -- end Point object.</li>
+<li>  r   (Number)  -- radius value for display.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns an object containing symmetry axis start and end Point objects.
+    </P>
+
+				<P class='methodTitle'><A name=' angle'></A><u>  angle</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines angle based on the derivatives of passed scalar
+     and angle vertices.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.angle(t,pt1,pt2,pt3);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  t   (Number)  -- a scalar value.</li>
+<li>  pt1   (Point)  -- focus vertex Point object.</li>
+<li>  pt2   (Point)  -- angle vertex Point object. </li>
+<li>  pt3   (Point)  -- angle vertex Point object. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns angle of pt2 and pt3 wrt p1.
+    </P>
+
+				<P class='methodTitle'><A name=' derivative'></A><u>  derivative</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the 1d derivative of passed scalar and axis data.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.derivative(t,a,b,c);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  t   (Number)  -- a scalar value. </li>
+<li>  a   (Number)  -- a real number. </li>
+<li>  b   (Number)  -- a real number. </li>
+<li>  c   (Number)  -- a real number. </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the 1d derivative of passed axis data.
+    </P>
+
+				<P class='methodTitle'><A name=' projection'></A><u>  projection</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines a projection object containing this instance's
+     projection data.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.projection(pt1,pt2,pt3);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pt1   (Point)  -- start Point object.</li>
+<li>  pt2   (Point)  -- control Point object.</li>
+<li>  pt3   (Point)  -- end Point object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns an object containing all projection data.
+    </P>
+
+				<P class='methodTitle'><A name=' focalLength'></A><u>  focalLength</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates focal length to pass to 'focus'.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.focalLength(pt1,pt2,pt3);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pt1   (Point)  -- start Point object.</li>
+<li>  pt2   (Point)  -- control Point object.</li>
+<li>  pt3   (Point)  -- end Point object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' focus'></A><u>  focus</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines this instance's focus x-axis and y-axis positions.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.focus(pt1,pt2,pt3);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pt1   (Point)  -- start Point object.</li>
+<li>  pt2   (Point)  -- control Point object.</li>
+<li>  pt3   (Point)  -- end Point object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)
+    </P>
+
+				<P class='methodTitle'><A name=' latusRectum'></A><u>  latusRectum</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates latus rectum, which parallels the directrix at
+     the parabola focus point, and it's length defined by each
+     parabola intersection.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.latusRectum(pt1,pt2,pt3);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pt1   (Point)  -- start Point object.</li>
+<li>  pt2   (Point)  -- control Point object.</li>
+<li>  pt3   (Point)  -- end Point object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns an object containing latusRectum and semiLatusRectum distances, and their Point objects.
+    </P>
+
+				<P class='methodTitle'><A name=' directrix'></A><u>  directrix</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines the parabola directrix, which is perpendicular to the
+     symmetry axis at a point which is at the same magnitude as the
+     focus, but opposite direction, from the control projection
+     point on the Bezier curve.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.directrix(pt1,pt2,pt3,r);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pt1   (Point)  -- start Point object.</li>
+<li>  pt2   (Point)  -- control Point object.</li>
+<li>  pt3   (Point)  -- end Point object.</li>
+<li>  r   (Number)  -- radius value for display.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns an object containing directrix start and end Point objects.
+    </P>
+
+				<P class='methodTitle'><A name=' bezArea'></A><u>  bezArea</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates the total area under the Bezier curve.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.bezArea(pt1,pt2,pt3);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pt1   (Point)  -- start Point object.</li>
+<li>  pt2   (Point)  -- control Point object.</li>
+<li>  pt3   (Point)  -- end Point object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns area defined under the Bezier arc.
+    </P>
+
+				<P class='methodTitle'><A name=' arcLength'></A><u>  arcLength</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Calculates total length of the Bezier curve.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.arcLength(pt1,pt2,pt3);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pt1   (Point)  -- start Point object.</li>
+<li>  pt2   (Point)  -- control Point object.</li>
+<li>  pt3   (Point)  -- end Point object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns the Bezier arc length.
+    </P>
+
+				<P class='methodTitle'><A name=' drawTangents'></A><u>  drawTangents</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Defines an object containing angle and bisector data to
+     draw tangent lines for the start point, end point, and
+     control projection point on the Bezier curve.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.drawTangents(pt1,pt2,pt3);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  pt1   (Point)  -- start Point object.</li>
+<li>  pt2   (Point)  -- control Point object.</li>
+<li>  pt3   (Point)  -- end Point object.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- returns an object containing bisection and control points, and bisection angles.
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

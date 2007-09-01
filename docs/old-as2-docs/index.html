@@ -1,0 +1,230 @@
+
+		<HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Wright Internet Solutions">
+		<meta name="keywords" content="Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,classes,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>Wright Internet Solutions: AS2 Library Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>Wright Internet Solutions: AS2 Library Documentation</P>
+
+        <P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary  Documentation'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 01/12/05 02:55:16<BR>
+		<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+
+		<P>I have attempted to create an intuitive, functionality-driven heirarchy
+		to house the library classes. This strategy causes interfaces and their
+		dependent classes to be located across several packages, so I've noted
+		dependent class relationships within the text below to assist in your
+		explorations. This library is under construction, and as it evolves there
+		may be changes to its architecture, so check back often.
+
+		<P class='sectionTitle'>Default Classpath</P>
+
+		<div class='methodsDiv'><A href='MCE_doc.html'>MCE</a></div>
+
+		<P class='sectionTitle'>Interfaces</P>
+
+		<div class='methodsDiv'><A href='IObj_doc.html'>com.wis.types.IObj</a></div>
+		<div class='methodsDiv'><A href='IODE_doc.html'>com.wis.math.calc.IODE</a></div>
+		<div class='methodsDiv'><A href='IODESolver_doc.html'>com.wis.math.calc.IODESolver</a></div>
+
+		<P class='sectionTitle'>Packages</P>
+
+		<div class='methodsDiv'><a href='#alg'>com.wis.math.alg</a></div>
+		<div class='methodsDiv'><a href='#calc'>com.wis.math.calc</a></div>
+		<div class='methodsDiv'><a href='#solvers'>com.wis.math.calc.solvers</a></div>
+		<div class='methodsDiv'><a href='#curve'>com.wis.math.geom.curve</a></div>
+		<div class='methodsDiv'><a href='#intersect2D'>com.wis.math.geom.intersect2D</a></div>
+		<div class='methodsDiv'><a href='#intersect3D'>com.wis.math.geom.intersect3D</a></div>
+		<div class='methodsDiv'><a href='#polytope'>com.wis.math.geom.polytope</a></div>
+		<div class='methodsDiv'><a href='#quadric'>com.wis.math.geom.quadric</a></div>
+		<div class='methodsDiv'><a href='#trig'>com.wis.math.geom.trig</a></div>
+		<div class='methodsDiv'><a href='#util'>com.wis.math.geom.util</a></div>
+		<div class='methodsDiv'><a href='#num'>com.wis.math.num</a></div>
+		<div class='methodsDiv'><a href='#types'>com.wis.types</a></div>
+		<div class='methodsDiv'><a href='#lists'>com.wis.types.lists</a></div>
+        <br>
+
+			<HR class='big'>
+			<P class='sectionTitle'><A name='alg'></A>com.wis.math.alg <I>package</I></P>
+			<div class='methodsDiv' >
+
+				<P class='methodTitle'><A href='Bitwise_doc.html'><u>Bitwise</u></A> | <A href='../test/testAlg/test_Bitwise.swf'><font color='#000099'<u>test</u></font></A></P>
+				<P class='methodTitle'><A href='Complex_doc.html'><u>Complex</u></A> | <A href='../test/testAlg/test_Complex.swf'><font color='#000099'<u>test</u></font></A></P>
+				<P class='methodTitle'><A href='Decomposition_doc.html'><u>Decomposition</u></A></P>
+				<P class='methodTitle'><A href='Eval_doc.html'><u>Eval</u></A></P>
+				<P class='methodTitle'><A href='Matrix_doc.html'><u>Matrix</u></A> | <A href='../test/testAlg/test_Matrix.swf'><font color='#000099'<u>test</u></font></A></P>
+				<P class='methodTitle'><A href='Point_doc.html'><u>Point</u></A> | <A href='../test/testAlg/test_Point.swf'><font color='#000099'<u>test</u></font></A> - temporary: right click/zoom</P>
+				<P class='methodTitle'><A href='Polynomial_doc.html'><u>Polynomial</u></A> | <A href='../test/testAlg/test_Polynomial.swf'><font color='#000099'<u>test</u></font></A></P>
+				<P class='methodTitle'><A href='Quaternion_doc.html'><u>Quaternion</u></A></P>
+				<P class='methodTitle'><A href='Regression_doc.html'><u>Regression</u> -- extends MovieClip</A></P>
+				<P class='methodTitle'><A href='Vector_doc.html'><u>Vector</u></A> | <A href='../test/testAlg/test_Vector.swf'><font color='#000099'<u>test</u></font></A> - temporary: right click/zoom</P>
+
+            </div>
+
+			<HR class='big'>
+			<P class='sectionTitle'><A name='calc'>com.wis.math.calc <I>package</I></P>
+			<div class='methodsDiv' >
+
+				<P class='methodTitle'><A href='Derivative_doc.html'><u>Derivative</u></A> | <A href='../test/testCalc/test_Derivative.swf'><font color='#000099'<u>test</u></font></A></P>
+				<P class='methodTitle'><A href='Fourier_doc.html'><u>Fourier</u></A> | <A href='../test/testCalc/test_Fourier.swf'><font color='#000099'<u>test</u></font></A></P>
+				<P class='methodTitle'><A href='FunctionRate_doc.html'><u>FunctionRate</u></A></P>
+				<P class='methodTitle'><A href='Integral_doc.html'><u>Integral</u></A> | <A href='../test/testCalc/test_Integral.swf'><font color='#000099'<u>test</u></font></A></P>
+				<P class='methodTitle'><A href='IODE_doc.html'><u>IODE</u> -- interface</A></P>
+				<P class='methodTitle'><A href='IODESolver_doc.html'><u>IODESolver</u> -- interface</A></P>
+
+            </div>
+
+			<HR class='big'>
+			<P class='sectionTitle'><A name='solvers'>com.wis.math.calc.solvers <I>package</I></P>
+			<div class='methodsDiv' >
+
+				<P class='methodTitle'><A href='Euler_doc.html'><u>Euler</u> -- implements IODESolver</A></P>
+				<P class='methodTitle'><A href='EulerRichardson_doc.html'><u>EulerRichardson</u> -- implements IODESolver</A></P>
+				<P class='methodTitle'><A href='RK4_doc.html'><u>RK4</u> -- implements IODESolver</A></P>
+				<P class='methodTitle'><A href='RK45_doc.html'><u>RK45</u> -- implements IODESolver</A></P>
+				<P class='methodTitle'><A href='RK45MultiStep_doc.html'><u>RK45MultiStep</u> -- extends RK45, implements IODESolver</A></P>
+				<P class='methodTitle'><A href='VelocityVerlet_doc.html'><u>VelocityVerlet</u> -- implements IODESolver</A></P>
+				<P class='methodTitle'><A href='Verlet_doc.html'><u>Verlet</u> -- implements IODESolver</A></P>
+
+            </div>
+
+            <HR class='big'>
+			<P class='sectionTitle'><A name='curve'>com.wis.math.geom.curve <I>package</I></P>
+			<div class='methodsDiv' >
+
+				<P class='methodTitle'><A href='BezQuad_doc.html'><u>BezQuad</u></A> | <A href='../test/testGeomCurve/test_BezQuad2D.swf'><font color='#000099'<u>test</u></font></A></P>
+
+            </div>
+
+            <HR class='big'>
+			<P class='sectionTitle'><A name='intersect2D'>com.wis.math.geom.intersect2D <I>package</I></P>
+			<div class='methodsDiv' >
+
+				<P class='methodTitle'><A href='Intersect2D_doc.html'><u>Intersect2D</u></A></P>
+				<P class='methodTitle'><A href='Intersect2DBez2_doc.html'><u>Intersect2DBez2</u> -- extends Intersect2D</A></P>
+				<P class='methodTitle'><A href='Intersect2DBez3_doc.html'><u>Intersect2DBez3</u> -- extends Intersect2D</A></P>
+				<P class='methodTitle'><A href='Intersect2DBez3Bez3_doc.html'><u>Intersect2DBez3Bez3</u> -- extends Intersect2D</A></P>
+				<P class='methodTitle'><A href='Intersect2DCircle_doc.html'><u>Intersect2DCircle</u> -- extends Intersect2D</A></P>
+				<P class='methodTitle'><A href='Intersect2DLine_doc.html'><u>Intersect2DLine</u> -- extends Intersect2D</A></P>
+				<P class='methodTitle'><A href='Intersect2DParams_doc.html'><u>Intersect2DParams</u> -- extends Intersect2D</A></P>
+
+            </div>
+
+            <HR class='big'>
+			<P class='sectionTitle'><A name='intersect3D'>com.wis.math.geom.intersect3D <I>package</I></P>
+			<div class='methodsDiv' >
+
+				<P class='methodTitle'><A href='Intersect3D_doc.html'><u>Intersect3D</u> -- extends Obj</A></P>
+				<P class='methodTitle'><A href='Intersect3DRay_doc.html'><u>Intersect3DRay</u></A></P>
+				<P class='methodTitle'><A href='Union_doc.html'><u>Union</u> -- extends Obj</A></P>
+
+            </div>
+
+            <HR class='big'>
+			<P class='sectionTitle'><A name='polytope'>com.wis.math.geom.polytope <I>package</I></P>
+			<div class='methodsDiv' >
+
+				<P class='methodTitle'><A href='Box_doc.html'><u>Box</u> -- extends Obj</A></P>
+				<P class='methodTitle'><A href='Plane_doc.html'><u>Plane</u> -- extends Obj</A></P>
+
+            </div>
+
+            <HR class='big'>
+			<P class='sectionTitle'><A name='quadric'>com.wis.math.geom.quadric <I>package</I></P>
+			<div class='methodsDiv' >
+
+				<P class='methodTitle'><A href='Cone_doc.html'><u>Cone</u> -- extends Obj</u></A></P>
+				<P class='methodTitle'><A href='Cylinder_doc.html'><u>Cylinder</u> -- extends Obj</A></P>
+				<P class='methodTitle'><A href='Sphere_doc.html'><u>Sphere</u> -- extends Obj</A></P>
+
+            </div>
+
+            <HR class='big'>
+			<P class='sectionTitle'><A name='trig'>com.wis.math.geom.trig <I>package</I></P>
+			<div class='methodsDiv' >
+
+				<P class='methodTitle'><A href='Circular_doc.html'><u>Circular</u></A> | <A href='../test/testGeomTrig/test_Circular.swf'><font color='#000099'<u>test</u></font></A></P>
+				<P class='methodTitle'><A href='Degree_doc.html'><u>Degree</u></A> | <A href='../test/testGeomTrig/test_Degree.swf'><font color='#000099'<u>test</u></font></A></P>
+				<P class='methodTitle'><A href='Hyperbolic_doc.html'><u>Hyperbolic</u></A> | <A href='../test/testGeomTrig/test_Hyperbolic.swf'><font color='#000099'<u>test</u></font></A></P>
+
+            </div>
+
+            <HR class='big'>
+			<P class='sectionTitle'><A name='util'>com.wis.math.geom.util <I>package</I></P>
+			<div class='methodsDiv' >
+
+				<P class='methodTitle'><A href='Camera_doc.html'><u>Camera</u> -- IObj utility</A></P>
+				<P class='methodTitle'><A href='Finish_doc.html'><u>Finish</u>-- IObj utility</A></P>
+				<P class='methodTitle'><A href='Graphic_doc.html'><u>Graphic</u></A> | <A href='../test/testGeomUtil/test_Graphic.swf'><font color='#000099'<u>test</u></font></A></P>
+				<P class='methodTitle'><A href='Intersection_doc.html'><u>Intersection</u> -- IObj utility</A></P>
+				<P class='methodTitle'><A href='LightSource_doc.html'><u>LightSource</u> -- IObj utility</A></P>
+				<P class='methodTitle'><A href='Noise_doc.html'><u>Noise</u></A> | <A href='../test/testGeomUtil/test_Noise.swf'><font color='#000099'<u>test</u></font></A></P>
+				<P class='methodTitle'><A href='Ray_doc.html'><u>Ray</u> -- IObj utility</A></P>
+				<P class='methodTitle'><A href='RegPoint_doc.html'><u>RegPoint</u> -- extends MovieClip</A> | <A href='../test/testGeomUtil/test_RegPoint.swf'><font color='#000099'<u>test</u></font></A></P>
+				<P class='methodTitle'><A href='Texture_doc.html'><u>Texture</u> -- IObj utility</A></P>
+				<P class='methodTitle'><A href='Transformation_doc.html'><u>Transformation</u> -- IObj utility</A></P>
+
+            </div>
+
+             <HR class='big'>
+ 			<P class='sectionTitle'><A name='num'>com.wis.math.num <I>package</I></P>
+ 			<div class='methodsDiv' >
+
+ 				<P class='methodTitle'><A href='Constant_doc.html'><u>Constant</u></A> | <A href='../test/testNum/test_Constant.swf'><font color='#000099'<u>test</u></font></A></P>
+ 				<P class='methodTitle'><A href='Factor_doc.html'><u>Factor</u></A> | <A href='../test/testNum/test_Factor.swf'><font color='#000099'<u>test</u></font></A></P>
+ 				<P class='methodTitle'><A href='Format_doc.html'><u>Format</u></A> | <A href='../test/testNum/test_Format.swf'><font color='#000099'<u>test</u></font></A></P>
+ 				<P class='methodTitle'><A href='Stat_doc.html'><u>Stat</u></A> | <A href='../test/testNum/test_Stat.swf'><font color='#000099'<u>test</u></font></A></P>
+
+            </div>
+
+            <HR class='big'>
+			<P class='sectionTitle'><A name='types'>com.wis.types <I>package</I></P>
+			<div class='methodsDiv' >
+
+				<P class='methodTitle'><A href='Arr_doc.html'><u>Arr</u> -- extends Array</A> | <A href='../test/testTypes/test_Arr.swf'><font color='#000099'<u>test</u></font></A></P>
+				<P class='methodTitle'><A href='Col_doc.html'><u>Col</u></A> | <A href='../test/testTypes/test_Col.swf'><font color='#000099'<u>test</u></font></A> - temporary: right click/zoom</P>
+				<P class='methodTitle'><A href='ColMC_doc.html'><u>ColMC</u> -- extends MovieClip</A> | <A href='../test/testTypes/test_ColMC.swf'><font color='#000099'<u>test</u></font></A> - temporary: right click/zoom</P>
+				<P class='methodTitle'><A href='IObj_doc.html'><u>IObj</u> -- interface</A></P>
+				<P class='methodTitle'><A href='Obj_doc.html'><u>Obj</u> -- implements IObj</A> | <A href='../test/testTypes/test_Obj.swf'><font color='#000099'<u>test</u></A></P>
+
+            </div>
+
+            <HR class='big'>
+			<P class='sectionTitle'><A name='lists'>com.wis.types.lists <I>package</I></P>
+			<div class='methodsDiv' >
+
+				<P class='methodTitle'><A href='BinaryTree_doc.html'><u>BinaryTree</u></A> | <A href='../test/testTypes/lists/test_BinaryTree.swf'><font color='#000099'<u>test</u></A></P>
+				<P class='methodTitle'><A href='Dictionary_doc.html'><u>Dictionary</u></A> | <A href='../test/testTypes/lists/test_Dictionary.swf'><font color='#000099'<u>test</u></A></P>
+				<P class='methodTitle'><A href='DoubleLink_doc.html'><u>DoubleLink</u></A> | <A href='../test/testTypes/lists/test_DoubleLink.swf'><font color='#000099'<u>test</u></A></P>
+				<P class='methodTitle'><A href='Node_doc.html'><u>Node</u> -- BinaryTree utility</A></P>
+
+            </div>
+
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+

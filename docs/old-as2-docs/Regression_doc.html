@@ -1,0 +1,197 @@
+
+        <HTML>
+		<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="description" content="Flash MX 2004 ActionScript2.0 Library: Regression - Wright Internet Solutions">
+		<meta name="keywords" content="algebra,Regression,Flash,MX,2004,ActionScript,ActionScript2.0,AS2.0 Library,AS2,AS2 Library,Wright Internet Solutions,Wright,class,documentation,methods,functions,interfaces,JavaScript,Java">
+		<TITLE>WIS AS2 Library : com.wis.math.alg.Regression Documentation</TITLE>
+
+		<STYLE><!--
+		HR.small{height:1px; width:100%; background:#E7BFA3; border: 0px;}
+		HR.big{height:4px; width:100%; background:#E7BFA3; border: 0px;}
+		A:hover{text-decoration: underline}
+		A{text-decoration: none; color: #993333}
+		code{font-family: monospace; font-size: 12px; color: #666666;}
+		.methodAttributesTitle{font-size: 12px; font-weight: bold; color: #7B779C}
+		.ToC{font-size: 12px; font-weight: bold; color: #993333}
+		.methodTitle{font-size: 14px; font-weight: bold; color: #993333}
+		.groupTitle{font-size: 18px; font-weight: bold; color: #993333}
+		.sectionTitle{font-size: 22px; font-weight: bold; color: #993333}
+		.majorTitle{font-size: 32px; font-weight: bold; color: #993333; padding-bottom:100px;}
+		.methodsDiv{margin-left:40px;}
+		.footer{font-size: 11px; color: #666666;}
+		body{font-family: arial,sans-serif; font-size: 12px;}
+		//--></STYLE>
+
+		</HEAD>
+		<BODY bgColor='#ffffcc'>
+		<P class='majorTitle'>com.wis.math.alg.Regression Documentation</P>
+
+
+		<P><B>Author:</B> <a href='mailto:wisolutions2002@shaw.ca?subject=wisASLibrary Regression Class'>Richard Wright</a><BR>
+		<B>Last Modified:</B> 07/17/04 18:48:31<HR class='big'>
+
+		<P class='sectionTitle'>Summary</P>
+		<P class='ToC'>com.wis.math.alg.Regression class:</P>
+		<div class='methodsDiv'><a href='#classinfo'>- description</a></div>
+<P class='ToC'>com.wis.math.alg.Regression Properties:</P><div class='methodsDiv'>
+<a href='#none'>- none</a><br>
+</div><br>
+<P class='ToC'>com.wis.math.alg.Regression Methods:</P><div class='methodsDiv'>
+<a href='# plotPolyline'>-  plotPolyline</a><br>
+<a href='# plotLinearData'>-  plotLinearData</a><br>
+<a href='# plotPolynomialData'>-  plotPolynomialData</a><br>
+<a href='# calcLinearLeastSquares'>-  calcLinearLeastSquares</a><br>
+<a href='# calcPolynomialLeastSquares'>-  calcPolynomialLeastSquares</a><br>
+<a href='# calcPolynomial'>-  calcPolynomial</a><br>
+<a href='# gaussEliminate'>-  gaussEliminate</a><br>
+</div><br>
+
+		<HR class='big'>
+		<P class='sectionTitle'><A name='classinfo'></A>com.wis.math.alg.Regression <I>class</I></P>
+		<P> <span class='methodTitle'>version:</span> 1.6</P>
+		<P class="methodTitle">description:</P>
+		<P>Implements the behaviours of the Regression Class as an
+ extended MovieClip. It defines a class instance for polyline
+ mapping, linear least squares, and polynomial least squares
+ helper functions.
+ 		        <p>
+ </P>
+		<P class="methodTitle">usage:</P> <pre>var inst:Regression = new Regression();</pre>
+
+<P> <span class='methodTitle'>parameters:</span>
+				<ul>
+<li>      none -- no input parameters.</li>
+</ul>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='properties'></A>com.wis.math.alg.Regression Properties:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name='none'></A><u> none</u></P>
+				<P> -- no class properties.</P>
+</div>
+
+			<HR class='small'>
+			<P class='groupTitle'><A name='methods'></A>com.wis.math.alg.Regression Methods:</P>
+			<div class='methodsDiv' >
+
+
+				<P class='methodTitle'><A name=' plotPolyline'></A><u>  plotPolyline</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Sort x and y values by ascending x values and connect
+     the points with line segments.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.plotPolyline(x_arrmy_arr);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  x_arr   (Array)   -- data array containing x-values from the data set.</li>
+<li>  y_arr   (Array)   -- data array containing y-values from the data set.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)  -- if successful, a plot is generated on the current mc.
+    </P>
+
+				<P class='methodTitle'><A name=' plotLinearData'></A><u>  plotLinearData</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Find the line (y = mx + b) which best fits a given set of
+     points using the 'least squares' appoach: fit the line to
+     the data such that the SUM of the SQUARES of the DIFFERENCES
+     between the line and the data is as small as possible.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.plotLinearData(x_arr,y_arr);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  x_arr   (Array)  -- data array containing x-values from the data set.</li>
+<li>  y_arr   (Array)  -- data array containing y-values from the data set.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void) -- a plot is generated on the current mc.
+    </P>
+
+				<P class='methodTitle'><A name=' plotPolynomialData'></A><u>  plotPolynomialData</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				A method which implements n-degree polynomial solutions to
+     fit a curve to a set of points. The 'least squares' appoach
+     is employed: fit the curve to the data such that the SUM of
+     the SQUARES of the DIFFERENCES between the curve and the data
+     is as small as possible.
+     <p>
+     For degree = 2, the solution is quadratic: y = ax^2 + bx + c
+     For degree = n, the solution is of the form: y = A0 + A1X + A2X^2 + A3X^3 + ... + AnX^n
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.plotPolynomialData(degree,x_arr,y_arr);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  degree  (Number)   -- one less than the number of terms in your polynomial.</li>
+<li>  x_arr  (Array)  -- data array containing x-values from the data set.</li>
+<li>  y_arr  (Array)  -- data array containing y-values from the data set.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Void)  -- if successful, a plot is generated on the current mc, otherwise a trace() is fired.
+    </P>
+
+				<P class='methodTitle'><A name=' calcLinearLeastSquares'></A><u>  calcLinearLeastSquares</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Use linear least squares method to compute the m and b
+     coefficients which best describe a given set of ordered
+     pairs as a single line.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.calcLinearLeastSquares(x_arr,y_arr);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  x_arr   (Array)   -- data array containing x-values from the data set.</li>
+<li>  y_arr   (Array)   -- data array containing y-values from the data set.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Object)  -- a results object -- {m: m_term, b: b_term}.
+    </P>
+
+				<P class='methodTitle'><A name=' calcPolynomialLeastSquares'></A><u>  calcPolynomialLeastSquares</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Compute the a, b, c, ... n values for polynomial least
+     squares, caller should check for a 'null' return value
+     to indicate failure, otherwise an array of coefficients
+     is returned.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.calcPolynomialLeastSquares(degree,xVals,yVals);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  deg   (Number)   -- one less than the number of terms in your polynomial.</li>
+<li>  xVals   (Array)   -- data array containing x-values from the data set.</li>
+<li>  yVals   (Array)   -- data array containing y-values from the data set.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Array)  -- failure returns null -- success returns an array of coefficients for the plotting equation.
+    </P>
+
+				<P class='methodTitle'><A name=' calcPolynomial'></A><u>  calcPolynomial</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				Find the value of the polynomial given a set of input coefficients.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.calcPolynomial(aVals,deg);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  aVals   (Array)  -- data array containing x-values from the data set.</li>
+<li>  deg   (Number)  -- one less than the number of terms in your polynomial.   </li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Number)  -- returns value of polynomial.
+    </P>
+
+				<P class='methodTitle'><A name=' gaussEliminate'></A><u>  gaussEliminate</u></P>
+				<P><span class='methodAttributesTitle'>description: </span>
+				If possible, decompose a matrix of N (N + 1) coefficients
+     into a single coefficient vector.
+     </P>
+				<P><span class='methodAttributesTitle'>usage:</span> <pre>inst.gaussEliminate(coeffs);</pre>
+     </P>
+<P> <span class='methodAttributesTitle'>parameters:</span><ul>
+<li>  coeffs   (Array)   -- an N by N+1 matrix representing the N+1 coefficients of N required equations.</li>
+</ul></P>
+<P><span class='methodAttributesTitle'>returns:</span> (Boolean)  -- a boolean value is returned to indicate success or failure. Additionally, the "coeffs" array is modified directly for use by the calling function (result is the vector represented by column N+1 of 'coeffs').
+    </P>
+</div>
+
+			<BR>
+			<BR>
+			<HR class='big'>
+			<span class="footer">generated with <A href='http://blog.klaustrofobik.org/' target='_blank'>AS2docGenerator beta 0.5.3</A></span>
+			</BODY>
+			</HTML>
+
