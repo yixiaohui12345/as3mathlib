@@ -1,0 +1,14 @@
+#summary Resources for migrating from Actionscript 2 (AS2) to Actionscript 3 (AS3)
+#labels actionscript,Featured,Phase-Implementation,Coding
+
+= Introduction =
+
+Here are some resources for migrating from Actionscript 2 (AS2) to Actionscript 3 (AS3).
+
+
+= Details =
+Links:
+  * [http://actionscriptcheatsheet.com/blog/archives/22 ActionScript 2.0 to 3.0 Migration Cheatsheets]
+  * [http://livedocs.adobe.com/flex/2/langref/migration.html Adobe Language Reference: Actionscript 2.0 Migration]
+  * [http://labs.bigspaceship.com/blog/?p=61 A more organic 'view from the ground' description of what's changed from 2 to 3]
+
